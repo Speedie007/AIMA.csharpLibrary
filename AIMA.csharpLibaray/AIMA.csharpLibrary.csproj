@@ -7,8 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AgentProgram\Enviroment\" />
-    <Folder Include="AgentProgram\Agent\" />
+    <Folder Include="AgentProgram\Agent\Base\" />
+    <Folder Include="AgentProgram\Enviroment\Interface\" />
+    <Folder Include="AgentProgram\Enviroment\Base\" />
+    <Folder Include="Common\Interface\" />
+    <Folder Include="Common\Abstract\" />
+    <Folder Include="Common\Extensions\" />
+    <Folder Include="Search\" />
   </ItemGroup>
 
 </Project>
