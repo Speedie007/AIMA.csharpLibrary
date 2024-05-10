@@ -4,7 +4,7 @@
     /// <para>
     /// An interface used to indicate any object that can belong within an Environment.
     /// </para>
-    /// ///<para>
+    ///<para>
     ///Author:Ravi Mohan
     ///</para>
     ///<para>
