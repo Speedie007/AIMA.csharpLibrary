@@ -22,22 +22,22 @@
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
-        where TPrecept : class
-        where TAction : class
+        //where TPrecept : class
+        //where TAction : class
     {
 
         /// <summary>
-        /// Call the Agent's program, which maps any given percept sequences to an action.
+        /// Call the BaseAgent's program, which maps any given percept sequences to an action.
         /// </summary>
-        /// <param name="percept">The current percept of a sequence perceived by the Agent.</param>
+        /// <param name="percept">The current percept of a sequence perceived by the BaseAgent.</param>
         /// <returns>
         /// <para>The Action to be taken in response to the currently perceived percept.</para>
         /// <para>Empty replaces NoOp in earlier implementations.</para></returns>
-        TAction Act(TPrecept percept);
+        TAction? ActOnPrecept(TPrecept percept);
 
         /// <summary>
-        /// <para>Life-cycle indicator as to the liveness of an Agent.</para>
-        /// Perperty: Value true if the Agent is to be considered alive, false otherwise.
+        /// <para>Life-cycle indicator as to the liveness of an BaseAgent.</para>
+        /// Perperty: Value true if the BaseAgent is to be considered alive, false otherwise.
         /// </summary>
         public bool IsAlive { get; set; }
 

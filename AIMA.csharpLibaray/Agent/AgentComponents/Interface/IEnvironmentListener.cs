@@ -1,7 +1,7 @@
 ﻿namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
 {
     /// <summary>
-    /// Allows applications to analyze and visualize the interaction of Agent(s) with an Environment.
+    /// Allows applications to analyze and visualize the interaction of BaseAgent(s) with an Environment.
     /// </summary>
     ///<para>
     ///Author:Ravi Mohan

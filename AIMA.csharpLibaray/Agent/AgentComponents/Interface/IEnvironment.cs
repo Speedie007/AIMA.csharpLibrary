@@ -1,7 +1,7 @@
 ﻿namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
 {
     /// <summary>
-    /// An abstract description of possible discrete Environments in which Agent(s) can perceive and act.
+    /// An abstract description of possible discrete Environments in which BaseAgent(s) can perceive and act.
     /// </summary>
     ///<para>
     ///Author:Ravi Mohan
@@ -87,10 +87,10 @@
         bool IsDone();
 
         /// <summary>
-        /// Retrieve the performance measure(s) associated with an Agent.
+        /// Retrieve the performance measure(s) associated with an BaseAgent.
         /// </summary>
-        /// <param name="agent">The Agent for which a performance measure is to be retrieved.</param>
-        /// <returns>The performance measure associated with the Agent.</returns>
+        /// <param name="agent">The BaseAgent for which a performance measure is to be retrieved.</param>
+        /// <returns>The performance measure associated with the BaseAgent.</returns>
         double GetPerformanceMeasure(IAgent<TPrecept, TAction> agent);
 
 
