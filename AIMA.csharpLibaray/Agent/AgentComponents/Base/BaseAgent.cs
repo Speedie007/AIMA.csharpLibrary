@@ -9,14 +9,14 @@ namespace AIMA.csharpLibrary.Agent.AgentComponents.Base
         {
             AgentProgram = agentProgram;
             IsAlive = isAlive;
-            ProcessPrecept = new ApplyPreceptHandler(AgentProgram.ApplyCurrentPrecept);
+            ApplyPreceptFromAgentProgram = new ApplyPreceptHandler(AgentProgram.ApplyCurrentPrecept);
         }
 
         private delegate TAction? ApplyPreceptHandler(TPrecept percept);
 
 
         #region Properties
-        private  ApplyPreceptHandler ProcessPrecept { get; }
+        private  ApplyPreceptHandler ApplyPreceptFromAgentProgram { get; }
         protected IAgentProgram<TPrecept, TAction> AgentProgram { get; }
         public bool IsAlive { get; set; }
         #endregion
@@ -27,7 +27,7 @@ namespace AIMA.csharpLibrary.Agent.AgentComponents.Base
             {
                 return default;
             }
-            else { return ProcessPrecept.Invoke(percept) is TAction a ? a : default; }
+            else { return ApplyPreceptFromAgentProgram.Invoke(percept) is TAction a ? a : default; }
         }
     }
 }
