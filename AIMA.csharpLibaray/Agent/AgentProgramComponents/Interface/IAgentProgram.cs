@@ -1,4 +1,4 @@
-﻿namespace AIMA.csharpLibrary.AgentProgram
+﻿namespace AIMA.csharpLibrary.Agent.AgentProgramComponents.Interface
 {
     /// <summary>
     /// Artificial Intelligence A Modern Approach (3rd Edition): pg 35.
@@ -29,6 +29,6 @@
         /// </summary>
         /// <param name="percept">The current percept of a sequence perceived by the Agent.</param>
         /// <returns>The Action to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
-        TAction Apply(TPrecept percept);
+        delegate TAction Apply(TPrecept percept);
     }
 }
