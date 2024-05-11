@@ -1,4 +1,6 @@
-﻿namespace AIMA.csharpLibrary.Agent.AgentProgramComponents.Interface
+﻿using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
+
+namespace AIMA.csharpLibrary.Agent.AgentProgramComponents.Interface
 {
     /// <summary>
     /// Artificial Intelligence A Modern Approach (3rd Edition): pg 35.
@@ -21,14 +23,17 @@
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public partial interface IAgentProgram<TPrecept, TAction>
+    public partial interface IAgentProgram<TPrecept, TAction>  
     {
 
+        
+
         /// <summary>
-        /// The Agent's program, which maps any given percept sequences to an action.
+        /// The BaseAgent's program, which maps any given percept sequences to an action.
         /// </summary>
-        /// <param name="percept">The current percept of a sequence perceived by the Agent.</param>
+        /// <param name="percept">The current percept of a sequence perceived by the BaseAgent.</param>
         /// <returns>The Action to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
-        delegate TAction Apply(TPrecept percept);
+        TAction? ApplyCurrentPrecept(TPrecept percept);
     }
+    
 }
