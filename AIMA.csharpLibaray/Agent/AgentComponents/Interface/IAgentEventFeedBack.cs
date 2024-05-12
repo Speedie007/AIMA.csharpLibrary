@@ -12,12 +12,15 @@
     ///</para>
     ///<para>Date Created: 11 May 2024 - Date Last Updated: 10 May 2024</para>
     /// </summary>
-    public partial interface  INotifier
+    public partial interface  IAgentEventFeedBack
     {
         /// <summary>
         ///  A simple notification message, to be forwarded to someone.
         /// </summary>
         /// <param name="message">The message to be forwarded from the current Envirment.</param>
         void Notify(string message);
+        
+        event EventHandler AgentAddedEventHandler;
+        
     }
 }
