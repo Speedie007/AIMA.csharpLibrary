@@ -46,7 +46,7 @@ namespace AIMA.csharpLibrary.AgentProgram.Agent.Base
         /// </summary>
         /// <param name="agentProgram">The agent program responsible for processing the agents function.</param>
         /// <param name="isAlive">Is the agent active/alive from instantiation</param>
-        protected DecisionTheoreticAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive)
+        protected DecisionTheoreticAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive= true)
                    : base(agentProgram, isAlive)
         {
             BeliefState = new BeliefState<TPrecept, TAction>();
