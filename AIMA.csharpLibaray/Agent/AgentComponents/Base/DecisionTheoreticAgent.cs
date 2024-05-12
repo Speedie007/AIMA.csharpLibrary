@@ -6,34 +6,79 @@ using AIMA.csharpLibrary.Probability.Interfaces;
 
 namespace AIMA.csharpLibrary.AgentProgram.Agent.Base
 {
+    /// <summary>
+    /// <para>
+    /// Artificial Intelligence A Modern Approach (3rd Edition): Figure 13.1, page 484.
+    /// </para>
+    /// <para>
+    /// Figure 13.1  A decision-theoretic agent that selects rational actions.
+    /// </para>
+    /// <para>
+    /// function DT-AGENT(percept) returns an action
+    /// persistent: beliefState, probabilistic beliefs about the current state of the world action, the agent's action
+    /// </para>
+    /// <para>
+    /// update beliefState based on action and percept,</para>
+    /// <para>calculate outcome probabilities for actions</para>
+    /// <para>
+    /// given action descriptions and current belief state select action with highest expected utility
+    /// </para>
+    /// <para>return action</para>
+    ///<para>
+    ///Author:Ritwik Sharma
+    ///</para>
+    ///<para>
+    ///Author:Samagra
+    ///</para>
+    ///<para>
+    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///</para>
+    ///<para>Date Created: 12 May 2024 - Date Last Updated: 11 May 2024</para>
+    /// </summary>
+    /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
+    /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public abstract partial class DecisionTheoreticAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
         where TAction : class, new()
     {
-        IBeliefState<TPrecept, TAction> belief_state;
-        TAction action;
-        List<TAction> action_descriptions;
+        #region Cstor
+        /// <summary>
+        /// DecisionTheoreticAgent Constructor
+        /// </summary>
+        /// <param name="agentProgram">The agent program responsible for processing the agents function.</param>
+        /// <param name="isAlive">Is the agent active/alive from instantiation</param>
         protected DecisionTheoreticAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive)
-            : base(agentProgram, isAlive)
+                   : base(agentProgram, isAlive)
         {
-            belief_state = new BeliefState<TPrecept,TAction>();
-            action = new TAction();
-            action_descriptions =  new List<TAction>();
+            BeliefState = new BeliefState<TPrecept, TAction>();
+            Action = new TAction();
+            ActionDescriptions = new List<TAction>();
         }
+        #endregion
 
-        /**
-     * @param action_description 
-     *			        permissible action descriptions
-     * @param belief_state  
-     *			  current belief state of the agent about the world
-     * @return The next action to be taken.
-     */
-        public abstract List<Pair<IAction, Double>> CalulateActionProbabilities(List<IAction> action_description, IBeliefState<TPrecept, TAction> belief_state);
+        #region Properties
+        public IBeliefState<TPrecept, TAction> BeliefState { get; private set; }
+        public TAction Action { get; private set; }
+        public List<TAction> ActionDescriptions { get; private set; }
+        #endregion
 
-        /**
-    * @param action_probabilities 
-    *			          Probabilities of various outcomes
-    * @return Action with the highest probability.
-    */
-        public abstract IAction ActionWithHighestExpectedUtility(List<Pair<IAction, Double>> action_probabilities);
+        #region Methods
+        /// <summary>
+        /// Calculate the possible probalilities for list of possible actions.
+        /// </summary>
+        /// <param name="actionDescription">permissible action descriptions</param>
+        /// <param name="beliefState">current belief state of the agent about the world</param>
+        /// <returns>The next action to be taken.</returns>
+        public abstract List<Pair<IAction, Double>> CalulateActionProbabilities(
+            List<IAction> actionDescription,
+            IBeliefState<TPrecept, TAction> beliefState);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="actionProbabilities">Probabilities of various outcomes</param>
+        /// <returns>Action with the highest probability.</returns>
+        public abstract IAction ActionWithHighestExpectedUtility(List<Pair<IAction, Double>> actionProbabilities);
+        #endregion
+
     }
 }
