@@ -34,6 +34,6 @@ namespace AIMA.csharpLibrary.AgentProgram.Agent.Base
     *			          Probabilities of various outcomes
     * @return Action with the highest probability.
     */
-        public abstract IAction action_with_highest_expected_utility(List<Pair<IAction, Double>> action_probabilities);
+        public abstract IAction ActionWithHighestExpectedUtility(List<Pair<IAction, Double>> action_probabilities);
     }
 }
