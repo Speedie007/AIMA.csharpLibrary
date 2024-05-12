@@ -12,8 +12,29 @@ namespace AIMA.csharpLibrary.Agent.AgentComponents
         /// </summary>
         /// <param name="agentProgram"></param>
         /// <param name="isAlive"></param>
-        public SimpleAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive = true) : base(agentProgram, isAlive)
+        public SimpleAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive = true) 
+            : base(agentProgram, isAlive)
         {
+        }
+
+        public override TAction? ActOnPrecept(TPrecept percept)
+        {
+            return base.ActOnPrecept(percept);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string? ToString()
+        {
+            return base.ToString();
         }
         #endregion
     }

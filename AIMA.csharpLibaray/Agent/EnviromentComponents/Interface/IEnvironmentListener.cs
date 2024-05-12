@@ -1,4 +1,4 @@
-﻿namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
+﻿namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
 {
     /// <summary>
     /// Allows applications to analyze and visualize the interaction of BaseAgent(s) with an Environment.
@@ -21,8 +21,8 @@
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">ype which is used to represent actions</typeparam>
-    public partial interface IEnvironmentListener<TPrecept, TAction> 
-        where TPrecept: class 
+    public partial interface IEnvironmentListener<TPrecept, TAction>
+        where TPrecept : class
         where TAction : class
     {
     }

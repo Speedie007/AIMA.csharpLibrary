@@ -1,4 +1,6 @@
-﻿namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
+﻿using AIMA.csharpLibrary.Agent.EnviromentComponents.Interface;
+
+namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
 {
     /// <summary>
     /// <para>

@@ -7,11 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Agent\EnviromentComponents\Interface\" />
-    <Folder Include="Agent\EnviromentComponents\Base\" />
     <Folder Include="Common\DataStructure\Interface\" />
     <Folder Include="Common\DataStructure\Abstract\" />
     <Folder Include="Common\Extensions\" />
+    <Folder Include="Utilities\" />
     <Folder Include="Search\" />
   </ItemGroup>
 

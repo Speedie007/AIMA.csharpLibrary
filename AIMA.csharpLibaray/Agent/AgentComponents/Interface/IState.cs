@@ -1,23 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Reflection;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
+﻿namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
 {
-
-    /**
-
-* 
-* 
-* @author 
-* @ 
-*/
-
     /// <summary>
     /// <para>Artificial Intelligence A Modern Approach(3rd Edition): pg 50.</para>
     /// <para>

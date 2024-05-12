@@ -1,4 +1,6 @@
-﻿namespace AIMA.csharpLibrary.AgentProgram.Agent.Interface
+﻿using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
+
+namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
 {
     /// <summary>
     /// An abstract description of possible discrete Environments in which BaseAgent(s) can perceive and act.
@@ -22,8 +24,6 @@
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IEnvironment<TPrecept, TAction>
-        where TAction : class
-        where TPrecept : class
     {
 
         /// <summary>
@@ -47,7 +47,7 @@
         /// <summary>
         /// Get all EnvironmentObjects that exist in this Environment.
         /// </summary>
-       
+
         /// <returns>Returns a List of EnvironmentObjects that exist in this Environment.</returns>
         List<IEnvironmentObject> GetEnvironmentObjects();
 
