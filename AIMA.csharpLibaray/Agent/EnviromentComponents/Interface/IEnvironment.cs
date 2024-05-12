@@ -1,4 +1,5 @@
-﻿using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
+﻿using AIMA.csharpLibrary.Agent.AgentComponents.Base;
+using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
 
 namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
 {
@@ -23,26 +24,25 @@ namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public partial interface IEnvironment<TPrecept, TAction>
+    public partial interface IEnvironment<TAgent,TPrecept, TAction>
     {
-
         /// <summary>
         /// <para>There maybe (N)Number of agents operating within the enviroment.</para>
         /// </summary>
         /// <returns>The Agents belonging to this Environment.</returns>
-        List<IAgent<TPrecept, TAction>> GetAgents();
+        List<TAgent> GetAgents();
 
         /// <summary>
         /// Add an agent to the Environment.
         /// </summary>
         /// <param name="agent">The agent to be added to the current enviroment.</param>
-        void AddAgent(IAgent<TPrecept, TAction> agent);
+        void AddAgent(TAgent agent);
 
         /// <summary>
         /// Remove an agent from the environment.
         /// </summary>
         /// <param name="agent">The agent to be removed from the current enviroment.</param>
-        void RemoveAgent(IAgent<TPrecept, TAction> agent);
+        void RemoveAgent(TAgent agent);
 
         /// <summary>
         /// Get all EnvironmentObjects that exist in this Environment.
@@ -91,7 +91,7 @@ namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
         /// </summary>
         /// <param name="agent">The BaseAgent for which a performance measure is to be retrieved.</param>
         /// <returns>The performance measure associated with the BaseAgent.</returns>
-        double GetPerformanceMeasure(IAgent<TPrecept, TAction> agent);
+        double GetPerformanceMeasure(TAgent agent);
 
 
     }
