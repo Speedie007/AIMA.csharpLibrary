@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Agent\AgentComponents\Events\" />
+    <Folder Include="Agent\AgentComponents\VacuumCleaner\" />
     <Folder Include="Common\DataStructure\Interface\" />
     <Folder Include="Common\DataStructure\Abstract\" />
     <Folder Include="Common\Extensions\" />
+    <Folder Include="Common\AgentComponents\" />
     <Folder Include="Utilities\" />
     <Folder Include="Search\" />
   </ItemGroup>
