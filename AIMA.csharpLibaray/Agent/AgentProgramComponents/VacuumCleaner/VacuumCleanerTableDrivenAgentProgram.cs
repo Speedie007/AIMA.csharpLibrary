@@ -1,10 +1,5 @@
 ﻿using AIMA.csharpLibrary.Agent.AgentComponents;
 using AIMA.csharpLibrary.Agent.AgentProgramComponents.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AIMA.csharpLibrary.Agent.AgentProgramComponents.VacuumCleaner
 {
