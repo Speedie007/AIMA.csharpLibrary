@@ -1,4 +1,5 @@
-﻿using AIMA.csharpLibrary.Agent.AgentComponents.Base;
+﻿using AIMA.csharpLibrary.Agent.AgentComponents;
+using AIMA.csharpLibrary.Agent.AgentComponents.Base;
 using AIMA.csharpLibrary.Agent.EnviromentComponents.EventsArguments;
 
 namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
@@ -14,9 +15,10 @@ namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
     /// <typeparam name="TPrecept">Base Type which is used to represent Percepts</typeparam>
     /// <typeparam name="TAction">Base Type which is used to represent Actions</typeparam>
     public partial interface IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
-        where TPrecept : class, new()
-        where TAction : class, new()
-        where TAgent : BaseAgent<TPrecept, TAction>, new()
+          where TAction : AgentAction
+                where TPrecept : AgentPrecept
+                where TAgent : BaseAgent<TPrecept, TAction>
+
     {
 
         /// <summary>
