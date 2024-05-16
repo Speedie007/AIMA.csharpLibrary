@@ -18,7 +18,7 @@
     ///</para>
     ///<para>Date Created: 11 May 2024 - Date Last Updated: 11 May 2024</para>
     /// </summary>
-    public partial  interface IAction
+    public partial  interface IAgentAction
     {
     }
 }
