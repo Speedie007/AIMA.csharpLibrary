@@ -1,4 +1,5 @@
-﻿using AIMA.csharpLibrary.Agent.AgentComponents.Base;
+﻿using AIMA.csharpLibrary.Agent.AgentComponents;
+using AIMA.csharpLibrary.Agent.AgentComponents.Base;
 using AIMA.csharpLibrary.Agent.AgentProgramComponents.Interface;
 using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
 using AIMA.csharpLibrary.Common.DataStructure;
@@ -38,7 +39,9 @@ namespace AIMA.csharpLibrary.AgentProgram.Agent.Base
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public abstract partial class DecisionTheoreticAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
-        where TAction : class, new()
+            where TAction : AgentAction, new()
+            where TPrecept : AgentPrecept
+                
     {
         #region Cstor
         /// <summary>
@@ -68,8 +71,8 @@ namespace AIMA.csharpLibrary.AgentProgram.Agent.Base
         /// <param name="actionDescription">permissible action descriptions</param>
         /// <param name="beliefState">current belief state of the agent about the world</param>
         /// <returns>The next action to be taken.</returns>
-        public abstract List<Pair<IAction, Double>> CalulateActionProbabilities(
-            List<IAction> actionDescription,
+        public abstract List<Pair<IAgentAction, Double>> CalulateActionProbabilities(
+            List<IAgentAction> actionDescription,
             IBeliefState<TPrecept, TAction> beliefState);
 
         /// <summary>
@@ -77,7 +80,7 @@ namespace AIMA.csharpLibrary.AgentProgram.Agent.Base
         /// </summary>
         /// <param name="actionProbabilities">Probabilities of various outcomes</param>
         /// <returns>Action with the highest probability.</returns>
-        public abstract IAction ActionWithHighestExpectedUtility(List<Pair<IAction, Double>> actionProbabilities);
+        public abstract IAgentAction ActionWithHighestExpectedUtility(List<Pair<IAgentAction, Double>> actionProbabilities);
         #endregion
 
     }

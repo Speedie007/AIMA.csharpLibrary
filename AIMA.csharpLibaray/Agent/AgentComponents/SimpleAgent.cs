@@ -4,7 +4,8 @@ using AIMA.csharpLibrary.Agent.AgentProgramComponents.Interface;
 namespace AIMA.csharpLibrary.Agent.AgentComponents
 {
     public partial class SimpleAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
-    //where TAction : new()
+        where TAction : AgentAction
+        where TPrecept : AgentPrecept
     {
         #region Cstor
         /// <summary>
@@ -22,20 +23,7 @@ namespace AIMA.csharpLibrary.Agent.AgentComponents
             return base.ActOnPrecept(percept);
         }
 
-        public override bool Equals(object? obj)
-        {
-            return base.Equals(obj);
-        }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string? ToString()
-        {
-            return base.ToString();
-        }
         #endregion
     }
 }
