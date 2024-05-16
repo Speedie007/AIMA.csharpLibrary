@@ -1,5 +1,6 @@
-﻿using AIMA.csharpLibrary.Agent.AgentComponents.Base;
-using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
+﻿using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
+using System.IO;
+using System;
 
 namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
 {
@@ -93,6 +94,46 @@ namespace AIMA.csharpLibrary.Agent.EnviromentComponents.Interface
         /// <returns>The performance measure associated with the BaseAgent.</returns>
         double GetPerformanceMeasure(TAgent agent);
 
+        /// <summary>
+        /// Retrieve the Precept current observed by the associated BaseAgent.
+        /// </summary>
+        /// <param name="agent">The Current Agent being processed</param>
+        /// <returns></returns>
+        TPrecept GetPerceptSeenBy(TAgent agent);
+        /// <summary>
+        /// Creates random enviromential change with in the enviroment this is to test the rigor of the agent program for example.
+        /// <para>
+        /// Method for implementing dynamic environments in which not all changes are directly caused by agent action execution.
+        /// </para>
+        /// <para>
+        /// The default implementation does nothing.
+        /// </para>
+        /// </summary>
+        void CreateExogenousChange();
 
+        /// <summary>
+        /// <para>
+        /// Method is called when an agent doesn't select an action when asked. Default implementation does nothing.
+        /// </para>
+        /// <remarks>
+        /// Sub-classes can for example modify the isDone status.
+        /// </remarks>
+        /// </summary>
+        /// <param name="agent">The Agent that was step forward.</param>
+        void ExecuteNoOp(TAgent agent);
+
+        /// <summary>
+        /// Primitive operations to be implemented by subclasses:
+        /// </summary>
+        /// <param name="agent">The Current Agent being processed.</param>
+        /// <param name="action">The Action to be performed by the Agent.</param>
+        void Execute(TAgent agent, TAction action);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Agent">Agent To Update</param>
+        /// <param name="addTo"></param>
+        bool UpdatePerformanceMeasure(TAgent forAgent, double addTo);
     }
 }
