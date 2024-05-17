@@ -13,7 +13,6 @@
     <Folder Include="Common\DataStructure\Abstract\" />
     <Folder Include="Common\Extensions\" />
     <Folder Include="Common\AgentComponents\" />
-    <Folder Include="Search\Components\Interface\" />
     <Folder Include="Utilities\" />
   </ItemGroup>
 
