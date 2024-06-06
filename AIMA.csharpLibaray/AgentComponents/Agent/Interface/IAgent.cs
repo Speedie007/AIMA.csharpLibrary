@@ -1,6 +1,7 @@
-﻿using AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Interface;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
 
-namespace AIMA.csharpLibrary.AgentComponents.Agent.Interface
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
 {
     /// <summary>
     /// <para>
@@ -24,18 +25,24 @@ namespace AIMA.csharpLibrary.AgentComponents.Agent.Interface
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
-        //where TPrecept : class
-        //where TAction : class
+        where TPrecept : AgentPrecept, new()
+        where TAction : BaseAgentAction, new()  
     {
 
         /// <summary>
         /// Call the BaseAgent's program, which maps any given percept sequences to an action.
         /// </summary>
-        /// <param name="percept">The current percept of a sequence perceived by the BaseAgent.</param>
+        /// <param name="percept">The current percept of A sequence perceived by the BaseAgent.</param>
         /// <returns>
         /// <para>The Action to be taken in response to the currently perceived percept.</para>
         /// <para>Empty replaces NoOp in earlier implementations.</para></returns>
         TAction? ActOnPrecept(TPrecept percept);
+        /// <summary>
+        /// Will initiavte polling the enviromental sensors that the agent has avaialble to it.
+        /// <para>in real worl eveniroiment this would be implemented internal in the agents program.</para>
+        /// </summary>
+        /// <returns>the agents precept based on the current state of the enviroment it is operating in.</returns>
+        TPrecept PollAgentSensors(IEnvironment<BaseAgent<TPrecept, TAction>, TPrecept, TAction> currentEnviroment);
 
         /// <summary>
         /// <para>Life-cycle indicator as to the liveness of an BaseAgent.</para>

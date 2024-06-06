@@ -1,11 +1,4 @@
-﻿using AIMA.csharpLibrary.AgentProgram.Agent.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AIMA.csharpLibrary.Probability.Interfaces
+﻿namespace AIMA.CSharpLibrary.Probability.Interfaces
 {
     public partial class BeliefState<TPercept, TAction> : IBeliefState<TPercept, TAction>
     {

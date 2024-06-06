@@ -1,41 +1,47 @@
-﻿using AIMA.csharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Interface;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Extentsions;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Base;
+using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using NUnit.Framework.Internal.Commands;
 
-namespace AIMA.csharpLibrary.AgentComponents.Agent.Base
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 {
     public abstract partial class BaseAgent<TPrecept, TAction> : IAgent<TPrecept, TAction>
-         where TAction : AgentAction
-         where TPrecept : AgentPrecept
+         where TAction : BaseAgentAction,new()
+         where TPrecept : AgentPrecept,new()
     {
-        protected BaseAgent()
+
+        #region Properties
+
+        protected BaseAgentProgram<TPrecept, TAction> AgentProgram { get; set; }
+        public bool IsAlive { get; set; }
+        #endregion
+        protected BaseAgent() : this(null!, false)
         {
-            AgentProgram = default ;
             IsAlive = false;
-            ApplyPreceptFromAgentProgram = null;
+
         }
-        protected BaseAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive)
+        protected BaseAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, bool isAlive)
         {
             AgentProgram = agentProgram;
             IsAlive = isAlive;
-            ApplyPreceptFromAgentProgram = new ApplyPreceptHandler(AgentProgram.ApplyCurrentPrecept);
+            //ApplyPreceptFromAgentProgram = new ApplyPreceptHandler(AgentProgram.ApplyCurrentPrecept);
+            AgentProgram = agentProgram;
         }
-
-        private delegate TAction? ApplyPreceptHandler(TPrecept percept);
-
-
-        #region Properties
-        private  ApplyPreceptHandler? ApplyPreceptFromAgentProgram { get; }
-        protected IAgentProgram<TPrecept, TAction>? AgentProgram { get; }
-        public bool IsAlive { get; set; }
-        #endregion
-
-        public virtual TAction? ActOnPrecept(TPrecept percept)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="percept"></param>
+        /// <returns></returns>
+        public virtual TAction ActOnPrecept(TPrecept percept)
         {
             if (percept == null || AgentProgram == null)
             {
-                return default;
+                return (TAction)ActionExtentions.GetNoOperationAction();
             }
-            else { return ApplyPreceptFromAgentProgram?.Invoke(percept) is TAction a ? a : default; }
+            else { return (AgentProgram.PreceptToActionFunc?.Invoke(percept) is TAction a) ? a : (TAction)ActionExtentions.GetNoOperationAction(); }
         }
+
+        public abstract TPrecept PollAgentSensors(IEnvironment<BaseAgent<TPrecept, TAction>, TPrecept, TAction> currentEnviroment);
     }
 }

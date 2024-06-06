@@ -1,7 +1,7 @@
-﻿using AIMA.csharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.csharpLibrary.AgentComponents.Common;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Common;
 
-namespace AIMA.csharpLibrary.AgentComponents.Agent
+namespace AIMA.CSharpLibrary.AgentComponents.Agent
 {
     public class AgentPrecept : ComponentDynamicAttributes, IAgentPrecept
     {

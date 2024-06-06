@@ -1,4 +1,4 @@
-﻿namespace AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Interface
+﻿namespace AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Interface
 {
     /// <summary>
     /// Artificial Intelligence A Modern Approach (3rd Edition): pg 35.
@@ -21,17 +21,21 @@
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public partial interface IAgentProgram<TPrecept, TAction>  
+    public partial interface IAgentProgram<TPrecept, TAction>
     {
-
-        
+        /// <summary>
+        /// Concrete implemeations of the AgentPrgrom should implement the Init() method so that it can initialize the relevant calls as/if required, such as  the setState(), setModel(), and setRules() method.
+        /// <para>Called when the program is loaded.</para>
+        /// </summary>
+        void Initialize();
 
         /// <summary>
         /// The BaseAgent's program, which maps any given percept sequences to an action.
         /// </summary>
-        /// <param name="percept">The current percept of a sequence perceived by the BaseAgent.</param>
+        /// <param name="percept">The current percept of A sequence perceived by the BaseAgent.</param>
         /// <returns>The Action to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
-        TAction? ApplyCurrentPrecept(TPrecept percept);
-    }
-    
+        Func<TPrecept, TAction> PreceptToActionFunc{ get;  }
+    };
 }
+    
+

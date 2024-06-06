@@ -1,9 +1,9 @@
-﻿using AIMA.csharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Interface;
-using AIMA.csharpLibrary.Common.DataStructure;
-using AIMA.csharpLibrary.Probability.Interfaces;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Base;
+using AIMA.CSharpLibrary.Common.DataStructure;
+using AIMA.CSharpLibrary.Probability.Interfaces;
 
-namespace AIMA.csharpLibrary.AgentComponents.Agent.Base
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 {
     /// <summary>
     /// <para>
@@ -37,9 +37,9 @@ namespace AIMA.csharpLibrary.AgentComponents.Agent.Base
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public abstract partial class DecisionTheoreticAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
-            where TAction : AgentAction, new()
-            where TPrecept : AgentPrecept
-                
+             where TAction : BaseAgentAction, new()
+         where TPrecept : AgentPrecept, new()
+
     {
         #region Cstor
         /// <summary>
@@ -47,7 +47,7 @@ namespace AIMA.csharpLibrary.AgentComponents.Agent.Base
         /// </summary>
         /// <param name="agentProgram">The agent program responsible for processing the agents function.</param>
         /// <param name="isAlive">Is the agent active/alive from instantiation</param>
-        protected DecisionTheoreticAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive= true)
+        protected DecisionTheoreticAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, bool isAlive = true)
                    : base(agentProgram, isAlive)
         {
             BeliefState = new BeliefState<TPrecept, TAction>();

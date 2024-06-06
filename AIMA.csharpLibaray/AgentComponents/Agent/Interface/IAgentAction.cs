@@ -1,4 +1,4 @@
-﻿namespace AIMA.csharpLibrary.AgentComponents.Agent.Interface
+﻿namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
 {
     /// <summary>
     /// <para>Describes an Action that can or has been taken by an BaseAgent via one of its Actuators.

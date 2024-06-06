@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMA.csharpLibrary", "AIMA.csharpLibaray\AIMA.csharpLibrary.csproj", "{7C8053DF-B45C-4DAD-8A83-2B3581D56962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMA.CSharpLibrary", "AIMA.csharpLibaray\AIMA.CSharpLibrary.csproj", "{7C8053DF-B45C-4DAD-8A83-2B3581D56962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMA.csharp.Tests", "AIMA.csharp.Tests\AIMA.csharp.Tests.csproj", "{1C60E211-ED58-48F5-8A67-332DFC41AB4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMA.csharp.Tests", "AIMA.csharp.Tests\AIMA.csharp.Tests.csproj", "{1C60E211-ED58-48F5-8A67-332DFC41AB4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMA.CSharp.GUI", "AIMA.CSharp.GUI\AIMA.CSharp.GUI.csproj", "{780BDC7B-2C32-41F3-BAF9-D7EEB14CBD94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1C60E211-ED58-48F5-8A67-332DFC41AB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C60E211-ED58-48F5-8A67-332DFC41AB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C60E211-ED58-48F5-8A67-332DFC41AB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{780BDC7B-2C32-41F3-BAF9-D7EEB14CBD94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780BDC7B-2C32-41F3-BAF9-D7EEB14CBD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780BDC7B-2C32-41F3-BAF9-D7EEB14CBD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780BDC7B-2C32-41F3-BAF9-D7EEB14CBD94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

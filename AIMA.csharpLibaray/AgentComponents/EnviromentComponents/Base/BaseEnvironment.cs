@@ -1,10 +1,10 @@
-﻿using aima.core.util;
-using AIMA.csharpLibrary.AgentComponents.Agent;
-using AIMA.csharpLibrary.AgentComponents.Agent.Base;
-using AIMA.csharpLibrary.AgentComponents.EnviromentComponents.EventsArguments;
-using AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Interface;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.EventsArguments;
+using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
+namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Base
 {
     /// <summary>
     /// <para>Base(Abstract) Enviroment used to represent the domain within wich the agent operates.</para>
@@ -25,17 +25,18 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public abstract partial class BaseEnvironment<TAgent, TPrecept, TAction> :
-        IEnvironment<TAgent, TPrecept, TAction>,
-        IEnviromentEventFeedBack<TAgent, TPrecept, TAction>,
-        IDisposable
-                where TAction : AgentAction
-                where TPrecept : AgentPrecept
+        IEnvironment<TAgent, TPrecept, TAction>
+
+                where TAction : BaseAgentAction, new()
+                where TPrecept : AgentPrecept, new()
                 where TAgent : BaseAgent<TPrecept, TAction>
     {
 
+
+        #region Properties
         /// <summary>
         /// Note: Use LinkedHashSet's in order to ensure order is respected.
-        /// Custom implementation is used within this libaray as C# does not Have a native LinkedHashSet as in the java libaray .
+        /// Custom implementation is used within this libaray as C# does not Have A native LinkedHashSet as in the java libaray .
         /// </summary>
         protected LinkedHashSet<TAgent> Agents { get; private set; }
         /// <summary>
@@ -46,68 +47,59 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
         /// 
         /// </summary>
         protected Dictionary<TAgent, double> PerformanceMeasures { get; private set; }
-
+        #endregion
 
         #region Cstor
         /// <summary>
         /// Base Constructor for construction of the components of the required Enviroment domain.
-        ///<para>Initializes a container => (Agents) which houses all the relevant agents that will operate with this enviroment.</para>
-        ///<para>Initializes a container => (EnviromantObjects) which houses all the relevant objects that will found and operated apon within this enviroment.</para>
+        ///<para>Initializes A container => (Agents) which houses all the relevant agents that will operate with this enviroment.</para>
+        ///<para>Initializes A container => (EnviromantObjects) which houses all the relevant objects that will found and operated apon within this enviroment.</para>
         /// </summary>
         public BaseEnvironment()
         {
             Agents = new LinkedHashSet<TAgent>();
             EnvironmentObjects = new LinkedHashSet<IEnvironmentObject>();
             PerformanceMeasures = new Dictionary<TAgent, double>();
-            AgentAddedEventHandler = OnAgentAdded;
-            AgentRemovedEventHandler = OnAgentRemoved;
-            AgentActedEventHandler = OnAgentActed;
-        }
-
-        #region Utility Methods
-        private void BindEventHandlers()
-        {
-
         }
         #endregion
 
         #region Events Handlers
         /// <summary>
-        /// Will raise the OnAgentAdded Event to Notify the caller of the agent that was added to the enviroment.
-        /// </summary>
-        private delegate void AgentAddedDelegate(EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction> args);
-        private AgentAddedDelegate AgentAddedEventHandler { get; }
-        /// <summary>
-        /// Will raise the OnAgentRemoved Event to Notify the caller of the agent that was removed to the enviroment.
-        /// </summary>
-        private delegate void AgentRemovedDelegate(EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> args);
-        private AgentRemovedDelegate AgentRemovedEventHandler { get; }
-        /// <summary>
         /// Will raise the OnAgentActed Event to Notify the caller of the agent that performed an action within the enviroment.
         /// </summary>
-        public delegate void AgentActedDelegate(EnviromentAgentActedEventArgs<TAgent, TPrecept, TAction> args);
-        private AgentActedDelegate AgentActedEventHandler { get; }
+        public event IEnvironment<TAgent, TPrecept, TAction>.AgentActedEventHandler? AgentActed;
+
+        /// <summary>
+        /// Will raise the OnAgentAdded Event to Notify the caller of the agent that was added to the enviroment.
+        /// </summary>
+        public event IEnvironment<TAgent, TPrecept, TAction>.AgentAddedEventHandler? AgentAdded;
+
+        /// <summary>
+        /// Will raise the OnAgentRemoved Event to Notify the caller of the agent that was removed from the enviroment.
+        /// </summary>
+        public event IEnvironment<TAgent, TPrecept, TAction>.AgentRemovedEventHandler? AgentRemoved;
+
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is added.
         /// </summary>
         /// <param name="args"></param>
         public virtual void OnAgentAdded(EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction> args)
-        { AgentAddedEventHandler?.Invoke(args); }
+        { AgentAdded?.Invoke(args); }
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is removed.
         /// </summary>
         /// <param name="args"></param>
         public virtual void OnAgentRemoved(EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> args)
-        { AgentRemovedEventHandler?.Invoke(args); }
+        { AgentRemoved?.Invoke(args); }
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent has performed an action.
         /// </summary>
         /// <param name="args"></param>
         public virtual void OnAgentActed(EnviromentAgentActedEventArgs<TAgent, TPrecept, TAction> args)
-        { AgentActedEventHandler?.Invoke(args); }
+        { AgentActed?.Invoke(args); }
         #endregion
 
-        #endregion
+        #region Agent Methods
         /// <summary>
         /// Adds the Agent to the enviroment into the enviroment objects collection.
         /// </summary>
@@ -116,10 +108,42 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
         {
             Agents.Add(agent);
             AddEnvironmentObject(agent);
-            OnAgentAdded(new EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction>(
-                agent,
-                (BaseEnvironment<TAgent, TPrecept, TAction>)this));
+            PerformanceMeasures.Add(agent, 0);
+            OnAgentAdded(new EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction>(agent, this));
         }
+        /// <summary>
+        /// Retrieve A list of all the agents currently operating within this given enviroment.
+        /// </summary>
+        /// <returns>// Return as A List but also ensure the caller cannot modify</returns>
+        public List<TAgent> GetAgents()
+        {
+            return new List<TAgent>(Agents);
+        }
+        /// <summary>
+        /// Getthe current performance measure of A selected agent.
+        /// </summary>
+        /// <param name="agent">Agent for which the performance measure is required.</param>
+        /// <returns>Agent Performance measure as double</returns>
+        public double GetAgentPerformanceMeasure(TAgent agent)
+        {
+            return PerformanceMeasures.TryGetValue(agent, out double measure) ? measure : 0;
+        }
+
+        /// <summary>
+        /// Removes A selected agent from the enviroment.
+        /// </summary>
+        /// <param name="agent">Agent To be removed.</param>
+        public void RemoveAgent(TAgent agent)
+        {
+            //TODO: once the agents are operating on their own threads first check to verify if the agent is busy.
+            //If so first cancel the current operation and then remove.
+            Agents.Remove(agent);
+            RemoveEnvironmentObject(agent);
+            PerformanceMeasures.Remove(agent);
+        }
+        #endregion
+
+        #region Enviroment Methods
         /// <summary>
         /// 
         /// </summary>
@@ -128,32 +152,17 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
         {
             EnvironmentObjects.Add(environmentObject);
         }
-
         /// <summary>
-        /// Retrieve a list of all the agents currently operating within this given enviroment.
-        /// </summary>
-        /// <returns>// Return as a List but also ensure the caller cannot modify</returns>
-        public List<TAgent> GetAgents()
-        {
-            return new List<TAgent>(Agents);
-        }
-        /// <summary>
-        /// Retrieve a list of all the enviromential objects currently "Living" within this given enviroment.
+        /// Retrieve A list of all the enviromential objects currently "Living" within this given enviroment.
         /// </summary>
         /// <returns></returns>
         public List<IEnvironmentObject> GetEnvironmentObjects()
         {
-            // Return as a List but also ensure the caller cannot modify
+            // Return as A List but also ensure the caller cannot modify
             return new List<IEnvironmentObject>(EnvironmentObjects);
         }
 
-        public double GetPerformanceMeasure(TAgent agent)
-        {
-            if (PerformanceMeasures.TryGetValue(agent, out double measure))
-                return measure;
-            else
-                return 0.0;
-        }
+
         /// <summary>
         /// Check to see if there are any agents currently busy completing required tasks.
         /// </summary>
@@ -167,21 +176,10 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
         {
             throw new NotImplementedException();
         }
-
-        public void RemoveAgent(TAgent agent)
-        {
-            //TODO: once the agents are operating on their own threads first check to verify if the agent is busy.
-            //If so first cancel the current operation and then remove.
-            Agents.Remove(agent);
-            RemoveEnvironmentObject(agent);
-        }
-
         public void RemoveEnvironmentObject(IEnvironmentObject environmentObject)
         {
             EnvironmentObjects.Remove(environmentObject);
         }
-
-
         public abstract TPrecept GetPerceptSeenBy(TAgent agent);
         public void Step()
         {
@@ -190,16 +188,17 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
                 if (agent.IsAlive)
                 {
                     TPrecept percept = GetPerceptSeenBy(agent);
-                    TAction? anAction = agent.ActOnPrecept(percept);
-                    if (anAction != null)
-                    {
-                        Execute(agent, anAction);
-                        //notify(agent, percept, anAction.get());
-                    }
-                    else
+                    TAction anAction = agent.ActOnPrecept(percept);
+                    if (anAction is AgentActionNoOperation)
                     {
                         ExecuteNoOp(agent);
                     }
+                    else
+                    {
+                        agent.IsAlive = true;
+                        Execute(agent, anAction);
+                    }
+                    //Notify(agent, percept, anAction.ActionName);
                 }
             }
             CreateExogenousChange();
@@ -216,15 +215,17 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
         }
 
 
-        public void Dispose()
-        {
 
-        }
 
         public abstract void CreateExogenousChange();
 
         public abstract void ExecuteNoOp(TAgent agent);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agent"></param>
+        /// <param name="action"></param>
         public abstract void Execute(TAgent agent, TAction action);
 
         public virtual bool UpdatePerformanceMeasure(TAgent agent, double measureAmount)
@@ -237,5 +238,7 @@ namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Base
             else
                 return false;
         }
+        #endregion
+
     }
 }

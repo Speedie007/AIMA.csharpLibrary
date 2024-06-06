@@ -1,11 +1,13 @@
-﻿using AIMA.csharpLibrary.AgentComponents.Agent.Base;
-using AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Interface;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Base;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
 
-namespace AIMA.csharpLibrary.AgentComponents.Agent
+namespace AIMA.CSharpLibrary.AgentComponents.Agent
 {
     public partial class SimpleAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
-        where TAction : AgentAction
-        where TPrecept : AgentPrecept
+         where TAction : BaseAgentAction, new()
+         where TPrecept : AgentPrecept, new()
     {
         #region Cstor
         /// <summary>
@@ -13,14 +15,21 @@ namespace AIMA.csharpLibrary.AgentComponents.Agent
         /// </summary>
         /// <param name="agentProgram"></param>
         /// <param name="isAlive"></param>
-        public SimpleAgent(IAgentProgram<TPrecept, TAction> agentProgram, bool isAlive = true) 
+        public SimpleAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, bool isAlive = true) 
             : base(agentProgram, isAlive)
         {
         }
 
-        public override TAction? ActOnPrecept(TPrecept percept)
+        
+
+        public override TAction ActOnPrecept(TPrecept percept)
         {
             return base.ActOnPrecept(percept);
+        }
+
+        public override TPrecept PollAgentSensors(IEnvironment<BaseAgent<TPrecept, TAction>, TPrecept, TAction> currentEnviroment)
+        {
+            throw new NotImplementedException();
         }
 
 

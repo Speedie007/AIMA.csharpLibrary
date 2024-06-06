@@ -1,8 +1,8 @@
-﻿namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Interface
+﻿namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
 {
     /// <summary>
     /// <para>
-    /// An interface used to indicate a possible state of an Environment.
+    /// An interface used to indicate A possible state of an Environment.
     /// </para>
     ///<para>
     ///Author:Ciaran O'Reilly

@@ -1,4 +1,8 @@
-﻿namespace AIMA.csharpLibrary.AgentComponents.EnviromentComponents.Interface
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.EventsArguments;
+
+namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
 {
     /// <summary>
     /// An abstract description of possible discrete Environments in which BaseAgent(s) can perceive and act.
@@ -21,8 +25,18 @@
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public partial interface IEnvironment<TAgent, TPrecept, TAction>
+    public partial interface IEnvironment<TAgent, TPrecept, TAction> : IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
+            where TAction : BaseAgentAction, new()
+            where TPrecept : AgentPrecept, new()
+            where TAgent : BaseAgent<TPrecept, TAction>
     {
+
+        delegate void AgentAddedEventHandler(EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction> AgentAddedEventArgs);
+        delegate void AgentRemovedEventHandler(EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> AgentRemovedArgs);
+        delegate void AgentActedEventHandler(EnviromentAgentActedEventArgs<TAgent, TPrecept, TAction> AgentActedEventArgs);
+        event AgentAddedEventHandler AgentAdded;
+        event AgentActedEventHandler AgentActed;
+        event AgentRemovedEventHandler AgentRemoved;
         /// <summary>
         /// <para>There maybe (N)Number of agents operating within the enviroment.</para>
         /// </summary>
@@ -45,7 +59,7 @@
         /// Get all EnvironmentObjects that exist in this Environment.
         /// </summary>
 
-        /// <returns>Returns a List of EnvironmentObjects that exist in this Environment.</returns>
+        /// <returns>Returns A List of EnvironmentObjects that exist in this Environment.</returns>
         List<IEnvironmentObject> GetEnvironmentObjects();
 
         /// <summary>
@@ -86,9 +100,9 @@
         /// <summary>
         /// Retrieve the performance measure(s) associated with an BaseAgent.
         /// </summary>
-        /// <param name="agent">The BaseAgent for which a performance measure is to be retrieved.</param>
+        /// <param name="agent">The BaseAgent for which A performance measure is to be retrieved.</param>
         /// <returns>The performance measure associated with the BaseAgent.</returns>
-        double GetPerformanceMeasure(TAgent agent);
+        double GetAgentPerformanceMeasure(TAgent agent);
 
         /// <summary>
         /// Retrieve the Precept current observed by the associated BaseAgent.

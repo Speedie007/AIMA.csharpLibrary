@@ -1,13 +1,14 @@
-﻿using AIMA.csharpLibrary.AgentComponents.Agent;
-using AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Interface;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Extentsions;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Interface;
 
-namespace AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Base
+namespace AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Base
 {
     /// <summary>
     /// <para>Artificial Intelligence A Modern Approach (3rd Edition): Figure 2.7, page 47.</para>
     ///<code>Function TABLE-DRIVEN-AGENT(percept) returns an action</code> 
-    ///<code>   Persistent: percepts, a sequence, initially empty</code> 
-    ///<code>               table, a table of actions, indexed by percept sequences, initially fully specified</code>
+    ///<code>   Persistent: percepts, A sequence, initially empty</code> 
+    ///<code>               table, A table of actions, indexed by percept sequences, initially fully specified</code>
     ///
     /// <code>Append percept to end of percepts</code>
     /// <code>Action = LOOKUP(percepts, table)</code>
@@ -26,17 +27,15 @@ namespace AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Base
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions </typeparam>
-    public abstract partial class TableDrivenAgentProgram<TPrecept, TAction> : IAgentProgram<TPrecept, TAction>
-        where TAction : AgentAction
+    public abstract partial class TableDrivenAgentProgram<TPrecept, TAction> : BaseAgentProgram<TPrecept, TAction>
+        where TAction : BaseAgentAction
         where TPrecept : AgentPrecept
     {
-
         public List<TPrecept> Precepts { get; private set; }
         public Dictionary<List<TPrecept>, TAction> Table { get; private set; }
-
         #region cstor
         /// <summary>
-        /// <para>Constructs a TableDrivenAgentProgram with a table of actions, indexed by percept sequences.</para>
+        /// <para>Constructs A TableDrivenAgentProgram with A table of actions, indexed by percept sequences.</para>
         /// </summary>
         protected TableDrivenAgentProgram()
         {
@@ -44,7 +43,7 @@ namespace AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Base
             Table = new Dictionary<List<TPrecept>, TAction>();
         }
         /// <summary>
-        /// Constructs a TableDrivenAgentProgram with a table of actions, indexed by percept sequences.
+        /// Constructs A TableDrivenAgentProgram with A table of actions, indexed by percept sequences.
         /// </summary>
         /// <param name="perceptsToActionMap">A listing of actions, indexed by percept sequences</param>
         protected TableDrivenAgentProgram(Dictionary<List<TPrecept>, TAction> perceptsToActionMap)
@@ -55,15 +54,11 @@ namespace AIMA.csharpLibrary.AgentComponents.AgentProgramComponents.Base
 
         #endregion
         #region Methods
-        /// <summary>
-        /// <para>Function TABLE-DRIVEN-AGENT(percept) returns an action</para>
-        /// </summary>
-        /// <param name="percept"></param>
-        /// <returns></returns>
-        public TAction? ApplyCurrentPrecept(TPrecept percept)
+        
+        public override TAction ProcessRecievedPrecept(TPrecept percept)
         {
             Precepts.Add(percept);
-            return Table.TryGetValue(Precepts, out TAction? a) ? a : default;
+            return Table.TryGetValue(Precepts, out TAction? a) ? a : (TAction)ActionExtentions.GetNoOperationAction();
         }
         #endregion
 

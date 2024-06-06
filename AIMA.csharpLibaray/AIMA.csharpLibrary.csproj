@@ -7,13 +7,37 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Agent\AgentComponents\Events\" />
-    <Folder Include="Agent\AgentComponents\VacuumCleaner\" />
-    <Folder Include="Common\DataStructure\Interface\" />
+    <Compile Remove="AgentComponents\test\**" />
+    <Compile Remove="AgentImplementations\VacuumCleaner\Infrastucture\EnviromentObjects\NewFolder\**" />
+    <Compile Remove="UML Diagrams\Search\Problem\**" />
+    <EmbeddedResource Remove="AgentComponents\test\**" />
+    <EmbeddedResource Remove="AgentImplementations\VacuumCleaner\Infrastucture\EnviromentObjects\NewFolder\**" />
+    <EmbeddedResource Remove="UML Diagrams\Search\Problem\**" />
+    <None Remove="AgentComponents\test\**" />
+    <None Remove="AgentImplementations\VacuumCleaner\Infrastucture\EnviromentObjects\NewFolder\**" />
+    <None Remove="UML Diagrams\Search\Problem\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="SearchAlgorithms\SearchComponents\Problem\ProblemDelegates.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AgentComponents\Agent\Events\" />
+    <Folder Include="AgentComponents\Agent\VacuumCleaner\" />
+    <Folder Include="AgentImplementations\VacuumCleaner\VacumCleanerPrograms\" />
     <Folder Include="Common\DataStructure\Abstract\" />
+    <Folder Include="Common\DataStructure\Interface\" />
     <Folder Include="Common\Extensions\" />
     <Folder Include="Common\AgentComponents\" />
+    <Folder Include="AgentImplementations\VacuumCleaner\Agents\" />
+    <Folder Include="UML Diagrams\Agent Components\Agents\" />
+    <Folder Include="UML Diagrams\AgentImplementations\VacuumCleaner\" />
     <Folder Include="Utilities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="4.1.0" />
   </ItemGroup>
 
 </Project>
