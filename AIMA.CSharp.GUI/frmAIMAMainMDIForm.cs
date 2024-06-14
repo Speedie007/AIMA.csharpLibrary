@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using AIMA.CSharp.GUI.Factory;
+using AIMA.CSharp.GUI.Factory.Interfaces;
+using AIMA.CSharp.GUI.Forms.VacuumCleaner;
 
 namespace AIMA.CSharp.GUI
 {
@@ -14,10 +8,13 @@ namespace AIMA.CSharp.GUI
     {
         private int childFormNumber = 0;
 
-        public frmAIMAMainMDIForm()
+        private readonly IFormFactory _formFactory;
+        public frmAIMAMainMDIForm(IFormFactory formFactory)
         {
             InitializeComponent();
+            _formFactory = formFactory;
         }
+
 
         private void ShowNewForm(object sender, EventArgs e)
         {
@@ -104,6 +101,25 @@ namespace AIMA.CSharp.GUI
             {
                 childForm.Close();
             }
+        }
+
+        private void reflexVacuumCleanerExampleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var reflexVacuumCleaner = _formFactory.Create<frmReflexVacuumCleaner>();
+
+            //frmReflexVacuumCleaner childForm = new frmReflexVacuumCleaner(_testFactory);
+            if (reflexVacuumCleaner != null)
+            {
+                reflexVacuumCleaner.MdiParent = this;
+                reflexVacuumCleaner.Text = "Window " + childFormNumber++;
+                reflexVacuumCleaner.Show();
+            }
+
+        }
+
+        private void frmAIMAMainMDIForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

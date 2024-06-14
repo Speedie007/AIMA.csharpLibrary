@@ -34,6 +34,11 @@
             fileMenu = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
+            vacuumCleanerToolStripMenuItem = new ToolStripMenuItem();
+            reflexVacuumCleanerExampleToolStripMenuItem = new ToolStripMenuItem();
+            tableDrivenExampleToolStripMenuItem = new ToolStripMenuItem();
+            modelBasedExampleToolStripMenuItem = new ToolStripMenuItem();
+            randomWalkExampleToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
@@ -112,24 +117,57 @@
             newToolStripMenuItem.ImageTransparentColor = Color.Black;
             newToolStripMenuItem.Name = "newToolStripMenuItem";
             newToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            newToolStripMenuItem.Size = new Size(180, 22);
+            newToolStripMenuItem.Size = new Size(146, 22);
             newToolStripMenuItem.Text = "&New";
             newToolStripMenuItem.Click += ShowNewForm;
             // 
             // openToolStripMenuItem
             // 
+            openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vacuumCleanerToolStripMenuItem });
             openToolStripMenuItem.Image = (Image)resources.GetObject("openToolStripMenuItem.Image");
             openToolStripMenuItem.ImageTransparentColor = Color.Black;
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Size = new Size(146, 22);
             openToolStripMenuItem.Text = "&Open";
             openToolStripMenuItem.Click += OpenFile;
+            // 
+            // vacuumCleanerToolStripMenuItem
+            // 
+            vacuumCleanerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reflexVacuumCleanerExampleToolStripMenuItem, tableDrivenExampleToolStripMenuItem, modelBasedExampleToolStripMenuItem, randomWalkExampleToolStripMenuItem });
+            vacuumCleanerToolStripMenuItem.Name = "vacuumCleanerToolStripMenuItem";
+            vacuumCleanerToolStripMenuItem.Size = new Size(160, 22);
+            vacuumCleanerToolStripMenuItem.Text = "Vacuum Cleaner";
+            // 
+            // reflexVacuumCleanerExampleToolStripMenuItem
+            // 
+            reflexVacuumCleanerExampleToolStripMenuItem.Name = "reflexVacuumCleanerExampleToolStripMenuItem";
+            reflexVacuumCleanerExampleToolStripMenuItem.Size = new Size(196, 22);
+            reflexVacuumCleanerExampleToolStripMenuItem.Text = "Reflex Example";
+            reflexVacuumCleanerExampleToolStripMenuItem.Click += reflexVacuumCleanerExampleToolStripMenuItem_Click;
+            // 
+            // tableDrivenExampleToolStripMenuItem
+            // 
+            tableDrivenExampleToolStripMenuItem.Name = "tableDrivenExampleToolStripMenuItem";
+            tableDrivenExampleToolStripMenuItem.Size = new Size(196, 22);
+            tableDrivenExampleToolStripMenuItem.Text = "Table Driven Example";
+            // 
+            // modelBasedExampleToolStripMenuItem
+            // 
+            modelBasedExampleToolStripMenuItem.Name = "modelBasedExampleToolStripMenuItem";
+            modelBasedExampleToolStripMenuItem.Size = new Size(196, 22);
+            modelBasedExampleToolStripMenuItem.Text = "Model Based Example";
+            // 
+            // randomWalkExampleToolStripMenuItem
+            // 
+            randomWalkExampleToolStripMenuItem.Name = "randomWalkExampleToolStripMenuItem";
+            randomWalkExampleToolStripMenuItem.Size = new Size(196, 22);
+            randomWalkExampleToolStripMenuItem.Text = "Random Walk Example";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(177, 6);
+            toolStripSeparator3.Size = new Size(143, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -137,20 +175,20 @@
             saveToolStripMenuItem.ImageTransparentColor = Color.Black;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
-            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Size = new Size(146, 22);
             saveToolStripMenuItem.Text = "&Save";
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(180, 22);
+            saveAsToolStripMenuItem.Size = new Size(146, 22);
             saveAsToolStripMenuItem.Text = "Save &As";
             saveAsToolStripMenuItem.Click += SaveAsToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(177, 6);
+            toolStripSeparator4.Size = new Size(143, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -158,7 +196,7 @@
             printToolStripMenuItem.ImageTransparentColor = Color.Black;
             printToolStripMenuItem.Name = "printToolStripMenuItem";
             printToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
-            printToolStripMenuItem.Size = new Size(180, 22);
+            printToolStripMenuItem.Size = new Size(146, 22);
             printToolStripMenuItem.Text = "&Print";
             // 
             // printPreviewToolStripMenuItem
@@ -166,24 +204,24 @@
             printPreviewToolStripMenuItem.Image = (Image)resources.GetObject("printPreviewToolStripMenuItem.Image");
             printPreviewToolStripMenuItem.ImageTransparentColor = Color.Black;
             printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            printPreviewToolStripMenuItem.Size = new Size(180, 22);
+            printPreviewToolStripMenuItem.Size = new Size(146, 22);
             printPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // printSetupToolStripMenuItem
             // 
             printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
-            printSetupToolStripMenuItem.Size = new Size(180, 22);
+            printSetupToolStripMenuItem.Size = new Size(146, 22);
             printSetupToolStripMenuItem.Text = "Print Setup";
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(177, 6);
+            toolStripSeparator5.Size = new Size(143, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(146, 22);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += ExitToolsStripMenuItem_Click;
             // 
@@ -493,6 +531,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmAIMAMainMDIForm";
             Text = "AIMA CSharp Implementation";
+            Load += frmAIMAMainMDIForm_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             toolStrip.ResumeLayout(false);
@@ -557,6 +596,11 @@
         private System.Windows.Forms.ToolStripButton printPreviewToolStripButton;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolTip toolTip;
+        private ToolStripMenuItem vacuumCleanerToolStripMenuItem;
+        private ToolStripMenuItem reflexVacuumCleanerExampleToolStripMenuItem;
+        private ToolStripMenuItem tableDrivenExampleToolStripMenuItem;
+        private ToolStripMenuItem modelBasedExampleToolStripMenuItem;
+        private ToolStripMenuItem randomWalkExampleToolStripMenuItem;
     }
 }
 

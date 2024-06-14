@@ -19,7 +19,7 @@ namespace AIMA.CSharp.GUI.VacuumCleaner
             // InitializeComponent();
         }
 
-        private Label label1;
+      
 
         private void InitializeComponent()
         {
