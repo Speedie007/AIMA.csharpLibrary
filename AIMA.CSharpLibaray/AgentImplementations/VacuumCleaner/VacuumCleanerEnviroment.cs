@@ -1,12 +1,15 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Base;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.Base;
+using AIMA.CSharpLibrary.AgentComponents.Precepts;
+using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner
 {
     public partial class VacuumCleanerEnviroment<TAgent, TPrecept, TAction> : BaseEnvironment<TAgent, TPrecept, TAction>
             where TAction : BaseAgentAction, new()
-            where TPrecept : AgentPrecept, new()
+            where TPrecept : BaseAgentPrecept, new()
             where TAgent : BaseAgent<TPrecept, TAction>
     {
 
@@ -22,7 +25,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner
             throw new NotImplementedException();
         }
 
-        public override void Execute(TAgent agent, TAction action)
+        public override void ExecuteAgentAction(TAgent agent, TAction action)
         {
             throw new NotImplementedException();
         }
@@ -36,5 +39,14 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner
         {
             throw new NotImplementedException();
         }
+
+        //public void AgentMovedToMazeBock(TAgent agent,XYLocation agentNewlocation)
+        //{
+        //    agent.
+        //}
+        //public void AgentMovedOutOfMazeBlock()
+        //{
+        //    Agent = null;
+        //}
     }
 }

@@ -1,4 +1,5 @@
-﻿using AIMA.CSharpLibrary.Common.DataStructure;
+﻿using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base;
+using AIMA.CSharpLibrary.Common.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;

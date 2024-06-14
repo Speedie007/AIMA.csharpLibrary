@@ -1,9 +1,6 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Interfaces;
-
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
+﻿namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
 {
-    public class VacuumCleanerSuckAction : BaseAgentAction, IVacuumCleanerAction
+    public class VacuumCleanerSuckAction : VacuumCleanerAction
     {
         public VacuumCleanerSuckAction() : base(nameof(VacuumCleanerSuckAction))
         {

@@ -2,7 +2,7 @@
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Interfaces;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
+namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base
 {
     /// <summary>
     /// <para>Base(Abstract) Enviroment used to represent the domain within wich the agent operates.</para>
@@ -11,7 +11,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
     ///</para>
     ///<para>Date Created: 6 June 2024 - Date Last Updated: 6 June 2024</para>
     /// </summary>
-    public abstract partial class BaseVacuumCleanerMovementAction : BaseAgentAction, IVacuumCleanerMovementAction
+    public abstract partial class BaseVacuumCleanerMovementAction : VacuumCleanerAction
     {
         public BaseVacuumCleanerMovementAction(string name) : base(name)
         {

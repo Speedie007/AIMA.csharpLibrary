@@ -1,9 +1,10 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
 {
-    
+
     public class VacuumCleanerMoveUpAction : BaseVacuumCleanerMovementAction
     {
         public VacuumCleanerMoveUpAction() : base(nameof(VacuumCleanerMoveUpAction))
