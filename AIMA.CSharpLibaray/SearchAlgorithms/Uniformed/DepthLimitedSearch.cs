@@ -8,7 +8,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
 {
     public partial class DepthLimitedSearch<TState, TAction> : ISearchForActions<TState, TAction>, ISearchForStates<TState, TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState, new()
+        where TState : BaseAgentState, new()
     {
 
         #region Properties

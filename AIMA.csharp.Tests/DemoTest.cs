@@ -1,4 +1,3 @@
-using AIMA.CSharpLibrary.Agent.AgentComponents;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents;
 
 namespace AIMA.csharp.Tests
@@ -6,33 +5,33 @@ namespace AIMA.csharp.Tests
     [TestFixture]
     public class Tests
     {
-        public static string AGENT_LOCATION = "location";
-        private List<Node<AgentState, AgentAction>> ListOfNodes;
+        //public static string AGENT_LOCATION = "location";
+        //private List<Node<BaseAgentState, AgentAction>> ListOfNodes;
         [SetUp]
         public void Setup()
         {
-            AgentState state = new AgentState();
-            state.SetDynamicAttributeValue(AGENT_LOCATION, "Location_1");
+            //BaseAgentState state = new BaseAgentState();
+            //state.SetDynamicAttributeValue(AGENT_LOCATION, "Location_1");
 
-            AgentAction MoveUpAction = new AgentAction("MOVE_Up");
-            AgentAction MoveLeftAction = new AgentAction("MOVE_Left");
-            AgentAction MoveDownAction = new AgentAction("MOVE_Down");
-            AgentAction MoveRightAction = new AgentAction("MOVE_Right");
+            //AgentAction MoveUpAction = new AgentAction("MOVE_Up");
+            //AgentAction MoveLeftAction = new AgentAction("MOVE_Left");
+            //AgentAction MoveDownAction = new AgentAction("MOVE_Down");
+            //AgentAction MoveRightAction = new AgentAction("MOVE_Right");
 
-            //var node = new Node<DynamicState,BaseAgentAction>("");
-            ListOfNodes = new List<Node<AgentState, AgentAction>>() {
+            ////var node = new Node<BaseAgentState,BaseAgentAction>("");
+            //ListOfNodes = new List<Node<BaseAgentState, AgentAction>>() {
 
-                new Node<AgentState, AgentAction>(state,null,MoveUpAction,5),
-                new Node<AgentState, AgentAction>(state,null,MoveDownAction,5),
-                new Node<AgentState, AgentAction>(state,null,MoveRightAction,5),
-                new Node<AgentState, AgentAction>(state,null,MoveLeftAction,5)
-            };
+            //    new Node<BaseAgentState, AgentAction>(state,null,MoveUpAction,5),
+            //    new Node<BaseAgentState, AgentAction>(state,null,MoveDownAction,5),
+            //    new Node<BaseAgentState, AgentAction>(state,null,MoveRightAction,5),
+            //    new Node<BaseAgentState, AgentAction>(state,null,MoveLeftAction,5)
+            //};
         }
 
         [Test]
         public void Test1()
         {
-            var q = new FontierFIFOQueue<Node<AgentState,AgentAction>,AgentState,AgentAction>();
+            //var q = new FontierFIFOQueue<Node<BaseAgentState,AgentAction>,BaseAgentState,AgentAction>();
             Assert.Pass();
         }
     }

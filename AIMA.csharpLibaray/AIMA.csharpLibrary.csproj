@@ -25,12 +25,11 @@
   <ItemGroup>
     <Folder Include="AgentComponents\Agent\Events\" />
     <Folder Include="AgentComponents\Agent\VacuumCleaner\" />
-    <Folder Include="AgentImplementations\VacuumCleaner\VacumCleanerPrograms\" />
+    <Folder Include="AgentComponents\Common\NewFolder\" />
     <Folder Include="Common\DataStructure\Abstract\" />
     <Folder Include="Common\DataStructure\Interface\" />
     <Folder Include="Common\Extensions\" />
     <Folder Include="Common\AgentComponents\" />
-    <Folder Include="AgentImplementations\VacuumCleaner\Agents\" />
     <Folder Include="UML Diagrams\Agent Components\Agents\" />
     <Folder Include="UML Diagrams\AgentImplementations\VacuumCleaner\" />
     <Folder Include="Utilities\" />

@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent.Extentsions
 {
@@ -6,9 +6,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Extentsions
     {
         public static BaseAgentAction GetNoOperationAction()
         {
-           
-           var noOperationAction = new AgentActionNoOperation();
-           
+
+            var noOperationAction = new AgentNoOperationAction();
+
             return noOperationAction;
 
         }

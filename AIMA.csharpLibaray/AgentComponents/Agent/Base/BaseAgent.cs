@@ -1,27 +1,28 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Extentsions;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.CSharpLibrary.AgentComponents.AgentProgramComponents.Base;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
 using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
-using NUnit.Framework.Internal.Commands;
+using AIMA.CSharpLibrary.AgentComponents.Precepts;
+using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 {
     public abstract partial class BaseAgent<TPrecept, TAction> : IAgent<TPrecept, TAction>
-         where TAction : BaseAgentAction,new()
-         where TPrecept : AgentPrecept,new()
+         where TAction : BaseAgentAction, new()
+         where TPrecept : BaseAgentPrecept, new()
     {
 
         #region Properties
 
-        protected BaseAgentProgram<TPrecept, TAction> AgentProgram { get; set; }
+        protected BaseAgentProgram<IAgent<TPrecept,TAction>,TPrecept, TAction>? AgentProgram { get; set; }
         public bool IsAlive { get; set; }
         #endregion
-        protected BaseAgent() : this(null!, false)
+        protected BaseAgent() : this(null, false)
         {
             IsAlive = false;
 
         }
-        protected BaseAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, bool isAlive)
+        protected BaseAgent(BaseAgentProgram<IAgent<TPrecept, TAction>,TPrecept, TAction>? agentProgram, bool isAlive)
         {
             AgentProgram = agentProgram;
             IsAlive = isAlive;
@@ -39,9 +40,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
             {
                 return (TAction)ActionExtentions.GetNoOperationAction();
             }
-            else { return (AgentProgram.PreceptToActionFunc?.Invoke(percept) is TAction a) ? a : (TAction)ActionExtentions.GetNoOperationAction(); }
+            else { return (AgentProgram.PreceptToActionFunc?.Invoke(percept) is TAction agentAction) ? agentAction : (TAction)ActionExtentions.GetNoOperationAction(); }
         }
 
-        public abstract TPrecept PollAgentSensors(IEnvironment<BaseAgent<TPrecept, TAction>, TPrecept, TAction> currentEnviroment);
+        public virtual TPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects)
+        {
+            return AgentProgram.SensorPollingFunc?.Invoke(EnvironmentObjects,this) is TPrecept agentPrecept ? agentPrecept : new();
+
+
+        }
     }
 }

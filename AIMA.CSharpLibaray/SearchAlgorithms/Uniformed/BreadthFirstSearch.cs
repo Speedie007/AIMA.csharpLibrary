@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
     /// <typeparam name="TAction"></typeparam>
     public partial class BreadthFirstSearch<TState, TAction> : SearchProcessor<TState, TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState,new()
+        where TState : BaseAgentState,new()
     {
         #region Cstor
         /// <summary>

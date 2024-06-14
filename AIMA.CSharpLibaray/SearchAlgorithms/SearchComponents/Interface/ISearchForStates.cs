@@ -4,7 +4,7 @@ using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces;
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
 {
     public interface ISearchForStates<TState, TAction>:  ISearchFeedBack<TState, TAction>
-        where TAction : BaseAgentAction where TState : DynamicState
+        where TAction : BaseAgentAction where TState : BaseAgentState
     {
 
         TState? FindState(IProblem<TState, TAction> problem);

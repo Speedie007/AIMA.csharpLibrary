@@ -4,7 +4,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interface
 {
     public partial interface IProblem<TState, TAction> : IOnlineSearchProblem<TState, TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState
+        where TState : BaseAgentState
     {
         /// <summary>
         /// A description of what each action does.

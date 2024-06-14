@@ -5,7 +5,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
 {
     public partial interface ISearchForActions<TState, TAction>: ISearchFeedBack<TState,TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState
+        where TState : BaseAgentState
     {
         List<TAction>? FindActions(IProblem<TState, TAction> problem);
 

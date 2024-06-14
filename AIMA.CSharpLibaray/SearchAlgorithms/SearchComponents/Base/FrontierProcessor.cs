@@ -7,7 +7,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
 {
     public abstract partial class FrontierProcessor<TState, TAction> : IFrontierProcessor<TState, TAction> 
         where TAction : BaseAgentAction
-        where TState: DynamicState
+        where TState: BaseAgentState
     {
 
         #region Properties

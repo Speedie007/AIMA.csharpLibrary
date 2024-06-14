@@ -7,7 +7,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
 {
     public partial class TreeFrontierProcessor<TState, TAction> : FrontierProcessor<TState, TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState
+        where TState : BaseAgentState
 
     {
         #region Cstor

@@ -6,7 +6,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
 {
     public interface IFrontierProcessor<TState, TAction> 
         where TAction : BaseAgentAction
-        where TState: DynamicState
+        where TState: BaseAgentState
     {
         bool EarlyGoalTest { get; }
         void AddToFrontier(Node<TState, TAction> node);

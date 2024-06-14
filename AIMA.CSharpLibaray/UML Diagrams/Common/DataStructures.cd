@@ -20,6 +20,7 @@
       <HashCode>AAoCAhBAASBAQBBQAAAABAQAIAAAACAEAgAAAABQIAA=</HashCode>
       <FileName>Common\DataStructure\LinkedHashSet.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Enum Name="AIMA.CSharpLibrary.Common.Enumerations.CardinalDirection">
     <Position X="0.5" Y="5" Width="1.5" />

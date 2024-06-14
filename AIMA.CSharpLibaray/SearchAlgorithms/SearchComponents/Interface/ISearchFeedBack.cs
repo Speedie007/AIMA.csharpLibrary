@@ -9,7 +9,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
 {
     
     public partial  interface ISearchFeedBack<TState, TAction>
-        where TAction : BaseAgentAction where TState : DynamicState
+        where TAction : BaseAgentAction where TState : BaseAgentState
     {
         /// <summary>
         /// 

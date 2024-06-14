@@ -8,7 +8,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
     public abstract partial class SearchProcessor<TState, TAction> :
         ISearchForStates<TState, TAction>, ISearchForActions<TState, TAction>
          where TAction : BaseAgentAction 
-        where TState : DynamicState, new()
+        where TState : BaseAgentState, new()
     {
 
         #region Properties

@@ -5,7 +5,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
 {
     public static class FrontierExtensions<TElement,TState,TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState
+        where TState : BaseAgentState
         where TElement : Node<TState,TAction> 
     {
         public static BaseFrontierQueue<TElement> CreateLIFOQueue()

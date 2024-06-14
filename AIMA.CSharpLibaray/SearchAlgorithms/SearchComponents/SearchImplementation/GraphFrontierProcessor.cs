@@ -6,7 +6,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
 {
     public partial class GraphFrontierProcessor<TState, TAction> : FrontierProcessor<TState, TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState
+        where TState : BaseAgentState
     {
 
         protected HashSet<TState> ExploredStates { get; private set; }

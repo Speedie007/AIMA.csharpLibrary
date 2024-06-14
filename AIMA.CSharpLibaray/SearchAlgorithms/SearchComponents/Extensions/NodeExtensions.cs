@@ -3,7 +3,7 @@
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
 {
     public static class NodeExtensions<TState, TAction>
-        where TState : DynamicState ,new()
+        where TState : BaseAgentState ,new()
         where TAction : BaseAgentAction
     {
         public static List<TAction> getSequenceOfActions(Node<TState, TAction> node)

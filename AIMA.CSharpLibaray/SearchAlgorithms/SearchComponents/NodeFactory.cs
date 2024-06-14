@@ -4,7 +4,7 @@ using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces;
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 {
     public partial class NodeFactory<TState, TAction>
-        where TAction : BaseAgentAction where TState : DynamicState
+        where TAction : BaseAgentAction where TState : BaseAgentState
     {
 
         #region Properties

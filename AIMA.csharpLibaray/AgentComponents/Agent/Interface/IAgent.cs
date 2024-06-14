@@ -1,5 +1,9 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.Base;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.EventsArguments.Base;
 using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Precepts;
+using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
 {
@@ -25,7 +29,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
-        where TPrecept : AgentPrecept, new()
+        where TPrecept : BaseAgentPrecept, new()
         where TAction : BaseAgentAction, new()  
     {
 
@@ -36,13 +40,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// <returns>
         /// <para>The Action to be taken in response to the currently perceived percept.</para>
         /// <para>Empty replaces NoOp in earlier implementations.</para></returns>
-        TAction? ActOnPrecept(TPrecept percept);
+        TAction ActOnPrecept(TPrecept percept);
         /// <summary>
         /// Will initiavte polling the enviromental sensors that the agent has avaialble to it.
         /// <para>in real worl eveniroiment this would be implemented internal in the agents program.</para>
         /// </summary>
         /// <returns>the agents precept based on the current state of the enviroment it is operating in.</returns>
-        TPrecept PollAgentSensors(IEnvironment<BaseAgent<TPrecept, TAction>, TPrecept, TAction> currentEnviroment);
+        TPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects);
 
         /// <summary>
         /// <para>Life-cycle indicator as to the liveness of an BaseAgent.</para>

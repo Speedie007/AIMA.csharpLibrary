@@ -8,7 +8,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
 {
     public partial class UniformCostSearch<TState, TAction> : SearchProcessor<TState, TAction>
         where TAction : BaseAgentAction
-        where TState : DynamicState, new()
+        where TState : BaseAgentState, new()
     {
 
         /// <summary>
