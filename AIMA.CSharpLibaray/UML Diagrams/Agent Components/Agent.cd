@@ -1,71 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.Base.BaseAgent&lt;TPrecept, TAction&gt;">
-    <Position X="8.75" Y="0.75" Width="2.75" />
+    <Position X="9.25" Y="0.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AQAAAEAAAAAAAAAAAAAAAAAAiAAEAAAABIAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Agent\Base\BaseAgent.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory.DecisionTheoreticAgent&lt;TPrecept, TAction&gt;" Collapsed="true">
-    <Position X="2" Y="4.25" Width="1.5" />
+  <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory.DecisionTheoreticAgent&lt;TPrecept, TAction&gt;">
+    <Position X="1.5" Y="4.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAAAAIAAAAgAQ=</HashCode>
       <FileName>AgentComponents\Agent\Base\DescisionTheory\DecisionTheoreticAgent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving.BaseSimpleProblemSolvingAgent&lt;TPrecept, TState, TAction&gt;" Collapsed="true">
-    <Position X="4.25" Y="4.25" Width="1.5" />
+    <Position X="5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Agent\Base\ProblemSolving\BaseSimpleProblemSolvingAgent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving.ProblemSolvingAgent&lt;TPrecept, TStates, TAction&gt;" Collapsed="true">
-    <Position X="6.5" Y="4.25" Width="1.5" />
+    <Position X="7.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Agent\Base\ProblemSolving\ProblemSolvingAgent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.ExampleAgent" Collapsed="true">
-    <Position X="8.75" Y="4.25" Width="1.5" />
+    <Position X="9.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAiAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Agent\ExampleAgent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.TrivalAgent" Collapsed="true">
-    <Position X="11" Y="4.25" Width="1.5" />
+    <Position X="11.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Agent\TrivalAgent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents.ReflexVacuumCleanerAgent">
-    <Position X="13.25" Y="4.25" Width="3.5" />
+    <Position X="14" Y="4.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentImplementations\VacuumCleaner\Agents\ReflexVacuumCleanerAgent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents.TableDrivenVacuumCleanerAgent" Collapsed="true">
-    <Position X="15.5" Y="4.25" Width="1.5" />
+    <Position X="18.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentImplementations\VacuumCleaner\Agents\TableDrivenVacuumCleanerAgent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="AIMA.CSharpLibrary.AgentComponents.Agent.Interface.IAgent&lt;TPrecept, TAction&gt;">
-    <Position X="1.5" Y="7.25" Width="2.25" />
+    <Position X="5.5" Y="1.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AQAAAEAAAAAAAAAAAAAAAAAAiAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Agent\Interface\IAgent.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface.IEnvironmentObject">
-    <Position X="1.75" Y="5.75" Width="1.75" />
+    <Position X="3.5" Y="2" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Enviroment\Interface\IEnvironmentObject.cs</FileName>

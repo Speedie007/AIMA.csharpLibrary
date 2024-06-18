@@ -1,83 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Base.BaseEnvironment&lt;TAgent, TPrecept, TAction&gt;">
-    <Position X="5" Y="1.75" Width="3" />
-    <Compartments>
-      <Compartment Name="Nested Types" Collapsed="false" />
-    </Compartments>
+  <Class Name="AIMA.CSharpLibrary.AgentComponents.Enviroment.Base.BaseEnvironment&lt;TAgent, TAgentPrecept, TAgentAction&gt;">
+    <Position X="4.75" Y="5.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AoBAACAAwAAgAAQACAEAAAQUwAgAACFAIEAAGBAAAgA=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\Base\BaseEnvironment.cs</FileName>
+      <HashCode>AoBAACAAgAAgAAAACAEAAAQUAAgAACEAIAAAEBAAAgA=</HashCode>
+      <FileName>AgentComponents\Enviroment\Base\BaseEnvironment.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.EventsArguments.BaseEnviromentEvent&lt;TAgent, TPrecept, TAction&gt;">
-    <Position X="10.75" Y="2.25" Width="3.25" />
+  <Class Name="AIMA.CSharpLibrary.AgentComponents.Enviroment.EmptyExampleEnviroment">
+    <Position X="0.5" Y="7.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\EventsArguments\EnviromentAgentEventArgs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.EventsArguments.EnviromentAgentAddedEventArgs&lt;TAgent, TPrecept, TAction&gt;">
-    <Position X="13" Y="4.75" Width="4.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\EventsArguments\EnviromentAgentEventArgs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.EventsArguments.EnviromentAgentRemovedEventArgs&lt;TAgent, TPrecept, TAction&gt;">
-    <Position X="8.25" Y="4.75" Width="4.5" />
-    <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\EventsArguments\EnviromentAgentEventArgs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.EventsArguments.EnviromentAgentActedEventArgs&lt;TAgent, TPrecept, TAction&gt;">
-    <Position X="17.5" Y="4.75" Width="4.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAAQ=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\EventsArguments\EnviromentAgentEventArgs.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AgentComponents\Enviroment\EmptyExampleEnviroment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface.IEnvironment&lt;TAgent, TPrecept, TAction&gt;">
-    <Position X="1" Y="4.25" Width="3.25" />
+    <Position X="3.75" Y="1.75" Width="3" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
-    <NestedTypes>
-      <Delegate Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface.IEnvironment&lt;TAgent, TPrecept, TAction&gt;.AgentAddedEventHandler">
-        <TypeIdentifier>
-          <NewMemberFileName>AgentComponents\EnviromentComponents\Interface\IEnvironment.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface.IEnvironment&lt;TAgent, TPrecept, TAction&gt;.AgentRemovedEventHandler">
-        <TypeIdentifier>
-          <NewMemberFileName>AgentComponents\EnviromentComponents\Interface\IEnvironment.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface.IEnvironment&lt;TAgent, TPrecept, TAction&gt;.AgentActedEventHandler">
-        <TypeIdentifier>
-          <NewMemberFileName>AgentComponents\EnviromentComponents\Interface\IEnvironment.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AIBAACAAwAAgAAQACAAAAAAUgAgAACEAIEAACBAAAAA=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\Interface\IEnvironment.cs</FileName>
+      <HashCode>AABAACAAAAAgAAAACAAAAAAUAAgAACEAIAAAAAAAAAA=</HashCode>
+      <FileName>AgentComponents\Enviroment\Interface\IEnvironment.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface.IEnvironmentObject">
-    <Position X="9.5" Y="6.75" Width="1.75" />
+    <Position X="1" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\Interface\IEnvironmentObject.cs</FileName>
+      <FileName>AgentComponents\Enviroment\Interface\IEnvironmentObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface.IEnviromentEventFeedBack&lt;TAgent, TPrecept, TAction&gt;">
-    <Position X="0.5" Y="1.75" Width="4" />
+    <Position X="0.5" Y="5.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAgA=</HashCode>
-      <FileName>AgentComponents\EnviromentComponents\Interface\IEnviromentEventFeedBack.cs</FileName>
+      <FileName>AgentComponents\Enviroment\Interface\IEnviromentEventFeedBack.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Agent.Interface.IAgent&lt;TPrecept, TAction&gt;">
+    <Position X="0.5" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEAAAAAAAAAAAAAAAAAAiAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AgentComponents\Agent\Interface\IAgent.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
