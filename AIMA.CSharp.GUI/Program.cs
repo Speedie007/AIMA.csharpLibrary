@@ -10,7 +10,9 @@ namespace AIMA.CSharp.GUI
 {
     internal static class Program
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
         public static IServiceProvider ServiceProvider { get; private set; }
         /// <summary>
         ///  The main entry point for the application.
@@ -30,8 +32,8 @@ namespace AIMA.CSharp.GUI
         {
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) => {
-                    services.AddSingleton<IFormFactory, FormFactory>();
-                    services.AddSingleton<IEnviromentFactory, EnviromentFactory>();
+                    services.AddTransient<IFormFactory, FormFactory>();
+                    services.AddTransient<IEnviromentFactory, EnviromentFactory>();
                     services.AddTransient<ITestFactory, TestFactory>();
                     //Add all forms
                     var forms = typeof(Program).Assembly
@@ -45,12 +47,5 @@ namespace AIMA.CSharp.GUI
                     });
                 });
         }
-        //static IHostBuilder CreateHostBuilder()
-        //{
-        //    return Host.CreateDefaultBuilder().ConfigureServices((context,services) => {
-        //        services.AddTransient<frmAIMAMainMDIForm>();
-        //        services.AddTransient<ITestFactory, TestFactory>();
-        //    });
-        //}
     }
 }

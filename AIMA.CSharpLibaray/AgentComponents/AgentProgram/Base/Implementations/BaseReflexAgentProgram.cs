@@ -6,8 +6,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     /// <summary>
     /// 16 june
     /// </summary>
-    /// <typeparam name="TPrecept"></typeparam>
-    /// <typeparam name="TAction"></typeparam>
+    /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
+    /// <typeparam name="TAction"><inheritdoc/></typeparam>
     public abstract partial class BaseReflexAgentProgram<TPrecept, TAction> : BaseAgentProgram<TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
@@ -16,12 +16,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
 
         #region Cstr
         /// <summary>
-        /// 
+        /// <inheritdoc/>
         /// </summary>
         protected BaseReflexAgentProgram() : base()
         {
         }
-        #endregion
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
@@ -29,6 +28,18 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         {
             
         }
-        
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="percept"><inheritdoc/></param>
+        /// <returns><inheritdoc/></returns>
+        public override TAction ProcessAgentPecept(TPrecept percept)
+        {
+           return new();
+        }
+        #endregion
+
+
+
     }
 }

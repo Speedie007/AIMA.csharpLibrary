@@ -25,8 +25,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensors.Base
         {
                 
         }
-
-
         #endregion
 
         #region Methods
@@ -38,7 +36,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensors.Base
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        public abstract TPrecept Poll(TPrecept precept, LinkedHashSet<IEnvironmentObject> EnvironmentObjects, IAgent<TPrecept, TAction> agent);
+        public abstract TPrecept Poll(
+            TPrecept precept,
+            LinkedHashSet<IEnvironmentObject> EnvironmentObjects,
+            IAgent<TPrecept, TAction> agent);
         #endregion
     }
 }

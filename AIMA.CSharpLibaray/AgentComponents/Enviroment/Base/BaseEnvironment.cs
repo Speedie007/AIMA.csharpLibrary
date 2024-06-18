@@ -23,7 +23,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
     /// <description>Author:Ruediger Lunde</description>
     /// </item>
     /// <item>
-    /// <description>Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental</description>
+    /// <description>Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental</description>
     /// </item>
     /// </list>
     ///<para>Date Created: 11 May 2024 - Date Last Updated: 16 June 2024</para>
@@ -75,17 +75,17 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <summary>
         /// Will raise the OnAgentActed Event to Notify the caller of the agent that performed an action within the enviroment.
         /// </summary>
-        public event EnviromentEventHandlers<TAgent, TAgentPrecept, TAgentAction>.AgentActedEventHandler? AgentActed;
+        public event EnviromentEventHandlers.AgentActedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentActed;
 
         /// <summary>
         /// Will raise the OnAgentAdded Event to Notify the caller of the agent that was added to the enviroment.
         /// </summary>
-        public event EnviromentEventHandlers<TAgent,TAgentPrecept, TAgentAction>.AgentAddedEventHandler? AgentAdded;
+        public event EnviromentEventHandlers.AgentAddedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentAdded;
 
         /// <summary>
         /// Will raise the OnAgentRemoved Event to Notify the caller of the agent that was removed from the enviroment.
         /// </summary>
-        public event EnviromentEventHandlers<TAgent, TAgentPrecept, TAgentAction>.AgentRemovedEventHandler? AgentRemoved;
+        public event EnviromentEventHandlers.AgentRemovedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentRemoved;
 
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is added.

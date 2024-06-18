@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class BreadthFirstSearch<TState, TAction> : SearchProcessor<TState, TAction>
-        where TAction : BaseAction
+        where TAction : BaseAction, new()
         where TState : BaseAgentState, new()
     {
         #region Cstor
@@ -25,12 +25,12 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
         /// 
         /// </summary>
         /// <param name="searchImplementation"></param>
-        public BreadthFirstSearch(FrontierProcessor<TState, TAction> searchImplementation)
-            : base(searchImplementation, FrontierExtensions<Node<TState, TAction>, TState, TAction>.CreateFIFOFrontier()) { }
+        //public BreadthFirstSearch(FrontierProcessor<TState, TAction> searchImplementation)
+        //    : base(searchImplementation, FrontierExtensions<Node<TState, TAction>, TState, TAction>.CreateFIFOFrontier()) { }
 
-        //public BreadthFirstSearch(FrontierProcessor<TState, TAction> searchImplementation, BaseFrontierQueue<Node<TState, TAction>> frontierQueue) : base(searchImplementation, frontierQueue)
-        //{
-        //}
+        public BreadthFirstSearch(FrontierProcessor<TState, TAction> searchImplementation)
+            : base(searchImplementation, FrontierExtensionsV1.CreateFIFOFrontier<TState, TAction>()) { }
+
         #endregion
 
     }

@@ -22,7 +22,7 @@
       <FileName>SearchAlgorithms\SearchComponents\NodeFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.FrontiertPriorirtyQueue&lt;TElement, TPriority&gt;">
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.FrontiertPriorirtyQueue&lt;TElement&gt;">
     <Position X="7" Y="4" Width="3.25" />
     <TypeIdentifier>
       <HashCode>IABAAAAAAAAEgAAAAAAAAAAAAAAABAAAABAAAABQAAA=</HashCode>
@@ -52,7 +52,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base.FrontierProcessor&lt;TState, TAction&gt;" BaseTypeListCollapsed="true">
-    <Position X="3.75" Y="10.25" Width="2.5" />
+    <Position X="4" Y="10.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAQAEAAAAAACAAQABAACAAAAAACQAAAAAEICFA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\Base\FrontierProcessor.cs</FileName>
@@ -60,7 +60,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base.SearchProcessor&lt;TState, TAction&gt;">
-    <Position X="6.75" Y="11" Width="2.25" />
+    <Position X="7" Y="11" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAQACAAAAAAAAAAACAADAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\Base\SearchProcessor.cs</FileName>
@@ -68,16 +68,16 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions.FrontierExtensions&lt;TElement, TState, TAction&gt;">
-    <Position X="6.5" Y="1.25" Width="3.75" />
+    <Position X="6.5" Y="1" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAI=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\Extensions\FrontierExtensions.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions.NodeExtensions&lt;TState, TAction&gt;">
-    <Position X="0.75" Y="13" Width="2.75" />
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions.NodeExtensions">
+    <Position X="0.75" Y="13" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAACCAAAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAICAAAACAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\Extensions\NodeExtensions.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -97,7 +97,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation.TreeFrontierProcessor&lt;TState, TAction&gt;">
-    <Position X="4" Y="15.5" Width="3" />
+    <Position X="4" Y="16" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\SearchImplementation\TreeFrontierProcessor.cs</FileName>
@@ -111,7 +111,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface.IFrontierQueue&lt;TElement&gt;">
-    <Position X="0.75" Y="0.5" Width="2.25" />
+    <Position X="0.75" Y="0.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAEgAAAAAAAAAAAAAAABAAAAAAAAABQAAA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\Interface\IFrontierQueue.cs</FileName>

@@ -11,8 +11,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public abstract partial class FrontierProcessor<TState, TAction> : IFrontierProcessor<TState, TAction> 
-        where TAction : BaseAction
-        where TState: BaseAgentState
+        where TAction : BaseAction, new()
+        where TState : BaseAgentState, new()
     {
 
         #region Properties
@@ -138,8 +138,6 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
         /// </summary>
         /// <returns></returns>
         public abstract bool IsFrontierEmpty();
-
-        
         #endregion
     }
 }

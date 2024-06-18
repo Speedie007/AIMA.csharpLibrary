@@ -27,7 +27,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerProg
         public override VacuumCleanerAction ProcessAgentPecept(VacuumCleanerPrecept percept)
         {
 
-            //Set thew action to Default => NoOperation Action.
+            //Set thew action to Default => NoOperation ActionExecuted.
             VacuumCleanerAction action = new();
             if (percept.CurrentLocationHasDirt)
             {

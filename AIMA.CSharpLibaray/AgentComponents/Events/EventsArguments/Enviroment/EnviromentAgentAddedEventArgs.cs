@@ -12,18 +12,18 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
     /// <typeparam name="TAgent"></typeparam>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public partial class EnviromentAgentAddedEventArgs<TAgent,TPrecept, TAction> : BaseEnviromentEventArgs<TAgent,TPrecept, TAction>
+    public partial class EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction> : BaseEnviromentEventArgs<TAgent, TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
         where TAgent : BaseAgent<TPrecept, TAction>
     {
         #region cstor
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// <param name="agentAdded"></param>
-      /// <param name="sourceEnviroment"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentAdded"></param>
+        /// <param name="sourceEnviroment"></param>
         public EnviromentAgentAddedEventArgs(
             TAgent agentAdded,
             BaseEnvironment<TAgent, TPrecept, TAction> sourceEnviroment) : base(sourceEnviroment)

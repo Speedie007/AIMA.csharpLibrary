@@ -9,14 +9,14 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
     /// <para>Author:Ruediger Lunde
     /// </para>
     /// <para>
-    /// Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    /// Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     /// </para>
     /// <para>Date Created: 17 May 2024 - Date Last Updated: 19 May 2024</para>
     /// </summary>
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class GeneralProblem<TState, TAction> : IProblem<TState, TAction>
-        where TAction : BaseAction where TState : BaseAgentState
+        where TAction : BaseAction, new() where TState : BaseAgentState, new()
         
     {
 
@@ -71,7 +71,6 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
                 agentActionsForStateFunc,
                 modelResultFunc,
                 goalTestFunction,
-                
                 (s, a, sDelta) => { return 1.0; })
         { }
         #endregion

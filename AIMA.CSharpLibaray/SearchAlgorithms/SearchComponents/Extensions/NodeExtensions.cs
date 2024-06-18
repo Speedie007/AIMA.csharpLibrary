@@ -6,18 +6,16 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
     /// <summary>
     /// 
     /// </summary>
-    /// <typeparam name="TState"></typeparam>
-    /// <typeparam name="TAction"></typeparam>
-    public static class NodeExtensions<TState, TAction>
-        where TState : BaseAgentState, new()    
-        where TAction : BaseAction
+    public static class NodeExtensions
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static List<TAction> getSequenceOfActions(Node<TState, TAction> node)
+        public static List<TAction> GetSequenceOfActions<TState, TAction>(this Node<TState, TAction> node)
+            where TState : BaseAgentState, new()
+            where TAction : BaseAction, new()
         {
             LinkedList<TAction> actions = new LinkedList<TAction>();
             while (!node.IsRootNode)
@@ -32,16 +30,20 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static List<TAction> ToActions(Node<TState, TAction>? node)
+        public static List<TAction> ToActions<TState, TAction>(this Node<TState, TAction>? node)
+            where TState : BaseAgentState, new()
+            where TAction : BaseAction, new()
         {
-            return node != null ? getSequenceOfActions(node) : new List<TAction>();
+            return node != null ? GetSequenceOfActions(node) : new List<TAction>();
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static TState ToState(Node<TState, TAction> node)
+        public static TState ToState<TState, TAction>(this Node<TState, TAction> node)
+            where TState : BaseAgentState, new()
+            where TAction : BaseAction, new()
         {
             return node != null ? node.NodeState : new();
         }
@@ -50,7 +52,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static List<Node<TState, TAction>> GetPathFromRoot(Node<TState, TAction> node)
+        public static List<Node<TState, TAction>> GetPathFromRoot<TState, TAction>(this Node<TState, TAction> node)
+            where TState : BaseAgentState, new()
+            where TAction : BaseAction, new()
         {
             LinkedList<Node<TState, TAction>> path = new LinkedList<Node<TState, TAction>>();
 

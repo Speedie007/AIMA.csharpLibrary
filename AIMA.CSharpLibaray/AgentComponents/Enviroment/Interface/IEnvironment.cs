@@ -23,7 +23,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
     ///Author:Ruediger Lunde
     ///</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
     /// <typeparam name="TAgent">Type which is used to represent the agents added to the enviroment.</typeparam>
@@ -130,7 +130,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
         ///// Primitive operations to be implemented by subclasses:
         ///// </summary>
         ///// <param name="agent">The Current Agent being processed.</param>
-        ///// <param name="action">The Action to be performed by the Agent.</param>
+        ///// <param name="action">The ActionExecuted to be performed by the Agent.</param>
         //void ExecuteAgentAction(TAgent agent, TAction action);
 
         ///// <summary>

@@ -7,7 +7,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base
     /// <summary>
     /// <para>Base(Abstract) Enviroment used to represent the domain within wich the agent operates.</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 6 June 2024 - Date Last Updated: 6 June 2024</para>
     /// </summary>

@@ -8,7 +8,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
     /// <summary>
     /// Allows applications to analyze and visualize the interaction of BaseAgent(s) with an Environment.
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 12 May 2024 - Date Last Updated: 16 June 2024</para>
     /// </summary>
@@ -49,7 +49,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
         /// Note: The Event Delegate is in the BaseEnviroment Class
         /// </remarks>
         /// <param name="args">
-        /// The args parameter will retun the Agent which perform the action the Precept current observed and the Action which initiaed the action.
+        /// The args parameter will retun the Agent which perform the action the Precept current observed and the ActionExecuted which initiaed the action.
         /// </param>
         void OnAgentActed(EnviromentAgentActedEventArgs<TAgent, TPrecept, TAction> args);
 

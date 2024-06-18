@@ -26,7 +26,7 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
 
         public void OnAgentActed(EnviromentAgentActedEventArgs<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
         {
-            txtOne.AppendText($"Agent Acted: {args.Agent.GetType().Name} - Action:{args.Action.ActionName}-{DateTime.Now}");
+            txtOne.AppendText($"Agent Acted: {args.Agent.GetType().Name} - ActionExecuted:{args.ActionExecuted.ActionName}-{DateTime.Now}");
         }
 
         public void OnAgentAdded(EnviromentAgentAddedEventArgs<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)

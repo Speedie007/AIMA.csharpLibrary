@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class DepthLimitedSearch<TState, TAction> : ISearchForActions<TState, TAction>, ISearchForStates<TState, TAction>
-        where TAction : BaseAction
+        where TAction : BaseAction, new()
         where TState : BaseAgentState, new()
     {
 
@@ -84,7 +84,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
         {
             NodeFactory.UseParentLinks = true;
             Node<TState, TAction> node = FindNode(problem);
-            return !IsCutoffResult(node) ? NodeExtensions<TState, TAction>.ToActions(node) : new List<TAction>();
+            return !IsCutoffResult(node) ? node.ToActions() : new List<TAction>();
         }
         /// <summary>
         /// 
@@ -95,7 +95,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
         {
             NodeFactory.UseParentLinks = false;
             Node<TState, TAction> node = FindNode(problem);
-            return !IsCutoffResult(node) ? NodeExtensions<TState, TAction>.ToState(node) : new TState();
+            return !IsCutoffResult(node) ? node.ToState() : new TState();
         }
         /// <summary>
         /// 
@@ -134,7 +134,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
                 // else
                 // cutoff_occurred? <- false
                 bool cutoffOccurred = false;
-                Node<TState, TAction> result = new(new TState());// = null;
+                Node<TState, TAction> result = new();// = null;
                 // for each action in problem.ACTIONS(node.STATE) do
                 SearchMetrics.IncrementInt(METRIC_NODES_EXPANDED);
                 foreach (Node<TState, TAction> child in GetSuccessors(node, problem))

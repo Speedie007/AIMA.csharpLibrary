@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     ///Author:Ruediger Lunde
     ///</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 11 May 2024</para>
     /// </summary>
@@ -36,8 +36,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// </summary>
         /// <param name="percept">The current percept of the current enviroment perceived by the BaseAgent.</param>
         /// <returns>
-        /// <para>The Action to be taken in response to the currently perceived percept.</para>
-        /// <para>An Action of type NoOperation replaces NoOp in earlier implementations.</para></returns>
+        /// <para>The ActionExecuted to be taken in response to the currently perceived percept.</para>
+        /// <para>An ActionExecuted of type NoOperation replaces NoOp in earlier implementations.</para></returns>
         TAction DeriveAgentActionBasedOnPrecept(TPrecept percept);
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// <summary>
         /// Operations to be implemented by Agent:
         /// </summary>
-        /// <param name="action">The Action to be performed by the Agent.</param>
+        /// <param name="action">The ActionExecuted to be performed by the Agent.</param>
         void ExecuteAgentAction(TAction action);
 
     }

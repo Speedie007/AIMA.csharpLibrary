@@ -9,8 +9,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interface
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial interface IProblem<TState, TAction> : IOnlineSearchProblem<TState, TAction>
-        where TAction : BaseAction
-        where TState : BaseAgentState
+        where TAction : BaseAction, new()
+        where TState : BaseAgentState, new()
     {
         /// <summary>
         /// A description of what each action does.

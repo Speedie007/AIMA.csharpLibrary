@@ -23,7 +23,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     ///Author:Mike Stampone
     ///</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 17 May 2024 - Date Last Updated: 17 May 2024</para>
     /// </summary>
@@ -32,8 +32,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 
     public partial class Node<TState, TAction> :
         IComparer<Node<TState, TAction>>, IEqualityComparer<Node<TState, TAction>>
-            where TAction : BaseAction
-            where TState: BaseAgentState
+            where TAction : BaseAction, new()
+            where TState : BaseAgentState, new()
     {
         /// <summary>
         /// Constructs A node with the specified state, parent, action, and path cost.
@@ -59,7 +59,14 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         {
 
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        public Node() : this(new TState())
+        {
+
+        }
+
         #region properties
         /// <summary>
         /// 

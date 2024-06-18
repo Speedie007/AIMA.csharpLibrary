@@ -32,7 +32,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
     ///Author:Samagra
     ///</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 12 May 2024 - Date Last Updated: 16 June 2024</para>
     /// </summary>
@@ -100,7 +100,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
         /// 
         /// </summary>
         /// <param name="actionProbabilities">Probabilities of various outcomes</param>
-        /// <returns>Action with the highest probability.</returns>
+        /// <returns>ActionExecuted with the highest probability.</returns>
         public abstract TAction ActionWithHighestExpectedUtility(List<Pair<TAction, double>> actionProbabilities);
         #endregion
 

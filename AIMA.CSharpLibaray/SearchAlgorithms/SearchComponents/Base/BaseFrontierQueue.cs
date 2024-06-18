@@ -23,12 +23,12 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
         /// 
         /// </summary>
         /// <returns></returns>
-        public abstract TElement? Dequeue();
+        public abstract TElement Dequeue();
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public abstract TElement? Peek();
+        public abstract TElement Peek();
         /// <summary>
         /// 
         /// </summary>

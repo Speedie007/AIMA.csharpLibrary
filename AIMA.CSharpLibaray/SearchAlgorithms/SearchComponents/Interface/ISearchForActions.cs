@@ -10,8 +10,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial interface ISearchForActions<TState, TAction>: ISearchFeedBack<TState,TAction>
-        where TAction : BaseAction
-        where TState : BaseAgentState
+        where TAction : BaseAction, new()
+        where TState : BaseAgentState, new()
     {
         /// <summary>
         /// 

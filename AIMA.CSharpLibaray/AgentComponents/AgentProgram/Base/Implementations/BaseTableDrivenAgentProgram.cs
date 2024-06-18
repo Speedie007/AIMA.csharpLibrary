@@ -10,8 +10,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     ///<code>               table, A table of actions, indexed by percept sequences, initially fully specified</code>
     ///
     /// <code>Append percept to end of percepts</code>
-    /// <code>Action = LOOKUP(percepts, table)</code>
-    /// <code>Return Action</code>
+    /// <code>ActionExecuted = LOOKUP(percepts, table)</code>
+    /// <code>Return ActionExecuted</code>
     /// <para>Figure 2.7 The TABLE-DRIVEN-AGENT program is invoked for each new percept and returns an action each time. It retains the complete percept sequence in memory.</para>
     ///<para>
     ///Author:Ciaran O'Reilly
@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     ///Author:Mike Stampone
     ///</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 13 May 2024 - Date Last Updated: 16 June 2024</para>
     /// </summary>

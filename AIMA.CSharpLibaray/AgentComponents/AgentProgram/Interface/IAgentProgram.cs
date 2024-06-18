@@ -22,7 +22,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
     ///Author:Ciaran O'Reilly
     ///</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
     /// </summary>
@@ -42,10 +42,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// </summary>
         void Initialize();
         /// <summary>
-        /// The BaseAgent's program Precept To Action Function, which maps any given percept sequences to an action.
+        /// The BaseAgent's program Precept To ActionExecuted Function, which maps any given percept sequences to an action.
         /// <para>The current percept of A sequence perceived by the BaseAgent.</para>
         /// </summary>
-        /// <returns>The Action to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
+        /// <returns>The ActionExecuted to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
         Func<TPrecept, BaseAction> PreceptToActionFunc { get; }
 
         /// <summary>

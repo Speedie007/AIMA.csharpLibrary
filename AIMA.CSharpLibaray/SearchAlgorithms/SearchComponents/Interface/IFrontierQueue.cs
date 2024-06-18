@@ -20,7 +20,7 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        TElement? Dequeue();
+        TElement Dequeue();
         /// <summary>
         /// 
         /// </summary>
@@ -31,7 +31,7 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        TElement? Peek();
+        TElement Peek();
         /// <summary>
         /// 
         /// </summary>

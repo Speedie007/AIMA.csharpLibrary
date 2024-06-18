@@ -2,6 +2,10 @@
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
 using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Events;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
+using AIMA.CSharpLibrary.AgentComponents.Events.Interface;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
@@ -14,7 +18,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public abstract partial class BaseAgent<TPrecept, TAction> : IAgent<TPrecept, TAction>
+    public abstract partial class BaseAgent<TPrecept, TAction> :
+        IAgent<TPrecept, TAction>,
+        IAgentEvents<TPrecept, TAction>,
+        IAgentEventFeedBack<TPrecept, TAction>
             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
     {
@@ -51,10 +58,51 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
             AgentProgram = agentProgram;
             IsAlive = isAlive;
             PerformaceMeasure = performanceMeasure;
+            PerformanceMeasureUpdated += OnAgentPerformanceMeasureUpdated;
+            AgentNotification += OnAgentNotification;
+        }
+        #endregion
+
+        #region Agent Events
+        /// <summary>
+        /// 
+        /// </summary>
+        public event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction> PerformanceMeasureUpdated;
+        /// <summary>
+        /// 
+        /// </summary>
+        public event AgentEventHandlers.AgentNotificationEventHandler<TPrecept, TAction> AgentNotification;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentNotificationEventArgs"></param>
+        public virtual void OnAgentNotification(AgentNotificationEventArgs<TPrecept, TAction> agentNotificationEventArgs)
+        {
+            AgentNotification?.Invoke(agentNotificationEventArgs);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
+        public virtual void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
+        {
+            PerformanceMeasureUpdated?.Invoke(agentPerformanceMeasureUpdatedEventArgs);
         }
         #endregion
 
         #region Methods
+
+
+        /// <inheritdoc/>
+        public virtual TPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects)
+        {
+            if (AgentProgram != null)
+                //Poll the current agent sensors to build the agents surrent precept of the enviroment it is in.
+                return AgentProgram.SensorPollingFunc?.Invoke(EnvironmentObjects, this) is TPrecept agentPrecept ? agentPrecept : new();
+            else
+                return new();
+        }
         /// <inheritdoc/>
         public virtual TAction DeriveAgentActionBasedOnPrecept(TPrecept percept)
         {
@@ -66,16 +114,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         }
 
         /// <inheritdoc/>
-        public virtual TPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects)
-        {
-            if (AgentProgram != null)
-                //Poll the current agent sensors to build the agents surrent precept of the enviroment it is in.
-                return AgentProgram.SensorPollingFunc?.Invoke(EnvironmentObjects, this) is TPrecept agentPrecept ? agentPrecept : new();
-            else
-                return new();
-        }
-
-        /// <inheritdoc/>
         public abstract void ExecuteNoOp();
 
         /// <summary>
@@ -83,6 +121,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// </summary>
         /// <param name="action"></param>
         public abstract void ExecuteAgentAction(TAction action);
+
+
         #endregion
     }
 }

@@ -23,18 +23,18 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
      /// 
      /// </summary>
      /// <param name="agent"></param>
-     /// <param name="percept"></param>
-     /// <param name="action"></param>
+     /// <param name="currentPercept"></param>
+     /// <param name="actionExecuted"></param>
      /// <param name="sourceEnviroment"></param>
         public EnviromentAgentActedEventArgs(
             TAgent agent,
-            TPrecept percept,
-            TAction action,
+            TPrecept currentPercept,
+            TAction actionExecuted,
             BaseEnvironment<TAgent, TPrecept, TAction> sourceEnviroment) : base(sourceEnviroment)
         {
             Agent = agent;
-            Percept = percept;
-            Action = action;
+            CurrentPercept = currentPercept;
+            ActionExecuted = actionExecuted;
         }
         #endregion
 
@@ -46,11 +46,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
         /// <summary>
         /// 
         /// </summary>
-        public TPrecept Percept { get; }
+        public TPrecept CurrentPercept { get; }
         /// <summary>
         /// 
         /// </summary>
-        public TAction Action { get; }
+        public TAction ActionExecuted { get; }
         #endregion
     }
 }

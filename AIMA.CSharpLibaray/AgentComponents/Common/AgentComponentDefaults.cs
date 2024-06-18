@@ -7,11 +7,11 @@
     {
         #region Action Defaults
         /// <summary>
-        /// The KEY for the default Action Name, used to reference the selected action.
+        /// The KEY for the default ActionExecuted Name, used to reference the selected action.
         /// </summary>
         public readonly static string ACTION_NAME = "ActionName";
         /// <value>
-        /// The KEY for the default Action For an Agent NoOperation.
+        /// The KEY for the default ActionExecuted For an Agent NoOperation.
         /// </value>
         public readonly static string ACTION_NO_OPERATION = "NoOperation";
         #endregion

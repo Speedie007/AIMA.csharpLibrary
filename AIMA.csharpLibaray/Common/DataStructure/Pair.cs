@@ -11,7 +11,7 @@
     /// Author:Ruediger Lunde
     /// </para>
     /// <para>
-    /// Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    /// Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     /// </para>
     /// <para>Date Created: 11 May 2024 - Date Last Updated: 26 May 2024</para>
     /// </summary>

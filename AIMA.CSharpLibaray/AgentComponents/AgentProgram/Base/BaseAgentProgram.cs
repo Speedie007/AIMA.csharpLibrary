@@ -12,13 +12,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
 {
     /// <summary>
     /// <para>
-    /// Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
+    /// Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 23 May 2024 - Date Last Updated: 17 June 2024</para>
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public abstract partial class BaseAgentProgram<TPrecept, TAction> : IAgentProgram<TPrecept, TAction>
+    public abstract partial class BaseAgentProgram<TPrecept, TAction> : 
+        IAgentProgram<TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
     {
@@ -55,7 +56,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <para>Function Maps Parecept to a possible action.</para>
         /// </summary>
         /// <param name="percept">The Current Precept genrated by the agent sensors based on the current enviroment State.</param>
-        /// <returns>Action, which the agent must perform.</returns>
+        /// <returns>ActionExecuted, which the agent must perform.</returns>
         public abstract TAction ProcessAgentPecept(TPrecept percept);
         /// <summary>
         /// 
@@ -83,7 +84,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <para>The sensors are initialized and stored in the local cache.</para>
         /// <para>The Sensors required are determined by the combination of the assigned Precept and Actions assigned to the agent.</para>
         /// </summary>
-        public void InitializeSensors()
+        private void InitializeSensors()
         {
             Type parentType = typeof(BaseSensor<TPrecept, TAction>);
             Assembly assembly = Assembly.GetExecutingAssembly();

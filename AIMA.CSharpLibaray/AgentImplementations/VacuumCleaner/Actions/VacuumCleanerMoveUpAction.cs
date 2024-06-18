@@ -6,7 +6,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
     /// <summary>
     /// <para>Vacuum Cleaner Move action, which defines the basic methods for the resulting Move Up action that can be made by the vacuum cleaner.</para>
     ///<para>
-    ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation
+    ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation
     ///</para>
     ///<para>Date Created: 23 May 2024 - Date Last Updated: 16 June 2024</para>
     /// </summary>

@@ -32,7 +32,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// </summary>
         /// <param name="percept">Agent Precept</param>
         /// <remarks>In this example the precept is emtpy</remarks>
-        /// <returns>Default Action => which is No Operation Action. The agent will do thing.</returns>
+        /// <returns>Default ActionExecuted => which is No Operation ActionExecuted. The agent will do thing.</returns>
         public override TAction ProcessAgentPecept(TPrecept percept)
         {
             return new();

@@ -15,7 +15,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
     public partial class EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> : BaseEnviromentEventArgs<TAgent, TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-            
         where TAgent : BaseAgent<TPrecept, TAction>
     {
         #region Cstor

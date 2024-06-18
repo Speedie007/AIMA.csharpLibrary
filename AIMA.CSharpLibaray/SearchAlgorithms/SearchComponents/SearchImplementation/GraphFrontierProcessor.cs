@@ -11,8 +11,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class GraphFrontierProcessor<TState, TAction> : FrontierProcessor<TState, TAction>
-        where TAction : BaseAction
-        where TState : BaseAgentState
+        where TAction : BaseAction, new()
+        where TState : BaseAgentState, new()
     {
         /// <summary>
         /// 
@@ -79,7 +79,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
         public override Node<TState, TAction> RemoveFromFrontier()
         {
             CleanUpFrontier(); // not really necessary because isFrontierEmpty should be called before...
-            Node<TState,TAction>? result = Frontier.Dequeue();
+            Node<TState,TAction> result = Frontier.Dequeue();
             ExploredStates.Add(result.NodeState);
             UpdateMetrics(Frontier.Size());
             return result;

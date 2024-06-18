@@ -1,11 +1,14 @@
-﻿namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
+
+namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
 {
     /// <summary>
-    /// 16 June
+    /// 16June
     /// </summary>
+   
     public partial interface IPerformanceMeasureEvents
     {
-
-
+      
     }
 }

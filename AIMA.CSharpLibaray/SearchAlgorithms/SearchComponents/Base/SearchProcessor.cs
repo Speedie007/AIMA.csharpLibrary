@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
     /// <typeparam name="TAction"></typeparam>
     public abstract partial class SearchProcessor<TState, TAction> :
         ISearchForStates<TState, TAction>, ISearchForActions<TState, TAction>
-         where TAction : BaseAction 
+         where TAction : BaseAction, new()
         where TState : BaseAgentState, new()
     {
 
@@ -54,7 +54,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
             Frontier.Clear();
             Node<TState, TAction>? node = SearchImplementation.FindNode(problem, Frontier);
 
-            return NodeExtensions<TState, TAction>.ToActions(node);
+            return node.ToActions();
         }
         /// <summary>
         /// 
@@ -66,7 +66,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
             SearchImplementation.NodeFactory.UseParentLinks = false;
             Frontier.Clear();
             Node<TState, TAction>? node = SearchImplementation.FindNode(problem, Frontier);
-            return node != null ? NodeExtensions<TState, TAction>.ToState(node): default;
+            return node != null ? node.ToState(): default;
         }
         /// <summary>
         /// 
