@@ -18,18 +18,24 @@
 	<Compile Remove="AgentComponents\Common\NewFolder\**" />
 	<Compile Remove="AgentComponents\test\**" />
 	<Compile Remove="AgentImplementations\VacuumCleaner\Enviroment\EnviromentObjects\NewFolder\**" />
+	<Compile Remove="UML Diagrams\Agent Components\Agents\**" />
+	<Compile Remove="UML Diagrams\Agent Components\Enviroments\**" />
 	<Compile Remove="UML Diagrams\Search\Problem\**" />
 	<EmbeddedResource Remove="AgentComponents\Agent\Events\**" />
 	<EmbeddedResource Remove="AgentComponents\Agent\VacuumCleaner\**" />
 	<EmbeddedResource Remove="AgentComponents\Common\NewFolder\**" />
 	<EmbeddedResource Remove="AgentComponents\test\**" />
 	<EmbeddedResource Remove="AgentImplementations\VacuumCleaner\Enviroment\EnviromentObjects\NewFolder\**" />
+	<EmbeddedResource Remove="UML Diagrams\Agent Components\Agents\**" />
+	<EmbeddedResource Remove="UML Diagrams\Agent Components\Enviroments\**" />
 	<EmbeddedResource Remove="UML Diagrams\Search\Problem\**" />
 	<None Remove="AgentComponents\Agent\Events\**" />
 	<None Remove="AgentComponents\Agent\VacuumCleaner\**" />
 	<None Remove="AgentComponents\Common\NewFolder\**" />
 	<None Remove="AgentComponents\test\**" />
 	<None Remove="AgentImplementations\VacuumCleaner\Enviroment\EnviromentObjects\NewFolder\**" />
+	<None Remove="UML Diagrams\Agent Components\Agents\**" />
+	<None Remove="UML Diagrams\Agent Components\Enviroments\**" />
 	<None Remove="UML Diagrams\Search\Problem\**" />
   </ItemGroup>
 
@@ -44,8 +50,6 @@
 	<Folder Include="Common\DataStructure\Interface\" />
 	<Folder Include="Common\Extensions\" />
 	<Folder Include="Common\AgentComponents\" />
-	<Folder Include="UML Diagrams\Agent Components\Agents\" />
-	<Folder Include="UML Diagrams\Agent Components\Enviroments\" />
 	<Folder Include="UML Diagrams\AgentImplementations\VacuumCleaner\" />
 	<Folder Include="Utilities\" />
   </ItemGroup>
