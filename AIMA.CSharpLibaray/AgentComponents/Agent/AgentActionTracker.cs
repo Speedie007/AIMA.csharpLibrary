@@ -40,7 +40,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
             throw new NotImplementedException();
             //if (actionHistory.Length > 0)
             //    actionHistory.Append(",");
-            //actionHistory.Append(args.Action.GetAttributeValue(args.Action));
+            //actionHistory.Append(args.ActionExecuted.GetAttributeValue(args.ActionExecuted));
         }
         /// <summary>
         /// 
