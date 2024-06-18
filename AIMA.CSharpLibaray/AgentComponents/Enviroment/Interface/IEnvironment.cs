@@ -1,7 +1,9 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Events;
-using AIMA.CSharpLibrary.AgentComponents.Precepts;
+using AIMA.CSharpLibrary.AgentComponents.Events;
+using AIMA.CSharpLibrary.AgentComponents.Events.Interface;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
 {
@@ -24,18 +26,17 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
     ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
     ///</para>
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
-    /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
-    /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public partial interface IEnvironment<TAgent, TPrecept, TAction> : IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
-            where TAction : BaseAgentAction, new()
-            where TPrecept : BaseAgentPrecept, new()
+    /// <typeparam name="TAgent">Type which is used to represent the agents added to the enviroment.</typeparam>
+    /// <typeparam name="TPrecept">Type which is used to represent percepts.</typeparam>
+    /// <typeparam name="TAction">Type which is used to represent actions.</typeparam>
+    public partial interface IEnvironment<TAgent, TPrecept, TAction> 
+            where TAction : BaseAction, new()
+            where TPrecept : BasePrecept, new()
             where TAgent : BaseAgent<TPrecept, TAction>
     {
 
 
-        event EnviromentEventHandlers<TAgent, TPrecept, TAction>.AgentAddedEventHandler AgentAdded;
-        event EnviromentEventHandlers<TAgent, TPrecept, TAction>.AgentActedEventHandler AgentActed;
-        event EnviromentEventHandlers<TAgent, TPrecept, TAction>.AgentRemovedEventHandler AgentRemoved;
+
         /// <summary>
         /// <para>There maybe (N)Number of agents operating within the enviroment.</para>
         /// </summary>
@@ -56,8 +57,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
 
         /// <summary>
         /// Get all EnvironmentObjects that exist in this Environment.
+        /// <![CDATA[]]>
         /// </summary>
-
         /// <returns>Returns A List of EnvironmentObjects that exist in this Environment.</returns>
         List<IEnvironmentObject> GetEnvironmentObjects();
 
@@ -83,33 +84,26 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
         /// Move the Environment n time steps forward.
         /// </summary>
         /// <param name="amountStepsToMoveForward">The number of time steps to move the Environment forward.the number of time steps to move the Environment forward.</param>
-        public void Step(int amountStepsToMoveForward);
+        void Step(int amountStepsToMoveForward);
 
         /// <summary>
         /// Step through time steps until the Environment has no more tasks.
         /// </summary>
-        //void StepUntilDone();
-        public void StepUntilDone();
+        void StepUntilDone();
 
         /// <summary>
-        /// Returns <c>true</c>if the Environment is finished with its current
+        /// Check to see if there are any agents currently busy completing required tasks.
         /// </summary>
-        /// <returns>bool</returns>
+        /// <returns><c>true</c> if there are no agent alive, else False</returns>
         bool IsDone();
 
-        /// <summary>
-        /// Retrieve the performance measure(s) associated with an BaseAgent.
-        /// </summary>
-        /// <param name="agent">The BaseAgent for which A performance measure is to be retrieved.</param>
-        /// <returns>The performance measure associated with the BaseAgent.</returns>
-        double GetAgentPerformanceMeasure(TAgent agent);
+        ///// <summary>
+        ///// Retrieve the performance measure(s) associated with an BaseAgent.
+        ///// </summary>
+        ///// <param name="agent">The BaseAgent for which A performance measure is to be retrieved.</param>
+        ///// <returns>The performance measure associated with the BaseAgent.</returns>
+        //double GetAgentPerformanceMeasure(TAgent agent);
 
-        /// <summary>
-        /// Retrieve the Precept current observed by the associated BaseAgent.
-        /// </summary>
-        /// <param name="agent">The Current Agent being processed</param>
-        /// <returns></returns>
-        TPrecept GetPerceptSeenBy(TAgent agent);
         /// <summary>
         /// Creates random enviromential change with in the enviroment this is to test the rigor of the agent program for example.
         /// <para>
@@ -121,29 +115,30 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
         /// </summary>
         void CreateExogenousChange();
 
-        /// <summary>
-        /// <para>
-        /// Method is called when an agent doesn't select an action when asked. Default implementation does nothing.
-        /// </para>
-        /// <remarks>
-        /// Sub-classes can for example modify the isDone status.
-        /// </remarks>
-        /// </summary>
-        /// <param name="agent">The Agent that was step forward.</param>
-        void ExecuteNoOp(TAgent agent);
+        ///// <summary>
+        ///// <para>
+        ///// Method is called when an agent doesn't select an action when asked. Default implementation does nothing.
+        ///// </para>
+        ///// <remarks>
+        ///// Sub-classes can for example modify the isDone status.
+        ///// </remarks>
+        ///// </summary>
+        ///// <param name="agent">The Agent that was step forward.</param>
+        //void ExecuteNoOp(TAgent agent);
 
-        /// <summary>
-        /// Primitive operations to be implemented by subclasses:
-        /// </summary>
-        /// <param name="agent">The Current Agent being processed.</param>
-        /// <param name="action">The Action to be performed by the Agent.</param>
-        void ExecuteAgentAction(TAgent agent, TAction action);
+        ///// <summary>
+        ///// Primitive operations to be implemented by subclasses:
+        ///// </summary>
+        ///// <param name="agent">The Current Agent being processed.</param>
+        ///// <param name="action">The Action to be performed by the Agent.</param>
+        //void ExecuteAgentAction(TAgent agent, TAction action);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Agent">Agent To Update</param>
-        /// <param name="addTo"></param>
-        bool UpdatePerformanceMeasure(TAgent forAgent, double addTo);
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="forAgent"></param>
+        ///// <param name="addTo"></param>
+        ///// <returns></returns>
+        //bool UpdatePerformanceMeasure(TAgent forAgent, double addTo);
     }
 }

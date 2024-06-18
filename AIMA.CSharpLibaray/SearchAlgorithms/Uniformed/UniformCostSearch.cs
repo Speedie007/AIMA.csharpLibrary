@@ -1,4 +1,5 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.State;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions;
@@ -6,8 +7,13 @@ using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
 {
+    /// <summary>
+    /// 21 May
+    /// </summary>
+    /// <typeparam name="TState"></typeparam>
+    /// <typeparam name="TAction"></typeparam>
     public partial class UniformCostSearch<TState, TAction> : SearchProcessor<TState, TAction>
-        where TAction : BaseAgentAction
+        where TAction : BaseAction
         where TState : BaseAgentState, new()
     {
 

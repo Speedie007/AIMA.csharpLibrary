@@ -9,6 +9,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
     /// <typeparam name="TElement"></typeparam>
     public abstract class BaseFrontierQueue<TElement> : IFrontierQueue<TElement>
     {
+        /// <summary>
+        /// 
+        /// </summary>
         protected BaseFrontierQueue() { }
         /// <summary>
         /// 
@@ -20,12 +23,12 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
         /// 
         /// </summary>
         /// <returns></returns>
-        public abstract TElement Dequeue();
+        public abstract TElement? Dequeue();
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public abstract TElement Peek();
+        public abstract TElement? Peek();
         /// <summary>
         /// 
         /// </summary>
@@ -35,7 +38,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
         /// </summary>
         /// <param name="node"></param>
         /// <param name="priority"></param>
-        public abstract void Enqueue(TElement node, double priority= 1);
+        public abstract void Enqueue(TElement node, double priority = 1);
 
         /// <summary>
         /// Size of the collection.
@@ -46,7 +49,6 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
         /// 
         /// </summary>
         /// <returns>true, if there are no items in the collection, else false.</returns>
-        /// <exception cref="NotImplementedException"></exception>
         public abstract bool IsEmpty();
     }
 }

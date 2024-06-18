@@ -1,4 +1,5 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.State;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions;
@@ -12,7 +13,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class DepthFirstSearch<TState, TAction> : SearchProcessor<TState, TAction>
-        where TAction : BaseAgentAction
+        where TAction : BaseAction
         where TState : BaseAgentState, new()
     {
         #region Cstor

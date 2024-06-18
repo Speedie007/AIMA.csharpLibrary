@@ -27,12 +27,21 @@
         /// Get the second element of the pair
         /// </summary>
         public Y Second { get; private set; }
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
         public Pair(X first, Y second)
         {
             First = first;
             Second = second;
         }
-
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="obj"><inheritdoc/></param>
+        /// <returns><inheritdoc/></returns>
         public override bool Equals(object? obj)
         {
             base.Equals(obj);
@@ -43,12 +52,18 @@
             }
             return false;
         }
-
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns><inheritdoc/></returns>
         public override int GetHashCode()
         {
             return (First == null ? 0 : 7 * First.GetHashCode()) + 31 * (Second == null ? 0 : Second.GetHashCode());
         }
-
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns><inheritdoc/></returns>
         public override string? ToString()
         {
             return $"[{First},{Second}]";

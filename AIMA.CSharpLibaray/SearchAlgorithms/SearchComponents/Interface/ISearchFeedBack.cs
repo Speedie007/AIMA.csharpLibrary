@@ -1,15 +1,15 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.State;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
 {
-    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TState"></typeparam>
+    /// <typeparam name="TAction"></typeparam>
     public partial  interface ISearchFeedBack<TState, TAction>
-        where TAction : BaseAgentAction where TState : BaseAgentState
+        where TAction : BaseAction where TState : BaseAgentState
     {
         /// <summary>
         /// 

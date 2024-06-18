@@ -11,6 +11,11 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Interfac
     /// </summary>
     public interface IVacuumCleanerMovementAction : IVacuumCleanerAction
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FromLocation"></param>
+        /// <returns></returns>
         bool CanMoveToNextLocation(XYLocation FromLocation);
         /// <summary>
         /// 

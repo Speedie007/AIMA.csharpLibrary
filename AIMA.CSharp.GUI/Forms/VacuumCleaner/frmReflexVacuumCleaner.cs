@@ -1,10 +1,10 @@
 ﻿using AIMA.CSharp.GUI.Factory.Interfaces;
 using AIMA.CSharp.GUI.Forms.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.EventsArguments;
 using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents;
+using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
 
 namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
@@ -12,7 +12,7 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
     public partial class frmReflexVacuumCleaner : BaseForm, IEnviromentEventFeedBack<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>
     {
         protected VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> Enviroment { get; private set; }
-        // protected readonly IEnviromentFactory _enviromentFactory;
+        
         public frmReflexVacuumCleaner(IEnviromentFactory enviromentFactory)//:base(enviromentFactory)
         {
 

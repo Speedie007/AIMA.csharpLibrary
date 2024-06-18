@@ -1,6 +1,7 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
-using AIMA.CSharpLibrary.AgentComponents.Precepts;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 using AIMA.CSharpLibrary.Probability.Interfaces;
 
@@ -33,34 +34,54 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
     ///<para>
     ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
     ///</para>
-    ///<para>Date Created: 12 May 2024 - Date Last Updated: 11 May 2024</para>
+    ///<para>Date Created: 12 May 2024 - Date Last Updated: 16 June 2024</para>
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public abstract partial class DecisionTheoreticAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
-             where TAction : BaseAgentAction, new()
-         where TPrecept : BaseAgentPrecept, new()
-        //where TAgent : IAgent<TPrecept, TAction>, new()
+             where TAction : BaseAction, new()
+         where TPrecept : BasePrecept, new()
 
     {
+       
         #region Cstor
-        /// <summary>
+ /// <summary>
         /// DecisionTheoreticAgent Constructor
         /// </summary>
-        /// <param name="agentProgram">The agent program responsible for processing the agents function.</param>
-        /// <param name="isAlive">Is the agent active/alive from instantiation</param>
-        protected DecisionTheoreticAgent(BaseAgentProgram<IAgent<TPrecept, TAction>, TPrecept, TAction> agentProgram, bool isAlive = true)
-                   : base(agentProgram, isAlive)
+        protected DecisionTheoreticAgent() : base()
         {
             BeliefState = new BeliefState<TPrecept, TAction>();
             Action = new TAction();
             ActionDescriptions = new List<TAction>();
         }
+
+        /// <summary>
+        /// DecisionTheoreticAgent Constructor
+        /// </summary>
+        /// <param name="agentProgram"><inheritdoc/></param>
+        /// <param name="performaceMeasure"><inheritdoc/></param>
+        /// <param name="isAlive"><inheritdoc/></param>
+        protected DecisionTheoreticAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, BasePerformaceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
+        {
+            BeliefState = new BeliefState<TPrecept, TAction>();
+            Action = new TAction();
+            ActionDescriptions = new List<TAction>();
+        }
+
         #endregion
 
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public IBeliefState<TPrecept, TAction> BeliefState { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public TAction Action { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public List<TAction> ActionDescriptions { get; private set; }
         #endregion
 

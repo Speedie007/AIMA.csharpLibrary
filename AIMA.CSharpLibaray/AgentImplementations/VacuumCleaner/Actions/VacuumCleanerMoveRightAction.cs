@@ -1,30 +1,37 @@
 ﻿using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class VacuumCleanerMoveRightAction : BaseVacuumCleanerMovementAction
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public VacuumCleanerMoveRightAction() : base(nameof(VacuumCleanerMoveRightAction))
         {
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FromLocation"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public override bool CanMoveToNextLocation(XYLocation FromLocation)
         {
             throw new NotImplementedException();
         }
 
-        public override Type DynamicAtrributeType()
-        {
-            return GetType();
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FromLocation"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public override XYLocation GetNextLocation(XYLocation FromLocation)
         {
             throw new NotImplementedException();

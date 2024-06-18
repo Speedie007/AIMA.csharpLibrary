@@ -1,7 +1,7 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.EventsArguments;
-using AIMA.CSharpLibrary.AgentComponents.Precepts;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment;
+using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
 {
@@ -10,14 +10,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
     ///<para>
     ///Author:Brendan Wood (Bsc. IT) - Complied C# Implementation - Supplemental
     ///</para>
-    ///<para>Date Created: 12 May 2024 - Date Last Updated: 12 May 2024</para>
+    ///<para>Date Created: 12 May 2024 - Date Last Updated: 16 June 2024</para>
     /// </summary>
     /// <typeparam name="TAgent">Base Type which is used to represent the Agent</typeparam>
     /// <typeparam name="TPrecept">Base Type which is used to represent Percepts</typeparam>
     /// <typeparam name="TAction">Base Type which is used to represent Actions</typeparam>
     public partial interface IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
-        where TAction : BaseAgentAction, new()
-        where TPrecept : BaseAgentPrecept, new()
+        where TAction : BaseAction, new()
+        where TPrecept : BasePrecept, new()
         where TAgent : BaseAgent<TPrecept, TAction>
 
     {
@@ -34,7 +34,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
         void OnAgentAdded(EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction> args);
         /// <summary>
         /// Will raise the OnAgentRemoved Event delegate which will multi cast to all subscribed listners the agent that was removed from the enviroment.
-        /// </summary
+        /// </summary>
         /// <remarks>
         /// Note: The Event Delegate is in the BaseEnviroment Class
         /// </remarks>
@@ -44,7 +44,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
         void OnAgentRemoved(EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> args);
         /// <summary>
         /// Will raise the OnAgentActed Event delegate which will multi cast to all subscribed listners the agent is executing and acting in the enviroment.
-        /// </summary
+        /// </summary>
         /// <remarks>
         /// Note: The Event Delegate is in the BaseEnviroment Class
         /// </remarks>

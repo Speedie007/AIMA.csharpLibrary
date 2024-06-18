@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Common
@@ -106,9 +107,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// <returns>Value of the specified attribute, or null if not found.</returns>
         public object GetAttributeValue(object key)
         {
+            if (key == null)
+                throw new ArgumentNullException(nameof(key));
+            
             if (DynamicAttributes.TryGetValue(key, out object? attributeValue))
                 return attributeValue;
-            else return new object();
+            else return new();
         }
 
         /// <summary>
@@ -121,10 +125,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
             return DynamicAttributes.Remove(key);
         }
 
+       
         /// <summary>
-        /// 
+        /// <inheritdoc/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns><inheritdoc/></returns>
         public object Clone()
         {
             ComponentDynamicAttributes result;
@@ -145,8 +150,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
             return new object();
         }
 
-       
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns><inheritdoc/></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -156,18 +164,31 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
 
             return sb.ToString();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object? obj)
         {
             return obj != null && GetType() == obj.GetType()
                && DynamicAttributes.Equals(((ComponentDynamicAttributes)obj).DynamicAttributes);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return DynamicAttributes.GetHashCode();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public int Compare(ComponentDynamicAttributes? x, ComponentDynamicAttributes? y)
         {
             throw new NotImplementedException();

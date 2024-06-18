@@ -1,9 +1,15 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.State;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TState"></typeparam>
+    /// <typeparam name="TAction"></typeparam>
     public partial interface IProblem<TState, TAction> : IOnlineSearchProblem<TState, TAction>
-        where TAction : BaseAgentAction
+        where TAction : BaseAction
         where TState : BaseAgentState
     {
         /// <summary>

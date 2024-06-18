@@ -1,4 +1,5 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.State;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface;
@@ -6,28 +7,53 @@ using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
 {
+    /// <summary>
+    /// 21 May
+    /// </summary>
+    /// <typeparam name="TState"></typeparam>
+    /// <typeparam name="TAction"></typeparam>
     public partial class DepthLimitedSearch<TState, TAction> : ISearchForActions<TState, TAction>, ISearchForStates<TState, TAction>
-        where TAction : BaseAgentAction
+        where TAction : BaseAction
         where TState : BaseAgentState, new()
     {
 
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public const string METRIC_NODES_EXPANDED = "nodesExpanded";
+        /// <summary>
+        /// 
+        /// </summary>
         public const string METRIC_PATH_COST = "pathCost";
 
         private int Limit { get; set; }
         private HashSet<TState>? ExploredStates;
+        /// <summary>
+        /// 
+        /// </summary>
         public Node<TState, TAction> cutoffNode = new(new TState());
+        /// <summary>
+        /// 
+        /// </summary>
         protected NodeFactory<TState, TAction> NodeFactory { get; private set; }
         private readonly SearchMetrics SearchMetrics;
         #endregion
 
         #region Cstor
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="limit"></param>
         public DepthLimitedSearch(int limit) : this(limit, new NodeFactory<TState, TAction>())
         {
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="nodeFactory"></param>
         public DepthLimitedSearch(int limit, NodeFactory<TState, TAction> nodeFactory)
         {
             Limit = limit;
@@ -39,26 +65,43 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
         #endregion
 
         #region Methods
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="useCycleDetection"></param>
+        /// <returns></returns>
         public DepthLimitedSearch<TState, TAction> SetCycleDetection(bool useCycleDetection)
         {
             ExploredStates = useCycleDetection ? new HashSet<TState>() : null;
             return this;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="problem"></param>
+        /// <returns></returns>
         public virtual List<TAction> FindActions(IProblem<TState, TAction> problem)
         {
             NodeFactory.UseParentLinks = true;
             Node<TState, TAction> node = FindNode(problem);
             return !IsCutoffResult(node) ? NodeExtensions<TState, TAction>.ToActions(node) : new List<TAction>();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="problem"></param>
+        /// <returns></returns>
         public TState FindState(IProblem<TState, TAction> problem)
         {
             NodeFactory.UseParentLinks = false;
             Node<TState, TAction> node = FindNode(problem);
             return !IsCutoffResult(node) ? NodeExtensions<TState, TAction>.ToState(node) : new TState();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="problem"></param>
+        /// <returns></returns>
         public Node<TState, TAction> FindNode(IProblem<TState, TAction> problem)
         {
             ClearMetrics();
@@ -66,7 +109,13 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
             Node<TState, TAction> node = RecursiveDLS(NodeFactory.CreateNode(problem.InitialAgentState), problem, Limit);
             return node;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="problem"></param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
         private Node<TState, TAction> RecursiveDLS(Node<TState, TAction> node, IProblem<TState, TAction> problem, int limit)
         {
             // if problem.GOAL-TEST(node.STATE) then return SOLUTION(node)
@@ -109,7 +158,12 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
                 return cutoffOccurred ? cutoffNode : result;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="problem"></param>
+        /// <returns></returns>
         private List<Node<TState, TAction>> GetSuccessors(Node<TState, TAction> node, IProblem<TState, TAction> problem)
         {
             List<Node<TState, TAction>> result = NodeFactory.GetSuccessors(node, problem);
@@ -120,7 +174,11 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
             }
             return result;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public bool IsCutoffResult(Node<TState, TAction> node)
         {
             return node != null && node == cutoffNode;
@@ -132,16 +190,29 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
             SearchMetrics.Set(METRIC_NODES_EXPANDED, 0);
             SearchMetrics.Set(METRIC_PATH_COST, 0);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public SearchMetrics GetMetrics()
         {
             return SearchMetrics;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="listener"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public bool removeNodeListener(Action<Node<TState, TAction>> listener)
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="listener"></param>
+        /// <exception cref="NotImplementedException"></exception>
         public void AddNodeListener(Action<Node<TState, TAction>> listener)
         {
             throw new NotImplementedException();

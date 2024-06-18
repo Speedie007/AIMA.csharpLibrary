@@ -13,10 +13,24 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base
     /// </summary>
     public abstract partial class BaseVacuumCleanerMovementAction : VacuumCleanerAction
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
         public BaseVacuumCleanerMovementAction(string name) : base(name)
         {
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FromLocation"></param>
+        /// <returns></returns>
         public abstract bool CanMoveToNextLocation(XYLocation FromLocation);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FromLocation"></param>
+        /// <returns></returns>
         public abstract XYLocation GetNextLocation(XYLocation FromLocation);
     }
 }

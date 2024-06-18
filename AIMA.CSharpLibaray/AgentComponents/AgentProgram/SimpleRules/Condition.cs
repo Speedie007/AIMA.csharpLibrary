@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
+﻿namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract partial class Condition
     {
     }

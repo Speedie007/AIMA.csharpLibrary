@@ -20,7 +20,6 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     /// </para>
     /// </summary>
     /// <typeparam name="TElement">Specifies the type of elements in the queue.</typeparam>
-    /// <typeparam name="double">Specifies the type of priority associated with enqueued elements.</typeparam>
     public partial class FrontiertPriorirtyQueue<TElement> : BaseFrontierQueue<TElement>
         where TElement : class
     {
@@ -62,7 +61,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// </summary>
         /// <returns>The minimal element of the PriorityQueue<![CDATA[<TElement>,double]]>-Default.
         /// <para>Can change this to return the maximum by implementing A custom comparer in the constuctor when creating the queue.</para></returns>
-        public override TElement Dequeue()
+        public override TElement? Dequeue()
         {
             var result = PriorityQueue.TryDequeue(out TElement? node, out double priority) ? node : default;
             PriorityQueue.TrimExcess();
@@ -74,9 +73,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// <remarks>The element is not removed from the PriorityQueue<![CDATA[<TElement>,double]]>.</remarks>
         /// </summary>
         /// <returns>Returns the minimal element from the PriorityQueue<![CDATA[<TElement>,double]]> without removing it.</returns>
-        public override TElement Peek()
+        public override TElement? Peek()
         {
-            return PriorityQueue.TryPeek(out TElement node, out double cost) ? node : default;
+            return PriorityQueue.TryPeek(out TElement? node, out double cost) ? node : default;
         }
         /// <summary>
         /// Removes all items from the PriorityQueue<![CDATA[<TElement>,double]]>.
@@ -94,12 +93,18 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         {
             PriorityQueue.Enqueue(node, priority);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override int Size()
         {
             return PriorityQueue.Count;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override bool IsEmpty()
         {
             return PriorityQueue.Count == 0;
@@ -128,6 +133,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     public partial class FrontierLIFOQueue<TElement> : BaseFrontierQueue<TElement>
     {
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public Stack<TElement> Stack { get; private set; }
         #endregion
 
@@ -155,9 +163,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// Removes and returns the object at the top of the Stack<![CDATA[<TElement>]]>.
         /// </summary>
         /// <returns>The object removed from the top of the Stack<![CDATA[<TElement>]]>.</returns>
-        public override TElement Dequeue()
+        public override TElement? Dequeue()
         {
-            return Stack.TryPop(out TElement result) ? result : default;
+            return Stack.TryPop(out TElement? result) ? result : default;
         }
 
         /// <summary>
@@ -178,23 +186,29 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         }
 
         /// <summary>
-        /// <para>Inserts an object at the top of the Stack<T>. </para>
+        /// <para>Inserts an object at the top of the Stack. </para>
         /// <remarks>
         /// In this context the priority is ignored and only the node is enqueued into the stack.
         /// </remarks>
         /// </summary>
-        /// <param name="node">The object to push onto the Stack<T>. The value can be null for reference types.</param>
+        /// <param name="node">The object to push onto the Stack. The value can be null for reference types.</param>
         /// <param name="priority"></param>
         public override void Enqueue(TElement node, double priority)
         {
             Stack.Push(node);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override int Size()
         {
             return Stack.Count;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override bool IsEmpty()
         {
             return Stack.Count == 0;
@@ -219,6 +233,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     public partial class FontierFIFOQueue<TElement> : BaseFrontierQueue<TElement>
     {
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public Queue<TElement> Queue { get; private set; }
         #endregion
 
@@ -253,9 +270,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// Removes and returns the object at the beginning of the Queue<![CDATA[<TElement>]]>.
         /// </summary>
         /// <returns>The object that is removed from the beginning of the Queue<![CDATA[<TElement>]]>.The object that is removed from the beginning of the Queue<![CDATA[<TElement>]]>.</returns>
-        public override TElement Dequeue()
+        public override TElement? Dequeue()
         {
-            return Queue.TryDequeue(out TElement result) ? result : default;
+            return Queue.TryDequeue(out TElement? result) ? result : default;
         }
 
         /// <summary>
@@ -263,9 +280,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// <para>The object is not removed from the Queue<![CDATA[<TElement>]]>.</para>
         /// </summary>
         /// <returns>If present, the object at the beginning of the Queue<![CDATA[<TElement>]]>; otherwise, the default value of T.</returns>
-        public override TElement Peek()
+        public override TElement? Peek()
         {
-            return Queue.TryPeek(out TElement result) ? default : result;
+            return Queue.TryPeek(out TElement? result) ? default : result;
         }
 
         /// <summary>
@@ -281,12 +298,18 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         {
             Queue.Enqueue(node);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override int Size()
         {
             return Queue.Count;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override bool IsEmpty()
         {
             return Queue.Count == 0;

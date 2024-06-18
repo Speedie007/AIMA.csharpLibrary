@@ -1,8 +1,6 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.EventsArguments.Base;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
-using AIMA.CSharpLibrary.AgentComponents.Precepts;
+using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
@@ -29,23 +27,24 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
-        where TPrecept : BaseAgentPrecept, new()
-        where TAction : BaseAgentAction, new()  
+        where TPrecept : BasePrecept, new()
+        where TAction : BaseAction, new()  
     {
 
         /// <summary>
         /// Call the BaseAgent's program, which maps any given percept sequences to an action.
         /// </summary>
-        /// <param name="percept">The current percept of A sequence perceived by the BaseAgent.</param>
+        /// <param name="percept">The current percept of the current enviroment perceived by the BaseAgent.</param>
         /// <returns>
         /// <para>The Action to be taken in response to the currently perceived percept.</para>
-        /// <para>Empty replaces NoOp in earlier implementations.</para></returns>
-        TAction ActOnPrecept(TPrecept percept);
+        /// <para>An Action of type NoOperation replaces NoOp in earlier implementations.</para></returns>
+        TAction DeriveAgentActionBasedOnPrecept(TPrecept percept);
+
         /// <summary>
-        /// Will initiavte polling the enviromental sensors that the agent has avaialble to it.
-        /// <para>in real worl eveniroiment this would be implemented internal in the agents program.</para>
+        /// Will initiate polling the enviromental sensors that the agent has avaialble to it.
         /// </summary>
-        /// <returns>the agents precept based on the current state of the enviroment it is operating in.</returns>
+        /// <param name="EnvironmentObjects">Current Objects within in the agents enviroment</param>
+        /// <returns>Agent Precept, based on the current state of the enviroment it is operating in.</returns>
         TPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects);
 
         /// <summary>
@@ -53,6 +52,22 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// Perperty: Value true if the BaseAgent is to be considered alive, false otherwise.
         /// </summary>
         public bool IsAlive { get; set; }
+
+        /// <summary>
+        /// <para>
+        /// Method is called when an agent doesn't select an action when asked. Default implementation does nothing.
+        /// </para>
+        /// <remarks>
+        /// Sub-classes can for example modify the isDone status.
+        /// </remarks>
+        /// </summary>
+        void ExecuteNoOp();
+
+        /// <summary>
+        /// Operations to be implemented by Agent:
+        /// </summary>
+        /// <param name="action">The Action to be performed by the Agent.</param>
+        void ExecuteAgentAction(TAction action);
 
     }
 }

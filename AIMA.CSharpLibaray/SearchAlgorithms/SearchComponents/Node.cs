@@ -1,4 +1,5 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.State;
 using System.Diagnostics.CodeAnalysis;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
@@ -31,7 +32,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 
     public partial class Node<TState, TAction> :
         IComparer<Node<TState, TAction>>, IEqualityComparer<Node<TState, TAction>>
-            where TAction : BaseAgentAction
+            where TAction : BaseAction
             where TState: BaseAgentState
     {
         /// <summary>
@@ -60,6 +61,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         }
         
         #region properties
+        /// <summary>
+        /// 
+        /// </summary>
         public Guid ID { get; private set; } = Guid.NewGuid();
         /// <summary>
         /// n.NodeState: the state in the state space to which the node corresponds;
@@ -81,12 +85,20 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// n.Depth: the depth of the node in the search space.
         /// </summary>
         public int Depth { get; private set; }// = parentNode != null ? parentNode.Depth + 1 : 0;
-
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsRootNode { get { return ParentNode == null; } }
 
 
         #endregion
         #region Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public int Compare(Node<TState, TAction>? x, Node<TState, TAction>? y)
         {
             if (x == null || y == null)
@@ -105,11 +117,20 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
                 return 0;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "[parent=" + ParentNode!.GetType().Name + ", action=" + ActionApplied?.ToString() + ", state=" + NodeState?.ToString() + ", pathCost=" + PathCost + "]";
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public bool Equals(Node<TState, TAction>? x, Node<TState, TAction>? y)
         {
             if (ReferenceEquals(x, y))
@@ -128,7 +149,11 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
             //&& x.Depth == y.Depth
             //&& x.ActionApplied.ActionName().Equals(y.ActionApplied.ActionName());
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public int GetHashCode([DisallowNull] Node<TState, TAction> node)
         {
             return node.ID.GetHashCode(); //node.IsRootNode.GetHashCode() ^ node.PathCost.GetHashCode() ^ node.NodeState.GetHashCode() ^ node.Depth ^;

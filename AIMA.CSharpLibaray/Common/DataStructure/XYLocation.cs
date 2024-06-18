@@ -39,7 +39,7 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
         public XYLocation(int x, int y)
         {
             CurrentXCoOrdinate = x;
-            CurrentXCoOrdinate = y;
+            CurrentYCoOrdinate = y;
         }
         #endregion
 
@@ -146,6 +146,11 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object? obj)
         {
             if (null == obj || !(obj is XYLocation))
@@ -166,7 +171,10 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
         {
             return Tuple.Create(CurrentXCoOrdinate, CurrentYCoOrdinate).GetHashCode(); ;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string? ToString()
         {
             return $"[X:{CurrentXCoOrdinate},Y:{CurrentYCoOrdinate}]";

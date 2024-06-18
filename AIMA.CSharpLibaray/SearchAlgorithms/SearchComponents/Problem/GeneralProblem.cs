@@ -1,4 +1,5 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.State;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
@@ -15,11 +16,14 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class GeneralProblem<TState, TAction> : IProblem<TState, TAction>
-        where TAction : BaseAgentAction where TState : BaseAgentState
+        where TAction : BaseAction where TState : BaseAgentState
         
     {
 
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public TState InitialAgentState { get; private set; }
         private Func<TState, List<TAction>> ApplicableActionsFunc { get; }
         private Func<TState, TAction, TState> TransitionModelResultFunc { get; }
@@ -53,7 +57,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
         /// <summary>
         /// Constructs A problem with the specified components, and A default step cost function (i.e. 1 per step).
         /// </summary>
-        /// <param name="initialStateOfAgent">The initial state of the agent.</param>
+        /// <param name="agentIntialState">The initial state of the agent.</param>
         /// <param name="agentActionsForStateFunc">A description of the possible actions available to the agent.</param>
         /// <param name="modelResultFunc"> A description of what each action does; the formal name for this is the transition model, specified by A function RESULT(s, A) that returns the state that results from doing action A in state s.</param>
         /// <param name="goalTestFunction">test determines whether A given state is A goal state.</param>
@@ -73,22 +77,50 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
         #endregion
 
         #region Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentCurrentState"></param>
+        /// <returns></returns>
         public List<TAction> GetApplicableActionsForAgentCurrentState(TState agentCurrentState)
         {
             return ApplicableActionsFunc.Invoke(agentCurrentState);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentCurrentState"></param>
+        /// <param name="agentAction"></param>
+        /// <returns></returns>
         public TState GetTransitionModelResult(TState agentCurrentState, TAction agentAction)
         {
             return TransitionModelResultFunc.Invoke(agentCurrentState, agentAction);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
         public bool TestGoal(TState state)
         {
             return GoalTestFunc.Invoke(state);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="action"></param>
+        /// <param name="stateDelta"></param>
+        /// <returns></returns>
         public double GetStepCost(TState state, TAction action, TState stateDelta)
         {
             return StepCostFunc.Invoke(state, action, stateDelta);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public virtual bool TestSolution(Node<TState, TAction> node)
         {
             return TestGoal(node.NodeState);

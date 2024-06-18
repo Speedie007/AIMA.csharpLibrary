@@ -19,6 +19,9 @@
         /// </summary>
         /// <param name="message">The message to be forwarded from the current Envirment.</param>
         void Notify(string message);
+        /// <summary>
+        /// 
+        /// </summary>
         
         event EventHandler AgentAddedEventHandler;
         

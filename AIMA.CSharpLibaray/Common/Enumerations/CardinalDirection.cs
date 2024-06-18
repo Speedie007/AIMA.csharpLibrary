@@ -9,13 +9,37 @@
     /// </summary>
     public enum CardinalDirection
     {
+        /// <summary>
+        /// 
+        /// </summary>
         North = 10, 
-        NorthEast = 15, 
+        /// <summary>
+        /// 
+        /// </summary>
+        NorthEast = 15,
+        /// <summary>
+        /// 
+        /// </summary>
         East = 20, 
+        /// <summary>
+        /// 
+        /// </summary>
         SouthEast = 25, 
+        /// <summary>
+        /// 
+        /// </summary>
         South = 30, 
+        /// <summary>
+        /// 
+        /// </summary>
         SouthWest = 35, 
+        /// <summary>
+        /// 
+        /// </summary>
         West = 40, 
+        /// <summary>
+        /// 
+        /// </summary>
         NortheWest = 45
     }
 }

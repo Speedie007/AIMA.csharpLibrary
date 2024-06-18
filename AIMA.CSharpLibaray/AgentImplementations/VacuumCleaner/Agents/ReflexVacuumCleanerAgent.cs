@@ -1,40 +1,56 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
-using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerPrograms;
-using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
 {
+    /// <summary>
+    /// <para>Artificial Intelligence A Modern Approach (3rd Edition): Figure 2.8, page 48.</para>
+    /// 
+    /// 16 june
+    /// </summary>
     public partial class ReflexVacuumCleanerAgent : BaseAgent<VacuumCleanerPrecept, VacuumCleanerAction>
     {
-        public ReflexVacuumCleanerAgent() : base(new ReflexAgentProgram(), false)
+        #region Cstor
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public ReflexVacuumCleanerAgent() : this(
+            new DefaultAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction>(),
+            new DefaultPerformanceMeasure(),
+            true)
+        { }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="agentProgram"><inheritdoc/></param>
+        /// <param name="performaceMeasure"><inheritdoc/></param>
+        /// <param name="isAlive"><inheritdoc/></param>
+        public ReflexVacuumCleanerAgent(
+            BaseAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction> agentProgram,
+            BasePerformaceMeasure performaceMeasure,
+            bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {
-
         }
+        #endregion
 
-        public ReflexVacuumCleanerAgent(BaseAgentProgram<IAgent<VacuumCleanerPrecept, VacuumCleanerAction>, VacuumCleanerPrecept, VacuumCleanerAction>? agentProgram, bool isAlive) : base(agentProgram, isAlive)
+        #region Methods
+        /// <inheritdoc/>
+        public override void ExecuteAgentAction(VacuumCleanerAction action)
         {
+            throw new NotImplementedException();
         }
-
-        public override VacuumCleanerAction ActOnPrecept(VacuumCleanerPrecept percept)
+        /// <inheritdoc/>
+        public override void ExecuteNoOp()
         {
-            return base.ActOnPrecept(percept);
+            throw new NotImplementedException();
         }
+        #endregion
 
-        public override VacuumCleanerPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects)
-        {
-            return base.PollAgentSensors(EnvironmentObjects);
-        }
 
-        //public override VacuumCleanerPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects)
-        //{
-        //    if (EnvironmentObjects != null)
-        //    return AgentProgram.SensorPollingFunc.Invoke(EnvironmentObjects);
-
-        //}
     }
 }
