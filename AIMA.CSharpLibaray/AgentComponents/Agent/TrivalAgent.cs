@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions;
-using AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent

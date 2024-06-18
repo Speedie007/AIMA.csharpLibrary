@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Events;
 using AIMA.CSharpLibrary.AgentComponents.Events.Interface;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;

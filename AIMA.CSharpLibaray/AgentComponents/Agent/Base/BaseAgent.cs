@@ -7,7 +7,7 @@ using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 {
     /// <summary>
     /// 
