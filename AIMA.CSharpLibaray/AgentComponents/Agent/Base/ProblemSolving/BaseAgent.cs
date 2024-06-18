@@ -7,7 +7,7 @@ using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
 {
     /// <summary>
     /// 
@@ -62,7 +62,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
             {
                 return new();
             }
-            else { return (AgentProgram.PreceptToActionFunc?.Invoke(percept) is TAction agentAction) ? agentAction : new(); }
+            else { return AgentProgram.PreceptToActionFunc?.Invoke(percept) is TAction agentAction ? agentAction : new(); }
         }
 
         /// <inheritdoc/>

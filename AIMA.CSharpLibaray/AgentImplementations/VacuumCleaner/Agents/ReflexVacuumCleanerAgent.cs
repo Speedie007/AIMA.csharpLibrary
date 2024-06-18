@@ -1,4 +1,4 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;

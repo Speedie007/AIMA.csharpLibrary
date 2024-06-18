@@ -5,5 +5,7 @@
     /// </summary>
     public partial interface IPerformanceMeasureEvents
     {
+
+
     }
 }
