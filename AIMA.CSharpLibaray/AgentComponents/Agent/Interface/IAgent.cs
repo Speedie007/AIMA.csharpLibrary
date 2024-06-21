@@ -3,7 +3,7 @@ using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
 {
     /// <summary>
     /// <para>

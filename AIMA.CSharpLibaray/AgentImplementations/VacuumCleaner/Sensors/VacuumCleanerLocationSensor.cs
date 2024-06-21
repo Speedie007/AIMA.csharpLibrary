@@ -1,4 +1,4 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
 using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Sensors.Base;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
