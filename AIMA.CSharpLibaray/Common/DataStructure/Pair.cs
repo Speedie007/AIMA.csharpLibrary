@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.Common.DataStructure.Interface
+﻿namespace AIMA.CSharpLibrary.Common.DataStructure
 {
     /// <summary>
     ///  /// <para>

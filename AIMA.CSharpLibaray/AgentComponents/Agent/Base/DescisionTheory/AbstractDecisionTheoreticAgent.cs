@@ -2,7 +2,7 @@
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
-using AIMA.CSharpLibrary.Common.DataStructure.Interface;
+using AIMA.CSharpLibrary.Common.DataStructure;
 using AIMA.CSharpLibrary.Probability;
 using AIMA.CSharpLibrary.Probability.Interfaces;
 
