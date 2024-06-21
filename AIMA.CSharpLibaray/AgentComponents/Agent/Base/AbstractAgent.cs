@@ -18,19 +18,19 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public abstract partial class BaseAgent<TPrecept, TAction> :
+    public abstract partial class AbstractAgent<TPrecept, TAction> :
         IAgent<TPrecept, TAction>,
         IAgentEvents<TPrecept, TAction>,
         IAgentEventFeedBack<TPrecept, TAction>
-            where TAction : BaseAction, new()
+            where TAction : AbstractAction, new()
             where TPrecept : BasePrecept, new()
     {
 
         #region Properties
         /// <summary>
-        /// 
+        /// <inheritdoc/>
         /// </summary>
-        protected BaseAgentProgram<TPrecept, TAction> AgentProgram { get; set; }
+        protected AbstractAgentProgram<TPrecept, TAction> AgentProgram { get; private set; }
         /// <summary>
         /// Bool Property, Defining if the the agtent is currently alive/active.
         /// </summary>
@@ -38,14 +38,15 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <summary>
         /// Read-only property, used to reference the assinged Performance measure used by the agent.
         /// </summary>
-        public BasePerformaceMeasure PerformaceMeasure { get; }
+        /// 
+        public BasePerformaceMeasure PerformaceMeasure { get; private set; }
         #endregion
 
         #region Cstor
         /// <summary>
         /// Empty Defalt Constructor, initailises te agent with the default agent program, Default Preformance Measure implementation, and instantiates the agent as alive(True)
         /// </summary>
-        protected BaseAgent() : this(new DefaultAgentProgram<TPrecept, TAction>(), new DefaultPerformanceMeasure(), true) { }
+        protected AbstractAgent() : this(new DefaultAgentProgram<TPrecept, TAction>(), new DefaultPerformanceMeasure(), true) { }
 
         /// <summary>
         /// Agent Constructor, requires the implementation of the Agent's program, performance measue to implement, and wheather the agent is alive from instantiation.
@@ -53,7 +54,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <param name="agentProgram">The Agent Program serves as the Agent's function(Logic implementation).</param>
         /// <param name="isAlive">Bool, Defining if the the agtent is alive/active when instantiated.</param>
         /// <param name="performanceMeasure">The Performance Measure type assigned to the agent.</param>
-        protected BaseAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, BasePerformaceMeasure performanceMeasure, bool isAlive)
+        protected AbstractAgent(AbstractAgentProgram<TPrecept, TAction> agentProgram, BasePerformaceMeasure performanceMeasure, bool isAlive)
         {
             AgentProgram = agentProgram;
             IsAlive = isAlive;
@@ -104,13 +105,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
                 return new();
         }
         /// <inheritdoc/>
-        public virtual TAction DeriveAgentActionBasedOnPrecept(TPrecept percept)
+        public virtual TAction ProcessAgentFunction(TPrecept percept)
         {
             if (percept == null || AgentProgram == null)
             {
                 return new();
             }
-            else { return AgentProgram.PreceptToActionFunc?.Invoke(percept) is TAction agentAction ? agentAction : new(); }
+            else { return AgentProgram.AgentFunction?.Invoke(percept) is TAction agentAction ? agentAction : new(); }
         }
 
         /// <inheritdoc/>

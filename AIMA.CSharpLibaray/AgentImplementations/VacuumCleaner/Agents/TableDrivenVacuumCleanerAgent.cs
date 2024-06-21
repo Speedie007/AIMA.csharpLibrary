@@ -10,7 +10,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
     /// 16 jume
     /// <inheritdoc/>
     /// </summary>
-    public partial class TableDrivenVacuumCleanerAgent : BaseAgent<VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class TableDrivenVacuumCleanerAgent : AbstractAgent<VacuumCleanerPrecept, VacuumCleanerAction>
     {
         #region Cstor
         /// <summary>
@@ -24,7 +24,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
         /// <param name="agentProgram"><inheritdoc/></param>
         /// <param name="performaceMeasure"><inheritdoc/></param>
         /// <param name="isAlive"><inheritdoc/></param>
-        public TableDrivenVacuumCleanerAgent(BaseAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction> agentProgram, BasePerformaceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
+        public TableDrivenVacuumCleanerAgent(AbstractAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction> agentProgram, BasePerformaceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {
         }
 

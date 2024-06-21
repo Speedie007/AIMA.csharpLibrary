@@ -9,8 +9,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
     /// <summary>
     /// 
     /// </summary>
-    public partial class DefaultAgentProgram<TPrecept, TAction> : BaseAgentProgram<TPrecept, TAction>
-        where TAction : BaseAction, new()
+    public partial class DefaultAgentProgram<TPrecept, TAction> : AbstractAgentProgram<TPrecept, TAction>
+        where TAction : AbstractAction, new()
         where TPrecept : BasePrecept, new()
     {
         #region Cstor
@@ -33,7 +33,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <param name="percept">Agent Precept</param>
         /// <remarks>In this example the precept is emtpy</remarks>
         /// <returns>Default ActionExecuted => which is No Operation ActionExecuted. The agent will do thing.</returns>
-        public override TAction ProcessAgentPecept(TPrecept percept)
+        public override TAction ProcessAgentFunction(TPrecept percept)
         {
             return new();
         }

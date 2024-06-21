@@ -13,8 +13,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class DepthLimitedSearch<TState, TAction> : ISearchForActions<TState, TAction>, ISearchForStates<TState, TAction>
-        where TAction : BaseAction, new()
-        where TState : BaseAgentState, new()
+        where TAction : AbstractAction, new()
+        where TState : BaseState, new()
     {
 
         #region Properties

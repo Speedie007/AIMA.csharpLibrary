@@ -1,5 +1,7 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
+using System.Collections.Generic;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
 {
@@ -8,17 +10,18 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     /// </summary>
     /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
     /// <typeparam name="TAction"><inheritdoc/></typeparam>
-    public abstract partial class BaseReflexAgentProgram<TPrecept, TAction> : BaseAgentProgram<TPrecept, TAction>
-        where TAction : BaseAction, new()
+    public abstract partial class AbstractReflexAgentProgram<TPrecept, TAction> : AbstractAgentProgram<TPrecept, TAction>
+        where TAction : AbstractAction, new()
         where TPrecept : BasePrecept, new()
     {
 
+        
 
         #region Cstr
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        protected BaseReflexAgentProgram() : base()
+        protected AbstractReflexAgentProgram() : base()
         {
         }
         /// <summary>
@@ -33,7 +36,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// </summary>
         /// <param name="percept"><inheritdoc/></param>
         /// <returns><inheritdoc/></returns>
-        public override TAction ProcessAgentPecept(TPrecept percept)
+        public override TAction ProcessAgentFunction(TPrecept percept)
         {
            return new();
         }

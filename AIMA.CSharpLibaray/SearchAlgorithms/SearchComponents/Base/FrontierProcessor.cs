@@ -11,8 +11,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public abstract partial class FrontierProcessor<TState, TAction> : IFrontierProcessor<TState, TAction> 
-        where TAction : BaseAction, new()
-        where TState : BaseAgentState, new()
+        where TAction : AbstractAction, new()
+        where TState : BaseState, new()
     {
 
         #region Properties

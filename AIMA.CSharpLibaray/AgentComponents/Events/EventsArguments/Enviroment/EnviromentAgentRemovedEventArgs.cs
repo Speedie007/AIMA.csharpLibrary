@@ -13,9 +13,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> : BaseEnviromentEventArgs<TAgent, TPrecept, TAction>
-        where TAction : BaseAction, new()
+        where TAction : AbstractAction, new()
         where TPrecept : BasePrecept, new()
-        where TAgent : BaseAgent<TPrecept, TAction>
+        where TAgent : AbstractAgent<TPrecept, TAction>
     {
         #region Cstor
         /// <summary>
@@ -23,7 +23,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
         /// </summary>
         /// <param name="agentRemoved"></param>
         /// <param name="sourceEnviroment"></param>
-        public EnviromentAgentRemovedEventArgs(TAgent agentRemoved, BaseEnvironment<TAgent, TPrecept, TAction> sourceEnviroment)
+        public EnviromentAgentRemovedEventArgs(TAgent agentRemoved, AbstractEnvironment<TAgent, TPrecept, TAction> sourceEnviroment)
             : base(sourceEnviroment)
         {
             AgentRemoved = agentRemoved;

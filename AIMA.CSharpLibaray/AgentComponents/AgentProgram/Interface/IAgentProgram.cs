@@ -30,7 +30,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgentProgram<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
-        where TAction : BaseAction, new()
+        where TAction : AbstractAction, new()
     {
         /// <summary>
         /// 
@@ -42,11 +42,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// </summary>
         void Initialize();
         /// <summary>
-        /// The BaseAgent's program Precept To ActionExecuted Function, which maps any given percept sequences to an action.
-        /// <para>The current percept of A sequence perceived by the BaseAgent.</para>
+        /// The AbstractAgent's program Precept To ActionExecuted Function, which maps any given percept sequences to an action.
+        /// <para>The current percept of A sequence perceived by the AbstractAgent.</para>
         /// </summary>
         /// <returns>The ActionExecuted to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
-        Func<TPrecept, BaseAction> PreceptToActionFunc { get; }
+        Func<TPrecept, AbstractAction> AgentFunction { get; }
 
         /// <summary>
         /// 

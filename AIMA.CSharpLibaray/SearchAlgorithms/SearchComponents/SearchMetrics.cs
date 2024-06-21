@@ -1,7 +1,7 @@
 ﻿namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 {
     /// <summary>
-    /// Stores key-value pairs for efficiency analysis.
+    /// Stores PropertyKey-value pairs for efficiency analysis.
     ///<para>
     ///Author:Ruediger Lunde
     ///</para>
@@ -106,7 +106,7 @@
             return Metric.Keys.ToList();
         }
 
-        /** Sorts the key-value pairs by key names and formats them as equations. */
+        /** Sorts the PropertyKey-value pairs by PropertyKey names and formats them as equations. */
         public string toString()
         {
             //TODO: Set through the items in the dictonary and build string representation.

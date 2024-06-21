@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMe
     /// <typeparam name="TAction"></typeparam>
     public class AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> : BasePerformanceMeasureEventArgs
         where TPrecept : BasePrecept, new()
-        where TAction : BaseAction, new()
+        where TAction : AbstractAction, new()
     {
 
         #region cstor
@@ -23,7 +23,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMe
         /// <param name="agent"></param>
         /// <param name="performaceMeasure"></param>
         public AgentPerformanceMeasureUpdatedEventArgs(
-            BaseAgent<TPrecept, TAction> agent,
+            AbstractAgent<TPrecept, TAction> agent,
             BasePerformaceMeasure performaceMeasure) :base(performaceMeasure)
         {
             Agent = agent;
@@ -32,7 +32,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMe
         /// <value>
         /// <code>Agent</code>
         /// </value>
-        public BaseAgent<TPrecept, TAction> Agent { get; }
+        public AbstractAgent<TPrecept, TAction> Agent { get; }
         
         #endregion
     }

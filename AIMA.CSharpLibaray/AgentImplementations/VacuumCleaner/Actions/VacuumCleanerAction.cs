@@ -6,7 +6,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
     /// <summary>
     /// 9 June
     /// </summary>
-    public partial class VacuumCleanerAction : BaseAction, IVacuumCleanerAction
+    public partial class VacuumCleanerAction : AbstractAction, IVacuumCleanerAction
     {
         /// <summary>
         /// 

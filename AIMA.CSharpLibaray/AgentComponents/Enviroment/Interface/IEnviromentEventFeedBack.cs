@@ -6,7 +6,7 @@ using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
 {
     /// <summary>
-    /// Allows applications to analyze and visualize the interaction of BaseAgent(s) with an Environment.
+    /// Allows applications to analyze and visualize the interaction of AbstractAgent(s) with an Environment.
     ///<para>
     ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
@@ -16,9 +16,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
     /// <typeparam name="TPrecept">Base Type which is used to represent Percepts</typeparam>
     /// <typeparam name="TAction">Base Type which is used to represent Actions</typeparam>
     public partial interface IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
-        where TAction : BaseAction, new()
+        where TAction : AbstractAction, new()
         where TPrecept : BasePrecept, new()
-        where TAgent : BaseAgent<TPrecept, TAction>
+        where TAgent : AbstractAgent<TPrecept, TAction>
 
     {
 

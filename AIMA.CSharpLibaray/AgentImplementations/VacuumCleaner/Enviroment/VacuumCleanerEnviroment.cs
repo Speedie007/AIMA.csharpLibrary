@@ -12,10 +12,10 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment
     /// <typeparam name="TAgent"><inheritdoc/></typeparam>
     /// <typeparam name="TAgentPrecept"><inheritdoc/></typeparam>
     /// <typeparam name="TAgentAction"><inheritdoc/></typeparam>
-    public partial class VacuumCleanerEnviroment<TAgent, TAgentPrecept, TAgentAction> : BaseEnvironment<TAgent, TAgentPrecept, TAgentAction>
-            where TAgentAction : BaseAction, new()
+    public partial class VacuumCleanerEnviroment<TAgent, TAgentPrecept, TAgentAction> : AbstractEnvironment<TAgent, TAgentPrecept, TAgentAction>
+            where TAgentAction : AbstractAction, new()
             where TAgentPrecept : BasePrecept, new()
-            where TAgent : BaseAgent<TAgentPrecept, TAgentAction>
+            where TAgent : AbstractAgent<TAgentPrecept, TAgentAction>
     {
         /// <summary>
         /// Property indicating wheather the Exogenous Change within the eviroment may occur.

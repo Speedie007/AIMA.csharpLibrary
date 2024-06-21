@@ -9,7 +9,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerProg
     /// <para>Artificial Intelligence A Modern Approach (3rd Edition): pg 58.</para>
     /// 
     /// </summary>
-    public partial class ReflexVacuumCleanerAgentProgram : BaseReflexAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class ReflexVacuumCleanerAgentProgram : AbstractReflexAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction>
 
     {
 
@@ -24,7 +24,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerProg
 
         }
         /// <inheritdoc/>
-        public override VacuumCleanerAction ProcessAgentPecept(VacuumCleanerPrecept percept)
+        public override VacuumCleanerAction ProcessAgentFunction(VacuumCleanerPrecept percept)
         {
 
             //Set thew action to Default => NoOperation ActionExecuted.

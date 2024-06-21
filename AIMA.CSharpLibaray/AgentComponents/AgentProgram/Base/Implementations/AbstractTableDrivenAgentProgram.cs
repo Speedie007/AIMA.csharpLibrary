@@ -26,8 +26,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions </typeparam>
-    public abstract partial class BaseTableDrivenAgentProgram<TPrecept, TAction> : BaseAgentProgram<TPrecept, TAction>
-        where TAction : BaseAction, new()
+    public abstract partial class AbstractTableDrivenAgentProgram<TPrecept, TAction> : AbstractAgentProgram<TPrecept, TAction>
+        where TAction : AbstractAction, new()
         where TPrecept : BasePrecept, new()
     {
         /// <summary>
@@ -42,7 +42,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// <summary>
         /// <para>Constructs A TableDrivenAgentProgram with A table of actions, indexed by percept sequences.</para>
         /// </summary>
-        protected BaseTableDrivenAgentProgram() : base()
+        protected AbstractTableDrivenAgentProgram() : base()
         {
             Precepts = new List<TPrecept>();
             Table = new Dictionary<List<TPrecept>, TAction>();
@@ -51,7 +51,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// Constructs A TableDrivenAgentProgram with A table of actions, indexed by percept sequences.
         /// </summary>
         /// <param name="perceptsToActionMap">A listing of actions, indexed by percept sequences</param>
-        protected BaseTableDrivenAgentProgram(Dictionary<List<TPrecept>, TAction> perceptsToActionMap) : base()
+        protected AbstractTableDrivenAgentProgram(Dictionary<List<TPrecept>, TAction> perceptsToActionMap) : base()
         {
             Table = perceptsToActionMap;
             Precepts = new List<TPrecept>();
@@ -61,7 +61,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         #region Methods
        
         /// <inheritdoc/>
-        public override TAction ProcessAgentPecept(TPrecept percept)
+        public override TAction ProcessAgentFunction(TPrecept percept)
         {
             Precepts.Add(percept);
             if (Table.TryGetValue(Precepts, out TAction? agentAction))

@@ -16,7 +16,7 @@ namespace AIMA.CSharp.GUI.Factory
         #endregion
         public T? Create<T>() where T : Form
         {
-            return _scope.ServiceProvider.GetService<T>();
+            return _scope.ServiceProvider?.GetService<T>();
         }
     }
 }

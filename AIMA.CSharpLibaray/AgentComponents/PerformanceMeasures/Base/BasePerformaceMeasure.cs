@@ -6,7 +6,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base
     /// <summary>
     /// 16 June
     /// </summary>
-    public abstract partial class BasePerformaceMeasure : ComponentDynamicAttributes, IPerformanceMeasure
+    public abstract partial class BasePerformaceMeasure : AbstractDynamicProperties, IPerformanceMeasure
     {
         /// <summary>
         /// 

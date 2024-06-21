@@ -8,7 +8,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerProg
     /// <summary>
     /// 15 june
     /// </summary>
-    public partial class TableDrivenVacuumCleanerAgentProgram : BaseTableDrivenAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class TableDrivenVacuumCleanerAgentProgram : AbstractTableDrivenAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction>
     {
         /// <summary>
         /// 

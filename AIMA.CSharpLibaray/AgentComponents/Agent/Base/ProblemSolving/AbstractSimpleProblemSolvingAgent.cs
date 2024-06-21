@@ -13,14 +13,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public abstract partial class BaseSimpleProblemSolvingAgent<TPrecept, TState, TAction> : BaseAgent<TPrecept, TAction>
-        where TAction : BaseAction, new()
+    public abstract partial class AbstractSimpleProblemSolvingAgent<TPrecept, TState, TAction> : AbstractAgent<TPrecept, TAction>
+        where TAction : AbstractAction, new()
         where TPrecept : BasePrecept, new()
     {
         /// <summary>
         /// 
         /// </summary>
-        protected BaseSimpleProblemSolvingAgent():base()
+        protected AbstractSimpleProblemSolvingAgent():base()
         {
         }
         /// <summary>
@@ -29,7 +29,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
         /// <param name="agentProgram"></param>
         /// <param name="performaceMeasure"></param>
         /// <param name="isAlive"></param>
-        protected BaseSimpleProblemSolvingAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, BasePerformaceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
+        protected AbstractSimpleProblemSolvingAgent(
+            AbstractAgentProgram<TPrecept, TAction> agentProgram,
+            BasePerformaceMeasure performaceMeasure,
+            bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {
         }
        
@@ -39,9 +42,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
         /// </summary>
         /// <param name="percept"></param>
         /// <returns></returns>
-        public override TAction DeriveAgentActionBasedOnPrecept(TPrecept percept)
+        public override TAction ProcessAgentFunction(TPrecept percept)
         {
-            return base.DeriveAgentActionBasedOnPrecept(percept);
+            return base.ProcessAgentFunction(percept);
         }
         /// <summary>
         /// 

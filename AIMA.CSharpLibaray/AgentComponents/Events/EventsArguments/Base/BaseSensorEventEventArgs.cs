@@ -10,7 +10,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
     /// </summary>
     public partial class BaseSensorEventEventArgs<TPrecept, TAction> : EventArgs
         where TPrecept: BasePrecept, new()
-        where TAction: BaseAction, new()    
+        where TAction: AbstractAction, new()    
     {
 
         #region Cstor

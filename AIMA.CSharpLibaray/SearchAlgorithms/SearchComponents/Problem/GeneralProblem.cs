@@ -16,8 +16,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class GeneralProblem<TState, TAction> : IProblem<TState, TAction>
-        where TAction : BaseAction, new() where TState : BaseAgentState, new()
-        
+        where TAction : AbstractAction, new() 
+        where TState : BaseState, new()
     {
 
         #region Properties
@@ -38,7 +38,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
         /// </summary>
         /// <param name="initialStateOfAgent">The initial state of the agent.</param>
         /// <param name="agentActionsForStateFunc">A description of the possible actions available to the agent.</param>
-        /// <param name="modelResultFunc"> A description of what each action does; the formal name for this is the transition model, specified by A function RESULT(s, A) that returns the state that results from doing action A in state s.</param>
+        /// <param name="modelResultFunc"> A description of what each action does; the formal name for this is the transition AgentModel, specified by A function RESULT(s, A) that returns the state that results from doing action A in state s.</param>
         /// <param name="goalTestFunction">test determines whether A given state is A goal state.</param>
         /// <param name="stepCostFunc">A path cost function that assigns A numeric cost to each path. The problem-solving-agent chooses A cost function that reflects its own performance measure.</param>
         public GeneralProblem(
@@ -59,7 +59,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
         /// </summary>
         /// <param name="agentIntialState">The initial state of the agent.</param>
         /// <param name="agentActionsForStateFunc">A description of the possible actions available to the agent.</param>
-        /// <param name="modelResultFunc"> A description of what each action does; the formal name for this is the transition model, specified by A function RESULT(s, A) that returns the state that results from doing action A in state s.</param>
+        /// <param name="modelResultFunc"> A description of what each action does; the formal name for this is the transition AgentModel, specified by A function RESULT(s, A) that returns the state that results from doing action A in state s.</param>
         /// <param name="goalTestFunction">test determines whether A given state is A goal state.</param>
         public GeneralProblem(
             TState agentIntialState,

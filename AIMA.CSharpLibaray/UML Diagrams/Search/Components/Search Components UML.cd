@@ -9,7 +9,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchMetrics">
-    <Position X="11" Y="4" Width="1.75" />
+    <Position X="10.75" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAhAAAABBBAAAAABAAAAAAAAAACAAAAAACAQAA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\SearchMetrics.cs</FileName>
@@ -67,13 +67,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions.FrontierExtensions&lt;TElement, TState, TAction&gt;">
-    <Position X="6.5" Y="1" Width="3.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAI=</HashCode>
-      <FileName>SearchAlgorithms\SearchComponents\Extensions\FrontierExtensions.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions.NodeExtensions">
     <Position X="0.75" Y="13" Width="3" />
     <TypeIdentifier>
@@ -90,17 +83,24 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation.GraphFrontierProcessor&lt;TState, TAction&gt;">
-    <Position X="7.25" Y="15.5" Width="3" />
+    <Position X="7.25" Y="15.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAQAAgACAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\SearchImplementation\GraphFrontierProcessor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation.TreeFrontierProcessor&lt;TState, TAction&gt;">
-    <Position X="4" Y="16" Width="3" />
+    <Position X="4" Y="15.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SearchAlgorithms\SearchComponents\SearchImplementation\TreeFrontierProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions.FrontierExtensionsV1">
+    <Position X="6.25" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAI=</HashCode>
+      <FileName>SearchAlgorithms\SearchComponents\Extensions\FrontierExtensions.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface.IFrontierProcessor&lt;TState, TAction&gt;">

@@ -12,7 +12,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
     /// 
     /// 16 june
     /// </summary>
-    public partial class ReflexVacuumCleanerAgent : BaseAgent<VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class ReflexVacuumCleanerAgent : AbstractAgent<VacuumCleanerPrecept, VacuumCleanerAction>
     {
         #region Cstor
         /// <summary>
@@ -31,7 +31,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
         /// <param name="performaceMeasure"><inheritdoc/></param>
         /// <param name="isAlive"><inheritdoc/></param>
         public ReflexVacuumCleanerAgent(
-            BaseAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction> agentProgram,
+            AbstractAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction> agentProgram,
             BasePerformaceMeasure performaceMeasure,
             bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {

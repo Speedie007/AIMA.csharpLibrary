@@ -10,8 +10,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class NodeFactory<TState, TAction>
-        where TAction : BaseAction, new() 
-        where TState : BaseAgentState, new()
+        where TAction : AbstractAction, new() 
+        where TState : BaseState, new()
     {
 
         #region Properties

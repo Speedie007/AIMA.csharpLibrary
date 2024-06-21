@@ -31,13 +31,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
     /// <typeparam name="TAgent">Type which represents the agent used in this enviroment</typeparam>
     /// <typeparam name="TAgentPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAgentAction">Type which is used to represent actions</typeparam>
-    public abstract partial class BaseEnvironment<TAgent, TAgentPrecept, TAgentAction> :
+    public abstract partial class AbstractEnvironment<TAgent, TAgentPrecept, TAgentAction> :
         IEnvironment<TAgent, TAgentPrecept, TAgentAction>,
         IEnviromentEvents<TAgent,TAgentPrecept, TAgentAction>,
         IEnviromentEventFeedBack<TAgent, TAgentPrecept, TAgentAction>
-                where TAgentAction : BaseAction, new()
+                where TAgentAction : AbstractAction, new()
                 where TAgentPrecept : BasePrecept, new()
-                where TAgent : BaseAgent<TAgentPrecept, TAgentAction>
+                where TAgent : AbstractAgent<TAgentPrecept, TAgentAction>, new()
 
     {
         #region Properties
@@ -64,7 +64,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// </item>
         /// </list>
         /// </summary>
-        public BaseEnvironment()
+        public AbstractEnvironment()
         {
             Agents = new LinkedHashSet<TAgent>();
             EnvironmentObjects = new LinkedHashSet<IEnvironmentObject>();
@@ -134,15 +134,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         {
             return new List<TAgent>(Agents);
         }
-        ///// <summary>
-        ///// Getthe current performance measure of A selected agent.
-        ///// </summary>
-        ///// <param name="agent">Agent for which the performance measure is required.</param>
-        ///// <returns>Agent Performance measure as double</returns>
-        //public double GetAgentPerformanceMeasure(TAgent agent)
-        //{
-        //    return PerformanceMeasures.TryGetValue(agent, out double measure) ? measure : 0;
-        //}
 
         /// <summary>
         /// Removes A selected agent from the enviroment.
@@ -160,9 +151,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
 
         #region Enviroment Methods
         /// <summary>
-        /// 
+        /// <inheritdoc/>
         /// </summary>
-        /// <param name="environmentObject"></param>
+        /// <param name="environmentObject"><inheritdoc/></param>
         public void AddEnvironmentObject(IEnvironmentObject environmentObject)
         {
             EnvironmentObjects.Add(environmentObject);
@@ -192,7 +183,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        /// <param name="environmentObject"></param>
+        /// <param name="environmentObject"><inheritdoc/></param>
         public void RemoveEnvironmentObject(IEnvironmentObject environmentObject)
         {
             EnvironmentObjects.Remove(environmentObject);
@@ -208,7 +199,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
                 if (agent.IsAlive)
                 {
                     TAgentPrecept precept = agent.PollAgentSensors(EnvironmentObjects);
-                    TAgentAction anAction = agent.DeriveAgentActionBasedOnPrecept(precept);
+                    TAgentAction anAction = agent.ProcessAgentFunction(precept);
                     if (anAction.ActionName.Equals(AgentComponentDefaults.ACTION_NO_OPERATION))
                     {
                         agent.ExecuteNoOp();
@@ -233,14 +224,16 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
                 Step();
         }
         /// <summary>
-        /// 
+        /// <inheritdoc/>
         /// </summary>
         public void StepUntilDone()
         {
             while (!IsDone())
                 Step();
         }
+        /// <summary>
         /// <inheritdoc/>
+        /// </summary>
         public abstract void CreateExogenousChange();
 
       

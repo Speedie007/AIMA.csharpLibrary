@@ -7,10 +7,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <summary>
     /// 16 June
     /// </summary>
-    public partial class TrivalAgent : BaseAgent<EmptyPrecept, EmptyAction>
+    public partial class TrivalAgent : AbstractAgent<EmptyExamplePrecept, DefaultAction>
     {
-
-
         #region Cstor
         /// <summary>
         /// 
@@ -23,7 +21,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <inheritdoc/>
         /// </summary>
         /// <param name="action"><inheritdoc/></param>
-        public override void ExecuteAgentAction(EmptyAction action)
+        public override void ExecuteAgentAction(DefaultAction action)
         {
             throw new NotImplementedException();
         }

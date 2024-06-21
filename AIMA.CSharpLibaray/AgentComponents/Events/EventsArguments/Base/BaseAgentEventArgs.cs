@@ -9,13 +9,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
     /// </summary>
     public abstract partial class BaseAgentEventArgs<TPrecept, TAction> : EventArgs
         where TPrecept : BasePrecept, new()
-        where TAction : BaseAction, new()
+        where TAction : AbstractAction, new()
     {
         #region Cstor
         /// <summary>
         /// 
         /// </summary>
-        protected BaseAgentEventArgs(BaseAgent<TPrecept,TAction> agent)
+        protected BaseAgentEventArgs(AbstractAgent<TPrecept,TAction> agent)
         {
             Agent = agent;
         }
@@ -23,7 +23,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
         /// <value>
         /// 
         /// </value>
-        public BaseAgent<TPrecept, TAction> Agent { get; }
+        public AbstractAgent<TPrecept, TAction> Agent { get; }
         #endregion
     }
 }

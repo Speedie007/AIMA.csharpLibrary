@@ -1,6 +1,5 @@
 ﻿using System.Collections.Immutable;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Common
@@ -8,7 +7,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
     /// <summary>
     /// 
     /// </summary>
-    public abstract partial class ComponentDynamicAttributes : ICloneable, IComparer<ComponentDynamicAttributes>
+    public abstract partial class AbstractDynamicProperties : ICloneable, IComparer<AbstractDynamicProperties>
     {
         /// <summary>
         /// Data store for the Mapped Attributes.
@@ -19,7 +18,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// Constructor
         /// </summary>
         #region Cstor
-        protected ComponentDynamicAttributes()
+        protected AbstractDynamicProperties()
         {
             DynamicAttributes = new Dictionary<object, object>();
         }
@@ -73,16 +72,16 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// <summary>
         /// Set of the Dynamic Attribute Keys.
         /// </summary>
-        /// <returns>An unmodifiable view of the object's key Set</returns>
+        /// <returns>An unmodifiable view of the object's PropertyKey Set</returns>
         public ImmutableHashSet<object> GetKeySet()
         {
             return DynamicAttributes.Keys.ToImmutableHashSet();
         }
         /// <summary>
         /// <para>
-        /// Associates the specified value with the specified attribute key.</para>
+        /// Associates the specified value with the specified attribute PropertyKey.</para>
         /// <para>
-        /// If the ComponentDynamicAttributes previously contained A mapping for the attribute key, the old value is replaced.
+        /// If the AbstractDynamicProperties previously contained A mapping for the attribute PropertyKey, the old value is replaced.
         /// </para>
         /// </summary>
         /// <param name="key">The attribute Key</param>
@@ -101,9 +100,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         }
 
         /// <summary>
-        /// Retirvies the attibute value for A specified attribute key.
+        /// Retirvies the attibute value for A specified attribute PropertyKey.
         /// </summary>
-        /// <param name="key">Attribute key</param>
+        /// <param name="key">Attribute PropertyKey</param>
         /// <returns>Value of the specified attribute, or null if not found.</returns>
         public object GetAttributeValue(object key)
         {
@@ -116,9 +115,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         }
 
         /// <summary>
-        /// Removes dynamic attribute with the specified key.
+        /// Removes dynamic attribute with the specified PropertyKey.
         /// </summary>
-        /// <param name="key">Attribute key</param>
+        /// <param name="key">Attribute PropertyKey</param>
         /// <returns></returns>
         public bool RemoveDynamicAttribute(object key)
         {
@@ -132,11 +131,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// <returns><inheritdoc/></returns>
         public object Clone()
         {
-            ComponentDynamicAttributes result;
+            AbstractDynamicProperties result;
 
             try
             {
-                result = (ComponentDynamicAttributes)MemberwiseClone();
+                result = (AbstractDynamicProperties)MemberwiseClone();
                 result.DynamicAttributes = new Dictionary<object, object>();
                 foreach (var val in DynamicAttributes)
                     result.DynamicAttributes.Add(val.Key, val.Value);
@@ -172,7 +171,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         public override bool Equals(object? obj)
         {
             return obj != null && GetType() == obj.GetType()
-               && DynamicAttributes.Equals(((ComponentDynamicAttributes)obj).DynamicAttributes);
+               && DynamicAttributes.Equals(((AbstractDynamicProperties)obj).DynamicAttributes);
         }
         /// <summary>
         /// 
@@ -189,7 +188,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// <param name="y"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public int Compare(ComponentDynamicAttributes? x, ComponentDynamicAttributes? y)
+        public int Compare(AbstractDynamicProperties? x, AbstractDynamicProperties? y)
         {
             throw new NotImplementedException();
         }

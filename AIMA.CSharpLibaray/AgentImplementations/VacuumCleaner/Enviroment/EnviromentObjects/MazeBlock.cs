@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment.Envir
     /// <typeparam name="TAction"></typeparam>
     public partial class MazeBlock<TPrecept, TAction> : IEnvironmentObject
         where TPrecept : BasePrecept, new()
-        where TAction : BaseAction, new()
+        where TAction : AbstractAction, new()
     {
         
         #region Properties

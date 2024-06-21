@@ -16,7 +16,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
     ///</para>
     ///<para>Date Created: 13 May 2024 - Date Last Updated: 16 June 2024</para>
     /// </summary>
-    public abstract partial class BaseAction : ComponentDynamicAttributes, IAgentAction
+    public abstract partial class AbstractAction : AbstractDynamicProperties, IAgentAction
     {
         #region Properties
         /// <summary>
@@ -35,14 +35,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
         /// Assigned the default user friendly name for the agent action.
         /// </summary>
         /// <param name="name">String Value => Assgined the System Class Name as the user friendly name of the Agents ActionExecuted</param>
-        public BaseAction(string name)
+        public AbstractAction(string name)
         {
             SetDynamicAttributeValue(AgentComponentDefaults.ACTION_NAME, name);
         }
         /// <summary>
         /// Creates a default acition which is to do Nothing
         /// </summary>
-        public BaseAction() : this(AgentComponentDefaults.ACTION_NO_OPERATION)
+        public AbstractAction() : this(AgentComponentDefaults.ACTION_NO_OPERATION)
         {
 
         }

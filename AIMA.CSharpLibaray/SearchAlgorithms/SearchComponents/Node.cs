@@ -32,8 +32,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 
     public partial class Node<TState, TAction> :
         IComparer<Node<TState, TAction>>, IEqualityComparer<Node<TState, TAction>>
-            where TAction : BaseAction, new()
-            where TState : BaseAgentState, new()
+            where TAction : AbstractAction, new()
+            where TState : BaseState, new()
     {
         /// <summary>
         /// Constructs A node with the specified state, parent, action, and path cost.

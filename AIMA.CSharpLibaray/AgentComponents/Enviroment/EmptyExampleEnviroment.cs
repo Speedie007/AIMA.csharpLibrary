@@ -9,7 +9,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment
     /// <summary>
     /// 
     /// </summary>
-    public class EmptyExampleEnviroment : BaseEnvironment<ExampleAgent, EmptyPrecept, EmptyAction>
+    public class EmptyExampleEnviroment : AbstractEnvironment<ExampleAgent, EmptyExamplePrecept, DefaultAction>
     {
 
 
@@ -33,7 +33,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public override void OnAgentActed(EnviromentAgentActedEventArgs<ExampleAgent, EmptyPrecept, EmptyAction> args)
+        public override void OnAgentActed(EnviromentAgentActedEventArgs<ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
         {
             base.OnAgentActed(args);
         }
@@ -41,7 +41,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public override void OnAgentAdded(EnviromentAgentAddedEventArgs<ExampleAgent, EmptyPrecept, EmptyAction> args)
+        public override void OnAgentAdded(EnviromentAgentAddedEventArgs<ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
         {
             base.OnAgentAdded(args);
         }
@@ -49,7 +49,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public override void OnAgentRemoved(EnviromentAgentRemovedEventArgs<ExampleAgent, EmptyPrecept, EmptyAction> args)
+        public override void OnAgentRemoved(EnviromentAgentRemovedEventArgs<ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
         {
             base.OnAgentRemoved(args);
         }

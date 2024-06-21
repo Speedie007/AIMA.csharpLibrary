@@ -1,11 +1,9 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.State;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
-using System.Xml.Linq;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
 {
-    //BaseFrontierQueue<Node<TState, TAction>>
     /// <summary>
     /// 
     /// </summary>
@@ -18,8 +16,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <typeparam name="TAction"></typeparam>
         /// <returns></returns>
         public static BaseFrontierQueue<Node<TState, TAction>> CreateLIFOQueue<TState, TAction>()
-            where TAction : BaseAction, new()
-            where TState : BaseAgentState, new()
+            where TAction : AbstractAction, new()
+            where TState : BaseState, new()
         {
             FrontierLIFOQueue<Node<TState, TAction>> queue = new();
 
@@ -32,8 +30,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <typeparam name="TAction"></typeparam>
         /// <returns></returns>
         public static BaseFrontierQueue<Node<TState, TAction>> CreateFIFOFrontier<TState, TAction>()
-            where TAction : BaseAction, new()
-            where TState : BaseAgentState, new()
+            where TAction : AbstractAction, new()
+            where TState : BaseState, new()
         {
             FontierFIFOQueue<Node<TState, TAction>> queue = new();
 
@@ -46,8 +44,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <typeparam name="TAction"></typeparam>
         /// <returns></returns>
         public static BaseFrontierQueue<Node<TState, TAction>> CreatePriorityQueueFrontier<TState, TAction>()
-            where TAction : BaseAction, new()
-            where TState : BaseAgentState, new()
+            where TAction : AbstractAction, new()
+            where TState : BaseState, new()
         {
             FrontiertPriorirtyQueue<Node<TState, TAction>> queue = new();
 
@@ -62,8 +60,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public static class FrontierExtensions<TElement, TState, TAction>
-        where TAction : BaseAction, new()
-        where TState : BaseAgentState, new()
+        where TAction : AbstractAction, new()
+        where TState : BaseState, new()
         where TElement : Node<TState, TAction>, new()
     {
         /// <summary>

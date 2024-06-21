@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensors.Interface
     /// <typeparam name="TAction"></typeparam>
     public partial interface IAgentSensor<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
-        where TAction: BaseAction, new()
+        where TAction: AbstractAction, new()
     {
        /// <summary>
        /// 

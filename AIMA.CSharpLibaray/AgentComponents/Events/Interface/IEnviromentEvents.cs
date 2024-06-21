@@ -11,9 +11,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial interface IEnviromentEvents<TAgent, TPrecept, TAction>
-            where TAction : BaseAction, new()
+            where TAction : AbstractAction, new()
             where TPrecept : BasePrecept, new()
-            where TAgent : BaseAgent<TPrecept, TAction>
+            where TAgent : AbstractAgent<TPrecept, TAction>, new()
     {
         /// <summary>
         /// 

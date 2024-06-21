@@ -22,7 +22,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures
         /// 
         /// </summary>
         public double PreformanceMeasureValue
-        {
+        { 
             get { return (double)GetAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE); }
             set { SetDynamicAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE, value); }
         }

@@ -8,7 +8,7 @@ using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
 {
     /// <summary>
-    /// An abstract description of possible discrete Environments in which BaseAgent(s) can perceive and act.
+    /// An abstract description of possible discrete Environments in which AbstractAgent(s) can perceive and act.
     /// </summary>
     ///<para>
     ///Author:Ravi Mohan
@@ -30,9 +30,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
     /// <typeparam name="TPrecept">Type which is used to represent percepts.</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions.</typeparam>
     public partial interface IEnvironment<TAgent, TPrecept, TAction> 
-            where TAction : BaseAction, new()
+            where TAction : AbstractAction, new()
             where TPrecept : BasePrecept, new()
-            where TAgent : BaseAgent<TPrecept, TAction>
+            where TAgent : AbstractAgent<TPrecept, TAction>
     {
 
 
@@ -98,10 +98,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
         bool IsDone();
 
         ///// <summary>
-        ///// Retrieve the performance measure(s) associated with an BaseAgent.
+        ///// Retrieve the performance measure(s) associated with an AbstractAgent.
         ///// </summary>
-        ///// <param name="agent">The BaseAgent for which A performance measure is to be retrieved.</param>
-        ///// <returns>The performance measure associated with the BaseAgent.</returns>
+        ///// <param name="agent">The AbstractAgent for which A performance measure is to be retrieved.</param>
+        ///// <returns>The performance measure associated with the AbstractAgent.</returns>
         //double GetAgentPerformanceMeasure(TAgent agent);
 
         /// <summary>

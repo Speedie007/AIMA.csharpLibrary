@@ -3,7 +3,7 @@
   <Class Name="AIMA.CSharpLibrary.AgentComponents.AgentProgram.BaseAgentProgram&lt;TPrecept, TAction&gt;">
     <Position X="1.25" Y="1" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAQQAIAAAAAAUAAIAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>UAAQQAIAAAAAAQAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\AgentProgram\Base\BaseAgentProgram.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -11,35 +11,35 @@
   <Class Name="AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations.BaseModelBasedReflexAgentProgram&lt;TPrecept, TAction&gt;">
     <Position X="0.75" Y="4.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAIAAAA=</HashCode>
+      <HashCode>GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAA=</HashCode>
       <FileName>AgentComponents\AgentProgram\Base\Implementations\BaseModelBasedReflexAgentProgram.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations.BaseReflexAgentProgram&lt;TPrecept, TAction&gt;">
     <Position X="5" Y="4.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\AgentProgram\Base\Implementations\BaseReflexAgentProgram.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations.BaseSimpleReflexAgentProgram&lt;TPrecept, TAction&gt;">
     <Position X="8.75" Y="4.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\AgentProgram\Base\Implementations\BaseSimpleReflexAgentProgram.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations.BaseTableDrivenAgentProgram&lt;TPrecept, TAction&gt;">
     <Position X="12.75" Y="4.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>kAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\AgentProgram\Base\Implementations\BaseTableDrivenAgentProgram.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AIMA.CSharpLibrary.AgentComponents.AgentProgram.DefaultAgentProgram&lt;TPrecept, TAction&gt;">
     <Position X="16.75" Y="4.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\AgentProgram\DefaultAgentProgram.cs</FileName>
     </TypeIdentifier>
   </Class>

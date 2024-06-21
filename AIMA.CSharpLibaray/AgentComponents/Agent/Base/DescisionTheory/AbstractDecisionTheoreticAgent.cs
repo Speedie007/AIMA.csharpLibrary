@@ -38,17 +38,17 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public abstract partial class DecisionTheoreticAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
-             where TAction : BaseAction, new()
+    public abstract partial class AbstractDecisionTheoreticAgent<TPrecept, TAction> : AbstractAgent<TPrecept, TAction>
+             where TAction : AbstractAction, new()
          where TPrecept : BasePrecept, new()
 
     {
        
         #region Cstor
  /// <summary>
-        /// DecisionTheoreticAgent Constructor
+        /// AbstractDecisionTheoreticAgent Constructor
         /// </summary>
-        protected DecisionTheoreticAgent() : base()
+        protected AbstractDecisionTheoreticAgent() : base()
         {
             BeliefState = new BeliefState<TPrecept, TAction>();
             Action = new TAction();
@@ -56,12 +56,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
         }
 
         /// <summary>
-        /// DecisionTheoreticAgent Constructor
+        /// AbstractDecisionTheoreticAgent Constructor
         /// </summary>
         /// <param name="agentProgram"><inheritdoc/></param>
         /// <param name="performaceMeasure"><inheritdoc/></param>
         /// <param name="isAlive"><inheritdoc/></param>
-        protected DecisionTheoreticAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, BasePerformaceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
+        protected AbstractDecisionTheoreticAgent(AbstractAgentProgram<TPrecept, TAction> agentProgram, BasePerformaceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {
             BeliefState = new BeliefState<TPrecept, TAction>();
             Action = new TAction();

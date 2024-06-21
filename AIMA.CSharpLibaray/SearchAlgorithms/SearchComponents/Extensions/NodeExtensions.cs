@@ -14,8 +14,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <param name="node"></param>
         /// <returns></returns>
         public static List<TAction> GetSequenceOfActions<TState, TAction>(this Node<TState, TAction> node)
-            where TState : BaseAgentState, new()
-            where TAction : BaseAction, new()
+            where TState : BaseState, new()
+            where TAction : AbstractAction, new()
         {
             LinkedList<TAction> actions = new LinkedList<TAction>();
             while (!node.IsRootNode)
@@ -30,9 +30,9 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static List<TAction> ToActions<TState, TAction>(this Node<TState, TAction>? node)
-            where TState : BaseAgentState, new()
-            where TAction : BaseAction, new()
+        public static List<TAction> ToActions<TState, TAction>(this Node<TState, TAction> node)
+            where TState : BaseState, new()
+            where TAction : AbstractAction, new()
         {
             return node != null ? GetSequenceOfActions(node) : new List<TAction>();
         }
@@ -42,8 +42,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <param name="node"></param>
         /// <returns></returns>
         public static TState ToState<TState, TAction>(this Node<TState, TAction> node)
-            where TState : BaseAgentState, new()
-            where TAction : BaseAction, new()
+            where TState : BaseState, new()
+            where TAction : AbstractAction, new()
         {
             return node != null ? node.NodeState : new();
         }
@@ -53,8 +53,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <param name="node"></param>
         /// <returns></returns>
         public static List<Node<TState, TAction>> GetPathFromRoot<TState, TAction>(this Node<TState, TAction> node)
-            where TState : BaseAgentState, new()
-            where TAction : BaseAction, new()
+            where TState : BaseState, new()
+            where TAction : AbstractAction, new()
         {
             LinkedList<Node<TState, TAction>> path = new LinkedList<Node<TState, TAction>>();
 

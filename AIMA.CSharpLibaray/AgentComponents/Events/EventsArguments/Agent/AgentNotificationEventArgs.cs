@@ -12,7 +12,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent
     /// <typeparam name="TAction"></typeparam>
     public partial class AgentNotificationEventArgs<TPrecept, TAction> : BaseAgentEventArgs<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
-        where TAction : BaseAction, new()
+        where TAction : AbstractAction, new()
     {
         #region Cstor
       /// <summary>
@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent
       /// </summary>
       /// <param name="agent"></param>
       /// <param name="agentMessage"></param>
-        public AgentNotificationEventArgs(BaseAgent<TPrecept, TAction> agent, string agentMessage) : base(agent)
+        public AgentNotificationEventArgs(AbstractAgent<TPrecept, TAction> agent, string agentMessage) : base(agent)
         {
             AgentMessage = agentMessage;
         }

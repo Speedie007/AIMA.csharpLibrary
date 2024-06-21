@@ -9,18 +9,18 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interface
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial interface IProblem<TState, TAction> : IOnlineSearchProblem<TState, TAction>
-        where TAction : BaseAction, new()
-        where TState : BaseAgentState, new()
+        where TAction : AbstractAction, new()
+        where TState : BaseState, new()
     {
         /// <summary>
         /// A description of what each action does.
         /// <para>
-        /// The formal name for this is the transition model, specified by A function RESULT(s,A) that returns the state that results from doing action A in state s.
+        /// The formal name for this is the transition AgentModel, specified by A function RESULT(s,A) that returns the state that results from doing action A in state s.
         /// </para>
         /// </summary>
         /// <param name="agentCurrentState"></param>
         /// <param name="agentAction"></param>
-        /// <returns>Successor State, which refers to any state reachable from A given state by A single action. </returns>
+        /// <returns>Successor CurrentState, which refers to any state reachable from A given state by A single action. </returns>
         TState GetTransitionModelResult(TState agentCurrentState, TAction agentAction);
         /// <summary>
         /// Tests whether A node represents an acceptable solution. 

@@ -1,6 +1,7 @@
 ﻿using AIMA.CSharp.GUI.Factory.Interfaces;
 using AIMA.CSharp.GUI.Forms.VacuumCleaner;
 using AIMA.CSharpLibrary.AgentComponents.Actions;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
 using AIMA.CSharpLibrary.AgentComponents.Precepts;
@@ -19,7 +20,7 @@ namespace AIMA.CSharp.GUI.Factory
 
         public EnviromentFactory()
         {
-
+            
         }
 
 
@@ -35,7 +36,7 @@ namespace AIMA.CSharp.GUI.Factory
             //Build the required Agent
             var reflexAgent = new ReflexVacuumCleanerAgent(new ReflexVacuumCleanerAgentProgram(), new DefaultPerformanceMeasure(), true);
 
-
+            
             enviroment.AddAgent(reflexAgent);
 
             //build the required enviroment

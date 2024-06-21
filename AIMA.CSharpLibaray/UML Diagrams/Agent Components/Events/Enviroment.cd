@@ -66,10 +66,10 @@
       <FileName>AgentComponents\Events\Interface\IEnviromentEvents.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Events.Interface.IPerformanceMeasureEvents">
+  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Events.Interface.IPerformanceMeasureEvents&lt;TPrecept, TAction&gt;">
     <Position X="1.75" Y="11.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgentComponents\Events\Interface\IPerformanceMeasureEvents.cs</FileName>
     </TypeIdentifier>
   </Interface>

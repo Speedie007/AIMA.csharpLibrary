@@ -11,7 +11,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public partial class ExampleAgent : BaseAgent<EmptyPrecept, EmptyAction>
+    public partial class ExampleAgent : AbstractAgent<EmptyExamplePrecept, DefaultAction>
     {
         /// <summary>
         /// <inheritdoc/>
@@ -20,21 +20,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         {
         }
         /// <inheritdoc/>
-        public ExampleAgent(BaseAgentProgram<EmptyPrecept, EmptyAction> agentProgram, BasePerformaceMeasure performanceMeasure, bool isAlive) : base(agentProgram, performanceMeasure, isAlive)
+        public ExampleAgent(AbstractAgentProgram<EmptyExamplePrecept, DefaultAction> agentProgram, BasePerformaceMeasure performanceMeasure, bool isAlive) : base(agentProgram, performanceMeasure, isAlive)
         {
         }
 
-        /// <inheritdoc/>
-        public override EmptyPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects)
-        {
-            return base.PollAgentSensors(EnvironmentObjects);
-        }
-
-        /// <inheritdoc/>
-        public override EmptyAction DeriveAgentActionBasedOnPrecept(EmptyPrecept percept)
-        {
-            return base.DeriveAgentActionBasedOnPrecept(percept);
-        }
+      
         /// <inheritdoc/>
         public override void ExecuteNoOp()
         {
@@ -45,7 +35,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <inheritdoc/>
         /// </summary>
         /// <param name="action"><inheritdoc/></param>
-        public override void ExecuteAgentAction(EmptyAction action)
+        public override void ExecuteAgentAction(DefaultAction action)
         {
             
         }

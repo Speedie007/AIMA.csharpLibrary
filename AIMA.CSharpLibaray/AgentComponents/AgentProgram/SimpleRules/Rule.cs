@@ -1,30 +1,51 @@
-﻿namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Base;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Interfaces;
+using AIMA.CSharpLibrary.AgentComponents.State;
+
+namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
 {
     /// <summary>
-    /// 
+    /// 21 June 2024
     /// </summary>
     /// <typeparam name="TAction"></typeparam>
-    public partial class Rule<TAction> : IEquatable<Rule<TAction>?>
+    public partial class Rule<TAction> : IEquatable<Rule<TAction>?>, IRule<TAction>
+        where TAction : AbstractAction, new()
     {
+        #region Properties
         /// <summary>
         /// 
         /// </summary>
-        public Condition RuleCondition { get; private set; }
+        public AbstractCondition RuleCondition { get; private set; }
         /// <summary>
         /// 
         /// </summary>
-        public TAction RequiredAction { get; private set; }
+        public TAction ResultantAction { get; private set; }
+        #endregion
+
+        #region Cstor
         /// <summary>
         /// 
         /// </summary>
         /// <param name="condition"></param>
         /// <param name="action"></param>
-        public Rule(Condition condition, TAction action)
+        public Rule(AbstractCondition condition, TAction action)
         {
-            //assert(null != con);
-
             RuleCondition = condition;
-            RequiredAction = action;
+            ResultantAction = action;
+        }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TState"></typeparam>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public bool EvaluateRule<TState>(TState state) where TState : BaseState
+        {
+            return RuleCondition.Validate(state);
         }
         /// <summary>
         /// 
@@ -43,8 +64,8 @@
         public bool Equals(Rule<TAction>? other)
         {
             return other is not null &&
-                   EqualityComparer<Condition>.Default.Equals(RuleCondition, other.RuleCondition) &&
-                   EqualityComparer<TAction>.Default.Equals(RequiredAction, other.RequiredAction);
+                   EqualityComparer<AbstractCondition>.Default.Equals(RuleCondition, other.RuleCondition) &&
+                   EqualityComparer<TAction>.Default.Equals(ResultantAction, other.ResultantAction);
         }
         /// <summary>
         /// 
@@ -52,7 +73,7 @@
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return HashCode.Combine(RuleCondition, RequiredAction);
+            return HashCode.Combine(RuleCondition, ResultantAction);
         }
         /// <summary>
         /// 
@@ -60,7 +81,7 @@
         /// <returns></returns>
         public override string? ToString()
         {
-            return "if " + RuleCondition + " then " + RequiredAction + ".";
+            return $"If {RuleCondition.ToString} Then {ResultantAction.ToString}.";
         }
         /// <summary>
         /// 
@@ -82,5 +103,6 @@
         {
             return !(left == right);
         }
+        #endregion
     }
 }

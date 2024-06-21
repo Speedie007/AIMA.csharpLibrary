@@ -13,6 +13,8 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
         private readonly IDictionary<T, LinkedListNode<T>> dict;
         private readonly LinkedList<T> list;
 
+        
+
         /// <summary>
         /// 
         /// </summary>

@@ -12,8 +12,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class TreeFrontierProcessor<TState, TAction> : FrontierProcessor<TState, TAction>
-        where TAction : BaseAction, new()   
-        where TState : BaseAgentState, new()    
+        where TAction : AbstractAction, new()   
+        where TState : BaseState, new()    
 
     {
         #region Cstor

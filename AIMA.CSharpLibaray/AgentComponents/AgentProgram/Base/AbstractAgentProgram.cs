@@ -16,18 +16,17 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
     ///</para>
     ///<para>Date Created: 23 May 2024 - Date Last Updated: 17 June 2024</para>
     /// </summary>
-    /// <typeparam name="TPrecept"></typeparam>
-    /// <typeparam name="TAction"></typeparam>
-    public abstract partial class BaseAgentProgram<TPrecept, TAction> : 
-        IAgentProgram<TPrecept, TAction>
-        where TAction : BaseAction, new()
+    /// <typeparam name="TPrecept">Base Agent Precept Type</typeparam>
+    /// <typeparam name="TAction">Base Agent Action Type</typeparam>
+    public abstract partial class AbstractAgentProgram<TPrecept, TAction> : IAgentProgram<TPrecept, TAction>
+        where TAction : AbstractAction, new()
         where TPrecept : BasePrecept, new()
     {
         #region Properties
         /// <summary>
         /// 
         /// </summary>
-        public Func<TPrecept, BaseAction> PreceptToActionFunc { get; private set; }
+        public Func<TPrecept, AbstractAction> AgentFunction { get; private set; }
         /// <summary>
         /// 
         /// </summary>
@@ -42,9 +41,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <summary>
         /// 
         /// </summary>
-        protected BaseAgentProgram()
+        protected AbstractAgentProgram()
         {
-            PreceptToActionFunc = ProcessAgentPecept;
+            AgentFunction = ProcessAgentFunction;
             SensorPollingFunc = ProcessSensors;
             Sensors = new Dictionary<Type, IAgentSensor<TPrecept, TAction>>();
             InitializeSensors();
@@ -53,11 +52,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
 
         #region Methods
         /// <summary>
-        /// <para>Function Maps Parecept to a possible action.</para>
+        /// <para>Function Maps Precept to a possible action.</para>
         /// </summary>
-        /// <param name="percept">The Current Precept genrated by the agent sensors based on the current enviroment State.</param>
-        /// <returns>ActionExecuted, which the agent must perform.</returns>
-        public abstract TAction ProcessAgentPecept(TPrecept percept);
+        /// <param name="percept">The Current Precept genrated by the agent sensors based on the current enviroment CurrentState.</param>
+        /// <returns>Action, which the agent must perform.</returns>
+        public abstract TAction ProcessAgentFunction(TPrecept percept);
         /// <summary>
         /// 
         /// </summary>

@@ -6,11 +6,11 @@ namespace AIMA.csharp.Tests
     public class Tests
     {
         //public static string AGENT_LOCATION = "location";
-        //private List<Node<BaseAgentState, AgentAction>> ListOfNodes;
+        //private List<Node<BaseState, AgentAction>> ListOfNodes;
         [SetUp]
         public void Setup()
         {
-            //BaseAgentState state = new BaseAgentState();
+            //BaseState state = new BaseState();
             //state.SetDynamicAttributeValue(AGENT_LOCATION, "Location_1");
 
             //AgentAction MoveUpAction = new AgentAction("MOVE_Up");
@@ -18,20 +18,20 @@ namespace AIMA.csharp.Tests
             //AgentAction MoveDownAction = new AgentAction("MOVE_Down");
             //AgentAction MoveRightAction = new AgentAction("MOVE_Right");
 
-            ////var node = new Node<BaseAgentState,BaseAction>("");
-            //ListOfNodes = new List<Node<BaseAgentState, AgentAction>>() {
+            ////var node = new Node<BaseState,AbstractAction>("");
+            //ListOfNodes = new List<Node<BaseState, AgentAction>>() {
 
-            //    new Node<BaseAgentState, AgentAction>(state,null,MoveUpAction,5),
-            //    new Node<BaseAgentState, AgentAction>(state,null,MoveDownAction,5),
-            //    new Node<BaseAgentState, AgentAction>(state,null,MoveRightAction,5),
-            //    new Node<BaseAgentState, AgentAction>(state,null,MoveLeftAction,5)
+            //    new Node<BaseState, AgentAction>(state,null,MoveUpAction,5),
+            //    new Node<BaseState, AgentAction>(state,null,MoveDownAction,5),
+            //    new Node<BaseState, AgentAction>(state,null,MoveRightAction,5),
+            //    new Node<BaseState, AgentAction>(state,null,MoveLeftAction,5)
             //};
         }
 
         [Test]
         public void Test1()
         {
-            //var q = new FontierFIFOQueue<Node<BaseAgentState,AgentAction>,BaseAgentState,AgentAction>();
+            //var q = new FontierFIFOQueue<Node<BaseState,AgentAction>,BaseState,AgentAction>();
             Assert.Pass();
         }
     }

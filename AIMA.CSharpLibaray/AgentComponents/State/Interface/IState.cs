@@ -24,7 +24,7 @@
     ///</para>
     ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
     /// </summary>
-    public partial interface IAgentState
+    public partial interface IState
     {
     }
 }
