@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.Probability
+﻿namespace AIMA.CSharpLibrary.Probability.Interfaces
 {
 
     /// <summary>
