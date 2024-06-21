@@ -4,7 +4,6 @@ using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 using AIMA.CSharpLibrary.Probability;
-using AIMA.CSharpLibrary.Probability.Interfaces;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
 {
