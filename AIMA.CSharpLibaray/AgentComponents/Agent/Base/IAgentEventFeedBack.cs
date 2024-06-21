@@ -3,7 +3,7 @@ using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
-namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 {
     /// <summary>
     ///<para>
