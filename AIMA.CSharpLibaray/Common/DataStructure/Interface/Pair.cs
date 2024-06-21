@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.Common.DataStructure
+﻿namespace AIMA.CSharpLibrary.Common.DataStructure.Interface
 {
     /// <summary>
     ///  /// <para>
@@ -17,7 +17,7 @@
     /// </summary>
     /// <typeparam name="X">First Item in the Pair</typeparam>
     /// <typeparam name="Y">Second Item in the Pair</typeparam>
-    public partial  class Pair<X,Y>
+    public partial class Pair<X, Y>
     {
         /// <summary>
         /// Get the first element of the pair
@@ -47,7 +47,7 @@
             base.Equals(obj);
             if (obj != null && GetType() == obj.GetType())
             {
-                Pair<X, Y> p = (Pair<X, Y>) obj;
+                Pair<X, Y> p = (Pair<X, Y>)obj;
                 return Equals(First, p.First) && Equals(Second, p.Second);
             }
             return false;

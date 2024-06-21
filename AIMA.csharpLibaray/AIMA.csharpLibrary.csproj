@@ -48,10 +48,8 @@
 	<Folder Include="AgentImplementations\VacuumCleaner\PerformanceMeasure\Base\" />
 	<Folder Include="AgentImplementations\VacuumCleaner\State\Interfaces\" />
 	<Folder Include="Common\DataStructure\Abstract\" />
-	<Folder Include="Common\DataStructure\Interface\" />
 	<Folder Include="Common\Extensions\" />
 	<Folder Include="Common\AgentComponents\" />
-	<Folder Include="Probability\Interfaces\" />
 	<Folder Include="UML Diagrams\AgentImplementations\VacuumCleaner\" />
 	<Folder Include="Utilities\" />
   </ItemGroup>
