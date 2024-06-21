@@ -44,6 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	<Folder Include="AgentComponents\Agent\Interface\" />
 	<Folder Include="AgentComponents\Events\EventsArguments\Sensors\" />
 	<Folder Include="AgentImplementations\VacuumCleaner\PerformanceMeasure\Base\" />
 	<Folder Include="AgentImplementations\VacuumCleaner\State\Interfaces\" />
