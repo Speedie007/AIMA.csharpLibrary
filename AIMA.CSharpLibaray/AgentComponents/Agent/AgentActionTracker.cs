@@ -15,7 +15,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <typeparam name="TAction"></typeparam>
     public partial class AgentActionTracker<TAgent, TPrecept, TAction> :
         IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
-            where TAction : AbstractAction,new()
+            where TAction : AbstractAction, new()
             where TPrecept : BasePrecept, new()
             where TAgent : AbstractAgent<TPrecept, TAction>
     {

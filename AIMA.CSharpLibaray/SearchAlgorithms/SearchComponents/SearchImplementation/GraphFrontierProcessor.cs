@@ -79,13 +79,13 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
         public override Node<TState, TAction> RemoveFromFrontier()
         {
             CleanUpFrontier(); // not really necessary because isFrontierEmpty should be called before...
-            Node<TState,TAction> result = Frontier.Dequeue();
+            Node<TState, TAction> result = Frontier.Dequeue();
             ExploredStates.Add(result.NodeState);
             UpdateMetrics(Frontier.Size());
             return result;
         }
 
-        
+
         /// <summary>
         /// Helper method which removes nodes of already explored states from the head of the Frontier.
         /// </summary>

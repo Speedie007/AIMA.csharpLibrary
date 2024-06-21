@@ -1,15 +1,10 @@
 ﻿using AIMA.CSharp.GUI.Factory.Interfaces;
 using AIMA.CSharp.GUI.Forms.VacuumCleaner;
-using AIMA.CSharpLibrary.AgentComponents.Actions;
-using AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving;
-using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
-using AIMA.CSharpLibrary.AgentComponents.Precepts;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment.EnviromentObjects;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.PerformanceMeasure;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerPrograms;
 
@@ -20,7 +15,7 @@ namespace AIMA.CSharp.GUI.Factory
 
         public EnviromentFactory()
         {
-            
+
         }
 
 
@@ -36,7 +31,7 @@ namespace AIMA.CSharp.GUI.Factory
             //Build the required Agent
             var reflexAgent = new ReflexVacuumCleanerAgent(new ReflexVacuumCleanerAgentProgram(), new DefaultPerformanceMeasure(), true);
 
-            
+
             enviroment.AddAgent(reflexAgent);
 
             //build the required enviroment
@@ -61,7 +56,7 @@ namespace AIMA.CSharp.GUI.Factory
             contianer[0].Controls.Add(grid);
 
             enviroment.AddEnvironmentObject(new MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>(1, 1, new List<Dirt>() { new Dirt() }));
-            enviroment.AddEnvironmentObject(new MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>(1, 2, new List<Dirt>() { new Dirt() },reflexAgent));
+            enviroment.AddEnvironmentObject(new MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>(1, 2, new List<Dirt>() { new Dirt() }, reflexAgent));
             enviroment.Step(1);
             return enviroment;
         }

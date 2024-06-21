@@ -1,7 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
-using System.Collections.Generic;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
 {
@@ -22,7 +21,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// <summary>
         /// 
         /// </summary>
-        public AbstractSimpleReflexAgentProgram():base()
+        public AbstractSimpleReflexAgentProgram() : base()
         {
         }
         #endregion

@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
         /// <value>Condition</value>
         protected AbstractCondition RightCondition { get; private set; }
         #endregion
-      
+
         #region Cstor
         /// <summary>
         /// 

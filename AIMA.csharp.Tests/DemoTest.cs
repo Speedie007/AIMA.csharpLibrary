@@ -1,5 +1,3 @@
-using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents;
-
 namespace AIMA.csharp.Tests
 {
     [TestFixture]

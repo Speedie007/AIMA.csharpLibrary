@@ -18,13 +18,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
         where TAgent : AbstractAgent<TPrecept, TAction>, new()
     {
         #region cstor
-     /// <summary>
-     /// 
-     /// </summary>
-     /// <param name="agent"></param>
-     /// <param name="currentPercept"></param>
-     /// <param name="actionExecuted"></param>
-     /// <param name="sourceEnviroment"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agent"></param>
+        /// <param name="currentPercept"></param>
+        /// <param name="actionExecuted"></param>
+        /// <param name="sourceEnviroment"></param>
         public EnviromentAgentActedEventArgs(
             TAgent agent,
             TPrecept currentPercept,

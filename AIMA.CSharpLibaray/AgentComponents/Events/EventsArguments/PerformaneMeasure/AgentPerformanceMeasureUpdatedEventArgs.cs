@@ -24,7 +24,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMe
         /// <param name="performaceMeasure"></param>
         public AgentPerformanceMeasureUpdatedEventArgs(
             AbstractAgent<TPrecept, TAction> agent,
-            BasePerformaceMeasure performaceMeasure) :base(performaceMeasure)
+            BasePerformaceMeasure performaceMeasure) : base(performaceMeasure)
         {
             Agent = agent;
         }
@@ -33,7 +33,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMe
         /// <code>Agent</code>
         /// </value>
         public AbstractAgent<TPrecept, TAction> Agent { get; }
-        
+
         #endregion
     }
 }

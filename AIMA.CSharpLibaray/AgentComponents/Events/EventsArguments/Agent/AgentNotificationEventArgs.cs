@@ -15,11 +15,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent
         where TAction : AbstractAction, new()
     {
         #region Cstor
-      /// <summary>
-      /// 
-      /// </summary>
-      /// <param name="agent"></param>
-      /// <param name="agentMessage"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agent"></param>
+        /// <param name="agentMessage"></param>
         public AgentNotificationEventArgs(AbstractAgent<TPrecept, TAction> agent, string agentMessage) : base(agent)
         {
             AgentMessage = agentMessage;

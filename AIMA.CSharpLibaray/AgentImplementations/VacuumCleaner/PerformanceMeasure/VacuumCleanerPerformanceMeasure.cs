@@ -9,6 +9,6 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.PerformanceMeasu
     public partial class VacuumCleanerPerformanceMeasure : BasePerformaceMeasure, IVacuumCleanerPerformanceMeasure
 
     {
-       
+
     }
 }

@@ -28,7 +28,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
         where TPrecept : BasePrecept, new()
-        where TAction : AbstractAction, new()  
+        where TAction : AbstractAction, new()
     {
 
         /// <summary>

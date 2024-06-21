@@ -12,7 +12,7 @@
         /// <summary>
         /// 
         /// </summary>
-        North = 10, 
+        North = 10,
         /// <summary>
         /// 
         /// </summary>
@@ -20,23 +20,23 @@
         /// <summary>
         /// 
         /// </summary>
-        East = 20, 
+        East = 20,
         /// <summary>
         /// 
         /// </summary>
-        SouthEast = 25, 
+        SouthEast = 25,
         /// <summary>
         /// 
         /// </summary>
-        South = 30, 
+        South = 30,
         /// <summary>
         /// 
         /// </summary>
-        SouthWest = 35, 
+        SouthWest = 35,
         /// <summary>
         /// 
         /// </summary>
-        West = 40, 
+        West = 40,
         /// <summary>
         /// 
         /// </summary>

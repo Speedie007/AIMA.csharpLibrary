@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors
     /// <summary>
     /// 
     /// </summary>
-    public partial class VacuumCleanerDirtSensor : BaseSensor<VacuumCleanerPrecept,VacuumCleanerAction>, IVacuumCleanerSensor
+    public partial class VacuumCleanerDirtSensor : BaseSensor<VacuumCleanerPrecept, VacuumCleanerAction>, IVacuumCleanerSensor
     {
         /// <summary>
         /// 

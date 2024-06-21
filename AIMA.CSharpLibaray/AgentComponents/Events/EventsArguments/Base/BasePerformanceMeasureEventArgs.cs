@@ -6,7 +6,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
     /// 18 june
     /// </summary>
     public abstract class BasePerformanceMeasureEventArgs : EventArgs
-       
+
     {
 
         #region Cstor

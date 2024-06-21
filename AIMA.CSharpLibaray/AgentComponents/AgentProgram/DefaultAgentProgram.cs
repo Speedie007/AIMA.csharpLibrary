@@ -25,7 +25,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// </summary>
         public override void Initialize()
         {
-         
+
         }
         /// <summary>
         /// 

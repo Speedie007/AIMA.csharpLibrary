@@ -11,7 +11,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base
         /// <summary>
         /// 
         /// </summary>
-        protected BasePerformaceMeasure():base()
+        protected BasePerformaceMeasure() : base()
         {
         }
     }

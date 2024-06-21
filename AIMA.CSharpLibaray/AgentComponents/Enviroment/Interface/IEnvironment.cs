@@ -1,8 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Events;
-using AIMA.CSharpLibrary.AgentComponents.Events.Interface;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
@@ -29,7 +26,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface
     /// <typeparam name="TAgent">Type which is used to represent the agents added to the enviroment.</typeparam>
     /// <typeparam name="TPrecept">Type which is used to represent percepts.</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions.</typeparam>
-    public partial interface IEnvironment<TAgent, TPrecept, TAction> 
+    public partial interface IEnvironment<TAgent, TPrecept, TAction>
             where TAction : AbstractAction, new()
             where TPrecept : BasePrecept, new()
             where TAgent : AbstractAgent<TPrecept, TAction>

@@ -33,7 +33,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
     /// <typeparam name="TAgentAction">Type which is used to represent actions</typeparam>
     public abstract partial class AbstractEnvironment<TAgent, TAgentPrecept, TAgentAction> :
         IEnvironment<TAgent, TAgentPrecept, TAgentAction>,
-        IEnviromentEvents<TAgent,TAgentPrecept, TAgentAction>,
+        IEnviromentEvents<TAgent, TAgentPrecept, TAgentAction>,
         IEnviromentEventFeedBack<TAgent, TAgentPrecept, TAgentAction>
                 where TAgentAction : AbstractAction, new()
                 where TAgentPrecept : BasePrecept, new()
@@ -91,7 +91,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// The event-invoking method that derived classes can override to process logic when an agent is added.
         /// </summary>
         /// <param name="args"></param>
-        public virtual void OnAgentAdded(EnviromentAgentAddedEventArgs<TAgent,TAgentPrecept, TAgentAction> args)
+        public virtual void OnAgentAdded(EnviromentAgentAddedEventArgs<TAgent, TAgentPrecept, TAgentAction> args)
         { AgentAdded?.Invoke(args); }
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is removed.
@@ -116,7 +116,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         {
             Agents.Add(agent);
             AddEnvironmentObject(agent);
-            OnAgentAdded(new EnviromentAgentAddedEventArgs<TAgent,TAgentPrecept, TAgentAction>(agent, this));
+            OnAgentAdded(new EnviromentAgentAddedEventArgs<TAgent, TAgentPrecept, TAgentAction>(agent, this));
         }
         /// <summary>
         /// Retrieve A list of all the agents currently operating within this given enviroment.
@@ -236,7 +236,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// </summary>
         public abstract void CreateExogenousChange();
 
-      
+
         #endregion
 
     }

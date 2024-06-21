@@ -1,6 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.State;
-using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation;

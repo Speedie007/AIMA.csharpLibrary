@@ -8,7 +8,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public partial  interface IAgentEvents<TPrecept, TAction>
+    public partial interface IAgentEvents<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : AbstractAction, new()
     {
@@ -21,7 +21,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
         /// <summary>
         /// 
         /// </summary>
-        event AgentEventHandlers.AgentNotificationEventHandler<TPrecept,TAction> AgentNotification;
+        event AgentEventHandlers.AgentNotificationEventHandler<TPrecept, TAction> AgentNotification;
 
     }
 }

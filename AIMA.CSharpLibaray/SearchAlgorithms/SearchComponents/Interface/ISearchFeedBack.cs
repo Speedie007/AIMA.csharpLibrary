@@ -8,7 +8,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
     /// </summary>
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public partial  interface ISearchFeedBack<TState, TAction>
+    public partial interface ISearchFeedBack<TState, TAction>
         where TAction : AbstractAction, new()
         where TState : BaseState, new()
     {

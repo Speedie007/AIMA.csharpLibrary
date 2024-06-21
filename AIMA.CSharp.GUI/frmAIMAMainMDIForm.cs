@@ -1,5 +1,4 @@
-﻿using AIMA.CSharp.GUI.Factory;
-using AIMA.CSharp.GUI.Factory.Interfaces;
+﻿using AIMA.CSharp.GUI.Factory.Interfaces;
 using AIMA.CSharp.GUI.Forms.VacuumCleaner;
 
 namespace AIMA.CSharp.GUI

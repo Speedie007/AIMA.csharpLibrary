@@ -1,6 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.State;
-using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation;
@@ -26,7 +25,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.Uniformed
         /// </summary>
         /// <param name="searchImplementation"></param>
         public DepthFirstSearch(FrontierProcessor<TState, TAction> searchImplementation)
-            : base(searchImplementation, FrontierExtensionsV1.CreateLIFOQueue<TState,TAction>()) { }
+            : base(searchImplementation, FrontierExtensionsV1.CreateLIFOQueue<TState, TAction>()) { }
         #endregion
 
     }

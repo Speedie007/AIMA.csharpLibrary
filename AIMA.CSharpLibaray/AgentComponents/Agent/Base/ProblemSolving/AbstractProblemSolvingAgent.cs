@@ -49,8 +49,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
             return base.PollAgentSensors(EnvironmentObjects);
         }
 
-        
 
-      
+
+
     }
 }

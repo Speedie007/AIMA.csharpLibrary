@@ -44,9 +44,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
          where TPrecept : BasePrecept, new()
 
     {
-       
+
         #region Cstor
- /// <summary>
+        /// <summary>
         /// AbstractDecisionTheoreticAgent Constructor
         /// </summary>
         protected AbstractDecisionTheoreticAgent() : base()

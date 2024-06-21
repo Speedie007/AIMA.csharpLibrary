@@ -16,8 +16,8 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public TableDrivenVacuumCleanerAgent() : base() { } 
-        
+        public TableDrivenVacuumCleanerAgent() : base() { }
+
         /// <summary>
         /// 
         /// </summary>

@@ -1,7 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
-using System.Collections.Generic;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
 {
@@ -15,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         where TPrecept : BasePrecept, new()
     {
 
-        
+
 
         #region Cstr
         /// <summary>
@@ -29,7 +27,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// </summary>
         public override void Initialize()
         {
-            
+
         }
         /// <summary>
         /// <inheritdoc/>
@@ -38,7 +36,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// <returns><inheritdoc/></returns>
         public override TAction ProcessAgentFunction(TPrecept percept)
         {
-           return new();
+            return new();
         }
         #endregion
 

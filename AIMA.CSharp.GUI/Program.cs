@@ -31,7 +31,8 @@ namespace AIMA.CSharp.GUI
         static IHostBuilder CreateHostBuilder()
         {
             return Host.CreateDefaultBuilder()
-                .ConfigureServices((context, services) => {
+                .ConfigureServices((context, services) =>
+                {
                     services.AddTransient<IFormFactory, FormFactory>();
                     services.AddTransient<IEnviromentFactory, EnviromentFactory>();
                     services.AddTransient<ITestFactory, TestFactory>();

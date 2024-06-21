@@ -3,7 +3,6 @@ using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules;
 using AIMA.CSharpLibrary.AgentComponents.Models.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.AgentComponents.State;
-using System.Collections.Generic;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
 {

@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
         /// <summary>
         /// 
         /// </summary>
-        protected AbstractSimpleProblemSolvingAgent():base()
+        protected AbstractSimpleProblemSolvingAgent() : base()
         {
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
             bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {
         }
-       
+
 
         /// <summary>
         /// 

@@ -13,6 +13,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Interfaces
         /// <typeparam name="TState"></typeparam>
         /// <param name="state"></param>
         /// <returns></returns>
-        bool Validate<TState>(TState  state) where TState : BaseState;
+        bool Validate<TState>(TState state) where TState : BaseState;
     }
 }

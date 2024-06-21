@@ -16,7 +16,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class GeneralProblem<TState, TAction> : IProblem<TState, TAction>
-        where TAction : AbstractAction, new() 
+        where TAction : AbstractAction, new()
         where TState : BaseState, new()
     {
 

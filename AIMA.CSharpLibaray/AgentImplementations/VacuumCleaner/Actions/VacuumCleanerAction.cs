@@ -22,6 +22,6 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
         {
         }
 
-       
+
     }
 }

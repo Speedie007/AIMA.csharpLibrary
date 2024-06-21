@@ -14,7 +14,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Models.Base
         /// </summary>
         public BaseModel()
         {
-            
+
         }
         #endregion
     }

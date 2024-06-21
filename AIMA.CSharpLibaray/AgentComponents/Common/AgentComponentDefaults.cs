@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public static  class AgentComponentDefaults
+    public static class AgentComponentDefaults
     {
         #region Action Defaults
         /// <summary>

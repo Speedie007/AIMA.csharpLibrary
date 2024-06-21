@@ -1,8 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.State;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
-using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces;
-using System.Threading.Tasks;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation
 {
@@ -12,8 +10,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class TreeFrontierProcessor<TState, TAction> : FrontierProcessor<TState, TAction>
-        where TAction : AbstractAction, new()   
-        where TState : BaseState, new()    
+        where TAction : AbstractAction, new()
+        where TState : BaseState, new()
 
     {
         #region Cstor
@@ -48,7 +46,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
         /// 
         /// </summary>
         /// <returns></returns>
-        public  override Node<TState, TAction> RemoveFromFrontier()
+        public override Node<TState, TAction> RemoveFromFrontier()
         {
             Node<TState, TAction> result = Frontier.Dequeue()!;
             UpdateMetrics(Frontier.Size());
@@ -58,7 +56,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
         /// 
         /// </summary>
         /// <returns></returns>
-        public  override bool IsFrontierEmpty()
+        public override bool IsFrontierEmpty()
         {
             return Frontier.Size() == 0;
         }

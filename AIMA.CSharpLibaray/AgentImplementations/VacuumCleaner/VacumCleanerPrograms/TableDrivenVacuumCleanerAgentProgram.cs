@@ -182,7 +182,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerProg
             result.TryAdd(new List<VacuumCleanerPrecept>() { Location_B_Dirty, Location_B_Dirty, Location_A_Dirty }, new VacuumCleanerSuckAction());
             result.TryAdd(new List<VacuumCleanerPrecept>() { Location_B_Dirty, Location_B_Dirty, Location_B_Clean }, new VacuumCleanerMoveLeftAction());
             result.TryAdd(new List<VacuumCleanerPrecept>() { Location_B_Dirty, Location_B_Dirty, Location_B_Dirty }, new VacuumCleanerSuckAction());
-           
+
 
             //
             // Level 4: 4x4x4x4 states

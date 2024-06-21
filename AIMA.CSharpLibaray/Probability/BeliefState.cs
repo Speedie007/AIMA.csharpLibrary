@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AIMA.CSharpLibrary.Probability.Interfaces;
+﻿using AIMA.CSharpLibrary.Probability.Interfaces;
 
 namespace AIMA.CSharpLibrary.Probability
 {

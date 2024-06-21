@@ -1,6 +1,4 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Agent;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Interfaces;
-using AIMA.CSharpLibrary.Common.DataStructure;
+﻿using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base
 {

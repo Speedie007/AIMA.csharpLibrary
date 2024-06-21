@@ -29,6 +29,6 @@
         //Func<TState, TAgentAction, TState> ApplyAsDouble();
     }
 
-   
-    
+
+
 }

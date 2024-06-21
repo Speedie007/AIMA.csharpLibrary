@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// Data store for the Mapped Attributes.
         /// </summary>
         private Dictionary<object, object> DynamicAttributes;
-        
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -108,7 +108,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         {
             if (key == null)
                 throw new ArgumentNullException(nameof(key));
-            
+
             if (DynamicAttributes.TryGetValue(key, out object? attributeValue))
                 return attributeValue;
             else return new();
@@ -124,7 +124,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
             return DynamicAttributes.Remove(key);
         }
 
-       
+
         /// <summary>
         /// <inheritdoc/>
         /// </summary>

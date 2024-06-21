@@ -36,7 +36,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Base
         {
             if (ReferenceEquals(this, other)) return true;
             if (ReferenceEquals(other, null)) return false;
-            if(other == null) return false;
+            if (other == null) return false;
 
             return true;
 

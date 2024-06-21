@@ -10,7 +10,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class NodeFactory<TState, TAction>
-        where TAction : AbstractAction, new() 
+        where TAction : AbstractAction, new()
         where TState : BaseState, new()
     {
 
@@ -25,7 +25,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// <summary>
         /// 
         /// </summary>
-        public NodeFactory():this(true){}
+        public NodeFactory() : this(true) { }
         /// <summary>
         /// 
         /// </summary>

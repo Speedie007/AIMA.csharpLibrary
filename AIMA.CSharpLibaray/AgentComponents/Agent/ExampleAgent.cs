@@ -1,10 +1,8 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
-using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts;
-using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent
 {
@@ -24,7 +22,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         {
         }
 
-      
+
         /// <inheritdoc/>
         public override void ExecuteNoOp()
         {
@@ -37,7 +35,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <param name="action"><inheritdoc/></param>
         public override void ExecuteAgentAction(DefaultAction action)
         {
-            
+
         }
     }
 }

@@ -13,12 +13,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensors.Interface
     /// <typeparam name="TAction"></typeparam>
     public partial interface IAgentSensor<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
-        where TAction: AbstractAction, new()
+        where TAction : AbstractAction, new()
     {
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <returns></returns>
-        TPrecept Poll(TPrecept precept, LinkedHashSet<IEnvironmentObject> EnvironmentObjects, IAgent<TPrecept,TAction> agent);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        TPrecept Poll(TPrecept precept, LinkedHashSet<IEnvironmentObject> EnvironmentObjects, IAgent<TPrecept, TAction> agent);
     }
 }

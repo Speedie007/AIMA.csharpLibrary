@@ -5,7 +5,7 @@
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public partial interface ISensorEvents<TPrecept,TAction>
+    public partial interface ISensorEvents<TPrecept, TAction>
     {
         /// <summary>
         /// 

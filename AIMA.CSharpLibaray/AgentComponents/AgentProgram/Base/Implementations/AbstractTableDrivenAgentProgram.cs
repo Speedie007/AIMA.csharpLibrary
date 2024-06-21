@@ -59,7 +59,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
 
         #endregion
         #region Methods
-       
+
         /// <inheritdoc/>
         public override TAction ProcessAgentFunction(TPrecept percept)
         {

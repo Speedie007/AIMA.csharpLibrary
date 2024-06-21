@@ -19,7 +19,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
         {
 
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -42,10 +42,10 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
         }
     }
 
-    
 
-    
 
-   
-   
+
+
+
+
 }

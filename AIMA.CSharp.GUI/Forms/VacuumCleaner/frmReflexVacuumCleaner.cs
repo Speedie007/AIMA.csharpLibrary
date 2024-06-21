@@ -12,7 +12,7 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
     public partial class frmReflexVacuumCleaner : BaseForm, IEnviromentEventFeedBack<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>
     {
         protected VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> Enviroment { get; private set; }
-        
+
         public frmReflexVacuumCleaner(IEnviromentFactory enviromentFactory)//:base(enviromentFactory)
         {
 
@@ -43,13 +43,13 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
 
         private void frmReflexVacuumCleaner_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void frmReflexVacuumCleaner_Shown(object sender, EventArgs e)
         {
-           
-            
+
+
         }
     }
 }

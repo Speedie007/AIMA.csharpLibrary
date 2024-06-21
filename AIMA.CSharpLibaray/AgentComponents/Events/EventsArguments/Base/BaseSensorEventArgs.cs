@@ -3,7 +3,7 @@
     /// <summary>
     /// 18 June
     /// </summary>
-    public partial  class BaseSensorEventArgs: EventArgs
+    public partial class BaseSensorEventArgs : EventArgs
     {
 
         #region cstor
@@ -12,7 +12,7 @@
         /// </summary>
         public BaseSensorEventArgs()
         {
-            
+
         }
         #endregion
     }

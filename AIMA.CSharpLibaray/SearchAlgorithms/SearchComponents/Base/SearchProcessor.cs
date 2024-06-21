@@ -42,7 +42,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
             Frontier = frontierQueue;
         }
         #endregion
-       
+
         /// <summary>
         /// 
         /// </summary>
@@ -66,7 +66,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
             SearchImplementation.NodeFactory.UseParentLinks = false;
             Frontier.Clear();
             Node<TState, TAction>? node = SearchImplementation.FindNode(problem, Frontier);
-            return node != null ? node.ToState(): default;
+            return node != null ? node.ToState() : default;
         }
         /// <summary>
         /// 
@@ -74,7 +74,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
         /// <returns></returns>
         public SearchMetrics GetMetrics()
         {
-            return SearchImplementation.SearchMetrics;   
+            return SearchImplementation.SearchMetrics;
         }
         /// <summary>
         /// 

@@ -41,7 +41,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerProg
             {
                 action = new VacuumCleanerMoveLeftAction();
             }
-       
+
             return action;
         }
         #endregion

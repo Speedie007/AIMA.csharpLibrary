@@ -9,7 +9,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
     /// </summary>
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public partial interface ISearchForActions<TState, TAction>: ISearchFeedBack<TState,TAction>
+    public partial interface ISearchForActions<TState, TAction> : ISearchFeedBack<TState, TAction>
         where TAction : AbstractAction, new()
         where TState : BaseState, new()
     {
@@ -20,6 +20,6 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface
         /// <returns></returns>
         List<TAction>? FindActions(IProblem<TState, TAction> problem);
 
-        
+
     }
 }

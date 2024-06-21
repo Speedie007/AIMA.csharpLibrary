@@ -21,7 +21,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     /// </summary>
     /// <typeparam name="TElement">Specifies the type of elements in the queue.</typeparam>
     public partial class FrontiertPriorirtyQueue<TElement> : BaseFrontierQueue<TElement>
-        where TElement : class ,new()
+        where TElement : class, new()
     {
         #region Properties
         private readonly IComparer<TElement> _keyComparer;
@@ -284,7 +284,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// <returns>If present, the object at the beginning of the Queue<![CDATA[<TElement>]]>; otherwise, the default value of T.</returns>
         public override TElement Peek()
         {
-            return Queue.TryPeek(out TElement? result) ?  result: new();
+            return Queue.TryPeek(out TElement? result) ? result : new();
         }
 
         /// <summary>

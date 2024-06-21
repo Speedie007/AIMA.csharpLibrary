@@ -15,7 +15,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment.Envir
         where TPrecept : BasePrecept, new()
         where TAction : AbstractAction, new()
     {
-        
+
         #region Properties
         /// <summary>
         /// 

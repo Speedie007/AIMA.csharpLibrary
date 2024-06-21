@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial interface  IVacuumCleanerSensor
+    public partial interface IVacuumCleanerSensor
     {
     }
 }

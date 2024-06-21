@@ -9,14 +9,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
     /// </summary>
     public static class PerformanceMeasureEventHandlers
     {
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <typeparam name="TPrecept"></typeparam>
-       /// <typeparam name="TAction"></typeparam>
-       /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TPrecept"></typeparam>
+        /// <typeparam name="TAction"></typeparam>
+        /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
         public delegate void AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction>(
-            AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs) 
-                where TPrecept: BasePrecept, new() where TAction: AbstractAction, new();
+            AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
+                where TPrecept : BasePrecept, new() where TAction : AbstractAction, new();
     }
 }

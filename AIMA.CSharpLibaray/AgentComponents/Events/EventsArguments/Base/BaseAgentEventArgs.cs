@@ -15,7 +15,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
         /// <summary>
         /// 
         /// </summary>
-        protected BaseAgentEventArgs(AbstractAgent<TPrecept,TAction> agent)
+        protected BaseAgentEventArgs(AbstractAgent<TPrecept, TAction> agent)
         {
             Agent = agent;
         }
