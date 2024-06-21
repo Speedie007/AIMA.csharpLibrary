@@ -1,11 +1,10 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using System.Text;
 
-namespace AIMA.CSharpLibrary.AgentComponents.Agent
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 {
     /// <summary>
     /// 16 June
@@ -55,7 +54,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// 
         /// </summary>
         /// <param name="args"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void OnAgentRemoved(EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> args)
         {
             throw new NotImplementedException();
