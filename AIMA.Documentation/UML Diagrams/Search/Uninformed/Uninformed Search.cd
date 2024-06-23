@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.Uniformed.BreadthFirstSearch&lt;TState, TAction&gt;">
+    <Position X="0.5" Y="6.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SearchAlgorithms\Uniformed\BreadthFirstSearch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.Uniformed.DepthFirstSearch&lt;TState, TAction&gt;">
+    <Position X="3.75" Y="6.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SearchAlgorithms\Uniformed\DepthFirstSearch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.Uniformed.DepthLimitedSearch&lt;TState, TAction&gt;" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AASAAIAAAAAAAAAAAAAbATQAAAAAAAAASAAAAAIECBA=</HashCode>
+      <FileName>SearchAlgorithms\Uniformed\DepthLimitedSearch.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.Uniformed.UniformCostSearch&lt;TState, TAction&gt;">
+    <Position X="7" Y="6.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SearchAlgorithms\Uniformed\UniformCostSearch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base.SearchProcessor&lt;TState, TAction&gt;">
+    <Position X="1.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAAAAAAAACAADAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>SearchAlgorithms\SearchComponents\Base\SearchProcessor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

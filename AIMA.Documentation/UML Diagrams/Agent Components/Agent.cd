@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.Base.BaseAgent&lt;TPrecept, TAction&gt;">
+    <Position X="1.25" Y="1" Width="2.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving.BaseSimpleProblemSolvingAgent&lt;TPrecept, TState, TAction&gt;">
+    <Position X="1.25" Y="5.5" Width="3.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.ExampleAgent">
+    <Position X="6.5" Y="5.5" Width="3" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="AIMA.CSharpLibrary.AgentComponents.Agent.TrivalAgent">
+    <Position X="10.25" Y="5.5" Width="3" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Agent.Interface.IAgent&lt;TPrecept, TAction&gt;">
+    <Position X="4.5" Y="2.5" Width="2.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Agent.Interface.IAgentEventFeedBack&lt;TPrecept, TAction&gt;">
+    <Position X="7.5" Y="2.5" Width="3" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface.IEnvironmentObject">
+    <Position X="4.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
