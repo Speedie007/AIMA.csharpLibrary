@@ -17,7 +17,7 @@
 	<Compile Remove="AgentComponents\Agent\VacuumCleaner\**" />
 	<Compile Remove="AgentComponents\Common\NewFolder\**" />
 	<Compile Remove="AgentComponents\test\**" />
-	<Compile Remove="AgentImplementations\VacuumCleaner\Enviroment\EnviromentObjects\NewFolder\**" />
+	<Compile Remove="AgentImplementations\**" />
 	<Compile Remove="UML Diagrams\Agent Components\Agents\**" />
 	<Compile Remove="UML Diagrams\Agent Components\Enviroments\**" />
 	<Compile Remove="UML Diagrams\Search\Problem\**" />
@@ -25,7 +25,7 @@
 	<EmbeddedResource Remove="AgentComponents\Agent\VacuumCleaner\**" />
 	<EmbeddedResource Remove="AgentComponents\Common\NewFolder\**" />
 	<EmbeddedResource Remove="AgentComponents\test\**" />
-	<EmbeddedResource Remove="AgentImplementations\VacuumCleaner\Enviroment\EnviromentObjects\NewFolder\**" />
+	<EmbeddedResource Remove="AgentImplementations\**" />
 	<EmbeddedResource Remove="UML Diagrams\Agent Components\Agents\**" />
 	<EmbeddedResource Remove="UML Diagrams\Agent Components\Enviroments\**" />
 	<EmbeddedResource Remove="UML Diagrams\Search\Problem\**" />
@@ -33,7 +33,7 @@
 	<None Remove="AgentComponents\Agent\VacuumCleaner\**" />
 	<None Remove="AgentComponents\Common\NewFolder\**" />
 	<None Remove="AgentComponents\test\**" />
-	<None Remove="AgentImplementations\VacuumCleaner\Enviroment\EnviromentObjects\NewFolder\**" />
+	<None Remove="AgentImplementations\**" />
 	<None Remove="UML Diagrams\Agent Components\Agents\**" />
 	<None Remove="UML Diagrams\Agent Components\Enviroments\**" />
 	<None Remove="UML Diagrams\Search\Problem\**" />
@@ -45,9 +45,7 @@
 
   <ItemGroup>
 	<Folder Include="AgentComponents\Events\EventsArguments\Sensors\" />
-	<Folder Include="AgentImplementations\VacuumCleaner\PerformanceMeasure\Base\" />
-	<Folder Include="AgentImplementations\VacuumCleaner\State\Interfaces\" />
-	<Folder Include="Common\DataStructure\Abstract\" />
+	<Folder Include="Common\DataStructure\Base\" />
 	<Folder Include="Common\DataStructure\Interface\" />
 	<Folder Include="Common\Extensions\" />
 	<Folder Include="Common\AgentComponents\" />
