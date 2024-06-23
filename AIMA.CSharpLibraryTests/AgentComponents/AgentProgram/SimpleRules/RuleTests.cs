@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Tests
+﻿namespace AIMA.CSharpLibraryTests.AgentComponents.AgentProgram.SimpleRules
 {
     [TestClass()]
     public class RuleTests

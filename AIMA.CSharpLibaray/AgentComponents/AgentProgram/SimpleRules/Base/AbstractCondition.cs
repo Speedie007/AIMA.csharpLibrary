@@ -1,19 +1,19 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Interfaces;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Base
 {
     /// <summary>
     /// 
     /// </summary>
-    public abstract partial class AbstractCondition : ICondition, IEquatable<AbstractCondition>
+    public abstract partial class BaseCondition : ICondition, IEquatable<BaseCondition>
     {
 
         #region Cstor
         /// <summary>
         /// 
         /// </summary>
-        protected AbstractCondition()
+        protected BaseCondition()
         {
 
         }
@@ -32,7 +32,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Base
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public bool Equals(AbstractCondition? other)
+        public bool Equals(BaseCondition? other)
         {
             if (ReferenceEquals(this, other)) return true;
             if (ReferenceEquals(other, null)) return false;

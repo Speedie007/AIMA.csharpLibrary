@@ -5,13 +5,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
     /// <summary>
     /// 21 June
     /// </summary>
-    public partial class ANDCondition : AbstractCondition, IEquatable<ANDCondition?>
+    public partial class ANDCondition : BaseCondition, IEquatable<ANDCondition?>
     {
         #region Properties
         /// <value> LeftCondition </value>
-        protected AbstractCondition LeftCondition { get; private set; }
+        protected BaseCondition LeftCondition { get; private set; }
         /// <value>Condition</value>
-        protected AbstractCondition RightCondition { get; private set; }
+        protected BaseCondition RightCondition { get; private set; }
         #endregion
 
         #region Cstor
@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
         /// </summary>
         /// <param name="leftCondition"></param>
         /// <param name="rightCondition"></param>
-        public ANDCondition(AbstractCondition leftCondition, AbstractCondition rightCondition)
+        public ANDCondition(BaseCondition leftCondition, BaseCondition rightCondition)
         {
             LeftCondition = leftCondition;
             RightCondition = rightCondition;
@@ -68,8 +68,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
         public bool Equals(ANDCondition? other)
         {
             return other is not null &&
-                   EqualityComparer<AbstractCondition>.Default.Equals(LeftCondition, other.LeftCondition) &&
-                   EqualityComparer<AbstractCondition>.Default.Equals(RightCondition, other.RightCondition);
+                   EqualityComparer<BaseCondition>.Default.Equals(LeftCondition, other.LeftCondition) &&
+                   EqualityComparer<BaseCondition>.Default.Equals(RightCondition, other.RightCondition);
         }
 
         /// <summary>

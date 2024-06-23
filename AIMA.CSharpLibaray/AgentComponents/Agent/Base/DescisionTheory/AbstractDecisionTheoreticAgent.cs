@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
@@ -39,17 +39,17 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public abstract partial class AbstractDecisionTheoreticAgent<TPrecept, TAction> : AbstractAgent<TPrecept, TAction>
-             where TAction : AbstractAction, new()
+    public abstract partial class BaseDecisionTheoreticAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
+             where TAction : BaseAction, new()
          where TPrecept : BasePrecept, new()
 
     {
 
         #region Cstor
         /// <summary>
-        /// AbstractDecisionTheoreticAgent Constructor
+        /// BaseDecisionTheoreticAgent Constructor
         /// </summary>
-        protected AbstractDecisionTheoreticAgent() : base()
+        protected BaseDecisionTheoreticAgent() : base()
         {
             BeliefState = new BeliefState<TPrecept, TAction>();
             Action = new TAction();
@@ -57,12 +57,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
         }
 
         /// <summary>
-        /// AbstractDecisionTheoreticAgent Constructor
+        /// BaseDecisionTheoreticAgent Constructor
         /// </summary>
         /// <param name="agentProgram"><inheritdoc/></param>
         /// <param name="performaceMeasure"><inheritdoc/></param>
         /// <param name="isAlive"><inheritdoc/></param>
-        protected AbstractDecisionTheoreticAgent(AbstractAgentProgram<TPrecept, TAction> agentProgram, BasePerformaceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
+        protected BaseDecisionTheoreticAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, BasePerformanceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {
             BeliefState = new BeliefState<TPrecept, TAction>();
             Action = new TAction();

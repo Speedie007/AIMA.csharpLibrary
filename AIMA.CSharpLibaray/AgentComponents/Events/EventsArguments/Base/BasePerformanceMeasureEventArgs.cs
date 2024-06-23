@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
         /// <summary>
         /// 
         /// </summary>
-        public BasePerformanceMeasureEventArgs(BasePerformaceMeasure performaceMeasure)
+        public BasePerformanceMeasureEventArgs(BasePerformanceMeasure performaceMeasure)
         {
             PerformaceMeasure = performaceMeasure;
         }
@@ -21,7 +21,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
         /// <value>
         /// 
         /// </value>
-        public BasePerformaceMeasure PerformaceMeasure { get; }
+        public BasePerformanceMeasure PerformaceMeasure { get; }
 
 
         #endregion

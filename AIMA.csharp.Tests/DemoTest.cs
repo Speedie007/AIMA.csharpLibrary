@@ -16,7 +16,7 @@ namespace AIMA.csharp.Tests
             //AgentAction MoveDownAction = new AgentAction("MOVE_Down");
             //AgentAction MoveRightAction = new AgentAction("MOVE_Right");
 
-            ////var node = new Node<BaseState,AbstractAction>("");
+            ////var node = new Node<BaseState,BaseAction>("");
             //ListOfNodes = new List<Node<BaseState, AgentAction>>() {
 
             //    new Node<BaseState, AgentAction>(state,null,MoveUpAction,5),

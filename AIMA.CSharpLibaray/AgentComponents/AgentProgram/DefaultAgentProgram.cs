@@ -1,6 +1,7 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
@@ -9,8 +10,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
     /// <summary>
     /// 
     /// </summary>
-    public partial class DefaultAgentProgram<TPrecept, TAction> : AbstractAgentProgram<TPrecept, TAction>
-        where TAction : AbstractAction, new()
+    public partial class DefaultAgentProgram<TPrecept, TAction> : BaseAgentProgram<TPrecept, TAction>
+        where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
     {
         #region Cstor
@@ -23,7 +24,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <summary>
         /// 
         /// </summary>
-        public override void Initialize()
+        public override void InitializeAgentProgramComponents()
         {
 
         }
@@ -44,7 +45,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        protected override TPrecept ProcessSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects, IAgent<TPrecept, TAction> agent)
+        protected override TPrecept ProcessSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent<TPrecept, TAction> agent)
         {
             return base.ProcessSensors(EnvironmentObjects, agent);
         }

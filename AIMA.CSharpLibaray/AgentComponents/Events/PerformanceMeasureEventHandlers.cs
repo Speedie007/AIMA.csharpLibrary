@@ -17,6 +17,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
         public delegate void AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction>(
             AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
-                where TPrecept : BasePrecept, new() where TAction : AbstractAction, new();
+                where TPrecept : BasePrecept, new() where TAction : BaseAction, new();
     }
 }

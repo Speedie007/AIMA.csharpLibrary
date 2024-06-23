@@ -7,7 +7,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
     /// 16June
     /// </summary>
     public partial interface IPerformanceMeasureEvents<TPrecept, TAction>
-        where TPrecept : BasePrecept, new() where TAction : AbstractAction, new()
+        where TPrecept : BasePrecept, new() where TAction : BaseAction, new()
     {
         /// <summary>
         /// 

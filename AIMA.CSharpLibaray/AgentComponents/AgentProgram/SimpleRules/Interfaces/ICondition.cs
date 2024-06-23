@@ -1,4 +1,4 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.State;
+﻿using AIMA.CSharpLibrary.AgentComponents.State.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Interfaces
 {

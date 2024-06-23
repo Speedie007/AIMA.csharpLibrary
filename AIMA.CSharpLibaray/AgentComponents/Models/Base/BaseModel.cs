@@ -5,7 +5,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Models.Base
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public partial class BaseModel : IModel
+    public abstract partial class BaseModel : IModel
     {
 
         #region Cstor

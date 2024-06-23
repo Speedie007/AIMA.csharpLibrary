@@ -6,7 +6,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures
     /// <summary>
     /// 
     /// </summary>
-    public partial class DefaultPerformanceMeasure : BasePerformaceMeasure
+    public partial class DefaultPerformanceMeasure : BasePerformanceMeasure
     {
         #region Cstor
         /// <summary>

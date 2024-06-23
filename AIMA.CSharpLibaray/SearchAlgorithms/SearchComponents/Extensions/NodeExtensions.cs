@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
 {
@@ -15,7 +15,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <returns></returns>
         public static List<TAction> GetSequenceOfActions<TState, TAction>(this Node<TState, TAction> node)
             where TState : BaseState, new()
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
         {
             LinkedList<TAction> actions = new LinkedList<TAction>();
             while (!node.IsRootNode)
@@ -32,7 +32,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <returns></returns>
         public static List<TAction> ToActions<TState, TAction>(this Node<TState, TAction> node)
             where TState : BaseState, new()
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
         {
             return node != null ? GetSequenceOfActions(node) : new List<TAction>();
         }
@@ -43,7 +43,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <returns></returns>
         public static TState ToState<TState, TAction>(this Node<TState, TAction> node)
             where TState : BaseState, new()
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
         {
             return node != null ? node.NodeState : new();
         }
@@ -54,7 +54,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <returns></returns>
         public static List<Node<TState, TAction>> GetPathFromRoot<TState, TAction>(this Node<TState, TAction> node)
             where TState : BaseState, new()
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
         {
             LinkedList<Node<TState, TAction>> path = new LinkedList<Node<TState, TAction>>();
 

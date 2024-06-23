@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
@@ -28,13 +28,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
         where TPrecept : BasePrecept, new()
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
     {
 
         /// <summary>
-        /// Call the AbstractAgent's program, which maps any given percept sequences to an action.
+        /// Call the BaseAgent's program, which maps any given percept sequences to an action.
         /// </summary>
-        /// <param name="percept">The current percept of the current enviroment perceived by the AbstractAgent.</param>
+        /// <param name="percept">The current percept of the current enviroment perceived by the BaseAgent.</param>
         /// <returns>
         /// <para>The ActionExecuted to be taken in response to the currently perceived percept.</para>
         /// <para>An ActionExecuted of type NoOperation replaces NoOp in earlier implementations.</para></returns>
@@ -45,11 +45,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// </summary>
         /// <param name="EnvironmentObjects">Current Objects within in the agents enviroment</param>
         /// <returns>Agent Precept, based on the current state of the enviroment it is operating in.</returns>
-        TPrecept PollAgentSensors(LinkedHashSet<IEnvironmentObject> EnvironmentObjects);
+        TPrecept PollAgentSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects);
 
         /// <summary>
-        /// <para>Life-cycle indicator as to the liveness of an AbstractAgent.</para>
-        /// Perperty: Value true if the AbstractAgent is to be considered alive, false otherwise.
+        /// <para>Life-cycle indicator as to the liveness of an BaseAgent.</para>
+        /// Perperty: Value true if the BaseAgent is to be considered alive, false otherwise.
         /// </summary>
         public bool IsAlive { get; set; }
 
@@ -68,6 +68,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// </summary>
         /// <param name="action">The ActionExecuted to be performed by the Agent.</param>
         void ExecuteAgentAction(TAction action);
-
+        void InitialiseAgentProgram();
     }
 }

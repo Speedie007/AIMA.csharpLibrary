@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 using System.Diagnostics.CodeAnalysis;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
@@ -32,7 +32,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 
     public partial class Node<TState, TAction> :
         IComparer<Node<TState, TAction>>, IEqualityComparer<Node<TState, TAction>>
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
             where TState : BaseState, new()
     {
         /// <summary>

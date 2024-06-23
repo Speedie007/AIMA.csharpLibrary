@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Interface;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces;
@@ -13,7 +13,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
     /// <typeparam name="TAction"></typeparam>
     public abstract partial class SearchProcessor<TState, TAction> :
         ISearchForStates<TState, TAction>, ISearchForActions<TState, TAction>
-         where TAction : AbstractAction, new()
+         where TAction : BaseAction, new()
         where TState : BaseState, new()
     {
 

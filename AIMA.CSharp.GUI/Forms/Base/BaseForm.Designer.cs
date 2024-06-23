@@ -33,10 +33,12 @@
             splitContainer2 = new SplitContainer();
             lbltest = new Label();
             btnTestBtn = new Button();
+            groupBox1 = new GroupBox();
             txtOne = new TextBox();
             gbVacuumCleanerEnviromentView = new GroupBox();
-            splitContainer1 = new SplitContainer();
             splitContainer3 = new SplitContainer();
+            groupBoxEvniromentOptions = new GroupBox();
+            splitContainer1 = new SplitContainer();
             contextMenuStrip1 = new ContextMenuStrip(components);
             ((System.ComponentModel.ISupportInitialize)mainLayoutSplitContainer).BeginInit();
             mainLayoutSplitContainer.Panel1.SuspendLayout();
@@ -46,11 +48,13 @@
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
+            groupBox1.SuspendLayout();
             gbVacuumCleanerEnviromentView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
+            splitContainer3.Panel1.SuspendLayout();
+            splitContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
-            splitContainer3.SuspendLayout();
             SuspendLayout();
             // 
             // mainLayoutSplitContainer
@@ -85,7 +89,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            splitContainer2.Panel2.Controls.Add(txtOne);
+            splitContainer2.Panel2.Controls.Add(groupBox1);
             splitContainer2.Size = new Size(250, 450);
             splitContainer2.SplitterDistance = 83;
             splitContainer2.TabIndex = 0;
@@ -109,13 +113,25 @@
             btnTestBtn.UseVisualStyleBackColor = true;
             btnTestBtn.Click += btnTestBtn_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(txtOne);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(250, 363);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "AgentEnviroment Feed-Back";
+            // 
             // txtOne
             // 
             txtOne.Dock = DockStyle.Fill;
-            txtOne.Location = new Point(0, 0);
+            txtOne.Location = new Point(3, 19);
+            txtOne.Margin = new Padding(5);
             txtOne.Multiline = true;
             txtOne.Name = "txtOne";
-            txtOne.Size = new Size(250, 363);
+            txtOne.Size = new Size(244, 341);
             txtOne.TabIndex = 2;
             // 
             // gbVacuumCleanerEnviromentView
@@ -127,7 +143,31 @@
             gbVacuumCleanerEnviromentView.Size = new Size(546, 450);
             gbVacuumCleanerEnviromentView.TabIndex = 0;
             gbVacuumCleanerEnviromentView.TabStop = false;
-            gbVacuumCleanerEnviromentView.Text = "Default Enviroment View";
+            gbVacuumCleanerEnviromentView.Text = "Default AgentEnviroment View";
+            // 
+            // splitContainer3
+            // 
+            splitContainer3.Dock = DockStyle.Fill;
+            splitContainer3.Location = new Point(3, 19);
+            splitContainer3.Name = "splitContainer3";
+            splitContainer3.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            splitContainer3.Panel1.Controls.Add(groupBoxEvniromentOptions);
+            splitContainer3.Size = new Size(540, 428);
+            splitContainer3.SplitterDistance = 66;
+            splitContainer3.TabIndex = 0;
+            // 
+            // groupBoxEvniromentOptions
+            // 
+            groupBoxEvniromentOptions.Dock = DockStyle.Fill;
+            groupBoxEvniromentOptions.Location = new Point(0, 0);
+            groupBoxEvniromentOptions.Name = "groupBoxEvniromentOptions";
+            groupBoxEvniromentOptions.Size = new Size(540, 66);
+            groupBoxEvniromentOptions.TabIndex = 0;
+            groupBoxEvniromentOptions.TabStop = false;
+            groupBoxEvniromentOptions.Text = "Agent Enviroment Configuration Options";
             // 
             // splitContainer1
             // 
@@ -138,16 +178,6 @@
             splitContainer1.Size = new Size(250, 450);
             splitContainer1.SplitterDistance = 114;
             splitContainer1.TabIndex = 0;
-            // 
-            // splitContainer3
-            // 
-            splitContainer3.Dock = DockStyle.Fill;
-            splitContainer3.Location = new Point(3, 19);
-            splitContainer3.Name = "splitContainer3";
-            splitContainer3.Orientation = Orientation.Horizontal;
-            splitContainer3.Size = new Size(540, 428);
-            splitContainer3.SplitterDistance = 84;
-            splitContainer3.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -161,7 +191,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(mainLayoutSplitContainer);
             Name = "BaseForm";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "BaseForm";
             TopMost = true;
             WindowState = FormWindowState.Maximized;
@@ -173,14 +203,16 @@
             splitContainer2.Panel1.ResumeLayout(false);
             splitContainer2.Panel1.PerformLayout();
             splitContainer2.Panel2.ResumeLayout(false);
-            splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             gbVacuumCleanerEnviromentView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
+            splitContainer3.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -194,7 +226,9 @@
         public Button btnTestBtn;
         public Label lbltest;
         public TextBox txtOne;
-        private SplitContainer splitContainer3;
-        private ContextMenuStrip contextMenuStrip1;
+        public SplitContainer splitContainer3;
+        public ContextMenuStrip contextMenuStrip1;
+        private GroupBox groupBox1;
+        public GroupBox groupBoxEvniromentOptions;
     }
 }

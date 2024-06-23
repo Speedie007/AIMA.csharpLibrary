@@ -5,7 +5,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
     /// <summary>
     /// 21 June
     /// </summary>
-    public partial class EQUALCondition : AbstractCondition, IEquatable<EQUALCondition?>
+    public partial class EQUALCondition : BaseCondition, IEquatable<EQUALCondition?>
     {
         #region Properties
         /// <value>
@@ -48,7 +48,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
         /// <returns><inheritdoc/></returns>
         public override string ToString()
         {
-            return $"{PropertyKey.GetType().ToString()}=={PropertyValue.ToString()}";
+            return $"{PropertyKey.ToString()}=={PropertyValue.ToString()}";
         }
 
         /// <summary>

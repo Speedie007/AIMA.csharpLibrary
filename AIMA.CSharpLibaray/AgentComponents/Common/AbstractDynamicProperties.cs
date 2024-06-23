@@ -7,7 +7,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
     /// <summary>
     /// 
     /// </summary>
-    public abstract partial class AbstractDynamicProperties : ICloneable, IComparer<AbstractDynamicProperties>
+    public abstract partial class BaseDynamicProperties : ICloneable, IComparer<BaseDynamicProperties>
     {
         /// <summary>
         /// Data store for the Mapped Attributes.
@@ -18,7 +18,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// Constructor
         /// </summary>
         #region Cstor
-        protected AbstractDynamicProperties()
+        protected BaseDynamicProperties()
         {
             DynamicAttributes = new Dictionary<object, object>();
         }
@@ -60,9 +60,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
                 else
                     sb.Append(", ");
 
-                sb.Append(keyValuePair.Key);
+                sb.Append(keyValuePair.Key.ToString());
                 sb.Append("=");
-                sb.Append(keyValuePair.Value);
+                sb.Append(keyValuePair.Value.ToString());
             }
             sb.Append("]");
 
@@ -81,7 +81,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// <para>
         /// Associates the specified value with the specified attribute PropertyKey.</para>
         /// <para>
-        /// If the AbstractDynamicProperties previously contained A mapping for the attribute PropertyKey, the old value is replaced.
+        /// If the BaseDynamicProperties previously contained A mapping for the attribute PropertyKey, the old value is replaced.
         /// </para>
         /// </summary>
         /// <param name="key">The attribute Key</param>
@@ -131,11 +131,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// <returns><inheritdoc/></returns>
         public object Clone()
         {
-            AbstractDynamicProperties result;
+            BaseDynamicProperties result;
 
             try
             {
-                result = (AbstractDynamicProperties)MemberwiseClone();
+                result = (BaseDynamicProperties)MemberwiseClone();
                 result.DynamicAttributes = new Dictionary<object, object>();
                 foreach (var val in DynamicAttributes)
                     result.DynamicAttributes.Add(val.Key, val.Value);
@@ -171,7 +171,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         public override bool Equals(object? obj)
         {
             return obj != null && GetType() == obj.GetType()
-               && DynamicAttributes.Equals(((AbstractDynamicProperties)obj).DynamicAttributes);
+               && DynamicAttributes.Equals(((BaseDynamicProperties)obj).DynamicAttributes);
         }
         /// <summary>
         /// 
@@ -188,7 +188,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// <param name="y"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public int Compare(AbstractDynamicProperties? x, AbstractDynamicProperties? y)
+        public int Compare(BaseDynamicProperties? x, BaseDynamicProperties? y)
         {
             throw new NotImplementedException();
         }

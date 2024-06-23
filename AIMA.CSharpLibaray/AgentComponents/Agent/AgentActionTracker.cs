@@ -1,6 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using System.Text;
@@ -15,9 +15,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <typeparam name="TAction"></typeparam>
     public partial class AgentActionTracker<TAgent, TPrecept, TAction> :
         IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-            where TAgent : AbstractAgent<TPrecept, TAction>
+            where TAgent : BaseAgent<TPrecept, TAction>, new()
     {
         /// <summary>
         /// 

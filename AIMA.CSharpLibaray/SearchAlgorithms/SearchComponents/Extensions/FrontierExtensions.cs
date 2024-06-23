@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
@@ -16,7 +16,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <typeparam name="TAction"></typeparam>
         /// <returns></returns>
         public static BaseFrontierQueue<Node<TState, TAction>> CreateLIFOQueue<TState, TAction>()
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
             where TState : BaseState, new()
         {
             FrontierLIFOQueue<Node<TState, TAction>> queue = new();
@@ -30,7 +30,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <typeparam name="TAction"></typeparam>
         /// <returns></returns>
         public static BaseFrontierQueue<Node<TState, TAction>> CreateFIFOFrontier<TState, TAction>()
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
             where TState : BaseState, new()
         {
             FontierFIFOQueue<Node<TState, TAction>> queue = new();
@@ -44,7 +44,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <typeparam name="TAction"></typeparam>
         /// <returns></returns>
         public static BaseFrontierQueue<Node<TState, TAction>> CreatePriorityQueueFrontier<TState, TAction>()
-            where TAction : AbstractAction, new()
+            where TAction : BaseAction, new()
             where TState : BaseState, new()
         {
             FrontiertPriorirtyQueue<Node<TState, TAction>> queue = new();
@@ -60,7 +60,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public static class FrontierExtensions<TElement, TState, TAction>
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
         where TState : BaseState, new()
         where TElement : Node<TState, TAction>, new()
     {

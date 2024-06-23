@@ -5,7 +5,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions
     /// <summary>
     /// 
     /// </summary>
-    public partial class DefaultAction : AbstractAction
+    public partial class DefaultAction : BaseAction
     {
         /// <summary>
         /// 

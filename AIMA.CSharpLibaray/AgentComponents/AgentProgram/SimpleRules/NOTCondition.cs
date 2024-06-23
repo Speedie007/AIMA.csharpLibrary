@@ -5,13 +5,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
     /// <summary>
     /// 21 June 2024
     /// </summary>
-    public partial class NOTCondition : AbstractCondition, IEquatable<NOTCondition?>
+    public partial class NOTCondition : BaseCondition, IEquatable<NOTCondition?>
     {
         #region Properties
         /// <value>
         /// 
         /// </value>
-        public AbstractCondition NotCondition { get; set; }
+        public BaseCondition NotCondition { get; set; }
         #endregion
 
         #region Cstor
@@ -19,7 +19,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
         /// 
         /// </summary>
         /// <param name="notCondition"></param>
-        public NOTCondition(AbstractCondition notCondition)
+        public NOTCondition(BaseCondition notCondition)
         {
             NotCondition = notCondition;
         }
@@ -63,7 +63,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
         {
             return other is not null &&
                    base.Equals(other) &&
-                   EqualityComparer<AbstractCondition>.Default.Equals(NotCondition, other.NotCondition);
+                   EqualityComparer<BaseCondition>.Default.Equals(NotCondition, other.NotCondition);
         }
         /// <summary>
         /// 

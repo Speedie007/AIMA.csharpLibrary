@@ -22,9 +22,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <typeparam name="TAction"></typeparam>
         /// <param name="AgentAddedEventArgs"></param>
         public delegate void AgentAddedEventHandler<TAgent, TPrecept, TAction>(EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction> AgentAddedEventArgs)
-             where TAction : AbstractAction, new()
+             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-            where TAgent : AbstractAgent<TPrecept, TAction>, new();
+            where TAgent : BaseAgent<TPrecept, TAction>, new();
         /// <summary>
         /// 
         /// </summary>
@@ -33,9 +33,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <typeparam name="TAction"></typeparam>
         /// <param name="AgentRemovedArgs"></param>
         public delegate void AgentRemovedEventHandler<TAgent, TPrecept, TAction>(EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> AgentRemovedArgs)
-             where TAction : AbstractAction, new()
+             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-            where TAgent : AbstractAgent<TPrecept, TAction>, new();
+            where TAgent : BaseAgent<TPrecept, TAction>, new();
         /// <summary>
         /// 
         /// </summary>
@@ -44,8 +44,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <typeparam name="TAction"></typeparam>
         /// <param name="AgentActedEventArgs"></param>
         public delegate void AgentActedEventHandler<TAgent, TPrecept, TAction>(EnviromentAgentActedEventArgs<TAgent, TPrecept, TAction> AgentActedEventArgs)
-             where TAction : AbstractAction, new()
+             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-            where TAgent : AbstractAgent<TPrecept, TAction>, new();
+            where TAgent : BaseAgent<TPrecept, TAction>, new();
     }
 }

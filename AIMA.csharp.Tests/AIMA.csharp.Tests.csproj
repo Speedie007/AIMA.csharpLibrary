@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AIMA.csharpLibaray\AIMA.CSharpLibrary.csproj" />
+    <ProjectReference Include="..\AIMA.Implementations\AIMA.Implementations.csproj" />
   </ItemGroup>
 
   <ItemGroup>

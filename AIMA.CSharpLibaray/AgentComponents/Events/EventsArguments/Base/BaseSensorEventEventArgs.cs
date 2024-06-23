@@ -1,6 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
-using AIMA.CSharpLibrary.AgentComponents.Sensors.Base;
+using AIMA.CSharpLibrary.AgentComponents.Sensor.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
 {
@@ -10,7 +10,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
     /// </summary>
     public partial class BaseSensorEventEventArgs<TPrecept, TAction> : EventArgs
         where TPrecept : BasePrecept, new()
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
     {
 
         #region Cstor

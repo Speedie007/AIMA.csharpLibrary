@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem.Interfaces;
 
@@ -11,7 +11,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class GraphFrontierProcessor<TState, TAction> : FrontierProcessor<TState, TAction>
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
         where TState : BaseState, new()
     {
         /// <summary>

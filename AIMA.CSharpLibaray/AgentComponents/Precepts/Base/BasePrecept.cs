@@ -26,7 +26,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Precepts.Base
     ///</list>
     /// <para>Date Created: 10 May 2024 - Date Last Updated: 19 June 2024</para>
     /// </summary>
-    public abstract class BasePrecept : AbstractDynamicProperties, IAgentPrecept
+    public abstract class BasePrecept : BaseDynamicProperties, IAgentPrecept
     {
         #region Cstor
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿namespace AIMA.CSharpLibrary.AgentComponents.Actions.Interface
 {
     /// <summary>
-    /// <para>Describes an ActionExecuted that can or has been taken by an AbstractAgent via one of its Actuators.
+    /// <para>Describes an ActionExecuted that can or has been taken by an BaseAgent via one of its Actuators.
     /// </para>
     /// <remarks> Serves as marker interface but the framework does not require to use it.</remarks>
     ///<para>

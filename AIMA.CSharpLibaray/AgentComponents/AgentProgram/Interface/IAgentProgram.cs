@@ -1,8 +1,8 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.CSharpLibrary.AgentComponents.EnviromentComponents.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
-using AIMA.CSharpLibrary.AgentComponents.Sensors.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Sensor.Interface;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
@@ -30,28 +30,28 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
     public partial interface IAgentProgram<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
     {
         /// <summary>
         /// 
         /// </summary>
-        Dictionary<Type, IAgentSensor<TPrecept, TAction>> Sensors { get; }
+        Dictionary<Type, IBaseSensor<TPrecept, TAction>> Sensors { get; }
         /// <summary>
         /// Concrete implemeations of the AgentPrgrom should implement the Init() method so that it can initialize the relevant calls as/if required, such as  the setState(), setModel(), and setRules() method.
         /// <para>Called when the program is loaded.</para>
         /// </summary>
-        void Initialize();
+        void InitializeAgentProgramComponents();
         /// <summary>
-        /// The AbstractAgent's program Precept To ActionExecuted Function, which maps any given percept sequences to an action.
-        /// <para>The current percept of A sequence perceived by the AbstractAgent.</para>
+        /// The BaseAgent's program Precept To ActionExecuted Function, which maps any given percept sequences to an action.
+        /// <para>The current percept of A sequence perceived by the BaseAgent.</para>
         /// </summary>
         /// <returns>The ActionExecuted to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
-        Func<TPrecept, AbstractAction> AgentFunction { get; }
+        Func<TPrecept, BaseAction> AgentFunction { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        Func<LinkedHashSet<IEnvironmentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunc { get; }
+        Func<LinkedDictonarySet<IEnvironmentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunc { get; }
     };
 }
 

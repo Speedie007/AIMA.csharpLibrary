@@ -110,7 +110,8 @@ namespace AIMA.CSharp.GUI
             if (reflexVacuumCleaner != null)
             {
                 reflexVacuumCleaner.MdiParent = this;
-                reflexVacuumCleaner.Text = "Window " + childFormNumber++;
+                reflexVacuumCleaner.Text = "Vacuum Cleaner - " + childFormNumber++;
+                reflexVacuumCleaner.WindowState = FormWindowState.Maximized;
                 reflexVacuumCleaner.Show();
             }
 

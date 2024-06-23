@@ -13,9 +13,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class EnviromentAgentActedEventArgs<TAgent, TPrecept, TAction> : BaseEnviromentEventArgs<TAgent, TPrecept, TAction>
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-        where TAgent : AbstractAgent<TPrecept, TAction>, new()
+        where TAgent : BaseAgent<TPrecept, TAction>, new()
     {
         #region cstor
         /// <summary>
@@ -29,7 +29,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment
             TAgent agent,
             TPrecept currentPercept,
             TAction actionExecuted,
-            AbstractEnvironment<TAgent, TPrecept, TAction> sourceEnviroment) : base(sourceEnviroment)
+            BaseEnvironment<TAgent, TPrecept, TAction> sourceEnviroment) : base(sourceEnviroment)
         {
             Agent = agent;
             CurrentPercept = currentPercept;

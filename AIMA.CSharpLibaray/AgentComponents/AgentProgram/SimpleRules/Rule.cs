@@ -1,7 +1,7 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Interfaces;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
 {
@@ -10,13 +10,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
     /// </summary>
     /// <typeparam name="TAction"></typeparam>
     public partial class Rule<TAction> : IEquatable<Rule<TAction>?>, IRule<TAction>
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
     {
         #region Properties
         /// <summary>
         /// 
         /// </summary>
-        public AbstractCondition RuleCondition { get; private set; }
+        public BaseCondition RuleCondition { get; private set; }
         /// <summary>
         /// 
         /// </summary>
@@ -25,11 +25,18 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
 
         #region Cstor
         /// <summary>
+        /// Will creates default rule where the default action is NoOperation(perform no Action).
+        /// </summary>
+        public Rule() : this(new EMPTYCondition(), new())
+        {
+
+        }
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="condition"></param>
         /// <param name="action"></param>
-        public Rule(AbstractCondition condition, TAction action)
+        public Rule(BaseCondition condition, TAction action)
         {
             RuleCondition = condition;
             ResultantAction = action;
@@ -64,7 +71,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules
         public bool Equals(Rule<TAction>? other)
         {
             return other is not null &&
-                   EqualityComparer<AbstractCondition>.Default.Equals(RuleCondition, other.RuleCondition) &&
+                   EqualityComparer<BaseCondition>.Default.Equals(RuleCondition, other.RuleCondition) &&
                    EqualityComparer<TAction>.Default.Equals(ResultantAction, other.ResultantAction);
         }
         /// <summary>

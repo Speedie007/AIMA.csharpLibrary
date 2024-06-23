@@ -8,6 +8,7 @@ using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment.Enviromen
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.VacumCleanerPrograms;
 
+
 namespace AIMA.CSharp.GUI.Factory
 {
     public partial class EnviromentFactory : IEnviromentFactory

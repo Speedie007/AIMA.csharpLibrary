@@ -1,12 +1,12 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Common;
 using AIMA.CSharpLibrary.AgentComponents.State.Interface;
 
-namespace AIMA.CSharpLibrary.AgentComponents.State
+namespace AIMA.CSharpLibrary.AgentComponents.State.Base
 {
     /// <summary>
     /// 
     /// </summary>
-    public abstract partial class BaseState : AbstractDynamicProperties, IState
+    public abstract partial class BaseState : BaseDynamicProperties, IState
     {
 
         #region Cstor

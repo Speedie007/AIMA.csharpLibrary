@@ -9,7 +9,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment
     /// <summary>
     /// 
     /// </summary>
-    public class EmptyExampleEnviroment : AbstractEnvironment<ExampleAgent, EmptyExamplePrecept, DefaultAction>
+    public class EmptyExampleEnviroment : BaseEnvironment<ExampleAgent, EmptyExamplePrecept, DefaultAction>
     {
 
 

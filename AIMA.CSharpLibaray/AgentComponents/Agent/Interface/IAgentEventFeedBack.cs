@@ -19,7 +19,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     /// </summary>
     public partial interface IAgentEventFeedBack<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
     {
         /// <summary>
         ///  A simple notification message, to be forwarded to someone.

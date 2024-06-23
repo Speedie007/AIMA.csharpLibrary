@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Tests
+﻿namespace AIMA.CSharpLibraryTests.AgentComponents.AgentProgram
 {
     [TestClass()]
     public class DefaultAgentProgramTests

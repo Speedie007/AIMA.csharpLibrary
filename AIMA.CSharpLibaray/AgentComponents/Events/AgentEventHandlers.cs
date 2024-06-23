@@ -22,6 +22,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
 
         public delegate void AgentNotificationEventHandler<TPrecept, TAction>(AgentNotificationEventArgs<TPrecept, TAction> agentNotificationEventArgs)
             where TPrecept : BasePrecept, new()
-            where TAction : AbstractAction, new();
+            where TAction : BaseAction, new();
     }
 }

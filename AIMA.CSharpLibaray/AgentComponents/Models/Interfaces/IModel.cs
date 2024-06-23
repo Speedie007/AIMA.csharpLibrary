@@ -5,7 +5,7 @@
     /// <para>
     /// This knowledge about "how the world works" - whether implemented in simple
     /// Boolean circuits or in complete scientific theories - is called A AgentModel of
-    /// the world.An AbstractAgent that uses such A AgentModel is called A AgentModel-based agent.
+    /// the world.An BaseAgent that uses such A AgentModel is called A AgentModel-based agent.
     ///</para>
     ///<list type="bullet">
     ///<item>

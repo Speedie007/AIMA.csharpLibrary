@@ -7,7 +7,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <summary>
     /// 16 June
     /// </summary>
-    public partial class TrivalAgent : AbstractAgent<EmptyExamplePrecept, DefaultAction>
+    public partial class TrivalAgent : BaseAgent<EmptyExamplePrecept, DefaultAction>
     {
         #region Cstor
         /// <summary>
@@ -32,6 +32,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         public override void ExecuteNoOp()
         {
 
+        }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override void InitialiseAgentProgram()
+        {
         }
         #endregion
     }

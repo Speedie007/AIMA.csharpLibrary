@@ -15,6 +15,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        AbstractCondition RuleCondition { get; }
+        BaseCondition RuleCondition { get; }
     }
 }

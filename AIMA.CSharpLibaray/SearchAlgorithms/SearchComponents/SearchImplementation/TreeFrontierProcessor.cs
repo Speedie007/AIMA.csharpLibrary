@@ -1,5 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.State;
+using AIMA.CSharpLibrary.AgentComponents.State.Base;
 using AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base;
 
 namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementation
@@ -10,7 +10,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.SearchImplementat
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
     public partial class TreeFrontierProcessor<TState, TAction> : FrontierProcessor<TState, TAction>
-        where TAction : AbstractAction, new()
+        where TAction : BaseAction, new()
         where TState : BaseState, new()
 
     {
