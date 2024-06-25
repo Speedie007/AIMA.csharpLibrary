@@ -13,7 +13,7 @@ namespace AIMA.CSharp.GUI
         /// <summary>
         /// 
         /// </summary>
-        public static IServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider? ServiceProvider { get; private set; }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

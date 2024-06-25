@@ -22,7 +22,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface
     ///<para>
     ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
-    ///<para>Date Created: 10 May 2024 - Date Last Updated: 10 May 2024</para>
+    ///<para>Date Created: 10 May 2024 - Date Last Updated: 25 June 2024</para>
     /// <typeparam name="TAgent">Type which is used to represent the agents added to the enviroment.</typeparam>
     /// <typeparam name="TPrecept">Type which is used to represent percepts.</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions.</typeparam>
@@ -57,36 +57,42 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface
         /// <![CDATA[]]>
         /// </summary>
         /// <returns>Returns A List of EnvironmentObjects that exist in this Environment.</returns>
-        List<IEnvironmentObject> GetEnvironmentObjects();
+        List<IEnviromentObject> GetEnvironmentObjects();
 
         /// <summary>
         /// Add an EnvironmentObject to the Environment.
         /// </summary>
         /// <param name="environmentObject">The EnvironmentObject to be added.</param>
-        void AddEnvironmentObject(IEnvironmentObject environmentObject);
+        void AddEnvironmentObject(IEnviromentObject environmentObject);
 
         /// <summary>
         /// Remove an EnvironmentObject from the Environment.
         /// </summary>
         /// <param name="environmentObject">The EnvironmentObject to be removed.</param>
-        void RemoveEnvironmentObject(IEnvironmentObject environmentObject);
+        void RemoveEnvironmentObject(IEnviromentObject environmentObject);
 
 
         /// <summary>
         /// Move the Environment one time step forward.
         /// </summary>
-        void Step();
+        /// <param name="cancellationToken">Task Cancellation Token, Uses to handle the cancellation of stepping through the enviroment.</param>
+        /// <returns></returns>
+        Task StepAsync(CancellationToken cancellationToken);
 
         /// <summary>
         /// Move the Environment n time steps forward.
         /// </summary>
         /// <param name="amountStepsToMoveForward">The number of time steps to move the Environment forward.the number of time steps to move the Environment forward.</param>
-        void Step(int amountStepsToMoveForward);
+        /// <param name="cancellationToken">Task Cancellation Token, Uses to handle the cancellation of stepping through the enviroment.</param>
+        /// <returns></returns>
+        Task StepAsync(int amountStepsToMoveForward, CancellationToken cancellationToken);
 
         /// <summary>
         /// Step through time steps until the Environment has no more tasks.
         /// </summary>
-        void StepUntilDone();
+        /// <param name="cancellationToken">Task Cancellation Token, Uses to handle the cancellation of stepping through the enviroment.</param>
+        /// <returns></returns>
+        Task StepUntilDoneAsync(CancellationToken cancellationToken);
 
         /// <summary>
         /// Check to see if there are any agents currently busy completing required tasks.
@@ -128,7 +134,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface
         ///// </summary>
         ///// <param name="agent">The Current Agent being processed.</param>
         ///// <param name="action">The ActionExecuted to be performed by the Agent.</param>
-        //void ExecuteAgentAction(TAgent agent, TAction action);
+        //void ProcessAgentAcuators(TAgent agent, TAction action);
 
         ///// <summary>
         ///// 

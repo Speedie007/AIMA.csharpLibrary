@@ -18,14 +18,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
         /// <summary>
         /// 
         /// </summary>
-        event EnviromentEventHandlers.AgentAddedEventHandler<TAgent, TPrecept, TAction> AgentAdded;
+        event EnviromentEventHandlers.AgentAddedEventHandler<TAgent, TPrecept, TAction> AgentAddedEvent;
         /// <summary>
         /// 
         /// </summary>
-        event EnviromentEventHandlers.AgentActedEventHandler<TAgent, TPrecept, TAction> AgentActed;
+        event EnviromentEventHandlers.AgentActedEventHandler<TAgent, TPrecept, TAction> AgentActedEvent;
         /// <summary>
         /// 
         /// </summary>
-        event EnviromentEventHandlers.AgentRemovedEventHandler<TAgent, TPrecept, TAction> AgentRemoved;
+        event EnviromentEventHandlers.AgentRemovedEventHandler<TAgent, TPrecept, TAction> AgentRemovedEvent;
     }
 }

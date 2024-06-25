@@ -25,7 +25,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         ///  A simple notification message, to be forwarded to someone.
         /// </summary>
         /// <param name="agentNotificationEventArgs">The message to be forwarded from the current Envirment.</param>
-        void OnAgentNotification(AgentNotificationEventArgs<TPrecept, TAction> agentNotificationEventArgs);
+        void OnAgentMessageNotification(AgentNotificationEventArgs<TPrecept, TAction> agentNotificationEventArgs);
         /// <summary>
         /// 
         /// </summary>

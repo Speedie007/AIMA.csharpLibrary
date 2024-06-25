@@ -3,11 +3,15 @@
     public partial class BaseForm : Form
     {
 
+         
+        public CancellationTokenSource cancellationSource { get; set; }
 
+        public CancellationToken token { get; set; }
+        
         public BaseForm()
         {
             InitializeComponent();
-            //_enviromentFactory = enviromentFactory;
+            cancellationSource = new CancellationTokenSource();
         }
 
 
@@ -20,7 +24,7 @@
         private void btnTestBtn_Click(object sender, EventArgs e)
         {
 
-
+           
         }
     }
 }

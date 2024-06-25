@@ -3,10 +3,13 @@ using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Common;
 using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Events;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment;
 using AIMA.CSharpLibrary.AgentComponents.Events.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
 {
@@ -49,7 +52,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <summary>
         /// Stores all the relevant objects which for part of the domian in which the agent operates.
         /// </summary>
-        protected LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects { get; private set; }
+        protected LinkedDictonarySet<IEnviromentObject> EnvironmentObjects { get; private set; }
         #endregion
 
         #region Cstor
@@ -67,7 +70,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         public BaseEnvironment()
         {
             Agents = new LinkedDictonarySet<TAgent>();
-            EnvironmentObjects = new LinkedDictonarySet<IEnvironmentObject>();
+            EnvironmentObjects = new LinkedDictonarySet<IEnviromentObject>();
         }
         #endregion
 
@@ -75,36 +78,36 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <summary>
         /// Will raise the OnAgentActed Event to Notify the caller of the agent that performed an action within the enviroment.
         /// </summary>
-        public event EnviromentEventHandlers.AgentActedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentActed;
+        public event EnviromentEventHandlers.AgentActedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentActedEvent;
 
         /// <summary>
         /// Will raise the OnAgentAdded Event to Notify the caller of the agent that was added to the enviroment.
         /// </summary>
-        public event EnviromentEventHandlers.AgentAddedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentAdded;
+        public event EnviromentEventHandlers.AgentAddedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentAddedEvent;
 
         /// <summary>
         /// Will raise the OnAgentRemoved Event to Notify the caller of the agent that was removed from the enviroment.
         /// </summary>
-        public event EnviromentEventHandlers.AgentRemovedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentRemoved;
+        public event EnviromentEventHandlers.AgentRemovedEventHandler<TAgent, TAgentPrecept, TAgentAction>? AgentRemovedEvent;
 
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is added.
         /// </summary>
         /// <param name="args"></param>
         public virtual void OnAgentAdded(EnviromentAgentAddedEventArgs<TAgent, TAgentPrecept, TAgentAction> args)
-        { AgentAdded?.Invoke(args); }
+        { AgentAddedEvent?.Invoke(args); }
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is removed.
         /// </summary>
         /// <param name="args"></param>
         public virtual void OnAgentRemoved(EnviromentAgentRemovedEventArgs<TAgent, TAgentPrecept, TAgentAction> args)
-        { AgentRemoved?.Invoke(args); }
+        { AgentRemovedEvent?.Invoke(args); }
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent has performed an action.
         /// </summary>
         /// <param name="args"></param>
         public virtual void OnAgentActed(EnviromentAgentActedEventArgs<TAgent, TAgentPrecept, TAgentAction> args)
-        { AgentActed?.Invoke(args); }
+        { AgentActedEvent?.Invoke(args); }
         #endregion
 
         #region Agent Methods
@@ -154,7 +157,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <inheritdoc/>
         /// </summary>
         /// <param name="environmentObject"><inheritdoc/></param>
-        public void AddEnvironmentObject(IEnvironmentObject environmentObject)
+        public void AddEnvironmentObject(IEnviromentObject environmentObject)
         {
             EnvironmentObjects.Add(environmentObject);
         }
@@ -162,13 +165,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <inheritdoc/>
         /// </summary>
         /// <returns><inheritdoc/></returns>
-        public List<IEnvironmentObject> GetEnvironmentObjects()
+        public List<IEnviromentObject> GetEnvironmentObjects()
         {
             // Return as A List but also ensure the caller cannot modify
-            return new List<IEnvironmentObject>(EnvironmentObjects);
+            return new List<IEnviromentObject>(EnvironmentObjects);
         }
-
-
 
         /// <summary>
         /// <inheritdoc/>
@@ -184,7 +185,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <inheritdoc/>
         /// </summary>
         /// <param name="environmentObject"><inheritdoc/></param>
-        public void RemoveEnvironmentObject(IEnvironmentObject environmentObject)
+        public void RemoveEnvironmentObject(IEnviromentObject environmentObject)
         {
             EnvironmentObjects.Remove(environmentObject);
         }
@@ -192,44 +193,116 @@ namespace AIMA.CSharpLibrary.AgentComponents.Enviroment.Base
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public void Step()
+        public async Task StepAsync(CancellationToken cancellationToken)
         {
             foreach (TAgent agent in Agents)
             {
                 if (agent.IsAlive)
                 {
-                    TAgentPrecept precept = agent.PollAgentSensors(EnvironmentObjects);
-                    TAgentAction anAction = agent.ProcessAgentFunction(precept);
-                    if (anAction.ActionName.Equals(AgentComponentDefaults.ACTION_NO_OPERATION))
+                    //Creates default Rmpty Precept.
+                    TAgentPrecept precept = new TAgentPrecept();
+                    //Vreates default NoOperation Action.
+                    TAgentAction anAction = new TAgentAction();
+
+                    var preceptTask = Task.Run(() =>
                     {
-                        agent.ExecuteNoOp();
+                        // Were we already canceled?
+                        cancellationToken.ThrowIfCancellationRequested();
+
+                        return agent.PollAgentSensorsAsync(EnvironmentObjects);
+                    }, cancellationToken);
+
+
+
+                    precept = await preceptTask;
+                    //    .ContinueWith(async preceptResult =>
+                    //{
+                    //    if (currentCancellationToken.IsCancellationRequested)
+                    //    {
+                    //        // Were we already canceled?
+                    //        currentCancellationToken.ThrowIfCancellationRequested();
+                    //    }
+
+                    //    return await agent.ProcessAgentFunction(preceptResult.Result);
+                    //}, currentCancellationToken).Unwrap();
+
+                    if (!cancellationToken.IsCancellationRequested && preceptTask.IsCompletedSuccessfully)
+                    {
+                        var actionTask = Task.Run(() =>
+                        {
+                            // Were we already canceled?
+                            cancellationToken.ThrowIfCancellationRequested();
+
+                            return agent.ProcessAgentFunction(precept);
+                        }, cancellationToken);
+
+                        anAction = await actionTask;
+
+                        if (!cancellationToken.IsCancellationRequested && actionTask.IsCompletedSuccessfully)
+                        {
+                            if (anAction.ActionName.Equals(AgentComponentDefaults.ACTION_NO_OPERATION))
+                            {
+                                agent.ExecuteNoOp();
+                            }
+                            else
+                            {
+                                agent.IsAlive = true;
+                                agent.ProcessAgentAcuators(anAction, EnvironmentObjects);
+                            }
+                            OnAgentActed(new EnviromentAgentActedEventArgs<TAgent, TAgentPrecept, TAgentAction>(agent, precept, anAction, this));
+                        }
+                        else
+                        {
+                            cancellationToken.ThrowIfCancellationRequested();
+
+                            if (actionTask.IsFaulted)
+                            {
+                                throw actionTask.Exception;
+                            }
+                        }
                     }
                     else
                     {
-                        agent.IsAlive = true;
-                        agent.ExecuteAgentAction(anAction);
+                        agent.OnAgentMessageNotification(new AgentNotificationEventArgs<TAgentPrecept, TAgentAction>(agent, "Error Processing the precept for the agent."));
                     }
-                    OnAgentActed(new EnviromentAgentActedEventArgs<TAgent, TAgentPrecept, TAgentAction>(agent, precept, anAction, this));
                 }
             }
-            CreateExogenousChange();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="amountStepsToMoveForward"></param>
-        public void Step(int amountStepsToMoveForward)
-        {
-            for (int i = 0; i < amountStepsToMoveForward; i++)
-                Step();
         }
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public void StepUntilDone()
+        /// <param name="amountStepsToMoveForward"><inheritdoc/></param>
+        /// <param name="cancellationToken"><inheritdoc/></param>
+        /// <returns></returns>
+        public async Task StepAsync(int amountStepsToMoveForward, CancellationToken cancellationToken)
+        {
+            for (int i = 0; i < amountStepsToMoveForward; i++)
+            {
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    await Task.Delay(500, cancellationToken);
+                    await StepAsync(cancellationToken);
+                }
+            }
+        }
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="cancellationToken"><inheritdoc/></param>
+        /// <returns><inheritdoc/></returns>
+        public async Task StepUntilDoneAsync(CancellationToken cancellationToken)
         {
             while (!IsDone())
-                Step();
+            {
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    await StepAsync(cancellationToken);
+                    var delayTask = Task.Delay(2000, cancellationToken);
+                    await delayTask;
+
+                    cancellationToken.ThrowIfCancellationRequested();
+                }
+            }
         }
         /// <summary>
         /// <inheritdoc/>

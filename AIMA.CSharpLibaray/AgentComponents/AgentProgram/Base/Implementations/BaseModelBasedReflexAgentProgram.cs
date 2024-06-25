@@ -76,7 +76,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// </summary>
         /// <param name="percept"><inheritdoc/></param>
         /// <returns><inheritdoc/></returns>
-        public override TAction ProcessAgentFunction(TPrecept percept)
+        public override TAction ProcessAgentFunctionAsync(TPrecept percept)
         {
             CurrentState = UpdateState(CurrentState, LastActionExecuted, percept, AgentModel);
             Rule<TAction> rule = RuleMatch(CurrentState, Rules);

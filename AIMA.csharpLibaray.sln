@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMA.csharp.Tests", "AIMA.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMA.CSharp.GUI", "AIMA.CSharp.GUI\AIMA.CSharp.GUI.csproj", "{780BDC7B-2C32-41F3-BAF9-D7EEB14CBD94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMA.Implementations", "AIMA.Implementations\AIMA.Implementations.csproj", "{FAF9BA58-192E-46FD-8CCD-59221E52430B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMA.Implementations", "AIMA.Implementations\AIMA.Implementations.csproj", "{FAF9BA58-192E-46FD-8CCD-59221E52430B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIMA.Documentation", "AIMA.Documentation\AIMA.Documentation.csproj", "{ACA4D172-4E53-4474-9485-CBF341BBBF03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIMA.Documentation", "AIMA.Documentation\AIMA.Documentation.csproj", "{ACA4D172-4E53-4474-9485-CBF341BBBF03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

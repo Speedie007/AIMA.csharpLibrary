@@ -26,7 +26,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
+    public partial interface IAgent<TPrecept, TAction> : IEnviromentObject
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
     {
@@ -45,8 +45,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// </summary>
         /// <param name="EnvironmentObjects">Current Objects within in the agents enviroment</param>
         /// <returns>Agent Precept, based on the current state of the enviroment it is operating in.</returns>
-        TPrecept PollAgentSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects);
-
+        TPrecept PollAgentSensorsAsync(LinkedDictonarySet<IEnviromentObject> EnvironmentObjects);
         /// <summary>
         /// <para>Life-cycle indicator as to the liveness of an BaseAgent.</para>
         /// Perperty: Value true if the BaseAgent is to be considered alive, false otherwise.
@@ -67,7 +66,15 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// Operations to be implemented by Agent:
         /// </summary>
         /// <param name="action">The ActionExecuted to be performed by the Agent.</param>
-        void ExecuteAgentAction(TAction action);
+        /// <param name="environmentObjects"><para>This is passed through in order for us to update the current enviroment state based on the action about to be performed.
+        /// </para>
+        /// <para>In the Real world agent this would not be required and as the implementation would initialise/process the rerequired actuators etc which would change the agent physical state of the agent relevive to its envroment.</para>
+        /// </param>
+        /// <returns>Task</returns>
+        void ProcessAgentAcuators(TAction action, LinkedDictonarySet<IEnviromentObject> environmentObjects);
+        /// <summary>
+        /// 
+        /// </summary>
         void InitialiseAgentProgram();
     }
 }

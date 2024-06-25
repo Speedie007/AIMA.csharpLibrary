@@ -5,7 +5,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment.Envir
     /// <summary>
     /// 
     /// </summary>
-    public class Dirt : IEnvironmentObject
+    public class Dirt : IEnviromentObject
     {
         /// <summary>
         /// 

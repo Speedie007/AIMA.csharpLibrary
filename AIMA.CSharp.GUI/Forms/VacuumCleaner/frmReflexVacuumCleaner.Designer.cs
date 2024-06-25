@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)mainLayoutSplitContainer).BeginInit();
             mainLayoutSplitContainer.Panel1.SuspendLayout();
             mainLayoutSplitContainer.Panel2.SuspendLayout();
@@ -42,6 +44,7 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.SuspendLayout();
+            groupBoxEvniromentOptions.SuspendLayout();
             SuspendLayout();
             // 
             // mainLayoutSplitContainer
@@ -52,7 +55,7 @@
             // splitContainer2
             // 
             splitContainer2.Size = new Size(258, 578);
-            splitContainer2.SplitterDistance = 60;
+            splitContainer2.SplitterDistance = 98;
             // 
             // gbVacuumCleanerEnviromentView
             // 
@@ -60,7 +63,7 @@
             // 
             // txtOne
             // 
-            txtOne.Size = new Size(252, 492);
+            txtOne.Size = new Size(252, 454);
             // 
             // splitContainer3
             // 
@@ -73,6 +76,8 @@
             // 
             // groupBoxEvniromentOptions
             // 
+            groupBoxEvniromentOptions.Controls.Add(button3);
+            groupBoxEvniromentOptions.Controls.Add(button2);
             groupBoxEvniromentOptions.Size = new Size(791, 70);
             // 
             // button1
@@ -83,6 +88,26 @@
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(44, 31);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 0;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(149, 37);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 1;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // frmReflexVacuumCleaner
             // 
@@ -108,11 +133,14 @@
             splitContainer3.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
+            groupBoxEvniromentOptions.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }

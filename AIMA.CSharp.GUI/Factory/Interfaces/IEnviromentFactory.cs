@@ -10,6 +10,6 @@ namespace AIMA.CSharp.GUI.Factory.Interfaces
     {
         VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildSimpleRelexVacuumCleanerEnviroment(frmSimpleReflexVacuumCleaner frm);
 
-        VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildRelexVacuumCleanerEnviroment(frmReflexVacuumCleaner frm);
+        VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareRelexVacuumCleanerEnviroment(frmReflexVacuumCleaner frm);
     }
 }

@@ -41,7 +41,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// <param name="percept"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public override TAction ProcessAgentFunction(TPrecept percept)
+        public override TAction ProcessAgentFunctionAsync(TPrecept percept)
         {
             throw new NotImplementedException();
         }

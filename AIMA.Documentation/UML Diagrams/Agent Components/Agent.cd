@@ -25,8 +25,8 @@
     <Position X="7.5" Y="2.5" Width="3" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface.IEnvironmentObject">
-    <Position X="4.75" Y="0.75" Width="1.75" />
+  <Interface Name="AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface.IEnviromentObject">
+    <Position X="5" Y="1" Width="1.75" />
     <TypeIdentifier />
   </Interface>
   <Font Name="Segoe UI" Size="9" />

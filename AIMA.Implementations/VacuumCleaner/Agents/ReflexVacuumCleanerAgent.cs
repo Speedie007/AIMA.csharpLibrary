@@ -1,6 +1,8 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
@@ -41,10 +43,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
 
         #region Methods
         /// <inheritdoc/>
-        public override void ExecuteAgentAction(VacuumCleanerAction action)
-        {
-            
-        }
+       
         /// <inheritdoc/>
         public override void ExecuteNoOp()
         {
@@ -56,6 +55,16 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
         /// </summary>
         public override void InitialiseAgentProgram()
         {
+        }
+
+        public override void OnAgentMessageNotification(AgentNotificationEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
+        {
+            base.OnAgentMessageNotification(agentNotificationEventArgs);
+        }
+
+        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
+        {
+            base.OnAgentPerformanceMeasureUpdated(agentPerformanceMeasureUpdatedEventArgs);
         }
         #endregion
 

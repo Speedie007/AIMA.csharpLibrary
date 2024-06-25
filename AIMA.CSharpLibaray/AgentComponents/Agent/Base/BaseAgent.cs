@@ -15,7 +15,7 @@ using AIMA.CSharpLibrary.Common.DataStructure;
 namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 {
     /// <summary>
-    /// 
+    /// 10 May
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
@@ -31,7 +31,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        protected BaseAgentProgram<TPrecept, TAction> AgentProgram { get; private set; }
+        public static BaseAgentProgram<TPrecept, TAction> AgentProgram { get; private set; }
         /// <summary>
         /// Bool Property, Defining if the the agtent is currently alive/active.
         /// </summary>
@@ -50,7 +50,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         protected BaseAgent() : this(
             new DefaultAgentProgram<TPrecept, TAction>(),
             new DefaultPerformanceMeasure(),
-            true) { }
+            true)
+        { }
 
         /// <summary>
         /// Agent Constructor, requires the implementation of the Agent's program, performance measue to implement, and wheather the agent is alive from instantiation.
@@ -66,9 +67,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
             AgentProgram = agentProgram;
             IsAlive = isAlive;
             PerformaceMeasure = performanceMeasure;
-            PerformanceMeasureUpdated += OnAgentPerformanceMeasureUpdated;
-            AgentNotification += OnAgentNotification;
-            InitialiseAgentProgram();   
+            InitialiseAgentProgram();
         }
         #endregion
 
@@ -76,19 +75,19 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <summary>
         /// 
         /// </summary>
-        public event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction> PerformanceMeasureUpdated;
+        public event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction>? PerformanceMeasureUpdatedEventHandler;
         /// <summary>
         /// 
         /// </summary>
-        public event AgentEventHandlers.AgentNotificationEventHandler<TPrecept, TAction> AgentNotification;
+        public event AgentEventHandlers.AgentNotificationEventHandler<TPrecept, TAction>? AgentNotificationEventHandler;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="agentNotificationEventArgs"></param>
-        public virtual void OnAgentNotification(AgentNotificationEventArgs<TPrecept, TAction> agentNotificationEventArgs)
+        public virtual void OnAgentMessageNotification(AgentNotificationEventArgs<TPrecept, TAction> agentNotificationEventArgs)
         {
-            AgentNotification?.Invoke(agentNotificationEventArgs);
+            AgentNotificationEventHandler?.Invoke(agentNotificationEventArgs);
         }
         /// <summary>
         /// 
@@ -96,7 +95,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
         public virtual void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
         {
-            PerformanceMeasureUpdated?.Invoke(agentPerformanceMeasureUpdatedEventArgs);
+            PerformanceMeasureUpdatedEventHandler?.Invoke(agentPerformanceMeasureUpdatedEventArgs);
         }
         #endregion
 
@@ -104,22 +103,26 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 
 
         /// <inheritdoc/>
-        public virtual TPrecept PollAgentSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects)
+        public TPrecept PollAgentSensorsAsync(LinkedDictonarySet<IEnviromentObject> EnvironmentObjects)
         {
+            TPrecept precept = new();
             if (AgentProgram != null)
                 //Poll the current agent sensors to build the agents surrent precept of the enviroment it is in.
-                return AgentProgram.SensorPollingFunc?.Invoke(EnvironmentObjects, this) is TPrecept agentPrecept ? agentPrecept : new();
-            else
-                return new();
+                precept = AgentProgram.SensorPollingFunction?.Invoke(EnvironmentObjects, this) is TPrecept agentPrecept ? agentPrecept : new();
+            return precept;
         }
+        /// <summary>
         /// <inheritdoc/>
+        /// </summary>
+        /// <param name="percept"><inheritdoc/></param>
+        /// <returns><typeparamref name="TAction"/><inheritdoc/></returns>
         public virtual TAction ProcessAgentFunction(TPrecept percept)
         {
-            if (percept == null || AgentProgram == null)
-            {
-                return new();
-            }
-            else { return AgentProgram.AgentFunction?.Invoke(percept) is TAction agentAction ? agentAction : new(); }
+            TAction action = new();
+            if (percept is not null && AgentProgram is not null)
+                action = AgentProgram.AgentPreceptToActionFunction?.Invoke(percept) is TAction agentAction ? agentAction : new();
+            
+            return action; 
         }
 
         /// <inheritdoc/>
@@ -129,7 +132,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <inheritdoc/>
         /// </summary>
         /// <param name="action"></param>
-        public abstract void ExecuteAgentAction(TAction action);
+        /// <param name="environmentObjects"></param>
+        public virtual void ProcessAgentAcuators(TAction action, LinkedDictonarySet<IEnviromentObject> environmentObjects)
+        {
+            if (action is not null && AgentProgram is not null)
+                 AgentProgram.ProcessAgentActionFunction?.Invoke(environmentObjects, action, this); 
+        }
 
         /// <summary>
         /// 

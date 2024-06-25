@@ -1,4 +1,10 @@
-﻿namespace AIMA.CSharpLibrary.AgentComponents.Actions.Interface
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
+using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
+using AIMA.CSharpLibrary.Common.DataStructure;
+
+namespace AIMA.CSharpLibrary.AgentComponents.Actions.Interface
 {
     /// <summary>
     /// <para>Describes an ActionExecuted that can or has been taken by an BaseAgent via one of its Actuators.
@@ -20,5 +26,15 @@
     /// </summary>
     public partial interface IAgentAction
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TPrecept"></typeparam>
+        /// <typeparam name="TAction"></typeparam>
+        /// <param name="enviromentObjects"></param>
+        /// <param name="agent"></param>
+        void ExecuteAction<TPrecept, TAction>(LinkedDictonarySet<IEnviromentObject> enviromentObjects, BaseAgent<TPrecept, TAction> agent)
+            where TPrecept : BasePrecept, new()
+            where TAction : BaseAction, new();
     }
 }

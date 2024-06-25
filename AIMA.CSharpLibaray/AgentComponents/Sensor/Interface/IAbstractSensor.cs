@@ -19,6 +19,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensor.Interface
         /// 
         /// </summary>
         /// <returns></returns>
-        TPrecept Poll(TPrecept precept, LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent<TPrecept, TAction> agent);
+        TPrecept Poll(TPrecept precept, LinkedDictonarySet<IEnviromentObject> EnvironmentObjects, IAgent<TPrecept, TAction> agent);
     }
 }

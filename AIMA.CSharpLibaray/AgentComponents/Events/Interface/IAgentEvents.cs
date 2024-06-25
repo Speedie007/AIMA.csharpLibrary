@@ -16,12 +16,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
         /// <summary>
         /// 
         /// </summary>
-        event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction> PerformanceMeasureUpdated;
+        event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction> PerformanceMeasureUpdatedEventHandler;
 
         /// <summary>
         /// 
         /// </summary>
-        event AgentEventHandlers.AgentNotificationEventHandler<TPrecept, TAction> AgentNotification;
+        event AgentEventHandlers.AgentNotificationEventHandler<TPrecept, TAction> AgentNotificationEventHandler;
 
     }
 }

@@ -34,9 +34,9 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        public override VacuumCleanerPrecept Poll(VacuumCleanerPrecept precept, LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent<VacuumCleanerPrecept, VacuumCleanerAction> agent)
+        public override VacuumCleanerPrecept Poll(VacuumCleanerPrecept precept, LinkedDictonarySet<IEnviromentObject> EnvironmentObjects, IAgent<VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
-            foreach (IEnvironmentObject environmentObject in EnvironmentObjects.Where(x => x.GetType() == typeof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>)))
+            foreach (IEnviromentObject environmentObject in EnvironmentObjects.Where(x => x.GetType() == typeof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>)))
             {
 
                 PropertyInfo[] propInfos = environmentObject.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);

@@ -1,4 +1,5 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
@@ -42,16 +43,30 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// </summary>
         void InitializeAgentProgramComponents();
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="enviromentObjects"></param>
+        /// <param name="action"></param>
+        /// <param name="agent"></param>
+        void ProcessAgentAction(LinkedDictonarySet<IEnviromentObject> enviromentObjects, TAction action, BaseAgent<TPrecept, TAction> agent);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="percept"></param>
+        /// <returns></returns>
+        TAction ProcessAgentFunctionAsync(TPrecept percept);
+
+        /// <summary>
         /// The BaseAgent's program Precept To ActionExecuted Function, which maps any given percept sequences to an action.
         /// <para>The current percept of A sequence perceived by the BaseAgent.</para>
         /// </summary>
         /// <returns>The ActionExecuted to be taken in response to the currently perceived percept. Empty replaces NoOp in earlier implementations.</returns>
-        Func<TPrecept, BaseAction> AgentFunction { get; }
+        Func<TPrecept, BaseAction> AgentPreceptToActionFunction { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        Func<LinkedDictonarySet<IEnvironmentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunc { get; }
+        Func<LinkedDictonarySet<IEnviromentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunction { get; }
     };
 }
 

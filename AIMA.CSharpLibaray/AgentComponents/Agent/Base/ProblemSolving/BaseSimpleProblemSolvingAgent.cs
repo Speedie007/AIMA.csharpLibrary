@@ -35,25 +35,5 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
             bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
         {
         }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="percept"></param>
-        /// <returns></returns>
-        public override TAction ProcessAgentFunction(TPrecept percept)
-        {
-            return base.ProcessAgentFunction(percept);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="EnvironmentObjects"></param>
-        /// <returns></returns>
-        public override TPrecept PollAgentSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects)
-        {
-            return base.PollAgentSensors(EnvironmentObjects);
-        }
     }
 }

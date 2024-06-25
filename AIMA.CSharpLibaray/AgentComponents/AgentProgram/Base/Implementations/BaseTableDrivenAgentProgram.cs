@@ -61,7 +61,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         #region Methods
 
         /// <inheritdoc/>
-        public override TAction ProcessAgentFunction(TPrecept percept)
+        public override TAction ProcessAgentFunctionAsync(TPrecept percept)
         {
             Precepts.Add(percept);
             if (Table.TryGetValue(Precepts, out TAction? agentAction))

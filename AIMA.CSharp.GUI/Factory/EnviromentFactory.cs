@@ -20,18 +20,18 @@ namespace AIMA.CSharp.GUI.Factory
         }
 
 
-        public VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildRelexVacuumCleanerEnviroment(frmReflexVacuumCleaner frm)
+        public VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareRelexVacuumCleanerEnviroment(frmReflexVacuumCleaner frm)
         {
             var enviroment = new VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>();
 
             // frm.BindEnviromentEnvents();
-            enviroment.AgentActed += frm.OnAgentActed;
-            enviroment.AgentAdded += frm.OnAgentAdded;
-            enviroment.AgentRemoved += frm.OnAgentRemoved;
+            enviroment.AgentActedEvent += frm.OnAgentActed;
+            enviroment.AgentAddedEvent += frm.OnAgentAdded;
+            enviroment.AgentRemovedEvent += frm.OnAgentRemoved;
 
             //Build the required Agent
             var reflexAgent = new ReflexVacuumCleanerAgent(new ReflexVacuumCleanerAgentProgram(), new DefaultPerformanceMeasure(), true);
-
+            reflexAgent.AgentNotificationEventHandler += frm.OnAgentMessageNotification;
 
             enviroment.AddAgent(reflexAgent);
 
@@ -58,7 +58,7 @@ namespace AIMA.CSharp.GUI.Factory
 
             enviroment.AddEnvironmentObject(new MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>(1, 1, new List<Dirt>() { new Dirt() }));
             enviroment.AddEnvironmentObject(new MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>(1, 2, new List<Dirt>() { new Dirt() }, reflexAgent));
-            enviroment.Step(1);
+            
             return enviroment;
         }
 
