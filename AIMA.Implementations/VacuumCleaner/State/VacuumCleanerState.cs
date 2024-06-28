@@ -1,8 +1,8 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.State.Base;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Infrastucture.Enumerations;
 using AIMA.CSharpLibrary.Common.DataStructure;
+using AIMA.Implementations.VacuumCleaner.Infrastructure.Enumerations;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.State
+namespace AIMA.Implementations.VacuumCleaner.State
 {
 
     /// <summary>
@@ -12,7 +12,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.State
     public partial class VacuumCleanerState : BaseState
     {
         #region Enumeration
-       
+
         #endregion
         #region Properties
         /// <summary>

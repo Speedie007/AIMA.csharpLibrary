@@ -2,7 +2,8 @@
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
@@ -11,9 +12,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
     /// <summary>
     /// 
     /// </summary>
-    public partial class DefaultAgentProgram<TPrecept, TAction> : BaseAgentProgram<TPrecept, TAction>
+    public partial class DefaultAgentProgram<TPerformanceMeasure,TPrecept, TAction> : BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
+         where TPerformanceMeasure: BasePerformanceMeasure, new()
     {
         #region Cstor
         /// <summary>
@@ -32,11 +34,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="enviromentObjects"></param>
+        /// <param name="environmentObjects"></param>
         /// <param name="action"></param>
         /// <param name="agent"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public override void ProcessAgentAction(LinkedDictonarySet<IEnviromentObject> enviromentObjects, TAction action, BaseAgent<TPrecept, TAction> agent)
+        public override void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent)
         {
             throw new NotImplementedException();
         }
@@ -44,8 +46,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="percept">Agent Precept</param>
-        /// <remarks>In this example the precept is emtpy</remarks>
+        /// <param name="percept">Agent Precept.</param>
+        /// <remarks>In this example the precept is empty.</remarks>
         /// <returns>Default ActionExecuted => which is No Operation ActionExecuted. The agent will do thing.</returns>
         public override TAction ProcessAgentFunctionAsync(TPrecept percept)
         {
@@ -58,7 +60,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        protected override TPrecept ProcessSensors(LinkedDictonarySet<IEnviromentObject> EnvironmentObjects, IAgent<TPrecept, TAction> agent)
+        protected override TPrecept ProcessSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent<TPerformanceMeasure, TPrecept, TAction> agent)
         {
             return base.ProcessSensors(EnvironmentObjects, agent);
         }

@@ -2,8 +2,8 @@
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
-using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
 using AIMA.CSharpLibrary.AgentComponents.Precepts;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent
@@ -11,22 +11,25 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <summary>
     /// 16 June
     /// </summary>
-    public partial class TrivalAgent : BaseAgent<EmptyExamplePrecept, DefaultAction>
+    public partial class TrivialAgent : BaseAgent<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction>
     {
         #region Cstor
         /// <summary>
         /// 
         /// </summary>
-        public TrivalAgent() : base()
+        public TrivialAgent() : base()
         {
         }
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <param name="agentProgram"><inheritdoc/></param>
-        /// <param name="performanceMeasure"><inheritdoc/></param>
         /// <param name="isAlive"><inheritdoc/></param>
-        public TrivalAgent(BaseAgentProgram<EmptyExamplePrecept, DefaultAction> agentProgram, BasePerformanceMeasure performanceMeasure, bool isAlive) : base(agentProgram, performanceMeasure, isAlive)
+        /// <param name="performanceMetricStructure"></param>
+        public TrivialAgent(
+            BaseAgentProgram<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction> agentProgram,
+            DefaultPerformanceMeasure performanceMetricStructure,
+            bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
         }
 
@@ -47,7 +50,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <inheritdoc/>
         /// </summary>
         /// <param name="agentNotificationEventArgs"><inheritdoc/></param>
-        public override void OnAgentMessageNotification(AgentNotificationEventArgs<EmptyExamplePrecept, DefaultAction> agentNotificationEventArgs)
+        public override void OnAgentMessageNotification(AgentNotificationEventArgs<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction> agentNotificationEventArgs)
         {
             base.OnAgentMessageNotification(agentNotificationEventArgs);
         }
@@ -55,7 +58,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <inheritdoc/>
         /// </summary>
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"><inheritdoc/></param>
-        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<EmptyExamplePrecept, DefaultAction> agentPerformanceMeasureUpdatedEventArgs)
+        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction> agentPerformanceMeasureUpdatedEventArgs)
         {
             base.OnAgentPerformanceMeasureUpdated(agentPerformanceMeasureUpdatedEventArgs);
         }

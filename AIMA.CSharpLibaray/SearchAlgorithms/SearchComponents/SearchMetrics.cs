@@ -109,7 +109,7 @@
         /** Sorts the PropertyKey-value pairs by PropertyKey names and formats them as equations. */
         public string toString()
         {
-            //TODO: Set through the items in the dictonary and build string representation.
+            //TODO: Set through the items in the dictionary and build string representation.
             //TreeMap<string, string> map = new TreeMap<string, string>(Metric);
             return "";//Metric?.ToString();
         }

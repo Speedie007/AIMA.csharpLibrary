@@ -3,11 +3,18 @@ using AIMA.CSharp.GUI.Forms.VacuumCleaner;
 
 namespace AIMA.CSharp.GUI
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class frmAIMAMainMDIForm : Form
     {
         private int childFormNumber = 0;
 
         private readonly IFormFactory _formFactory;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="formFactory"></param>
         public frmAIMAMainMDIForm(IFormFactory formFactory)
         {
             InitializeComponent();

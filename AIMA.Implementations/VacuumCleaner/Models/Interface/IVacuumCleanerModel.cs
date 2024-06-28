@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Models.Interface
+﻿namespace AIMA.Implementations.VacuumCleaner.Models.Interface
 {
     /// <summary>
     /// 22 June

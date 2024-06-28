@@ -1,5 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Events
@@ -14,9 +15,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// </summary>
         /// <typeparam name="TPrecept"></typeparam>
         /// <typeparam name="TAction"></typeparam>
+        /// <typeparam name="TPerformanceMeasure"></typeparam>
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
-        public delegate void AgentPerformanceMeasureUpdatedEventHandler<TPrecept, TAction>(
-            AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
-                where TPrecept : BasePrecept, new() where TAction : BaseAction, new();
+        public delegate void AgentPerformanceMeasureUpdatedEventHandler<TPerformanceMeasure,TPrecept, TAction>(
+            AgentPerformanceMeasureUpdatedEventArgs<TPerformanceMeasure,TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
+                where TPrecept : BasePrecept, new() 
+                where TAction : BaseAction, new()
+                 where TPerformanceMeasure: BasePerformanceMeasure, new() ;
     }
 }

@@ -1,18 +1,18 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
-using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Actions;
+using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Precept;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
+namespace AIMA.Implementations.VacuumCleaner.Agents
 {
     /// <summary>
-    /// 16 jume
+    /// 16 June
     /// <inheritdoc/>
     /// </summary>
-    public partial class TableDrivenVacuumCleanerAgent : BaseAgent<VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class TableDrivenVacuumCleanerAgent : BaseAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>
     {
         #region Cstor
         /// <summary>
@@ -24,9 +24,12 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
         /// 
         /// </summary>
         /// <param name="agentProgram"><inheritdoc/></param>
-        /// <param name="performaceMeasure"><inheritdoc/></param>
         /// <param name="isAlive"><inheritdoc/></param>
-        public TableDrivenVacuumCleanerAgent(BaseAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction> agentProgram, BasePerformanceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
+        /// <param name="performanceMetricStructure"></param>
+        public TableDrivenVacuumCleanerAgent(
+            BaseAgentProgram<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentProgram,
+            VacuumCleanerPerformanceMeasure performanceMetricStructure,
+            bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
         }
 
@@ -40,18 +43,27 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
         public override void ExecuteNoOp()
         {
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public override void InitialiseAgentProgram()
         {
             throw new NotImplementedException();
         }
-
-        public override void OnAgentMessageNotification(AgentNotificationEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentNotificationEventArgs"></param>
+        public override void OnAgentMessageNotification(AgentNotificationEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
         {
             base.OnAgentMessageNotification(agentNotificationEventArgs);
         }
-
-        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
+        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
         {
             base.OnAgentPerformanceMeasureUpdated(agentPerformanceMeasureUpdatedEventArgs);
         }

@@ -53,8 +53,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Base
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != GetType()) return false;
             if (!base.Equals(obj)) return false;
-
-            return GetType() == obj.GetType() && ToString().Equals(obj.ToString());
+            if (ToString() is string s)
+                return GetType() == obj.GetType() && s.Equals(obj.ToString());
+            return false;
         }
         /// <summary>
         /// 
@@ -70,7 +71,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules.Base
         /// <returns><inheritdoc/></returns>
         public override int GetHashCode()
         {
-            return ToString().GetHashCode() is int hash ? hash : 0;
+            if (ToString() is string s)
+                return s.GetHashCode() is int hash ? hash : 0;
+            else return base.GetHashCode();
         }
         #endregion
 

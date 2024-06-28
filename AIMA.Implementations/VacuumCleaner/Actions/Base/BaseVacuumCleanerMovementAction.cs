@@ -1,9 +1,9 @@
 ﻿using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base
+namespace AIMA.Implementations.VacuumCleaner.Actions.Base
 {
     /// <summary>
-    /// <para>Base(Base) Enviroment used to represent the domain within wich the agent operates.</para>
+    /// <para>Base(Base) Environment used to represent the domain within wich the agent operates.</para>
     ///<para>
     ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>

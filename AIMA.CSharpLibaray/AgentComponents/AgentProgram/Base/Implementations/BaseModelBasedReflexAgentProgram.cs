@@ -1,24 +1,27 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.SimpleRules;
 using AIMA.CSharpLibrary.AgentComponents.Models.Base;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.AgentComponents.State.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
 {
     /// <summary>
-    /// 16 june
+    /// 16 June
     /// </summary>
     /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
     /// <typeparam name="TAction"><inheritdoc/></typeparam>
     /// <typeparam name="TState">TODO:</typeparam>
     /// <typeparam name="TModel">TODO:</typeparam>
-    public abstract partial class BaseModelBasedReflexAgentProgram<TPrecept, TAction, TState, TModel> : 
-        BaseAgentProgram<TPrecept, TAction>
+    /// <typeparam name="TPerformanceMeasure">TODO:here</typeparam>
+    public abstract partial class BaseModelBasedReflexAgentProgram<TPerformanceMeasure,TPrecept, TAction, TState, TModel> : 
+        BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
         where TState : BaseState, new()
         where TModel : BaseModel, new()
+        where TPerformanceMeasure: BasePerformanceMeasure, new()
     {
 
         #region Properties
@@ -66,7 +69,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
         /// <param name="state"></param>
         /// <param name="action"></param>
         /// <param name="percept"></param>
-        /// <param name="model">A Description of how the next state dependes on the current atate and action.</param>
+        /// <param name="model">A Description of how the next state depends on the current state and action.</param>
         /// <returns></returns>
         protected abstract TState UpdateState(TState state, TAction action, TPrecept percept, TModel model);
 

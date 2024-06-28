@@ -1,31 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>net8.0-windows</TargetFramework>
+	<Nullable>disable</Nullable>
+	<UseWindowsForms>true</UseWindowsForms>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="VacuumCleaner\**" />
-    <EmbeddedResource Remove="VacuumCleaner\**" />
-    <None Remove="VacuumCleaner\**" />
+	<Compile Remove="VacuumCleaner\**" />
+	<EmbeddedResource Remove="VacuumCleaner\**" />
+	<None Remove="VacuumCleaner\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Factory\AgentFactory\" />
-    <Folder Include="Services\AgentServices\" />
+	<Folder Include="Factory\AgentFactory\" />
+	<Folder Include="Services\AgentServices\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-    <PackageReference Include="NUnit" Version="4.1.0" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AIMA.csharpLibaray\AIMA.CSharpLibrary.csproj" />
     <ProjectReference Include="..\AIMA.Implementations\AIMA.Implementations.csproj" />
   </ItemGroup>
 

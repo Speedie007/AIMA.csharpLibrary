@@ -14,7 +14,7 @@
     /// <typeparam name="TAction">The type of the actions to be used to navigate through the state space</typeparam>
     public partial interface IStepCostFunction<TState, TAction>
     {
-        //public delegate double ApplyAsDouble(TState s, TAgentAction A, TState sDelta);
+        //public delegate T ApplyAsT(TState s, TAgentAction A, TState sDelta);
         /// <summary>
         /// 
         /// </summary>
@@ -22,11 +22,11 @@
         /// <param name="a"></param>
         /// <param name="sDelta"></param>
         /// <returns></returns>
-        public double ApplyAsDouble(TState s, TAction a, TState sDelta)
+        public double ApplyAsT(TState s, TAction a, TState sDelta)
         {
             return 1;
         }
-        //Func<TState, TAgentAction, TState> ApplyAsDouble();
+        //Func<TState, TAgentAction, TState> ApplyAsT();
     }
 
 

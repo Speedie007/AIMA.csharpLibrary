@@ -67,7 +67,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 
         }
 
-        #region properties
+            #region properties
         /// <summary>
         /// 
         /// </summary>

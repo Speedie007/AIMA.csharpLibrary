@@ -1,24 +1,26 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
 {
     /// <summary>
-    /// june 24
+    /// June 24
     /// </summary>
-    public abstract partial class BaseActionExecutionModel<TAgent, TPrecept, TAction> : IActionExecutionModel
+    public abstract partial class BaseActionExecutionModel<TPerformanceMeasure,TAgent, TPrecept, TAction> : IActionExecutionModel
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-        where TAgent : BaseAgent<TPrecept, TAction>, new()
+        where TPerformanceMeasure: BasePerformanceMeasure, new()
+        where TAgent : BaseAgent<TPerformanceMeasure,TPrecept, TAction>, new()
     {
         #region Preoperties
         /// <summary>
         /// 
         /// </summary>
-        public LinkedDictonarySet<IEnviromentObject> EnviromentObjects { get; private set; }
+        public LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects { get; private set; }
         /// <summary>
         /// 
         /// </summary>
@@ -29,10 +31,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
         /// <summary>
         /// 
         /// </summary>
-        public BaseActionExecutionModel(TAgent agent, LinkedDictonarySet<IEnviromentObject> enviromentObjects)
+        public BaseActionExecutionModel(TAgent agent, LinkedDictonarySet<IEnvironmentObject> environmentObjects)
         {
             Agent = agent;
-            EnviromentObjects = enviromentObjects;
+            EnvironmentObjects = environmentObjects;
         }
         #endregion
 

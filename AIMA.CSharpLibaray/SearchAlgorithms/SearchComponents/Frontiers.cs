@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     /// </para>
     /// </summary>
     /// <typeparam name="TElement">Specifies the type of elements in the queue.</typeparam>
-    public partial class FrontiertPriorirtyQueue<TElement> : BaseFrontierQueue<TElement>
+    public partial class FrontierPriorityQueue<TElement> : BaseFrontierQueue<TElement>
         where TElement : class, new()
     {
         #region Properties
@@ -33,10 +33,10 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         #endregion
         #region Cstor
         /// <summary>
-        ///Initializes A new instance of the PriorityQueue<![CDATA[<TElement>,double]]> class.
+        ///Initializes A new instance of the PriorityQueue<![CDATA[<TElement>,T]]> class.
         /// </summary>
         /// <param name="comparer">Custom comparer dictating the ordering of elements. Uses Default if the argument is null.</param>
-        public FrontiertPriorirtyQueue(IComparer<TElement>? comparer = null)
+        public FrontierPriorityQueue(IComparer<TElement>? comparer = null)
         {
             _keyComparer = comparer ?? Comparer<TElement>.Default;
             PriorityQueue = new PriorityQueue<TElement, double>();
@@ -45,8 +45,8 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
 
         #region Methods
         /// <summary>
-        /// This method is not implement for the prioity Queue
-        /// <remarks>Use Peek method to view the first piroitized items in the queue.</remarks>
+        /// This method is not implement for the priority Queue
+        /// <remarks>Use Peek method to view the first prioritized items in the queue.</remarks>
         /// </summary>
         /// <param name="node"></param>
         /// <returns>A NotImplementedException</returns>
@@ -57,10 +57,10 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
             //throw new NotImplementedException();
         }
         /// <summary>
-        /// Removes and returns the minimal element from the PriorityQueue<![CDATA[<TElement>,double]]> - that is, the element with the lowest priority value(Default).
+        /// Removes and returns the minimal element from the PriorityQueue<![CDATA[<TElement>,T]]> - that is, the element with the lowest priority value(Default).
         /// </summary>
-        /// <returns>The minimal element of the PriorityQueue<![CDATA[<TElement>,double]]>-Default.
-        /// <para>Can change this to return the maximum by implementing A custom comparer in the constuctor when creating the queue.</para></returns>
+        /// <returns>The minimal element of the PriorityQueue<![CDATA[<TElement>,T]]>-Default.
+        /// <para>Can change this to return the maximum by implementing A custom comparer in the constructor when creating the queue.</para></returns>
         public override TElement Dequeue()
         {
             var result = PriorityQueue.TryDequeue(out TElement? node, out double priority) ? node : new();
@@ -69,25 +69,25 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         }
 
         /// <summary>
-        /// <para>Returns A value that indicates whether there is A minimal element in the PriorityQueue<![CDATA[<TElement>,double]]>, and if one is present, copies it and its associated priority to the element and priority arguments.</para>
-        /// <remarks>The element is not removed from the PriorityQueue<![CDATA[<TElement>,double]]>.</remarks>
+        /// <para>Returns A value that indicates whether there is A minimal element in the PriorityQueue<![CDATA[<TElement>,T]]>, and if one is present, copies it and its associated priority to the element and priority arguments.</para>
+        /// <remarks>The element is not removed from the PriorityQueue<![CDATA[<TElement>,T]]>.</remarks>
         /// </summary>
-        /// <returns>Returns the minimal element from the PriorityQueue<![CDATA[<TElement>,double]]> without removing it.</returns>
+        /// <returns>Returns the minimal element from the PriorityQueue<![CDATA[<TElement>,T]]> without removing it.</returns>
         public override TElement Peek()
         {
             return PriorityQueue.TryPeek(out TElement? node, out double cost) ? node : new();
         }
         /// <summary>
-        /// Removes all items from the PriorityQueue<![CDATA[<TElement>,double]]>.
+        /// Removes all items from the PriorityQueue<![CDATA[<TElement>,T]]>.
         /// </summary>
         public override void Clear()
         {
             PriorityQueue.Clear();
         }
         /// <summary>
-        /// Adds the specified element with associated priority to the PriorityQueue<![CDATA[<TElement>,double]]>.
+        /// Adds the specified element with associated priority to the PriorityQueue<![CDATA[<TElement>,T]]>.
         /// </summary>
-        /// <param name="node">The element to add to the PriorityQueue<![CDATA[<TElement>,double]]>.</param>
+        /// <param name="node">The element to add to the PriorityQueue<![CDATA[<TElement>,T]]>.</param>
         /// <param name="priority">The priority with which to associate the new element.</param>
         public override void Enqueue(TElement node, double priority)
         {
@@ -231,7 +231,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
     ///<para>Date Created: 17 May 2024 - Date Last Updated: 18 May 2024</para>
     /// </summary>
     /// <typeparam name="TElement">Specifies the type of elements in the queue.</typeparam>
-    public partial class FontierFIFOQueue<TElement> : BaseFrontierQueue<TElement>
+    public partial class FrontierFIFOQueue<TElement> : BaseFrontierQueue<TElement>
         where TElement : class, new()
     {
         #region Properties
@@ -245,7 +245,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents
         /// <summary>
         /// Initializes A new instance of the Queue<![CDATA[<TElement>]]> class.
         /// </summary>
-        public FontierFIFOQueue()
+        public FrontierFIFOQueue()
         {
             Queue = new Queue<TElement>();
         }

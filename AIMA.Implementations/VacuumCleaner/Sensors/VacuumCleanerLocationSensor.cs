@@ -1,19 +1,20 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
 using AIMA.CSharpLibrary.AgentComponents.Sensor.Base;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment.EnviromentObjects;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors.Interface;
 using AIMA.CSharpLibrary.Common.DataStructure;
-using System.Reflection;
+using AIMA.Implementations.VacuumCleaner.Actions;
+using AIMA.Implementations.VacuumCleaner.Infrastructure.Extensions;
+using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Precept;
+using AIMA.Implementations.VacuumCleaner.Sensors.Interface;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors
+namespace AIMA.Implementations.VacuumCleaner.Sensors
 {
     /// <summary>
     /// 
     /// </summary>
-    public partial class VacuumCleanerLocationSensor : BaseSensor<VacuumCleanerPrecept, VacuumCleanerAction>, IVacuumCleanerSensor
+    public partial class VacuumCleanerLocationSensor : BaseSensor<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>, IVacuumCleanerSensor
     {
 
         #region cstor
@@ -23,6 +24,13 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors
         public VacuumCleanerLocationSensor()
         {
 
+        }
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override void InitialiseSensor()
+        {
+            
         }
         #endregion
 
@@ -34,20 +42,16 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        public override VacuumCleanerPrecept Poll(VacuumCleanerPrecept precept, LinkedDictonarySet<IEnviromentObject> EnvironmentObjects, IAgent<VacuumCleanerPrecept, VacuumCleanerAction> agent)
+        public override VacuumCleanerPrecept Poll(
+            VacuumCleanerPrecept precept,
+            LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects,
+            IAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
-            foreach (IEnviromentObject environmentObject in EnvironmentObjects.Where(x => x.GetType() == typeof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>)))
+            var agentLocationResult = EnvironmentObjects.GetAgentLocationState(agent);
+            if (agentLocationResult.Success)
             {
-
-                PropertyInfo[] propInfos = environmentObject.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-                PropertyInfo? agentProperty = propInfos.FirstOrDefault(x => x.Name == nameof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>.Agent));
-                var agentInLocation = agentProperty?.GetValue(environmentObject) as IAgent<VacuumCleanerPrecept, VacuumCleanerAction>;
-                if (agentInLocation is not null)
-                {
-                    PropertyInfo? blockLocation = propInfos.FirstOrDefault(x => x.Name == nameof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>.GridLocation));
-                    precept.AgentCurrentLocation = blockLocation?.GetValue(environmentObject) is XYLocation loc ? loc : new XYLocation(1, 1);
-                }
+                if (agentLocationResult.MazeBlockState is not null)
+                    precept.AgentCurrentLocation = agentLocationResult.MazeBlockState.GridLocation;
             }
 
             return precept;
@@ -57,3 +61,18 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors
     }
     #endregion
 }
+
+
+//foreach (IEnvironmentObject environmentObject in EnvironmentObjects.Where(x => x.GetType() == typeof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>)))
+//{
+
+//    PropertyInfo[] propInfo = environmentObject.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+//    PropertyInfo? agentProperty = propInfo.FirstOrDefault(x => x.Name == nameof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>.Agent));
+//    var agentInLocation = agentProperty?.GetValue(environmentObject) as IAgent<VacuumCleanerPrecept, VacuumCleanerAction>;
+//    if (agentInLocation is not null)
+//    {
+//        PropertyInfo? blockLocation = propInfo.FirstOrDefault(x => x.Name == nameof(MazeBlock<VacuumCleanerPrecept, VacuumCleanerAction>.GridLocation));
+//        precept.AgentCurrentLocation = blockLocation?.GetValue(environmentObject) is XYLocation loc ? loc : new XYLocation(1, 1);
+//    }
+//}

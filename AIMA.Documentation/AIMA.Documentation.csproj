@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UML Diagrams\AgentImplementations\VacuumCleaner\" />
-  </ItemGroup>
-
-  <ItemGroup>
     
     <ProjectReference Include="..\AIMA.csharpLibaray\AIMA.CSharpLibrary.csproj" />
     <ProjectReference Include="..\AIMA.Implementations\AIMA.Implementations.csproj" />
   </ItemGroup>
+
+  <PropertyGroup>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
 
 </Project>

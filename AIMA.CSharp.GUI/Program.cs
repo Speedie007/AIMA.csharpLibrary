@@ -13,7 +13,7 @@ namespace AIMA.CSharp.GUI
         /// <summary>
         /// 
         /// </summary>
-        public static IServiceProvider? ServiceProvider { get; private set; }
+        public static IServiceProvider ServiceProvider { get; private set; }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -34,7 +34,7 @@ namespace AIMA.CSharp.GUI
                 .ConfigureServices((context, services) =>
                 {
                     services.AddTransient<IFormFactory, FormFactory>();
-                    services.AddTransient<IEnviromentFactory, EnviromentFactory>();
+                    services.AddTransient<IEnvironmentFactory, EnvironmentFactory>();
                     services.AddTransient<ITestFactory, TestFactory>();
                     //Add all forms
                     var forms = typeof(Program).Assembly

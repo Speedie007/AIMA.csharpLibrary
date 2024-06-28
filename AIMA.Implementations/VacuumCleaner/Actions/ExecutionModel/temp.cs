@@ -1,18 +1,29 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
 using AIMA.CSharpLibrary.Common.DataStructure;
+using AIMA.Implementations.VacuumCleaner.Agents;
+using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Precept;
 
 namespace AIMA.Implementations.VacuumCleaner.Actions.ExecutionModel
 {
-    internal class temp : BaseActionExecutionModel<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>
+    /// <summary>
+    /// 
+    /// </summary>
+    internal class Temp : BaseActionExecutionModel<VacuumCleanerPerformanceMeasure,ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>
     {
-        public temp(ReflexVacuumCleanerAgent agent, LinkedDictonarySet<IEnviromentObject> enviromentObjects) : base(agent, enviromentObjects)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agent"></param>
+        /// <param name="environmentObjects"></param>
+        public Temp(ReflexVacuumCleanerAgent agent, LinkedDictonarySet<IEnvironmentObject> environmentObjects) : base(agent, environmentObjects)
         {
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public override void ExecuteAction()
         {
             throw new NotImplementedException();

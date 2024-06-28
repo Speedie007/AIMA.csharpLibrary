@@ -1,13 +1,22 @@
 ﻿namespace AIMA.CSharp.GUI.Forms.Base
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class BaseForm : Form
     {
 
-         
+         /// <summary>
+         /// 
+         /// </summary>
         public CancellationTokenSource cancellationSource { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public CancellationToken token { get; set; }
-        
+        /// <summary>
+        /// 
+        /// </summary>
         public BaseForm()
         {
             InitializeComponent();

@@ -1,9 +1,12 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
 using AIMA.CSharpLibrary.Common.DataStructure;
+using AIMA.Implementations.VacuumCleaner.Actions.Base;
+using AIMA.Implementations.VacuumCleaner.Agents;
+using AIMA.Implementations.VacuumCleaner.Environment.EnvironmentObjects;
+using AIMA.Implementations.VacuumCleaner.Infrastructure.Extensions;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
+namespace AIMA.Implementations.VacuumCleaner.Actions
 {
     /// <summary>
     /// 
@@ -36,7 +39,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
         /// <exception cref="NotImplementedException"></exception>
         public override XYLocation GetNextLocation(XYLocation FromLocation)
         {
-            throw new NotImplementedException();
+            return new XYLocation(FromLocation.CurrentXCoOrdinate - 1, FromLocation.CurrentYCoOrdinate);
         }
 
         /// <summary>
@@ -44,11 +47,27 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions
         /// </summary>
         /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
         /// <typeparam name="TAction"><inheritdoc/></typeparam>
-        /// <param name="enviromentObjects"><inheritdoc/></param>
+        /// <typeparam name="TPerformanceMeasure"></typeparam>
+        /// <param name="environmentObjects"><inheritdoc/></param>
         /// <param name="agent"><inheritdoc/></param>
-        public override void ExecuteAction<TPrecept, TAction>(LinkedDictonarySet<IEnviromentObject> enviromentObjects, BaseAgent<TPrecept, TAction> agent)
+        public override void ExecuteAction<TPerformanceMeasure,TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent)
         {
-            base.ExecuteAction(enviromentObjects, agent);
+            var agentLocationResult = environmentObjects.GetAgentLocationState(agent);
+            if (agentLocationResult.Success)
+            {
+                if (agent is ReflexVacuumCleanerAgent)
+                {
+                    if (agentLocationResult.MazeBlockState is not null)
+                    {
+                        var locationAgentMovingTo = environmentObjects.OfType<MazeBlock<TPerformanceMeasure,TPrecept, TAction>>()
+                                .FirstOrDefault(x => x.GridLocation.Equals(GetNextLocation(agentLocationResult.MazeBlockState.GridLocation)));
+
+                        agentLocationResult.MazeBlockState.Agent = null;
+                        if (locationAgentMovingTo is not null)
+                            locationAgentMovingTo.Agent = agent;
+                    }
+                }
+            }
         }
     }
 }

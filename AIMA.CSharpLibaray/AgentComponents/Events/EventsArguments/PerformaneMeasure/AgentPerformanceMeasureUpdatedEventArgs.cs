@@ -4,16 +4,18 @@ using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
-namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure
+namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure
 {
     /// <summary>
-    /// 18 june
+    /// 18 June
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public class AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> : BasePerformanceMeasureEventArgs
+    /// <typeparam name="TPerformanceMeasure"></typeparam>
+    public class AgentPerformanceMeasureUpdatedEventArgs<TPerformanceMeasure,TPrecept, TAction> : BasePerformanceMeasureEventArgs<TPerformanceMeasure>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
+         where TPerformanceMeasure : BasePerformanceMeasure, new() 
     {
 
         #region cstor
@@ -21,10 +23,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMe
         /// 
         /// </summary>
         /// <param name="agent"></param>
-        /// <param name="performaceMeasure"></param>
+        /// <param name="performanceMeasure"></param>
         public AgentPerformanceMeasureUpdatedEventArgs(
-            BaseAgent<TPrecept, TAction> agent,
-            BasePerformanceMeasure performaceMeasure) : base(performaceMeasure)
+            BaseAgent<TPerformanceMeasure,TPrecept, TAction> agent,
+            TPerformanceMeasure performanceMeasure) : base(performanceMeasure)
         {
             Agent = agent;
         }
@@ -32,7 +34,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMe
         /// <value>
         /// <code>Agent</code>
         /// </value>
-        public BaseAgent<TPrecept, TAction> Agent { get; }
+        public BaseAgent<TPerformanceMeasure,TPrecept, TAction> Agent { get; }
 
         #endregion
     }

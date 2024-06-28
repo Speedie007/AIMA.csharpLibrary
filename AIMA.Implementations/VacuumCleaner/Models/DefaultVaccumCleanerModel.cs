@@ -1,8 +1,8 @@
-﻿using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Infrastucture.Enumerations;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Models.Base;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
+﻿using AIMA.Implementations.VacuumCleaner.Infrastructure.Enumerations;
+using AIMA.Implementations.VacuumCleaner.Models.Base;
+using AIMA.Implementations.VacuumCleaner.Precept;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Models
+namespace AIMA.Implementations.VacuumCleaner.Models
 {
     /// <summary>
     /// 

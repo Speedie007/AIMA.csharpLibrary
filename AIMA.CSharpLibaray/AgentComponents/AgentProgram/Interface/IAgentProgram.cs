@@ -1,7 +1,8 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.AgentComponents.Sensor.Interface;
 using AIMA.CSharpLibrary.Common.DataStructure;
@@ -29,26 +30,28 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public partial interface IAgentProgram<TPrecept, TAction>
+    /// <typeparam name="TPerformanceMeasure"></typeparam>
+    public partial interface IAgentProgram<TPerformanceMeasure,TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
+         where TPerformanceMeasure: BasePerformanceMeasure, new()    
     {
         /// <summary>
         /// 
         /// </summary>
-        Dictionary<Type, IBaseSensor<TPrecept, TAction>> Sensors { get; }
+        Dictionary<Type, ISensor<TPerformanceMeasure, TPrecept, TAction>> Sensors { get; }
         /// <summary>
-        /// Concrete implemeations of the AgentPrgrom should implement the Init() method so that it can initialize the relevant calls as/if required, such as  the setState(), setModel(), and setRules() method.
+        /// Concrete implementations of the AgentProgram should implement the Init() method so that it can initialize the relevant calls as/if required, such as  the setState(), setModel(), and setRules() method.
         /// <para>Called when the program is loaded.</para>
         /// </summary>
         void InitializeAgentProgramComponents();
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="enviromentObjects"></param>
+        /// <param name="environmentObjects"></param>
         /// <param name="action"></param>
         /// <param name="agent"></param>
-        void ProcessAgentAction(LinkedDictonarySet<IEnviromentObject> enviromentObjects, TAction action, BaseAgent<TPrecept, TAction> agent);
+        void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent);
         /// <summary>
         /// 
         /// </summary>
@@ -66,7 +69,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// <summary>
         /// 
         /// </summary>
-        Func<LinkedDictonarySet<IEnviromentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunction { get; }
+        Func<LinkedDictonarySet<IEnvironmentObject>, IAgent<TPerformanceMeasure, TPrecept, TAction>, TPrecept> SensorPollingFunction { get; }
     };
 }
 

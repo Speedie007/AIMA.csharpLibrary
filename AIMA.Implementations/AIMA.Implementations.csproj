@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,13 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="VacuumCleaner\Actions\NewFolder\" />
     <Folder Include="VacuumCleaner\PerformanceMeasure\Base\" />
     <Folder Include="VacuumCleaner\State\Interfaces\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-    <PackageReference Include="NUnit" Version="4.1.0" />
-  </ItemGroup>
+  
 
 </Project>

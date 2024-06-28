@@ -1,7 +1,8 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
-using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Environment;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using System.Text;
 
@@ -13,11 +14,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <typeparam name="TAgent"></typeparam>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    public partial class AgentActionTracker<TAgent, TPrecept, TAction> :
-        IEnviromentEventFeedBack<TAgent, TPrecept, TAction>
+    /// <typeparam name="TPerformanceMeasure"></typeparam>
+    public partial class AgentActionTracker<TPerformanceMeasure, TAgent, TPrecept, TAction> :
+        IEnvironmentEventFeedBack<TPerformanceMeasure, TAgent, TPrecept, TAction>
             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-            where TAgent : BaseAgent<TPrecept, TAction>, new()
+            where TPerformanceMeasure : BasePerformanceMeasure, new()
+            where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new()
     {
         /// <summary>
         /// 
@@ -35,7 +38,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// </summary>
         /// <param name="args"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void OnAgentActed(EnviromentAgentActedEventArgs<TAgent, TPrecept, TAction> args)
+        public void OnAgentActed(EnvironmentAgentActedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> args)
         {
             throw new NotImplementedException();
             //if (actionHistory.Length > 0)
@@ -47,7 +50,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// </summary>
         /// <param name="args"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void OnAgentAdded(EnviromentAgentAddedEventArgs<TAgent, TPrecept, TAction> args)
+        public void OnAgentAdded(EnvironmentAgentAddedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> args)
         {
             throw new NotImplementedException();
         }
@@ -55,7 +58,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public void OnAgentRemoved(EnviromentAgentRemovedEventArgs<TAgent, TPrecept, TAction> args)
+        public void OnAgentRemoved(EnvironmentAgentRemovedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> args)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.PerformanceMeasure.Interface
+﻿namespace AIMA.Implementations.VacuumCleaner.PerformanceMeasure.Interface
 {
     /// <summary>
     /// 16 June

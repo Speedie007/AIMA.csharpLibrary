@@ -57,17 +57,17 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Problem
         /// <summary>
         /// Constructs A problem with the specified components, and A default step cost function (i.e. 1 per step).
         /// </summary>
-        /// <param name="agentIntialState">The initial state of the agent.</param>
+        /// <param name="agentInitialState">The initial state of the agent.</param>
         /// <param name="agentActionsForStateFunc">A description of the possible actions available to the agent.</param>
         /// <param name="modelResultFunc"> A description of what each action does; the formal name for this is the transition AgentModel, specified by A function RESULT(s, A) that returns the state that results from doing action A in state s.</param>
         /// <param name="goalTestFunction">test determines whether A given state is A goal state.</param>
         public GeneralProblem(
-            TState agentIntialState,
+            TState agentInitialState,
             Func<TState, List<TAction>> agentActionsForStateFunc,
             Func<TState, TAction, TState> modelResultFunc,
             Predicate<TState> goalTestFunction
             ) : this(
-                agentIntialState,
+                agentInitialState,
                 agentActionsForStateFunc,
                 modelResultFunc,
                 goalTestFunction,

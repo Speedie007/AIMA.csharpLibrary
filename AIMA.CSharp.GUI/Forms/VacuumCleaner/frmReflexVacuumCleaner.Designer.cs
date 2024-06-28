@@ -55,15 +55,15 @@
             // splitContainer2
             // 
             splitContainer2.Size = new Size(258, 578);
-            splitContainer2.SplitterDistance = 98;
+            splitContainer2.SplitterDistance = 160;
             // 
-            // gbVacuumCleanerEnviromentView
+            // gbVacuumCleanerEnvironmentView
             // 
             gbVacuumCleanerEnviromentView.Size = new Size(797, 578);
             // 
             // txtOne
             // 
-            txtOne.Size = new Size(252, 454);
+            txtOne.Size = new Size(252, 392);
             // 
             // splitContainer3
             // 
@@ -74,7 +74,7 @@
             splitContainer3.Size = new Size(791, 556);
             splitContainer3.SplitterDistance = 70;
             // 
-            // groupBoxEvniromentOptions
+            // groupBoxEnvironmentOptions
             // 
             groupBoxEvniromentOptions.Controls.Add(button3);
             groupBoxEvniromentOptions.Controls.Add(button2);
@@ -107,7 +107,7 @@
             button3.TabIndex = 1;
             button3.Text = "button3";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            button3.Click += Button3_Click;
             // 
             // frmReflexVacuumCleaner
             // 

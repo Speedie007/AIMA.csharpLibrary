@@ -1,7 +1,7 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Models.Base;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Models.Interface;
+using AIMA.Implementations.VacuumCleaner.Models.Interface;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Models.Base
+namespace AIMA.Implementations.VacuumCleaner.Models.Base
 {
     /// <summary>
     /// 22 June
@@ -13,9 +13,9 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Models.Base
         /// <summary>
         /// 
         /// </summary>
-        public BaseVacuumCleanerModel():base()
+        public BaseVacuumCleanerModel() : base()
         {
-                
+
         }
         #endregion
     }

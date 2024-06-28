@@ -1,4 +1,4 @@
-﻿namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Sensors.Interface
+﻿namespace AIMA.Implementations.VacuumCleaner.Sensors.Interface
 {
     /// <summary>
     /// 

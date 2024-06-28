@@ -1,7 +1,7 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept
+namespace AIMA.Implementations.VacuumCleaner.Precept
 {
     /// <summary>
     /// 
@@ -45,7 +45,7 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept
         /// <summary>
         /// 
         /// </summary>
-        public VacuumCleanerPrecept() : this(new XYLocation(1, 1), false) { }
+        public VacuumCleanerPrecept() : this(new XYLocation(-1, -1), false) { }
         /// <summary>
         /// 
         /// </summary>

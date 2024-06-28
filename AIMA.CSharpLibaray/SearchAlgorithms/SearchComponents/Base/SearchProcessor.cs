@@ -53,8 +53,10 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Base
             SearchImplementation.NodeFactory.UseParentLinks = true;
             Frontier.Clear();
             Node<TState, TAction>? node = SearchImplementation.FindNode(problem, Frontier);
-
-            return node.ToActions();
+            if (node is not null)
+                return node.ToActions();
+            else
+                return new();
         }
         /// <summary>
         /// 

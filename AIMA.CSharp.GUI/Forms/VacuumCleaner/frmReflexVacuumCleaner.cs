@@ -1,52 +1,69 @@
 ﻿using AIMA.CSharp.GUI.Factory.Interfaces;
 using AIMA.CSharp.GUI.Forms.Base;
-using AIMA.CSharpLibrary.AgentComponents.Actions.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
-using AIMA.CSharpLibrary.AgentComponents.Enviroment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
-using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Enviroment;
-using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
-using AIMA.CSharpLibrary.AgentComponents.Precepts.Interface;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
-using System.Threading;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Environment;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Actions;
+using AIMA.Implementations.VacuumCleaner.Agents;
+using AIMA.Implementations.VacuumCleaner.Environment;
+using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Precept;
 
 namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class frmReflexVacuumCleaner : BaseForm,
-        IEnviromentEventFeedBack<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>,
-        IAgentEventFeedBack<VacuumCleanerPrecept, VacuumCleanerAction>
+        IEnvironmentEventFeedBack<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>,
+        IAgentEventFeedBack<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>
     {
-        // private readonly IEnviromentFactory _enviromentFactory;
-
-        protected VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> AgentEnviroment { get; private set; }
-
-        public frmReflexVacuumCleaner(IEnviromentFactory enviromentFactory)
+        // private readonly IEnvironmentFactory _environmentFactory;
+        private delegate void SafeCallDelegate(string text);
+        /// <summary>
+        /// 
+        /// </summary>
+        protected VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> AgentEnvironment { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="environmentFactory"></param>
+        public frmReflexVacuumCleaner(IEnvironmentFactory environmentFactory)
         {
             InitializeComponent();
-            AgentEnviroment = enviromentFactory.PrepareRelexVacuumCleanerEnviroment(this);
+            AgentEnvironment = environmentFactory.PrepareReflexVacuumCleanerEnvironment(this);
         }
-
-        public void OnAgentActed(EnviromentAgentActedEventArgs<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
+        public void OnAgentActed(EnvironmentAgentActedEventArgs<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
         {
-            txtOne.AppendText($"Agent Acted: {args.Agent.GetType().Name} - ActionExecuted:{args.ActionExecuted.ActionName}-{DateTime.Now}" + Environment.NewLine);
+            
+            WriteTextSafe($"Agent Acted: {args.Agent.GetType().Name} - ActionExecuted:{args.ActionExecuted.ActionName}-{DateTime.Now}" + Environment.NewLine);
         }
-
-        public void OnAgentAdded(EnviromentAgentAddedEventArgs<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
+        public void OnAgentAdded(EnvironmentAgentAddedEventArgs<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
         {
-            txtOne.AppendText($"Agent Added: {args.AgentAdded.GetType().Name} -To AgentEnviroment:{args.SourceEnviroment.GetType().Name}-{DateTime.Now}" + Environment.NewLine);
+            WriteTextSafe($"Agent Added: {args.AgentAdded.GetType().Name} -To AgentEnvironment:{args.SourceEnvironment.GetType().Name}-{DateTime.Now}" + Environment.NewLine);
         }
-
-        public void OnAgentRemoved(EnviromentAgentRemovedEventArgs<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
+        public void OnAgentRemoved(EnvironmentAgentRemovedEventArgs<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
         {
-            txtOne.AppendText($"Agent Removed: {args.AgentRemoved.GetType().Name} - From AgentEnviroment:{nameof(args.SourceEnviroment)}-{DateTime.Now}" + Environment.NewLine);
+            WriteTextSafe($"Agent Removed: {args.AgentRemoved.GetType().Name} - From AgentEnvironment:{nameof(args.SourceEnvironment)}-{DateTime.Now}" + Environment.NewLine);
         }
 
         private void frmReflexVacuumCleaner_Load(object sender, EventArgs e)
         {
-            gbVacuumCleanerEnviromentView.Text = "Vacuum Cleaner AgentEnviroment";
+            gbVacuumCleanerEnviromentView.Text = "Vacuum Cleaner AgentEnvironment";
         }
 
         private void frmReflexVacuumCleaner_Shown(object sender, EventArgs e)
@@ -58,26 +75,23 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
         private async void button2_Click(object sender, EventArgs e)
         {
             cancellationSource = new CancellationTokenSource();
-
+            
             try
             {
-                foreach (var agent in AgentEnviroment.GetAgents())
+                foreach (var agent in AgentEnvironment.GetAgents())
                 {
                     agent.IsAlive = true;
                 }
-                await AgentEnviroment.StepUntilDoneAsync(cancellationSource.Token);
-                var tt = "";
+                await AgentEnvironment.StepUntilDoneAsync(cancellationSource.Token);
             }
             catch (OperationCanceledException)
             {
-                foreach (var agent in AgentEnviroment.GetAgents())
+                foreach (var agent in AgentEnvironment.GetAgents())
                 {
                     if (agent.IsAlive)
                     {
                         agent.IsAlive = false;
-                        agent.OnAgentMessageNotification(
-                           new AgentNotificationEventArgs<VacuumCleanerPrecept, VacuumCleanerAction>(agent,
-                                                                                       "Agent Died due to early cancellation234."));
+                        agent.OnAgentMessageNotification( new AgentNotificationEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>(agent, "Agent Died due to early cancellation234."));
                     }
                 }
             }
@@ -88,20 +102,46 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             if (cancellationSource.Token.CanBeCanceled)
-                cancellationSource.Cancel();
+                cancellationSource.Cancel(true);
+        }
+        private void WriteTextSafe(string text)
+        {
+            
+            if (txtOne.InvokeRequired)
+            {
+                var d = new SafeCallDelegate(WriteTextSafe);
+                txtOne.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                txtOne.Text = text;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentNotificationEventArgs"></param>
+        public void OnAgentMessageNotification(
+            AgentNotificationEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
+        {
+            WriteTextSafe($"Agent Notification: {agentNotificationEventArgs.Agent.GetType().Name} - Message:{agentNotificationEventArgs.AgentMessage}-{DateTime.Now}" + Environment.NewLine);
+        }
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void OnAgentPerformanceMeasureUpdated(
+            AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
+        {
+            WriteTextSafe(agentPerformanceMeasureUpdatedEventArgs.PerformanceMeasure.ToString());
         }
 
-        public void OnAgentMessageNotification(AgentNotificationEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
-        {
-            txtOne.AppendText($"Agent Removed: {agentNotificationEventArgs.Agent.GetType().Name} - Message:{agentNotificationEventArgs.AgentMessage}-{DateTime.Now}" + Environment.NewLine);
-        }
+        
 
-        public void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
-        {
-            throw new NotImplementedException();
-        }
+         
     }
 }

@@ -20,7 +20,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public readonly static string PERFORMANCE_MEASURE = "PerformanceMeasure";
+        public readonly static string PERFORMANCE_MEASURE = "DefaultPerformanceMeasure";
         #endregion
 
     }

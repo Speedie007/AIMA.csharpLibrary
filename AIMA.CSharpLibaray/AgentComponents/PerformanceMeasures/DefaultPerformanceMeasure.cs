@@ -4,7 +4,7 @@ using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures
 {
     /// <summary>
-    /// 
+    /// For Default implementations, defaults to using a simple double value as the Performance Measure.
     /// </summary>
     public partial class DefaultPerformanceMeasure : BasePerformanceMeasure
     {
@@ -12,20 +12,21 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures
         /// <summary>
         /// 
         /// </summary>
-        public DefaultPerformanceMeasure() : base()
+        public DefaultPerformanceMeasure()
         {
+
         }
+
+
         #endregion
 
         #region Properties
         /// <summary>
         /// 
         /// </summary>
-        public double PreformanceMeasureValue
-        {
-            get { return (double)GetAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE); }
-            set { SetDynamicAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE, value); }
-        }
+        protected double Value { 
+            get { return (double)GetAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE); } 
+            set{ SetDynamicAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE, value); } }
         #endregion
 
     }

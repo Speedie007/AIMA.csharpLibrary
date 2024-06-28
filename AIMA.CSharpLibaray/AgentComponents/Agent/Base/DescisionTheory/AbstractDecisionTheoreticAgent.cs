@@ -6,7 +6,7 @@ using AIMA.CSharpLibrary.Common.DataStructure;
 using AIMA.CSharpLibrary.Probability;
 using AIMA.CSharpLibrary.Probability.Interfaces;
 
-namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
+namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DecisionTheory
 {
     /// <summary>
     /// <para>
@@ -39,9 +39,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    public abstract partial class BaseDecisionTheoreticAgent<TPrecept, TAction> : BaseAgent<TPrecept, TAction>
-             where TAction : BaseAction, new()
-         where TPrecept : BasePrecept, new()
+    /// <typeparam name="TPerformanceMeasure"></typeparam>
+    public abstract partial class BaseDecisionTheoreticAgent<TPerformanceMeasure, TPrecept, TAction> : BaseAgent<TPerformanceMeasure, TPrecept, TAction>
+        where TAction : BaseAction, new()
+        where TPrecept : BasePrecept, new()
+        where TPerformanceMeasure: BasePerformanceMeasure, new()
 
     {
 
@@ -60,15 +62,17 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
         /// BaseDecisionTheoreticAgent Constructor
         /// </summary>
         /// <param name="agentProgram"><inheritdoc/></param>
-        /// <param name="performaceMeasure"><inheritdoc/></param>
         /// <param name="isAlive"><inheritdoc/></param>
-        protected BaseDecisionTheoreticAgent(BaseAgentProgram<TPrecept, TAction> agentProgram, BasePerformanceMeasure performaceMeasure, bool isAlive) : base(agentProgram, performaceMeasure, isAlive)
+        /// <param name="performanceMetricStructure"></param>
+        protected BaseDecisionTheoreticAgent(
+            BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction> agentProgram,
+            TPerformanceMeasure performanceMetricStructure,
+            bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
             BeliefState = new BeliefState<TPrecept, TAction>();
             Action = new TAction();
             ActionDescriptions = new List<TAction>();
         }
-
         #endregion
 
         #region Properties
@@ -88,12 +92,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DescisionTheory
 
         #region Methods
         /// <summary>
-        /// Calculate the possible probalilities for list of possible actions.
+        /// Calculate the possible probabilities for list of possible actions.
         /// </summary>
         /// <param name="actionDescription">permissible action descriptions</param>
         /// <param name="beliefState">current belief state of the agent about the world</param>
         /// <returns>The next action to be taken.</returns>
-        public abstract List<Pair<TAction, double>> CalulateActionProbabilities(
+        public abstract List<Pair<TAction, double>> CalculateActionProbabilities(
             List<TAction> actionDescription,
             IBeliefState<TPrecept, TAction> beliefState);
 

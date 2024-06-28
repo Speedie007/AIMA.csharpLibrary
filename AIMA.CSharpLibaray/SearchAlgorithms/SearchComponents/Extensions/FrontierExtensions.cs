@@ -33,7 +33,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
             where TAction : BaseAction, new()
             where TState : BaseState, new()
         {
-            FontierFIFOQueue<Node<TState, TAction>> queue = new();
+            FrontierFIFOQueue<Node<TState, TAction>> queue = new();
 
             return queue;
         }
@@ -47,7 +47,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
             where TAction : BaseAction, new()
             where TState : BaseState, new()
         {
-            FrontiertPriorirtyQueue<Node<TState, TAction>> queue = new();
+            FrontierPriorityQueue<Node<TState, TAction>> queue = new();
 
             return queue;
         }
@@ -80,7 +80,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// </summary>
         public static BaseFrontierQueue<TElement> CreateFIFOFrontier()
         {
-            FontierFIFOQueue<TElement> queue = new();
+            FrontierFIFOQueue<TElement> queue = new();
 
             return queue;
         }
@@ -90,7 +90,7 @@ namespace AIMA.CSharpLibrary.SearchAlgorithms.SearchComponents.Extensions
         /// <returns></returns>
         public static BaseFrontierQueue<TElement> CreatePriorityQueueFrontier()
         {
-            FrontiertPriorirtyQueue<TElement> queue = new();
+            FrontierPriorityQueue<TElement> queue = new();
 
             return queue;
         }

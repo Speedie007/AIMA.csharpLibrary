@@ -2,19 +2,20 @@
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
-using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformaneMeasure;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Models;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.State;
+using AIMA.Implementations.VacuumCleaner.Actions;
+using AIMA.Implementations.VacuumCleaner.Models;
+using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Precept;
+using AIMA.Implementations.VacuumCleaner.State;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
+namespace AIMA.Implementations.VacuumCleaner.Agents
 {
     /// <summary>
     /// 22 June
     /// </summary>
-    public partial class ModelBaseVacuumCleanerReflexAgent : BaseAgent<VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class ModelBaseVacuumCleanerReflexAgent : BaseAgent<VacuumCleanerPerformanceMeasure,VacuumCleanerPrecept, VacuumCleanerAction>
     {
 
         #region cstor
@@ -23,37 +24,50 @@ namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents
         /// </summary>
         public ModelBaseVacuumCleanerReflexAgent()
         {
-            
+
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="agentProgram"></param>
-        /// <param name="performanceMeasure"></param>
+        /// <param name="performanceMetricStructure"></param>
         /// <param name="isAlive"></param>
         public ModelBaseVacuumCleanerReflexAgent(
-            BaseModelBasedReflexAgentProgram<VacuumCleanerPrecept, VacuumCleanerAction,VacuumCleanerState, VacuumCleanerModel> agentProgram,
-            BasePerformanceMeasure performanceMeasure,
-            bool isAlive) : base(agentProgram, performanceMeasure, isAlive)
+            BaseAgentProgram<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentProgram,
+            VacuumCleanerPerformanceMeasure performanceMetricStructure,
+            bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public override void ExecuteNoOp()
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public override void InitialiseAgentProgram()
         {
             throw new NotImplementedException();
         }
-
-        public override void OnAgentMessageNotification(AgentNotificationEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentNotificationEventArgs"></param>
+        public override void OnAgentMessageNotification(AgentNotificationEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
         {
             base.OnAgentMessageNotification(agentNotificationEventArgs);
         }
-
-        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
+        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
         {
             base.OnAgentPerformanceMeasureUpdated(agentPerformanceMeasureUpdatedEventArgs);
         }

@@ -1,15 +1,28 @@
 ﻿using AIMA.CSharp.GUI.Forms.VacuumCleaner;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Agents;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Enviroment;
-using AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Precept;
+using AIMA.Implementations.VacuumCleaner.Actions;
+using AIMA.Implementations.VacuumCleaner.Agents;
+using AIMA.Implementations.VacuumCleaner.Environment;
+using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
+using AIMA.Implementations.VacuumCleaner.Precept;
 
 namespace AIMA.CSharp.GUI.Factory.Interfaces
 {
-    public partial interface IEnviromentFactory
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial interface IEnvironmentFactory
     {
-        VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildSimpleRelexVacuumCleanerEnviroment(frmSimpleReflexVacuumCleaner frm);
-
-        VacuumCleanerEnviroment<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareRelexVacuumCleanerEnviroment(frmReflexVacuumCleaner frm);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="frmSimpleReflexVacuumCleaner"></param>
+        /// <returns></returns>
+        VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildSimpleReflexVacuumCleanerEnvironment(frmSimpleReflexVacuumCleaner  frmSimpleReflexVacuumCleaner);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="frmReflexVacuumCleaner"></param>
+        /// <returns></returns>
+        VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareReflexVacuumCleanerEnvironment(frmReflexVacuumCleaner frmReflexVacuumCleaner );
     }
 }

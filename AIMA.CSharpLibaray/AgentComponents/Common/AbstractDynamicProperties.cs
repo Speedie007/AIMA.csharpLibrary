@@ -39,7 +39,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// By default, returns the simple name of the underlying class as given in the source code.the source code.
         /// </summary>
         /// <returns>return the simple name of the underlying Class or Enum</returns>
-        public virtual Type DynamicAtrributeType()
+        public virtual Type DynamicAttributeType()
         {
             return GetType();
         }
@@ -47,7 +47,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// Ge A representation of the object's current attributes in the form of A string.
         /// </summary>
         /// <returns>Returns A string representation of the object's current attributes</returns>
-        public virtual string GetDynamicAtrributesAvailable()
+        public virtual string GetDynamicAttributesAvailable()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -86,7 +86,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         /// </summary>
         /// <param name="key">The attribute Key</param>
         /// <param name="value">The attribute Value</param>
-        /// <returns>True if successfull, else false.</returns>
+        /// <returns>True if successful, else false.</returns>
         public bool SetDynamicAttributeValue(object key, object value)
         {
             if (DynamicAttributes.ContainsKey(key))
@@ -100,7 +100,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         }
 
         /// <summary>
-        /// Retirvies the attibute value for A specified attribute PropertyKey.
+        /// Retrieves the attribute value for A specified attribute PropertyKey.
         /// </summary>
         /// <param name="key">Attribute PropertyKey</param>
         /// <returns>Value of the specified attribute, or null if not found.</returns>
@@ -158,8 +158,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(DynamicAtrributeType().Name);
-            sb.Append(GetDynamicAtrributesAvailable());
+            sb.Append(DynamicAttributeType().Name);
+            sb.Append(GetDynamicAttributesAvailable());
 
             return sb.ToString();
         }

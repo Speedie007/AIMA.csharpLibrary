@@ -1,6 +1,6 @@
 ﻿using AIMA.CSharpLibrary.Common.DataStructure;
 
-namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Interfaces
+namespace AIMA.Implementations.VacuumCleaner.Actions.Interfaces
 {
     /// <summary>
     /// <para>Vacuum Cleaner movemt action Interface, which defines the basic methods for the resulting movements that can be made by the vacuum cleaner.</para>

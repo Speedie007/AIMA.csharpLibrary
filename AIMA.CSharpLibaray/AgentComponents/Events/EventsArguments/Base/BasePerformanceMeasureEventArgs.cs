@@ -3,25 +3,25 @@
 namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
 {
     /// <summary>
-    /// 18 june
+    /// 18 June
     /// </summary>
-    public abstract class BasePerformanceMeasureEventArgs : EventArgs
-
+    public abstract class BasePerformanceMeasureEventArgs<TPerformanceMeasure> : EventArgs
+        where TPerformanceMeasure: BasePerformanceMeasure, new()
     {
 
         #region Cstor
         /// <summary>
         /// 
         /// </summary>
-        public BasePerformanceMeasureEventArgs(BasePerformanceMeasure performaceMeasure)
+        public BasePerformanceMeasureEventArgs(TPerformanceMeasure performanceMeasure)
         {
-            PerformaceMeasure = performaceMeasure;
+            PerformanceMeasure = performanceMeasure;
         }
 
         /// <value>
         /// 
         /// </value>
-        public BasePerformanceMeasure PerformaceMeasure { get; }
+        public TPerformanceMeasure PerformanceMeasure { get; }
 
 
         #endregion

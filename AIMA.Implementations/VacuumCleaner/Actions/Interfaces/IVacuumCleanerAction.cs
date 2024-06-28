@@ -1,7 +1,7 @@
-﻿namespace AIMA.CSharpLibrary.AgentImplementations.VacuumCleaner.Actions.Interfaces
+﻿namespace AIMA.Implementations.VacuumCleaner.Actions.Interfaces
 {
     /// <summary>
-    /// <para>Base ActionExecuted Interface for Vacuum Cleaner movemt action Interface, which defines the basic methods for the resulting movements that can be made by the vacuum cleaner.</para>
+    /// <para>Base ActionExecuted Interface for Vacuum Cleaner movement action Interface, which defines the basic methods for the resulting movements that can be made by the vacuum cleaner.</para>
     ///<para>
     ///Author:Brendan Wood (Bsc. Hons. IT) - Complied C# Implementation - Supplemental
     ///</para>
