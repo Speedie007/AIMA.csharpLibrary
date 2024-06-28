@@ -18,21 +18,21 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     ///</para>
     ///<para>Date Created: 11 May 2024 - Date Last Updated: 18 June 2024</para>
     /// </summary>
-    public partial interface IAgentEventFeedBack<TPerformanceMeasure,TPrecept, TAction>
+    public partial interface IAgentEventFeedBack<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-         where TPerformanceMeasure: BasePerformanceMeasure, new() 
+          
     {
         /// <summary>
         ///  A simple notification message, to be forwarded to someone.
         /// </summary>
         /// <param name="agentNotificationEventArgs">The message to be forwarded from the current Environment.</param>
-        void OnAgentMessageNotification(AgentNotificationEventArgs<TPerformanceMeasure, TPrecept, TAction> agentNotificationEventArgs);
+        void OnAgentMessageNotification(AgentNotificationEventArgs< TPrecept, TAction> agentNotificationEventArgs);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
-        void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<TPerformanceMeasure,TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs);
+        void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs);
 
 
     }

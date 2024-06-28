@@ -11,24 +11,24 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
     /// <typeparam name="TAgent"></typeparam>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial interface IEnvironmentEvents<TPerformanceMeasure, TAgent, TPrecept, TAction>
+    
+    public partial interface IEnvironmentEvents< TAgent, TPrecept, TAction>
             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-             where TPerformanceMeasure: BasePerformanceMeasure, new() 
-            where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new()
+              
+            where TAgent : BaseAgent< TPrecept, TAction>, new()
     {
         /// <summary>
         /// 
         /// </summary>
-        event EnvironmentEventHandlers.AgentAddedEventHandler<TPerformanceMeasure, TAgent, TPrecept, TAction> AgentAddedEvent;
+        event EnvironmentEventHandlers.AgentAddedEventHandler< TAgent, TPrecept, TAction> AgentAddedEvent;
         /// <summary>
         /// 
         /// </summary>
-        event EnvironmentEventHandlers.AgentActedEventHandler<TPerformanceMeasure, TAgent, TPrecept, TAction> AgentActedEvent;
+        event EnvironmentEventHandlers.AgentActedEventHandler< TAgent, TPrecept, TAction> AgentActedEvent;
         /// <summary>
         /// 
         /// </summary>
-        event EnvironmentEventHandlers.AgentRemovedEventHandler<TPerformanceMeasure, TAgent, TPrecept, TAction> AgentRemovedEvent;
+        event EnvironmentEventHandlers.AgentRemovedEventHandler< TAgent, TPrecept, TAction> AgentRemovedEvent;
     }
 }

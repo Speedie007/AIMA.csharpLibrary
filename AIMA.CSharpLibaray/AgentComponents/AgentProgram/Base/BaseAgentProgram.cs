@@ -3,7 +3,7 @@ using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.AgentComponents.Sensor.Base;
 using AIMA.CSharpLibrary.AgentComponents.Sensor.Interface;
@@ -20,11 +20,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
     /// </summary>
     /// <typeparam name="TPrecept">Base Agent Precept Type</typeparam>
     /// <typeparam name="TAction">Base Agent Action Type</typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public abstract partial class BaseAgentProgram<TPerformanceMeasure,TPrecept, TAction> : IAgentProgram<TPerformanceMeasure,TPrecept, TAction>
+
+    public abstract partial class BaseAgentProgram<TPrecept, TAction> : IAgentProgram<TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()   
+           
     {
         #region Properties
         /// <summary>
@@ -40,15 +40,15 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
         /// 
         /// </summary>
         /// <value></value>
-        public Func<LinkedDictonarySet<IEnvironmentObject>, IAgent<TPerformanceMeasure,TPrecept, TAction>, TPrecept> SensorPollingFunction { get; private set; }
+        public Func<LinkedDictonarySet<IEnvironmentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunction { get; private set; }
         /// <summary>
         /// 
         /// </summary>
-        public Action<LinkedDictonarySet<IEnvironmentObject>, TAction, BaseAgent<TPerformanceMeasure,TPrecept, TAction>> ProcessAgentActionFunction { get; private set; }
+        public Action<LinkedDictonarySet<IEnvironmentObject>, TAction, BaseAgent<TPrecept, TAction>> ProcessAgentActionFunction { get; private set; }
         /// <summary>
         /// 
         /// </summary>
-        public Dictionary<Type, ISensor<TPerformanceMeasure, TPrecept, TAction>> Sensors { get; private set; }
+        public Dictionary<Type, ISensor< TPrecept, TAction>> Sensors { get; private set; }
         #endregion
 
         #region Cstor
@@ -60,7 +60,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
             SensorPollingFunction = ProcessSensors;
             AgentPreceptToActionFunction = ProcessAgentFunctionAsync;
             ProcessAgentActionFunction = ProcessAgentAction;
-            Sensors = new Dictionary<Type, ISensor<TPerformanceMeasure, TPrecept, TAction>>();
+            Sensors = new Dictionary<Type, ISensor< TPrecept, TAction>>();
             InitializeSensors();
         }
         #endregion
@@ -79,14 +79,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
         /// <param name="environmentObjects"></param>
         /// <param name="action"></param>
         /// <param name="agent"></param>
-        public abstract void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent);
+        public abstract void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        protected virtual TPrecept ProcessSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent<TPerformanceMeasure, TPrecept, TAction> agent)
+        protected virtual TPrecept ProcessSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent< TPrecept, TAction> agent)
         {
             var precept = new TPrecept();
             foreach (var sensor in Sensors.Values)
@@ -121,7 +121,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
 
             //foreach (Type sensorType in subclasses)
             //{
-            //    var sensor = Activator.CreateInstance(sensorType) as ISensor<TPerformanceMeasure,TPrecept, TAction>;
+            //    var sensor = Activator.CreateInstance(sensorType) as ISensor<TPrecept, TAction>;
             //    if (sensor is not null)
             //        Sensors.TryAdd(sensorType, sensor);
             //}
@@ -141,11 +141,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
                         assemblyTypes.AddRange(loadedReferenceAssembly.GetTypes());
                     }
                 }
-                IEnumerable<Type> subclasses = assemblyTypes.Where(t => t.IsSubclassOf(typeof(BaseSensor<TPerformanceMeasure ,TPrecept, TAction>)) && !t.IsAbstract);
+                IEnumerable<Type> subclasses = assemblyTypes.Where(t => t.IsSubclassOf(typeof(BaseSensor<TPrecept, TAction>)) && !t.IsAbstract);
 
                 foreach (Type sensorType in subclasses)
                 {
-                    var sensor = Activator.CreateInstance(sensorType) as ISensor<TPerformanceMeasure, TPrecept, TAction>;
+                    var sensor = Activator.CreateInstance(sensorType) as ISensor< TPrecept, TAction>;
                     if (sensor is not null)
                         Sensors.TryAdd(sensorType, sensor);
                 }

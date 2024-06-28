@@ -13,7 +13,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public CancellationToken token { get; set; }
+       
         /// <summary>
         /// 
         /// </summary>

@@ -12,11 +12,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensor.Interface
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial interface ISensor<TPerformanceMeasure, TPrecept, TAction>
+    
+    public partial interface ISensor< TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-         where TPerformanceMeasure: BasePerformanceMeasure, new()
+         
     {
         /// <summary>
         /// 
@@ -27,6 +27,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensor.Interface
         /// 
         /// </summary>
         /// <returns></returns>
-        TPrecept Poll(TPrecept precept, LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent<TPerformanceMeasure, TPrecept, TAction> agent);
+        TPrecept Poll(TPrecept precept, LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent< TPrecept, TAction> agent);
     }
 }

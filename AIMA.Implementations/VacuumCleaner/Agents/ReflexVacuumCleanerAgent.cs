@@ -16,7 +16,7 @@ namespace AIMA.Implementations.VacuumCleaner.Agents
     /// 
     /// 16 June
     /// </summary>
-    public partial class ReflexVacuumCleanerAgent : BaseAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class ReflexVacuumCleanerAgent : BaseAgent< VacuumCleanerPrecept, VacuumCleanerAction>
     {
        
         #region Cstor
@@ -24,7 +24,7 @@ namespace AIMA.Implementations.VacuumCleaner.Agents
         /// <inheritdoc/>
         /// </summary>
         public ReflexVacuumCleanerAgent() : this(
-            new DefaultAgentProgram<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>(),
+            new DefaultAgentProgram< VacuumCleanerPrecept, VacuumCleanerAction>(),
             new VacuumCleanerPerformanceMeasure(),
             true)
         {
@@ -36,7 +36,7 @@ namespace AIMA.Implementations.VacuumCleaner.Agents
         /// <param name="isAlive"><inheritdoc/></param>
         /// <param name="performanceMetricStructure"></param>
         public ReflexVacuumCleanerAgent(
-            BaseAgentProgram<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentProgram,
+            BaseAgentProgram< VacuumCleanerPrecept, VacuumCleanerAction> agentProgram,
             VacuumCleanerPerformanceMeasure performanceMetricStructure,
             bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
@@ -60,7 +60,7 @@ namespace AIMA.Implementations.VacuumCleaner.Agents
         /// 
         /// </summary>
         /// <param name="agentNotificationEventArgs"></param>
-        public override void OnAgentMessageNotification(AgentNotificationEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
+        public override void OnAgentMessageNotification(AgentNotificationEventArgs< VacuumCleanerPrecept, VacuumCleanerAction> agentNotificationEventArgs)
         {
             base.OnAgentMessageNotification(agentNotificationEventArgs);
         }
@@ -68,7 +68,7 @@ namespace AIMA.Implementations.VacuumCleaner.Agents
         /// 
         /// </summary>
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
-        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
+        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs< VacuumCleanerPrecept, VacuumCleanerAction> agentPerformanceMeasureUpdatedEventArgs)
         {
             base.OnAgentPerformanceMeasureUpdated(agentPerformanceMeasureUpdatedEventArgs);
         }

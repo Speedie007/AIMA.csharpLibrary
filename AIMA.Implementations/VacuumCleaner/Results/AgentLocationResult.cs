@@ -9,15 +9,15 @@ namespace AIMA.Implementations.VacuumCleaner.Results
     /// <summary>
     /// 26 June 2024
     /// </summary>
-    public partial class AgentLocationResult<TPerformanceMeasure, TPrecept, TAction> : GeneralResult
+    public partial class AgentLocationResult< TPrecept, TAction> : GeneralResult
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
+        
     {
         /// <summary>
         /// 
         /// </summary>
-        public MazeBlock<TPerformanceMeasure, TPrecept, TAction>? MazeBlockState { get; set; }
+        public MazeBlock< TPrecept, TAction>? MazeBlockState { get; set; }
         /// <summary>
         /// 
         /// </summary>

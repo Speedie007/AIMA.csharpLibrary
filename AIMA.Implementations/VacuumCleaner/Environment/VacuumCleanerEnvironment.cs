@@ -13,12 +13,12 @@ namespace AIMA.Implementations.VacuumCleaner.Environment
     /// <typeparam name="TAgent"><inheritdoc/></typeparam>
     /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
     /// <typeparam name="TAction"><inheritdoc/></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial class VacuumCleanerEnvironment<TPerformanceMeasure,TAgent, TPrecept, TAction> : BaseEnvironment<TPerformanceMeasure, TAgent, TPrecept, TAction>
+    
+    public partial class VacuumCleanerEnvironment<TAgent, TPrecept, TAction> : BaseEnvironment< TAgent, TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new() 
-        where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new()
+         
+        where TAgent : BaseAgent< TPrecept, TAction>, new()
     {
         /// <summary>
         /// Property indicating whether the Exogenous Change within the environment may occur.
@@ -49,11 +49,11 @@ namespace AIMA.Implementations.VacuumCleaner.Environment
             {
                 var rand = new Random();
 
-                foreach (var environmentObject in EnvironmentObjects.OfType<MazeBlock<TPerformanceMeasure, TPrecept, TAction>>().ToList())//.ToList<MazeBlock<TPrecept,TAction>())
+                foreach (var environmentObject in EnvironmentObjects.OfType<MazeBlock< TPrecept, TAction>>().ToList())//.ToList<MazeBlock<TPrecept,TAction>())
                 {
                     if (rand.Next(101) >= 80)
                     {
-                        if (environmentObject is MazeBlock<TPerformanceMeasure, TPrecept, TAction> selectedLocation)
+                        if (environmentObject is MazeBlock< TPrecept, TAction> selectedLocation)
                             selectedLocation.DirtPiles.Push(new Dirt());
                     }
                 }

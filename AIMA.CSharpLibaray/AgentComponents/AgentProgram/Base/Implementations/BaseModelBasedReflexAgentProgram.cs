@@ -15,13 +15,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     /// <typeparam name="TState">TODO:</typeparam>
     /// <typeparam name="TModel">TODO:</typeparam>
     /// <typeparam name="TPerformanceMeasure">TODO:here</typeparam>
-    public abstract partial class BaseModelBasedReflexAgentProgram<TPerformanceMeasure,TPrecept, TAction, TState, TModel> : 
-        BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction>
+    public abstract partial class BaseModelBasedReflexAgentProgram<TPrecept, TAction, TState, TModel> : 
+        BaseAgentProgram< TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
         where TState : BaseState, new()
         where TModel : BaseModel, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
+        
     {
 
         #region Properties

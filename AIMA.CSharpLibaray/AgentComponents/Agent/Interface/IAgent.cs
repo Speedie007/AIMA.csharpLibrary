@@ -27,11 +27,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial interface IAgent<TPerformanceMeasure,TPrecept, TAction> : IEnvironmentObject
+    
+    public partial interface IAgent<TPrecept, TAction> : IEnvironmentObject
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
+        
     {
         /// <summary>
         /// 

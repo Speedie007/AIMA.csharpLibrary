@@ -29,10 +29,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions
         /// </summary>
         /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
         /// <typeparam name="TAction"><inheritdoc/></typeparam>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
+        
         /// <param name="environmentObjects"><inheritdoc/></param>
         /// <param name="agent"><inheritdoc/></param>
-        public override void ExecuteAction<TPerformanceMeasure,TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent<TPerformanceMeasure,TPrecept, TAction> agent)
+        public override void ExecuteAction<TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent<TPrecept, TAction> agent)
         {
         }
     }

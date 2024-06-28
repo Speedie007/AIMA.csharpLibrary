@@ -1,6 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
@@ -11,11 +11,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TState"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public abstract partial class BaseSimpleProblemSolvingAgent<TPerformanceMeasure, TPrecept, TState, TAction> : BaseAgent<TPerformanceMeasure, TPrecept, TAction>
+
+    public abstract partial class BaseSimpleProblemSolvingAgent< TPrecept, TState, TAction> : BaseAgent< TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
+        
     {
         /// <summary>
         /// 
@@ -30,8 +30,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.ProblemSolving
         /// <param name="isAlive"></param>
         /// <param name="performanceMetricStructure"></param>
         protected BaseSimpleProblemSolvingAgent(
-            BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction> agentProgram,
-            TPerformanceMeasure performanceMetricStructure,
+            BaseAgentProgram< TPrecept, TAction> agentProgram,
+            IPerformanceMeasure performanceMetricStructure,
             bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
         }

@@ -2,7 +2,6 @@
 using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
 using AIMA.CSharpLibrary.Common.DataStructure;
 using AIMA.Implementations.VacuumCleaner.Agents;
-using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
 using AIMA.Implementations.VacuumCleaner.Precept;
 
 namespace AIMA.Implementations.VacuumCleaner.Actions.ExecutionModel
@@ -10,7 +9,7 @@ namespace AIMA.Implementations.VacuumCleaner.Actions.ExecutionModel
     /// <summary>
     /// 
     /// </summary>
-    internal class Temp : BaseActionExecutionModel<VacuumCleanerPerformanceMeasure,ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>
+    internal class Temp : BaseActionExecutionModel<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>
     {
         /// <summary>
         /// 

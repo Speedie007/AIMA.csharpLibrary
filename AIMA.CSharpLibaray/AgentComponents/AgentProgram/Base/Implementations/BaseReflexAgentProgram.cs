@@ -9,12 +9,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     /// </summary>
     /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
     /// <typeparam name="TAction"><inheritdoc/></typeparam>
-    /// <typeparam name="TPerformanceMeasure"><inheritdoc/></typeparam>
-    public abstract partial class BaseReflexAgentProgram<TPerformanceMeasure,TPrecept, TAction> : 
-        BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction>
+    
+    public abstract partial class BaseReflexAgentProgram<TPrecept, TAction> : 
+        BaseAgentProgram< TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
+        
     {
 
 

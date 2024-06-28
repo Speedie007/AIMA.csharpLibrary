@@ -18,16 +18,16 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <summary>
         /// 
         /// </summary>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
+        
         /// <typeparam name="TAgent"></typeparam>
         /// <typeparam name="TPrecept"></typeparam>
         /// <typeparam name="TAction"></typeparam>
         /// <param name="AgentAddedEventArgs"></param>
-        public delegate void AgentAddedEventHandler<TPerformanceMeasure, TAgent, TPrecept, TAction>(EnvironmentAgentAddedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> AgentAddedEventArgs)
+        public delegate void AgentAddedEventHandler< TAgent, TPrecept, TAction>(EnvironmentAgentAddedEventArgs< TAgent, TPrecept, TAction> AgentAddedEventArgs)
              where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-             where TPerformanceMeasure: BasePerformanceMeasure, new() 
-            where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new();
+              
+            where TAgent : BaseAgent< TPrecept, TAction>, new();
         /// <summary>
         /// 
         /// </summary>
@@ -35,12 +35,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <typeparam name="TPrecept"></typeparam>
         /// <typeparam name="TAction"></typeparam>
         /// <param name="AgentRemovedArgs"></param>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
-        public delegate void AgentRemovedEventHandler<TPerformanceMeasure, TAgent, TPrecept, TAction>(EnvironmentAgentRemovedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> AgentRemovedArgs)
+        
+        public delegate void AgentRemovedEventHandler< TAgent, TPrecept, TAction>(EnvironmentAgentRemovedEventArgs< TAgent, TPrecept, TAction> AgentRemovedArgs)
              where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-             where TPerformanceMeasure: BasePerformanceMeasure, new() 
-            where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new();
+              
+            where TAgent : BaseAgent< TPrecept, TAction>, new();
         /// <summary>
         /// 
         /// </summary>
@@ -48,11 +48,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <typeparam name="TPrecept"></typeparam>
         /// <typeparam name="TAction"></typeparam>
         /// <param name="AgentActedEventArgs"></param>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
-        public delegate void AgentActedEventHandler<TPerformanceMeasure, TAgent, TPrecept, TAction>(EnvironmentAgentActedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> AgentActedEventArgs)
+        
+        public delegate void AgentActedEventHandler< TAgent, TPrecept, TAction>(EnvironmentAgentActedEventArgs< TAgent, TPrecept, TAction> AgentActedEventArgs)
                 where TAction : BaseAction, new()
                 where TPrecept : BasePrecept, new()
-                 where TPerformanceMeasure: BasePerformanceMeasure, new() 
-                where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new();
+                  
+                where TAgent : BaseAgent< TPrecept, TAction>, new();
     }
 }

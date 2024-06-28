@@ -59,15 +59,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
         /// </summary>
         /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
         /// <typeparam name="TAction"><inheritdoc/></typeparam>
-        /// <typeparam name="TPerformanceMeasure"><inheritdoc/></typeparam>
         /// <param name="environmentObjects"><inheritdoc/></param>
         /// <param name="agent"><inheritdoc/></param>
-        public abstract void ExecuteAction<TPerformanceMeasure, TPrecept, TAction>(
+        public abstract void ExecuteAction<TPrecept, TAction>(
             LinkedDictonarySet<IEnvironmentObject> environmentObjects,
-            BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent)
+            BaseAgent<TPrecept, TAction> agent)
             where TPrecept : BasePrecept, new()
             where TAction : BaseAction, new()
-             where TPerformanceMeasure: BasePerformanceMeasure, new() ;
+             ;
         #endregion
     }
 }

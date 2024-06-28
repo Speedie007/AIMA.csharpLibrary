@@ -28,10 +28,10 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base.Implementations
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions </typeparam>
     /// <typeparam name="TPerformanceMeasure">TODO:here</typeparam>
-    public abstract partial class BaseTableDrivenAgentProgram<TPerformanceMeasure, TPrecept, TAction> : BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction>
+    public abstract partial class BaseTableDrivenAgentProgram< TPrecept, TAction> : BaseAgentProgram< TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-        where TPerformanceMeasure : BasePerformanceMeasure, new()
+        
     {
         /// <summary>
         /// 

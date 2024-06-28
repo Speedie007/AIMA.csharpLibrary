@@ -51,20 +51,21 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("[");
+            sb.AppendLine("[");
             bool first = true;
             foreach (var keyValuePair in DynamicAttributes)
             {
                 if (first)
                     first = false;
                 else
-                    sb.Append(", ");
+                    sb.AppendLine(", ");
 
                 sb.Append(keyValuePair.Key.ToString());
                 sb.Append("=");
                 sb.Append(keyValuePair.Value.ToString());
             }
-            sb.Append("]");
+            sb.AppendLine("]");
+         
 
             return sb.ToString();
         }
@@ -158,7 +159,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(DynamicAttributeType().Name);
+            sb.AppendLine(DynamicAttributeType().Name);
             sb.Append(GetDynamicAttributesAvailable());
 
             return sb.ToString();

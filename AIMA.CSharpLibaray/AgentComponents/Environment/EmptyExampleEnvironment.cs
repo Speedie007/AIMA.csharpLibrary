@@ -10,7 +10,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment
     /// <summary>
     /// 
     /// </summary>
-    public class EmptyExampleEnvironment : BaseEnvironment<DefaultPerformanceMeasure, ExampleAgent, EmptyExamplePrecept, DefaultAction>
+    public class EmptyExampleEnvironment : BaseEnvironment< ExampleAgent, EmptyExamplePrecept, DefaultAction>
     {
 
 
@@ -34,7 +34,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public override void OnAgentActed(EnvironmentAgentActedEventArgs<DefaultPerformanceMeasure, ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
+        public override void OnAgentActed(EnvironmentAgentActedEventArgs< ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
         {
             base.OnAgentActed(args);
         }
@@ -42,7 +42,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public override void OnAgentAdded(EnvironmentAgentAddedEventArgs<DefaultPerformanceMeasure, ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
+        public override void OnAgentAdded(EnvironmentAgentAddedEventArgs< ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
         {
             base.OnAgentAdded(args);
         }
@@ -50,7 +50,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public override void OnAgentRemoved(EnvironmentAgentRemovedEventArgs<DefaultPerformanceMeasure, ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
+        public override void OnAgentRemoved(EnvironmentAgentRemovedEventArgs< ExampleAgent, EmptyExamplePrecept, DefaultAction> args)
         {
             base.OnAgentRemoved(args);
         }

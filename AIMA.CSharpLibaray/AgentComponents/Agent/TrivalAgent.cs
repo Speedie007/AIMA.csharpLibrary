@@ -11,7 +11,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <summary>
     /// 16 June
     /// </summary>
-    public partial class TrivialAgent : BaseAgent<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction>
+    public partial class TrivialAgent : BaseAgent< EmptyExamplePrecept, DefaultAction>
     {
         #region Cstor
         /// <summary>
@@ -27,7 +27,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <param name="isAlive"><inheritdoc/></param>
         /// <param name="performanceMetricStructure"></param>
         public TrivialAgent(
-            BaseAgentProgram<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction> agentProgram,
+            BaseAgentProgram< EmptyExamplePrecept, DefaultAction> agentProgram,
             DefaultPerformanceMeasure performanceMetricStructure,
             bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
@@ -50,7 +50,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <inheritdoc/>
         /// </summary>
         /// <param name="agentNotificationEventArgs"><inheritdoc/></param>
-        public override void OnAgentMessageNotification(AgentNotificationEventArgs<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction> agentNotificationEventArgs)
+        public override void OnAgentMessageNotification(AgentNotificationEventArgs< EmptyExamplePrecept, DefaultAction> agentNotificationEventArgs)
         {
             base.OnAgentMessageNotification(agentNotificationEventArgs);
         }
@@ -58,7 +58,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// <inheritdoc/>
         /// </summary>
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"><inheritdoc/></param>
-        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<DefaultPerformanceMeasure, EmptyExamplePrecept, DefaultAction> agentPerformanceMeasureUpdatedEventArgs)
+        public override void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs< EmptyExamplePrecept, DefaultAction> agentPerformanceMeasureUpdatedEventArgs)
         {
             base.OnAgentPerformanceMeasureUpdated(agentPerformanceMeasureUpdatedEventArgs);
         }

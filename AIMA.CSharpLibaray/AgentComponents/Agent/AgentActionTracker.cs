@@ -14,13 +14,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
     /// <typeparam name="TAgent"></typeparam>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial class AgentActionTracker<TPerformanceMeasure, TAgent, TPrecept, TAction> :
-        IEnvironmentEventFeedBack<TPerformanceMeasure, TAgent, TPrecept, TAction>
+    
+    public partial class AgentActionTracker< TAgent, TPrecept, TAction> :
+        IEnvironmentEventFeedBack< TAgent, TPrecept, TAction>
             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-            where TPerformanceMeasure : BasePerformanceMeasure, new()
-            where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new()
+            
+            where TAgent : BaseAgent< TPrecept, TAction>, new()
     {
         /// <summary>
         /// 
@@ -38,7 +38,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// </summary>
         /// <param name="args"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void OnAgentActed(EnvironmentAgentActedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> args)
+        public void OnAgentActed(EnvironmentAgentActedEventArgs< TAgent, TPrecept, TAction> args)
         {
             throw new NotImplementedException();
             //if (actionHistory.Length > 0)
@@ -50,7 +50,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// </summary>
         /// <param name="args"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void OnAgentAdded(EnvironmentAgentAddedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> args)
+        public void OnAgentAdded(EnvironmentAgentAddedEventArgs< TAgent, TPrecept, TAction> args)
         {
             throw new NotImplementedException();
         }
@@ -58,7 +58,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// 
         /// </summary>
         /// <param name="args"></param>
-        public void OnAgentRemoved(EnvironmentAgentRemovedEventArgs<TPerformanceMeasure, TAgent, TPrecept, TAction> args)
+        public void OnAgentRemoved(EnvironmentAgentRemovedEventArgs< TAgent, TPrecept, TAction> args)
         {
             throw new NotImplementedException();
         }

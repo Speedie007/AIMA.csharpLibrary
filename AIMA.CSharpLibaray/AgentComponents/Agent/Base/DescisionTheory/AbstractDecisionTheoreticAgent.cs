@@ -1,6 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
 using AIMA.CSharpLibrary.Probability;
@@ -39,11 +39,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DecisionTheory
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public abstract partial class BaseDecisionTheoreticAgent<TPerformanceMeasure, TPrecept, TAction> : BaseAgent<TPerformanceMeasure, TPrecept, TAction>
+
+    public abstract partial class BaseDecisionTheoreticAgent< TPrecept, TAction> : BaseAgent< TPrecept, TAction>
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
+        
 
     {
 
@@ -65,8 +65,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base.DecisionTheory
         /// <param name="isAlive"><inheritdoc/></param>
         /// <param name="performanceMetricStructure"></param>
         protected BaseDecisionTheoreticAgent(
-            BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction> agentProgram,
-            TPerformanceMeasure performanceMetricStructure,
+            BaseAgentProgram< TPrecept, TAction> agentProgram,
+            IPerformanceMeasure performanceMetricStructure,
             bool isAlive) : base(agentProgram, performanceMetricStructure, isAlive)
         {
             BeliefState = new BeliefState<TPrecept, TAction>();

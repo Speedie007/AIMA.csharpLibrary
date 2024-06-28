@@ -13,7 +13,7 @@ namespace AIMA.Implementations.VacuumCleaner.Sensors
     /// <summary>
     /// 9 June 2024
     /// </summary>
-    public partial class VacuumCleanerDirtSensor : BaseSensor<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>, IVacuumCleanerSensor
+    public partial class VacuumCleanerDirtSensor : BaseSensor< VacuumCleanerPrecept, VacuumCleanerAction>, IVacuumCleanerSensor
     {
         /// <summary>
         /// <inheritdoc/>
@@ -39,9 +39,9 @@ namespace AIMA.Implementations.VacuumCleaner.Sensors
         public override VacuumCleanerPrecept Poll(
             VacuumCleanerPrecept precept,
             LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects,
-            IAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agent)
+            IAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
-            foreach (var enviroLoc in EnvironmentObjects.OfType<MazeBlock<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>>())
+            foreach (var enviroLoc in EnvironmentObjects.OfType<MazeBlock< VacuumCleanerPrecept, VacuumCleanerAction>>())
             {
                 if (enviroLoc.Agent is not null && enviroLoc.Agent.Equals(agent))
                 {

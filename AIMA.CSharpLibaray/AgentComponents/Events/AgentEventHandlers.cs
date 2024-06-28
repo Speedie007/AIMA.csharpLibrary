@@ -20,11 +20,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events
         /// <typeparam name="TPrecept"></typeparam>
         /// <typeparam name="TAction"></typeparam>
         /// <param name="agentNotificationEventArgs"></param>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
+        
 
-        public delegate void AgentNotificationEventHandler<TPerformanceMeasure,TPrecept, TAction>(AgentNotificationEventArgs<TPerformanceMeasure, TPrecept, TAction> agentNotificationEventArgs)
+        public delegate void AgentNotificationEventHandler<TPrecept, TAction>(AgentNotificationEventArgs< TPrecept, TAction> agentNotificationEventArgs)
             where TPrecept : BasePrecept, new()
             where TAction : BaseAction, new()
-             where TPerformanceMeasure: BasePerformanceMeasure, new() ;
+              ;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
+using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure;
 using AIMA.CSharpLibrary.Common.DataStructure;
 using AIMA.Implementations.VacuumCleaner.Actions.Base;
 using AIMA.Implementations.VacuumCleaner.Agents;
@@ -47,10 +48,10 @@ namespace AIMA.Implementations.VacuumCleaner.Actions
         /// </summary>
         /// <typeparam name="TPrecept"><inheritdoc/></typeparam>
         /// <typeparam name="TAction"><inheritdoc/></typeparam>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
+        
         /// <param name="environmentObjects"><inheritdoc/></param>
         /// <param name="agent"><inheritdoc/></param>
-        public override void ExecuteAction<TPerformanceMeasure,TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent)
+        public override void ExecuteAction<TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent< TPrecept, TAction> agent)
         {
             var agentLocationResult = environmentObjects.GetAgentLocationState(agent);
             if (agentLocationResult.Success)
@@ -59,12 +60,21 @@ namespace AIMA.Implementations.VacuumCleaner.Actions
                 {
                     if (agentLocationResult.MazeBlockState is not null)
                     {
-                        var locationAgentMovingTo = environmentObjects.OfType<MazeBlock<TPerformanceMeasure,TPrecept, TAction>>()
+                        var locationAgentMovingTo = environmentObjects.OfType<MazeBlock<TPrecept, TAction>>()
                                 .FirstOrDefault(x => x.GridLocation.Equals(GetNextLocation(agentLocationResult.MazeBlockState.GridLocation)));
 
                         agentLocationResult.MazeBlockState.Agent = null;
                         if (locationAgentMovingTo is not null)
                             locationAgentMovingTo.Agent = agent;
+
+                        if (agent.PerformanceMeasure is not null)
+                        {
+                            agent.PerformanceMeasure.EvaluatePerformanceMeasureByActionTaken(this);
+                            agent.OnAgentPerformanceMeasureUpdated(
+                                new AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction>(
+                                    agent,
+                                    agent.PerformanceMeasure));
+                        }
                     }
                 }
             }

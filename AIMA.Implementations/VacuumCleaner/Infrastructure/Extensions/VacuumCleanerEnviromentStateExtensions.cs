@@ -20,22 +20,22 @@ namespace AIMA.Implementations.VacuumCleaner.Infrastructure.Extensions
         /// </summary>
         /// <typeparam name="TPrecept"></typeparam>
         /// <typeparam name="TAction"></typeparam>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
+        
         /// <param name="environmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        public static AgentLocationResult<TPerformanceMeasure, TPrecept, TAction> GetAgentLocationState<TPerformanceMeasure,TPrecept, TAction>(
+        public static AgentLocationResult< TPrecept, TAction> GetAgentLocationState<TPrecept, TAction>(
             this LinkedDictonarySet<IEnvironmentObject> environmentObjects,
-            IAgent<TPerformanceMeasure,TPrecept, TAction> agent) 
+            IAgent<TPrecept, TAction> agent) 
             where TPrecept : BasePrecept, new() 
             where TAction : BaseAction, new()
-             where TPerformanceMeasure: BasePerformanceMeasure, new() 
+              
         {
-            AgentLocationResult<TPerformanceMeasure,TPrecept, TAction> result = new();
+            AgentLocationResult<TPrecept, TAction> result = new();
 
-            foreach (var enviroLoc in environmentObjects.Where(x => x.GetType() == typeof(MazeBlock<TPerformanceMeasure, TPrecept, TAction>)).ToList())
+            foreach (var enviroLoc in environmentObjects.Where(x => x.GetType() == typeof(MazeBlock< TPrecept, TAction>)).ToList())
             {
-                var loc = enviroLoc as MazeBlock<TPerformanceMeasure, TPrecept, TAction>;
+                var loc = enviroLoc as MazeBlock< TPrecept, TAction>;
                 if (loc is not null)
                     if (loc.LocationHasAgent && agent.Equals(loc.Agent))
                         result.MazeBlockState = loc;

@@ -12,11 +12,11 @@ namespace AIMA.Implementations.VacuumCleaner.Environment.EnvironmentObjects
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial class MazeBlock<TPerformanceMeasure,TPrecept, TAction> : IEnvironmentObject
+    
+    public partial class MazeBlock<TPrecept, TAction> : IEnvironmentObject
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-         where TPerformanceMeasure: BasePerformanceMeasure, new() 
+          
     {
 
         #region Properties
@@ -31,7 +31,7 @@ namespace AIMA.Implementations.VacuumCleaner.Environment.EnvironmentObjects
         /// <summary>
         /// 
         /// </summary>
-        public IAgent<TPerformanceMeasure, TPrecept, TAction>? Agent { get; set; }
+        public IAgent< TPrecept, TAction>? Agent { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -78,7 +78,7 @@ namespace AIMA.Implementations.VacuumCleaner.Environment.EnvironmentObjects
         /// <param name="yCoordinate"></param>
         /// <param name="dirtPiles"></param>
         /// <param name="agent"></param>
-        public MazeBlock(int xCoordinate, int yCoordinate, List<Dirt> dirtPiles, IAgent<TPerformanceMeasure, TPrecept, TAction>? agent)
+        public MazeBlock(int xCoordinate, int yCoordinate, List<Dirt> dirtPiles, IAgent< TPrecept, TAction>? agent)
         {
             GridLocation = new XYLocation(xCoordinate, yCoordinate);
             DirtPiles = new Stack<Dirt>(dirtPiles);

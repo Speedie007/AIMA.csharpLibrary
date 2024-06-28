@@ -1,5 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Common;
+using AIMA.CSharpLibrary.AgentComponents.Events.Interface;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Interface;
 
 namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base
@@ -7,7 +8,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base
     /// <summary>
     /// 16 June
     /// </summary>
-    public abstract partial class BasePerformanceMeasure : BaseDynamicProperties, IPerformanceMeasure
+    public abstract partial class BasePerformanceMeasure : 
+        BaseDynamicProperties, IPerformanceMeasure
     {
 
         #region cstor
@@ -22,10 +24,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base
         /// 
         /// </summary>
         /// <param name="action"></param>
-        public virtual void EvaluatePerformanceMeasureByActionTaken(BaseAction action)
-        {
-           
-        }
+        public abstract void EvaluatePerformanceMeasureByActionTaken(BaseAction action);
 
         /// <summary>
         /// <inheritdoc/>

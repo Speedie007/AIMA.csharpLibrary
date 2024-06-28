@@ -30,16 +30,16 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
     /// </summary>
     /// <typeparam name="TPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAction">Type which is used to represent actions</typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial interface IAgentProgram<TPerformanceMeasure,TPrecept, TAction>
+    
+    public partial interface IAgentProgram<TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-         where TPerformanceMeasure: BasePerformanceMeasure, new()    
+             
     {
         /// <summary>
         /// 
         /// </summary>
-        Dictionary<Type, ISensor<TPerformanceMeasure, TPrecept, TAction>> Sensors { get; }
+        Dictionary<Type, ISensor< TPrecept, TAction>> Sensors { get; }
         /// <summary>
         /// Concrete implementations of the AgentProgram should implement the Init() method so that it can initialize the relevant calls as/if required, such as  the setState(), setModel(), and setRules() method.
         /// <para>Called when the program is loaded.</para>
@@ -51,7 +51,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// <param name="environmentObjects"></param>
         /// <param name="action"></param>
         /// <param name="agent"></param>
-        void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent);
+        void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent);
         /// <summary>
         /// 
         /// </summary>
@@ -69,7 +69,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// <summary>
         /// 
         /// </summary>
-        Func<LinkedDictonarySet<IEnvironmentObject>, IAgent<TPerformanceMeasure, TPrecept, TAction>, TPrecept> SensorPollingFunction { get; }
+        Func<LinkedDictonarySet<IEnvironmentObject>, IAgent< TPrecept, TAction>, TPrecept> SensorPollingFunction { get; }
     };
 }
 

@@ -31,6 +31,8 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            btnStartStepping = new Button();
+            btnStopStepping = new Button();
             ((System.ComponentModel.ISupportInitialize)mainLayoutSplitContainer).BeginInit();
             mainLayoutSplitContainer.Panel1.SuspendLayout();
             mainLayoutSplitContainer.Panel2.SuspendLayout();
@@ -43,8 +45,10 @@
             gbVacuumCleanerEnviromentView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
             splitContainer3.Panel1.SuspendLayout();
+            splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
-            groupBoxEvniromentOptions.SuspendLayout();
+            groupBoxEvnironmentOptions.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // mainLayoutSplitContainer
@@ -55,15 +59,15 @@
             // splitContainer2
             // 
             splitContainer2.Size = new Size(258, 578);
-            splitContainer2.SplitterDistance = 160;
+            splitContainer2.SplitterDistance = 337;
             // 
-            // gbVacuumCleanerEnvironmentView
+            // gbVacuumCleanerEnviromentView
             // 
             gbVacuumCleanerEnviromentView.Size = new Size(797, 578);
             // 
             // txtOne
             // 
-            txtOne.Size = new Size(252, 392);
+            txtOne.Size = new Size(252, 215);
             // 
             // splitContainer3
             // 
@@ -74,11 +78,23 @@
             splitContainer3.Size = new Size(791, 556);
             splitContainer3.SplitterDistance = 70;
             // 
-            // groupBoxEnvironmentOptions
+            // groupBoxEvnironmentOptions
             // 
-            groupBoxEvniromentOptions.Controls.Add(button3);
-            groupBoxEvniromentOptions.Controls.Add(button2);
-            groupBoxEvniromentOptions.Size = new Size(791, 70);
+            groupBoxEvnironmentOptions.Controls.Add(btnStopStepping);
+            groupBoxEvnironmentOptions.Controls.Add(btnStartStepping);
+            groupBoxEvnironmentOptions.Size = new Size(791, 70);
+            // 
+            // gbVacuumCleanerEnvironmentView
+            // 
+            gbVacuumCleanerEnvironmentView.Size = new Size(791, 482);
+            // 
+            // groupBox2
+            // 
+            groupBox2.Size = new Size(258, 337);
+            // 
+            // txtPerformanceMeasure
+            // 
+            txtPerformanceMeasure.Size = new Size(252, 315);
             // 
             // button1
             // 
@@ -97,7 +113,6 @@
             button2.TabIndex = 0;
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -108,6 +123,26 @@
             button3.Text = "button3";
             button3.UseVisualStyleBackColor = true;
             button3.Click += Button3_Click;
+            // 
+            // btnStartStepping
+            // 
+            btnStartStepping.Location = new Point(19, 22);
+            btnStartStepping.Name = "btnStartStepping";
+            btnStartStepping.Size = new Size(139, 37);
+            btnStartStepping.TabIndex = 0;
+            btnStartStepping.Text = "Step Continuously";
+            btnStartStepping.UseVisualStyleBackColor = true;
+            btnStartStepping.Click += btnStartStepping_Click;
+            // 
+            // btnStopStepping
+            // 
+            btnStopStepping.Location = new Point(164, 22);
+            btnStopStepping.Name = "btnStopStepping";
+            btnStopStepping.Size = new Size(113, 37);
+            btnStopStepping.TabIndex = 1;
+            btnStopStepping.Text = "Stop";
+            btnStopStepping.UseVisualStyleBackColor = true;
+            btnStopStepping.Click += btnStopStepping_Click;
             // 
             // frmReflexVacuumCleaner
             // 
@@ -126,14 +161,16 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             splitContainer2.Panel1.ResumeLayout(false);
-            splitContainer2.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
             gbVacuumCleanerEnviromentView.ResumeLayout(false);
             splitContainer3.Panel1.ResumeLayout(false);
+            splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
-            groupBoxEvniromentOptions.ResumeLayout(false);
+            groupBoxEvnironmentOptions.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -142,5 +179,7 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private Button btnStopStepping;
+        private Button btnStartStepping;
     }
 }

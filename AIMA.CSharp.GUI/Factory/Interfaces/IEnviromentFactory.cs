@@ -17,12 +17,12 @@ namespace AIMA.CSharp.GUI.Factory.Interfaces
         /// </summary>
         /// <param name="frmSimpleReflexVacuumCleaner"></param>
         /// <returns></returns>
-        VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildSimpleReflexVacuumCleanerEnvironment(frmSimpleReflexVacuumCleaner  frmSimpleReflexVacuumCleaner);
+        VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildSimpleReflexVacuumCleanerEnvironment(frmSimpleReflexVacuumCleaner  frmSimpleReflexVacuumCleaner);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="frmReflexVacuumCleaner"></param>
         /// <returns></returns>
-        VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareReflexVacuumCleanerEnvironment(frmReflexVacuumCleaner frmReflexVacuumCleaner );
+        VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareReflexVacuumCleanerEnvironment(frmReflexVacuumCleaner frmReflexVacuumCleaner );
     }
 }

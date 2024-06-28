@@ -9,22 +9,22 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.Interface
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public partial interface IAgentEvents<TPerformanceMeasure, TPrecept, TAction>
+    
+    public partial interface IAgentEvents< TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-         where TPerformanceMeasure: BasePerformanceMeasure, new() 
+          
     {
 
         /// <summary>
         /// 
         /// </summary>
-        event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler<TPerformanceMeasure, TPrecept, TAction> PerformanceMeasureUpdatedEvent;
+        event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler< TPrecept, TAction> PerformanceMeasureUpdatedEvent;
 
         /// <summary>
         /// 
         /// </summary>
-        event AgentEventHandlers.AgentNotificationEventHandler<TPerformanceMeasure, TPrecept, TAction> AgentNotificationEvent;
+        event AgentEventHandlers.AgentNotificationEventHandler< TPrecept, TAction> AgentNotificationEvent;
 
     }
 }

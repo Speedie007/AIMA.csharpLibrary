@@ -13,7 +13,7 @@ namespace AIMA.Implementations.VacuumCleaner.VacuumCleanerPrograms
     /// <summary>
     /// 
     /// </summary>
-    public partial class ModelBasedVacuumCleanerReflexAgentProgram : BaseModelBasedReflexAgentProgram<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction, VacuumCleanerState, VacuumCleanerModel>
+    public partial class ModelBasedVacuumCleanerReflexAgentProgram : BaseModelBasedReflexAgentProgram< VacuumCleanerPrecept, VacuumCleanerAction, VacuumCleanerState, VacuumCleanerModel>
     {
         /// <summary>
         /// 
@@ -40,7 +40,7 @@ namespace AIMA.Implementations.VacuumCleaner.VacuumCleanerPrograms
         public override void ProcessAgentAction(
             LinkedDictonarySet<IEnvironmentObject> environmentObjects,
             VacuumCleanerAction action,
-            BaseAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agent)
+            BaseAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
             throw new NotImplementedException();
         }

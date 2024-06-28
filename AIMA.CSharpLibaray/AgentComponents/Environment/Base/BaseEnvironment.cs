@@ -33,15 +33,15 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
     /// <typeparam name="TAgent">Type which represents the agent used in this Environment</typeparam>
     /// <typeparam name="TAgentPrecept">Type which is used to represent percepts</typeparam>
     /// <typeparam name="TAgentAction">Type which is used to represent actions</typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public abstract partial class BaseEnvironment<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction> :
-        IEnvironment<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>,
-        IEnvironmentEvents<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>,
-        IEnvironmentEventFeedBack<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>
+    
+    public abstract partial class BaseEnvironment< TAgent, TAgentPrecept, TAgentAction> :
+        IEnvironment< TAgent, TAgentPrecept, TAgentAction>,
+        IEnvironmentEvents< TAgent, TAgentPrecept, TAgentAction>,
+        IEnvironmentEventFeedBack< TAgent, TAgentPrecept, TAgentAction>
                 where TAgentAction : BaseAction, new()
                 where TAgentPrecept : BasePrecept, new()
-                 where TPerformanceMeasure: BasePerformanceMeasure, new()
-                where TAgent : BaseAgent<TPerformanceMeasure, TAgentPrecept, TAgentAction>, new()
+                 
+                where TAgent : BaseAgent< TAgentPrecept, TAgentAction>, new()
 
     {
         #region Properties
@@ -79,35 +79,35 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
         /// <summary>
         /// Will raise the OnAgentActed Event to Notify the caller of the agent that performed an action within the Environment.
         /// </summary>
-        public event EnvironmentEventHandlers.AgentActedEventHandler<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>? AgentActedEvent;
+        public event EnvironmentEventHandlers.AgentActedEventHandler< TAgent, TAgentPrecept, TAgentAction>? AgentActedEvent;
 
         /// <summary>
         /// Will raise the OnAgentAdded Event to Notify the caller of the agent that was added to the Environment.
         /// </summary>
-        public event EnvironmentEventHandlers.AgentAddedEventHandler<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>? AgentAddedEvent;
+        public event EnvironmentEventHandlers.AgentAddedEventHandler< TAgent, TAgentPrecept, TAgentAction>? AgentAddedEvent;
 
         /// <summary>
         /// Will raise the OnAgentRemoved Event to Notify the caller of the agent that was removed from the Environment.
         /// </summary>
-        public event EnvironmentEventHandlers.AgentRemovedEventHandler<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>? AgentRemovedEvent;
+        public event EnvironmentEventHandlers.AgentRemovedEventHandler< TAgent, TAgentPrecept, TAgentAction>? AgentRemovedEvent;
 
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is added.
         /// </summary>
         /// <param name="args"></param>
-        public virtual void OnAgentAdded(EnvironmentAgentAddedEventArgs<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction> args)
+        public virtual void OnAgentAdded(EnvironmentAgentAddedEventArgs< TAgent, TAgentPrecept, TAgentAction> args)
         { AgentAddedEvent?.Invoke(args); }
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent is removed.
         /// </summary>
         /// <param name="args"></param>
-        public virtual void OnAgentRemoved(EnvironmentAgentRemovedEventArgs<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction> args)
+        public virtual void OnAgentRemoved(EnvironmentAgentRemovedEventArgs< TAgent, TAgentPrecept, TAgentAction> args)
         { AgentRemovedEvent?.Invoke(args); }
         /// <summary>
         /// The event-invoking method that derived classes can override to process logic when an agent has performed an action.
         /// </summary>
         /// <param name="args"></param>
-        public virtual void OnAgentActed(EnvironmentAgentActedEventArgs<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction> args)
+        public virtual void OnAgentActed(EnvironmentAgentActedEventArgs< TAgent, TAgentPrecept, TAgentAction> args)
         { AgentActedEvent?.Invoke(args); }
         #endregion
 
@@ -120,7 +120,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
         {
             Agents.Add(agent);
             AddEnvironmentObject(agent);
-            OnAgentAdded(new EnvironmentAgentAddedEventArgs<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>(agent, this));
+            OnAgentAdded(new EnvironmentAgentAddedEventArgs< TAgent, TAgentPrecept, TAgentAction>(agent, this));
         }
         /// <summary>
         /// Retrieve A list of all the agents currently operating within this given Environment.
@@ -149,7 +149,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
             //If so first cancel the current operation and then remove.
             Agents.Remove(agent);
             RemoveEnvironmentObject(agent);
-            OnAgentRemoved(new EnvironmentAgentRemovedEventArgs<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>(agent, this));
+            OnAgentRemoved(new EnvironmentAgentRemovedEventArgs< TAgent, TAgentPrecept, TAgentAction>(agent, this));
         }
         #endregion
 
@@ -247,13 +247,13 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
                             agent.IsAlive = true;
                             agent.ProcessAgentActuators(anAction, EnvironmentObjects);
                         }
-                        OnAgentActed(new EnvironmentAgentActedEventArgs<TPerformanceMeasure, TAgent, TAgentPrecept, TAgentAction>(agent, precept, anAction, this));
+                        OnAgentActed(new EnvironmentAgentActedEventArgs< TAgent, TAgentPrecept, TAgentAction>(agent, precept, anAction, this));
                     }
                     else
                     {
                         if (preceptTask.IsFaulted)
                         {
-                            agent.OnAgentMessageNotification(new AgentNotificationEventArgs<TPerformanceMeasure, TAgentPrecept, TAgentAction>(agent, "Error Processing the precept for the agent."));
+                            agent.OnAgentMessageNotification(new AgentNotificationEventArgs< TAgentPrecept, TAgentAction>(agent, "Error Processing the precept for the agent."));
                             throw preceptTask.Exception;
                         }
                         cancellationToken.ThrowIfCancellationRequested();
@@ -274,7 +274,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
             {
                 if (!cancellationToken.IsCancellationRequested)
                 {
-                    await Task.Delay(500, cancellationToken);
+                    //await Task.Delay(50, cancellationToken);
                     await StepAsync(cancellationToken);
                 }
             }
@@ -291,7 +291,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
                 if (!cancellationToken.IsCancellationRequested)
                 {
                     await StepAsync(cancellationToken);
-                    var delayTask = Task.Delay(500, cancellationToken);
+                    var delayTask = Task.Delay(100, cancellationToken);
                     await delayTask;
 
                     cancellationToken.ThrowIfCancellationRequested();

@@ -8,7 +8,6 @@ using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Agent;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure;
 using AIMA.CSharpLibrary.AgentComponents.Events.Interface;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.Common.DataStructure;
@@ -20,21 +19,21 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public abstract partial class BaseAgent<TPerformanceMeasure, TPrecept, TAction> :
-        IAgent<TPerformanceMeasure, TPrecept, TAction>,
-        IAgentEvents<TPerformanceMeasure, TPrecept, TAction>,
-        IAgentEventFeedBack<TPerformanceMeasure, TPrecept, TAction>,
-        IEquatable<BaseAgent<TPerformanceMeasure, TPrecept, TAction>?>
+
+    public abstract partial class BaseAgent< TPrecept, TAction> :
+        IAgent< TPrecept, TAction>,
+        IAgentEvents< TPrecept, TAction>,
+        IAgentEventFeedBack< TPrecept, TAction>,
+        IEquatable<BaseAgent< TPrecept, TAction>?>
             where TAction : BaseAction, new()
             where TPrecept : BasePrecept, new()
-            where TPerformanceMeasure : BasePerformanceMeasure, new()
+            
     {
         #region Properties
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public static BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction>? AgentProgram { get; private set; }
+        public static BaseAgentProgram< TPrecept, TAction>? AgentProgram { get; private set; }
         /// <summary>
         /// Bool Property, Defining if the the agent is currently alive/active.
         /// </summary>
@@ -56,7 +55,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// Empty Default Constructor, initialises te agent with the default agent program, Default Performance Measure implementation, and instantiates the agent as alive(True)
         /// </summary>
         protected BaseAgent() : this(
-            new DefaultAgentProgram<TPerformanceMeasure, TPrecept, TAction>(),
+            new DefaultAgentProgram< TPrecept, TAction>(),
             new DefaultPerformanceMeasure(),
             true){ }
 
@@ -67,7 +66,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <param name="isAlive">Bool, Defining if the the agent is alive/active when instantiated.</param>
         /// <param name="performanceMeasure"></param>
         protected BaseAgent(
-            BaseAgentProgram<TPerformanceMeasure, TPrecept, TAction> agentProgram,
+            BaseAgentProgram< TPrecept, TAction> agentProgram,
             IPerformanceMeasure performanceMeasure,
             bool isAlive)
         {
@@ -83,17 +82,17 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <summary>
         /// 
         /// </summary>
-        public event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler<TPerformanceMeasure, TPrecept, TAction>? PerformanceMeasureUpdatedEvent;
+        public event PerformanceMeasureEventHandlers.AgentPerformanceMeasureUpdatedEventHandler< TPrecept, TAction>? PerformanceMeasureUpdatedEvent;
         /// <summary>
         /// 
         /// </summary>
-        public event AgentEventHandlers.AgentNotificationEventHandler<TPerformanceMeasure, TPrecept, TAction>? AgentNotificationEvent;
+        public event AgentEventHandlers.AgentNotificationEventHandler< TPrecept, TAction>? AgentNotificationEvent;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="agentNotificationEventArgs"></param>
-        public virtual void OnAgentMessageNotification(AgentNotificationEventArgs<TPerformanceMeasure, TPrecept, TAction> agentNotificationEventArgs)
+        public virtual void OnAgentMessageNotification(AgentNotificationEventArgs< TPrecept, TAction> agentNotificationEventArgs)
         {
             AgentNotificationEvent?.Invoke(agentNotificationEventArgs);
         }
@@ -101,7 +100,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// 
         /// </summary>
         /// <param name="agentPerformanceMeasureUpdatedEventArgs"></param>
-        public virtual void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs<TPerformanceMeasure, TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
+        public virtual void OnAgentPerformanceMeasureUpdated(AgentPerformanceMeasureUpdatedEventArgs< TPrecept, TAction> agentPerformanceMeasureUpdatedEventArgs)
         {
             PerformanceMeasureUpdatedEvent?.Invoke(agentPerformanceMeasureUpdatedEventArgs);
         }
@@ -158,14 +157,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <returns><inheritdoc/></returns>
         public override bool Equals(object? obj)
         {
-            return Equals(obj as BaseAgent<TPerformanceMeasure, TPrecept, TAction>);
+            return Equals(obj as BaseAgent< TPrecept, TAction>);
         }
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <param name="other"><inheritdoc/> In this case an Agent.</param>
         /// <returns><inheritdoc/></returns>
-        public bool Equals(BaseAgent<TPerformanceMeasure, TPrecept, TAction>? other)
+        public bool Equals(BaseAgent< TPrecept, TAction>? other)
         {
             return other is not null &&
                    AgentID.Equals(other.AgentID);
@@ -184,9 +183,9 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <param name="left"><inheritdoc/></param>
         /// <param name="right"><inheritdoc/></param>
         /// <returns><inheritdoc/></returns>
-        public static bool operator ==(BaseAgent<TPerformanceMeasure, TPrecept, TAction>? left, BaseAgent<TPerformanceMeasure, TPrecept, TAction>? right)
+        public static bool operator ==(BaseAgent< TPrecept, TAction>? left, BaseAgent< TPrecept, TAction>? right)
         {
-            return EqualityComparer<BaseAgent<TPerformanceMeasure, TPrecept, TAction>>.Default.Equals(left, right);
+            return EqualityComparer<BaseAgent< TPrecept, TAction>>.Default.Equals(left, right);
         }
         /// <summary>
         /// <inheritdoc/>
@@ -194,7 +193,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// <param name="left"><inheritdoc/></param>
         /// <param name="right"><inheritdoc/></param>
         /// <returns><inheritdoc/></returns>
-        public static bool operator !=(BaseAgent<TPerformanceMeasure, TPrecept, TAction>? left, BaseAgent<TPerformanceMeasure, TPrecept, TAction>? right)
+        public static bool operator !=(BaseAgent< TPrecept, TAction>? left, BaseAgent< TPrecept, TAction>? right)
         {
             return !(left == right);
         }

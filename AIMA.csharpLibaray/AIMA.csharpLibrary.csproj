@@ -42,12 +42,9 @@
 	<Folder Include="Common\DataStructure\Base\" />
 	<Folder Include="Common\DataStructure\Interface\" />
 	<Folder Include="Common\Extensions\" />
-	<Folder Include="Common\AgentComponents\" />
 	<Folder Include="Utilities\" />
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <Using Include="NUnit.Framework" />
-  </ItemGroup>-->
+  
 
 </Project>

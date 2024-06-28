@@ -1,4 +1,5 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.Common;
+﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
+using AIMA.CSharpLibrary.AgentComponents.Common;
 using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures
@@ -27,6 +28,15 @@ namespace AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures
         protected double Value { 
             get { return (double)GetAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE); } 
             set{ SetDynamicAttributeValue(AgentComponentDefaults.PERFORMANCE_MEASURE, value); } }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public override void EvaluatePerformanceMeasureByActionTaken(BaseAction action)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
     }

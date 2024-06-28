@@ -35,11 +35,12 @@
             txtOne = new TextBox();
             gbVacuumCleanerEnviromentView = new GroupBox();
             splitContainer3 = new SplitContainer();
-            groupBoxEvniromentOptions = new GroupBox();
+            groupBoxEvnironmentOptions = new GroupBox();
             gbVacuumCleanerEnvironmentView = new GroupBox();
             splitContainer1 = new SplitContainer();
             contextMenuStrip1 = new ContextMenuStrip(components);
             groupBox2 = new GroupBox();
+            txtPerformanceMeasure = new TextBox();
             ((System.ComponentModel.ISupportInitialize)mainLayoutSplitContainer).BeginInit();
             mainLayoutSplitContainer.Panel1.SuspendLayout();
             mainLayoutSplitContainer.Panel2.SuspendLayout();
@@ -56,6 +57,7 @@
             splitContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // mainLayoutSplitContainer
@@ -85,21 +87,14 @@
             // 
             // splitContainer2.Panel1
             // 
-            splitContainer2.Panel1.AutoScroll = true;
             splitContainer2.Panel1.Controls.Add(groupBox2);
-            splitContainer2.Panel1.Margin = new Padding(2);
-            splitContainer2.Panel1.Padding = new Padding(2);
-            splitContainer2.Panel1MinSize = 250;
             // 
             // splitContainer2.Panel2
             // 
-            splitContainer2.Panel2.AutoScroll = true;
             splitContainer2.Panel2.Controls.Add(groupBox1);
             splitContainer2.Size = new Size(250, 450);
-            splitContainer2.SplitterDistance = 250;
-            splitContainer2.SplitterWidth = 8;
+            splitContainer2.SplitterDistance = 83;
             splitContainer2.TabIndex = 0;
-            splitContainer2.TabStop = false;
             // 
             // groupBox1
             // 
@@ -107,7 +102,7 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(250, 192);
+            groupBox1.Size = new Size(250, 363);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "AgentEnviroment Feed-Back";
@@ -119,7 +114,7 @@
             txtOne.Margin = new Padding(5);
             txtOne.Multiline = true;
             txtOne.Name = "txtOne";
-            txtOne.Size = new Size(244, 170);
+            txtOne.Size = new Size(244, 341);
             txtOne.TabIndex = 2;
             // 
             // gbVacuumCleanerEnviromentView
@@ -142,7 +137,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(groupBoxEvniromentOptions);
+            splitContainer3.Panel1.Controls.Add(groupBoxEvnironmentOptions);
             // 
             // splitContainer3.Panel2
             // 
@@ -151,15 +146,15 @@
             splitContainer3.SplitterDistance = 66;
             splitContainer3.TabIndex = 0;
             // 
-            // groupBoxEvniromentOptions
+            // groupBoxEvnironmentOptions
             // 
-            groupBoxEvniromentOptions.Dock = DockStyle.Fill;
-            groupBoxEvniromentOptions.Location = new Point(0, 0);
-            groupBoxEvniromentOptions.Name = "groupBoxEvniromentOptions";
-            groupBoxEvniromentOptions.Size = new Size(540, 66);
-            groupBoxEvniromentOptions.TabIndex = 0;
-            groupBoxEvniromentOptions.TabStop = false;
-            groupBoxEvniromentOptions.Text = "Agent Environment Configuration Options";
+            groupBoxEvnironmentOptions.Dock = DockStyle.Fill;
+            groupBoxEvnironmentOptions.Location = new Point(0, 0);
+            groupBoxEvnironmentOptions.Name = "groupBoxEvnironmentOptions";
+            groupBoxEvnironmentOptions.Size = new Size(540, 66);
+            groupBoxEvnironmentOptions.TabIndex = 0;
+            groupBoxEvnironmentOptions.TabStop = false;
+            groupBoxEvnironmentOptions.Text = "Agent Environment Configuration Options";
             // 
             // gbVacuumCleanerEnvironmentView
             // 
@@ -188,13 +183,23 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(txtPerformanceMeasure);
             groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(2, 2);
+            groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(246, 246);
+            groupBox2.Size = new Size(250, 83);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Agents Performance Measure";
+            groupBox2.Text = "Agent Performance Measures";
+            // 
+            // txtPerformanceMeasure
+            // 
+            txtPerformanceMeasure.Dock = DockStyle.Fill;
+            txtPerformanceMeasure.Location = new Point(3, 19);
+            txtPerformanceMeasure.Multiline = true;
+            txtPerformanceMeasure.Name = "txtPerformanceMeasure";
+            txtPerformanceMeasure.Size = new Size(244, 61);
+            txtPerformanceMeasure.TabIndex = 0;
             // 
             // BaseForm
             // 
@@ -225,6 +230,8 @@
             splitContainer3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -265,8 +272,9 @@
         /// <summary>
         /// 
         /// </summary>
-        public GroupBox groupBoxEvniromentOptions;
-        private GroupBox gbVacuumCleanerEnvironmentView;
-        private GroupBox groupBox2;
+        public GroupBox groupBoxEvnironmentOptions;
+        public GroupBox gbVacuumCleanerEnvironmentView;
+        public GroupBox groupBox2;
+        public TextBox txtPerformanceMeasure;
     }
 }

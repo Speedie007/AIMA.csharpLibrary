@@ -1,19 +1,19 @@
-﻿using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+﻿using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Interface;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
 {
     /// <summary>
     /// 18 June
     /// </summary>
-    public abstract class BasePerformanceMeasureEventArgs<TPerformanceMeasure> : EventArgs
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
+    public abstract class BasePerformanceMeasureEventArgs : EventArgs
+        
     {
 
         #region Cstor
         /// <summary>
         /// 
         /// </summary>
-        public BasePerformanceMeasureEventArgs(TPerformanceMeasure performanceMeasure)
+        public BasePerformanceMeasureEventArgs(IPerformanceMeasure performanceMeasure)
         {
             PerformanceMeasure = performanceMeasure;
         }
@@ -21,7 +21,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
         /// <value>
         /// 
         /// </value>
-        public TPerformanceMeasure PerformanceMeasure { get; }
+        public IPerformanceMeasure PerformanceMeasure { get; }
 
 
         #endregion

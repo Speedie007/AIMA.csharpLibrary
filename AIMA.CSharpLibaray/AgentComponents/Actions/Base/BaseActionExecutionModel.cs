@@ -10,11 +10,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
     /// <summary>
     /// June 24
     /// </summary>
-    public abstract partial class BaseActionExecutionModel<TPerformanceMeasure,TAgent, TPrecept, TAction> : IActionExecutionModel
+    public abstract partial class BaseActionExecutionModel<TAgent, TPrecept, TAction> : IActionExecutionModel
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new()
-        where TAgent : BaseAgent<TPerformanceMeasure,TPrecept, TAction>, new()
+        
+        where TAgent : BaseAgent<TPrecept, TAction>, new()
     {
         #region Preoperties
         /// <summary>

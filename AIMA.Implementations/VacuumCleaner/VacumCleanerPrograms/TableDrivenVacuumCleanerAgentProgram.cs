@@ -11,7 +11,7 @@ namespace AIMA.Implementations.VacuumCleaner.VacuumCleanerPrograms
     /// <summary>
     /// 15 June
     /// </summary>
-    public partial class TableDrivenVacuumCleanerAgentProgram : BaseTableDrivenAgentProgram<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class TableDrivenVacuumCleanerAgentProgram : BaseTableDrivenAgentProgram< VacuumCleanerPrecept, VacuumCleanerAction>
     {
         /// <summary>
         /// 
@@ -204,7 +204,7 @@ namespace AIMA.Implementations.VacuumCleaner.VacuumCleanerPrograms
         public override void ProcessAgentAction(
             LinkedDictonarySet<IEnvironmentObject> environmentObjects,
             VacuumCleanerAction action,
-            BaseAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agent)
+            BaseAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
             throw new NotImplementedException();
         }

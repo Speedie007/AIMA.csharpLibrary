@@ -14,7 +14,7 @@ namespace AIMA.Implementations.VacuumCleaner.Sensors
     /// <summary>
     /// 
     /// </summary>
-    public partial class VacuumCleanerLocationSensor : BaseSensor<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>, IVacuumCleanerSensor
+    public partial class VacuumCleanerLocationSensor : BaseSensor< VacuumCleanerPrecept, VacuumCleanerAction>, IVacuumCleanerSensor
     {
 
         #region cstor
@@ -45,7 +45,7 @@ namespace AIMA.Implementations.VacuumCleaner.Sensors
         public override VacuumCleanerPrecept Poll(
             VacuumCleanerPrecept precept,
             LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects,
-            IAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agent)
+            IAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
             var agentLocationResult = EnvironmentObjects.GetAgentLocationState(agent);
             if (agentLocationResult.Success)

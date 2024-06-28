@@ -1,7 +1,7 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Base;
 using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
+using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 
 namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasure
@@ -11,11 +11,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceM
     /// </summary>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public class AgentPerformanceMeasureUpdatedEventArgs<TPerformanceMeasure,TPrecept, TAction> : BasePerformanceMeasureEventArgs<TPerformanceMeasure>
+
+    public class AgentPerformanceMeasureUpdatedEventArgs<TPrecept, TAction> : BasePerformanceMeasureEventArgs
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-         where TPerformanceMeasure : BasePerformanceMeasure, new() 
+          
     {
 
         #region cstor
@@ -25,8 +25,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceM
         /// <param name="agent"></param>
         /// <param name="performanceMeasure"></param>
         public AgentPerformanceMeasureUpdatedEventArgs(
-            BaseAgent<TPerformanceMeasure,TPrecept, TAction> agent,
-            TPerformanceMeasure performanceMeasure) : base(performanceMeasure)
+            BaseAgent<TPrecept, TAction> agent,
+            IPerformanceMeasure performanceMeasure) : base(performanceMeasure)
         {
             Agent = agent;
         }
@@ -34,7 +34,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceM
         /// <value>
         /// <code>Agent</code>
         /// </value>
-        public BaseAgent<TPerformanceMeasure,TPrecept, TAction> Agent { get; }
+        public BaseAgent<TPrecept, TAction> Agent { get; }
 
         #endregion
     }

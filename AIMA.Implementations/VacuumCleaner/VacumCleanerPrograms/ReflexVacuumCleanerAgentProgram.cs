@@ -12,7 +12,7 @@ namespace AIMA.Implementations.VacuumCleaner.VacuumCleanerPrograms
     /// <para>Artificial Intelligence A Modern Approach (3rd Edition): pg 58.</para>
     /// 
     /// </summary>
-    public partial class ReflexVacuumCleanerAgentProgram : BaseReflexAgentProgram<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>
+    public partial class ReflexVacuumCleanerAgentProgram : BaseReflexAgentProgram< VacuumCleanerPrecept, VacuumCleanerAction>
 
     {
 
@@ -47,7 +47,7 @@ namespace AIMA.Implementations.VacuumCleaner.VacuumCleanerPrograms
         public override void ProcessAgentAction(
             LinkedDictonarySet<IEnvironmentObject> environmentObjects,
             VacuumCleanerAction action,
-            BaseAgent<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction> agent)
+            BaseAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
 
             action.ExecuteAction(environmentObjects, agent);

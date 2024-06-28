@@ -32,12 +32,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Interface
         /// </summary>
         /// <typeparam name="TPrecept"></typeparam>
         /// <typeparam name="TAction"></typeparam>
-        /// <typeparam name="TPerformanceMeasure"></typeparam>
+        
         /// <param name="environmentObjects"></param>
         /// <param name="agent"></param>
-        void ExecuteAction<TPerformanceMeasure,TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent<TPerformanceMeasure, TPrecept, TAction> agent)
+        void ExecuteAction<TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent< TPrecept, TAction> agent)
             where TPrecept : BasePrecept, new()
             where TAction : BaseAction, new()
-             where TPerformanceMeasure: BasePerformanceMeasure, new() ;
+              ;
     }
 }

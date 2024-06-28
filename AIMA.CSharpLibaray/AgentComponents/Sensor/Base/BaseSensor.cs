@@ -1,7 +1,6 @@
 ﻿using AIMA.CSharpLibrary.AgentComponents.Actions.Base;
 using AIMA.CSharpLibrary.AgentComponents.Agent.Interface;
 using AIMA.CSharpLibrary.AgentComponents.Environment.Interface;
-using AIMA.CSharpLibrary.AgentComponents.PerformanceMeasures.Base;
 using AIMA.CSharpLibrary.AgentComponents.Precepts.Base;
 using AIMA.CSharpLibrary.AgentComponents.Sensor.Interface;
 using AIMA.CSharpLibrary.Common.DataStructure;
@@ -13,11 +12,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensor.Base
     /// </summary>
     /// <typeparam name="TPrecept">We use the term percept to refer to the content an agent’s sensors are perceiving.</typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public abstract partial class BaseSensor<TPerformanceMeasure,TPrecept, TAction> : ISensor<TPerformanceMeasure, TPrecept, TAction>
+
+    public abstract partial class BaseSensor<TPrecept, TAction> : ISensor< TPrecept, TAction>
         where TPrecept : BasePrecept, new()
         where TAction : BaseAction, new()
-        where TPerformanceMeasure: BasePerformanceMeasure, new() 
+         
     {
 
         #region Cstor
@@ -42,7 +41,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensor.Base
         public abstract TPrecept Poll(
             TPrecept precept,
             LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects,
-            IAgent<TPerformanceMeasure, TPrecept, TAction> agent);
+            IAgent< TPrecept, TAction> agent);
         /// <summary>
         /// <inheritdoc/>
         /// </summary>

@@ -12,12 +12,12 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
     /// <typeparam name="TAgent"></typeparam>
     /// <typeparam name="TPrecept"></typeparam>
     /// <typeparam name="TAction"></typeparam>
-    /// <typeparam name="TPerformanceMeasure"></typeparam>
-    public abstract partial class BaseEnvironmentEventArgs<TPerformanceMeasure,TAgent, TPrecept, TAction> : EventArgs
+    
+    public abstract partial class BaseEnvironmentEventArgs<TAgent, TPrecept, TAction> : EventArgs
         where TAction : BaseAction, new()
         where TPrecept : BasePrecept, new()
-         where TPerformanceMeasure: BasePerformanceMeasure, new() 
-        where TAgent : BaseAgent<TPerformanceMeasure, TPrecept, TAction>, new()
+          
+        where TAgent : BaseAgent< TPrecept, TAction>, new()
     {
 
         #region Cstor
@@ -25,7 +25,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
         ///
         /// </summary>
         /// <param name="sourceEnvironment"></param>
-        protected BaseEnvironmentEventArgs(BaseEnvironment<TPerformanceMeasure, TAgent, TPrecept, TAction> sourceEnvironment)
+        protected BaseEnvironmentEventArgs(BaseEnvironment< TAgent, TPrecept, TAction> sourceEnvironment)
         {
             SourceEnvironment = sourceEnvironment;
         }
@@ -33,6 +33,6 @@ namespace AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.Base
         /// <summary>
         /// 
         /// </summary>
-        public BaseEnvironment<TPerformanceMeasure, TAgent, TPrecept, TAction> SourceEnvironment { get; }
+        public BaseEnvironment< TAgent, TPrecept, TAction> SourceEnvironment { get; }
     }
 }

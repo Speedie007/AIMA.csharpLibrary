@@ -29,9 +29,9 @@ namespace AIMA.CSharp.GUI.Factory
         /// </summary>
         /// <param name="frm"></param>
         /// <returns></returns>
-        public VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareReflexVacuumCleanerEnvironment(frmReflexVacuumCleaner frm)
+        public VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareReflexVacuumCleanerEnvironment(frmReflexVacuumCleaner frm)
         {
-            var environment = new VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>(true);
+            var environment = new VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>(true);
 
             // frm.BindEnvironmentEvents();
             environment.AgentActedEvent += frm.OnAgentActed;
@@ -67,8 +67,8 @@ namespace AIMA.CSharp.GUI.Factory
             var container = frm.Controls.Find("gbVacuumCleanerEnvironmentView", true);
             container[0].Controls.Add(grid);
 
-            environment.AddEnvironmentObject(new MazeBlock<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>(1, 1, new List<Dirt>() { new Dirt() }));
-            environment.AddEnvironmentObject(new MazeBlock<VacuumCleanerPerformanceMeasure, VacuumCleanerPrecept, VacuumCleanerAction>(2, 1, new List<Dirt>() { new Dirt() }, reflexAgent));
+            environment.AddEnvironmentObject(new MazeBlock< VacuumCleanerPrecept, VacuumCleanerAction>(1, 1, new List<Dirt>() { new Dirt() }));
+            environment.AddEnvironmentObject(new MazeBlock< VacuumCleanerPrecept, VacuumCleanerAction>(2, 1, new List<Dirt>() { new Dirt() }, reflexAgent));
 
             return environment;
         }
@@ -77,9 +77,9 @@ namespace AIMA.CSharp.GUI.Factory
         /// </summary>
         /// <param name="frm"></param>
         /// <returns></returns>
-        public VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildSimpleReflexVacuumCleanerEnvironment(frmSimpleReflexVacuumCleaner frm)
+        public VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> BuildSimpleReflexVacuumCleanerEnvironment(frmSimpleReflexVacuumCleaner frm)
         {
-            var environment = new VacuumCleanerEnvironment<VacuumCleanerPerformanceMeasure, ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>();
+            var environment = new VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>();
 
             return environment;
         }
