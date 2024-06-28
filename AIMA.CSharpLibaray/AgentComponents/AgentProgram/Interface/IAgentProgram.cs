@@ -51,7 +51,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// <param name="environmentObjects"></param>
         /// <param name="action"></param>
         /// <param name="agent"></param>
-        void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent);
+        void ProcessAgentAction(LinkedDictionarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent);
         /// <summary>
         /// 
         /// </summary>
@@ -69,7 +69,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Interface
         /// <summary>
         /// 
         /// </summary>
-        Func<LinkedDictonarySet<IEnvironmentObject>, IAgent< TPrecept, TAction>, TPrecept> SensorPollingFunction { get; }
+        Func<LinkedDictionarySet<IEnvironmentObject>, IAgent< TPrecept, TAction>, TPrecept> SensorPollingFunction { get; }
     };
 }
 

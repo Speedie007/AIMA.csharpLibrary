@@ -62,7 +62,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
         /// <param name="environmentObjects"><inheritdoc/></param>
         /// <param name="agent"><inheritdoc/></param>
         public abstract void ExecuteAction<TPrecept, TAction>(
-            LinkedDictonarySet<IEnvironmentObject> environmentObjects,
+            LinkedDictionarySet<IEnvironmentObject> environmentObjects,
             BaseAgent<TPrecept, TAction> agent)
             where TPrecept : BasePrecept, new()
             where TAction : BaseAction, new()

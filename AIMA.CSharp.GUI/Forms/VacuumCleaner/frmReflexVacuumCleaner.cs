@@ -8,8 +8,10 @@ using AIMA.CSharpLibrary.AgentComponents.Events.EventsArguments.PerformanceMeasu
 using AIMA.Implementations.VacuumCleaner.Actions;
 using AIMA.Implementations.VacuumCleaner.Agents;
 using AIMA.Implementations.VacuumCleaner.Environment;
-using AIMA.Implementations.VacuumCleaner.PerformanceMeasure;
 using AIMA.Implementations.VacuumCleaner.Precept;
+using System.Text;
+using AIMA.CSharpLibrary.AgentComponents.Common;
+using AIMA.CSharpLibrary.Common.Extensions;
 
 namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
 {
@@ -41,8 +43,12 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
         /// <param name="args"></param>
         public void OnAgentActed(EnvironmentAgentActedEventArgs<ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> args)
         {
-
-            WriteTextSafe($"Agent Acted: {args.Agent.GetType().Name} - ActionExecuted:{args.ActionExecuted.ActionName}-{DateTime.Now}" + Environment.NewLine);
+            
+            var sb = new StringBuilder();
+            sb.AppendLine($"Agent Acted: {args.Agent.GetType().Name}");
+            sb.AppendLine($"Action Executed:{args.ActionExecuted.GetType().Name}");
+            WriteTextSafe(sb.ToString().FormatStringToHaveSpaces());
+            //WriteTextSafe($"Agent Acted: {args.Agent.GetType().Name} - ActionExecuted:{args.ActionExecuted.ActionName}-{DateTime.Now}" + Environment.NewLine);
         }
         /// <summary>
         /// 
@@ -76,7 +82,7 @@ namespace AIMA.CSharp.GUI.Forms.VacuumCleaner
 
         private void Button3_Click(object sender, EventArgs e)
         {
-           
+
         }
         private void WriteTextSafe(string text)
         {

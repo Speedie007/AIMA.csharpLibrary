@@ -44,7 +44,7 @@ namespace AIMA.Implementations.VacuumCleaner.Sensors
         /// <returns></returns>
         public override VacuumCleanerPrecept Poll(
             VacuumCleanerPrecept precept,
-            LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects,
+            LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects,
             IAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
             var agentLocationResult = EnvironmentObjects.GetAgentLocationState(agent);

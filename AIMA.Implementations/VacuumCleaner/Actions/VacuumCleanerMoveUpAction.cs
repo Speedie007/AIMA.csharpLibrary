@@ -51,7 +51,7 @@ namespace AIMA.Implementations.VacuumCleaner.Actions
         /// <param name="environmentObjects"><inheritdoc/></param>
         /// <param name="agent"><inheritdoc/></param>
         public override void ExecuteAction<TPrecept, TAction>(
-            LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent<TPrecept, TAction> agent)
+            LinkedDictionarySet<IEnvironmentObject> environmentObjects, BaseAgent<TPrecept, TAction> agent)
         {
             base.ExecuteAction(environmentObjects, agent);
         }

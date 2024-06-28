@@ -110,7 +110,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
 
 
         /// <inheritdoc/>
-        public TPrecept ProcessAgentSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects)
+        public TPrecept ProcessAgentSensors(LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects)
         {
             TPrecept precept = new();
             if (AgentProgram != null)
@@ -140,7 +140,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Base
         /// </summary>
         /// <param name="action"></param>
         /// <param name="environmentObjects"></param>
-        public virtual void ProcessAgentActuators(TAction action, LinkedDictonarySet<IEnvironmentObject> environmentObjects)
+        public virtual void ProcessAgentActuators(TAction action, LinkedDictionarySet<IEnvironmentObject> environmentObjects)
         {
             if (action is not null && AgentProgram is not null)
                 AgentProgram.ProcessAgentActionFunction?.Invoke(environmentObjects, action, this);

@@ -38,7 +38,7 @@ namespace AIMA.Implementations.VacuumCleaner.Sensors
         /// <returns></returns>
         public override VacuumCleanerPrecept Poll(
             VacuumCleanerPrecept precept,
-            LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects,
+            LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects,
             IAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {
             foreach (var enviroLoc in EnvironmentObjects.OfType<MazeBlock< VacuumCleanerPrecept, VacuumCleanerAction>>())

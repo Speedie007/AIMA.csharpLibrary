@@ -51,7 +51,7 @@ namespace AIMA.Implementations.VacuumCleaner.Actions
         
         /// <param name="environmentObjects"><inheritdoc/></param>
         /// <param name="agent"><inheritdoc/></param>
-        public override void ExecuteAction<TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent< TPrecept, TAction> agent)
+        public override void ExecuteAction<TPrecept, TAction>(LinkedDictionarySet<IEnvironmentObject> environmentObjects, BaseAgent< TPrecept, TAction> agent)
         {
             var agentLocationResult = environmentObjects.GetAgentLocationState(agent);
             if (agentLocationResult.Success)

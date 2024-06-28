@@ -45,7 +45,7 @@ namespace AIMA.Implementations.VacuumCleaner.VacuumCleanerPrograms
         /// <param name="action"></param>
         /// <param name="agent"></param>
         public override void ProcessAgentAction(
-            LinkedDictonarySet<IEnvironmentObject> environmentObjects,
+            LinkedDictionarySet<IEnvironmentObject> environmentObjects,
             VacuumCleanerAction action,
             BaseAgent< VacuumCleanerPrecept, VacuumCleanerAction> agent)
         {

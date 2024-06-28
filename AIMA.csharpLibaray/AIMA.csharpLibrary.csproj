@@ -41,7 +41,7 @@
 	<Folder Include="AgentComponents\Events\EventsArguments\Sensors\" />
 	<Folder Include="Common\DataStructure\Base\" />
 	<Folder Include="Common\DataStructure\Interface\" />
-	<Folder Include="Common\Extensions\" />
+	<Folder Include="Common\HelperMethods\" />
 	<Folder Include="Utilities\" />
   </ItemGroup>
 

@@ -51,7 +51,7 @@ namespace AIMA.Implementations.VacuumCleaner.Environment
 
                 foreach (var environmentObject in EnvironmentObjects.OfType<MazeBlock< TPrecept, TAction>>().ToList())//.ToList<MazeBlock<TPrecept,TAction>())
                 {
-                    if (rand.Next(101) >= 80)
+                    if (rand.Next(101) >= 85)
                     {
                         if (environmentObject is MazeBlock< TPrecept, TAction> selectedLocation)
                             selectedLocation.DirtPiles.Push(new Dirt());

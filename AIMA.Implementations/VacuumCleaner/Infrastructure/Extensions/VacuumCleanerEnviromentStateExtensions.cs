@@ -25,7 +25,7 @@ namespace AIMA.Implementations.VacuumCleaner.Infrastructure.Extensions
         /// <param name="agent"></param>
         /// <returns></returns>
         public static AgentLocationResult< TPrecept, TAction> GetAgentLocationState<TPrecept, TAction>(
-            this LinkedDictonarySet<IEnvironmentObject> environmentObjects,
+            this LinkedDictionarySet<IEnvironmentObject> environmentObjects,
             IAgent<TPrecept, TAction> agent) 
             where TPrecept : BasePrecept, new() 
             where TAction : BaseAction, new()

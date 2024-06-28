@@ -40,7 +40,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Sensor.Base
         /// <returns></returns>
         public abstract TPrecept Poll(
             TPrecept precept,
-            LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects,
+            LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects,
             IAgent< TPrecept, TAction> agent);
         /// <summary>
         /// <inheritdoc/>

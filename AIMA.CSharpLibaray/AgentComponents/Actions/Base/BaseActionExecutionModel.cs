@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
         /// <summary>
         /// 
         /// </summary>
-        public LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects { get; private set; }
+        public LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects { get; private set; }
         /// <summary>
         /// 
         /// </summary>
@@ -31,7 +31,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Base
         /// <summary>
         /// 
         /// </summary>
-        public BaseActionExecutionModel(TAgent agent, LinkedDictonarySet<IEnvironmentObject> environmentObjects)
+        public BaseActionExecutionModel(TAgent agent, LinkedDictionarySet<IEnvironmentObject> environmentObjects)
         {
             Agent = agent;
             EnvironmentObjects = environmentObjects;

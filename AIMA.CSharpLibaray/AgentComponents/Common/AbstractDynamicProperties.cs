@@ -1,4 +1,5 @@
-﻿using System.Collections.Immutable;
+﻿using AIMA.CSharpLibrary.Common.Extensions;
+using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Text;
 
@@ -162,7 +163,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Common
             sb.AppendLine(DynamicAttributeType().Name);
             sb.Append(GetDynamicAttributesAvailable());
 
-            return sb.ToString();
+            return sb.ToString().FormatStringToHaveSpaces();
         }
         /// <summary>
         /// 

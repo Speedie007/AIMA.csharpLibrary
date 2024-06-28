@@ -7,7 +7,7 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
     /// 10 may 2024
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class LinkedDictonarySet<T> : ISet<T>
+    public class LinkedDictionarySet<T> : ISet<T>
     where T : class
     {
 
@@ -20,7 +20,7 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
         /// 
         /// </summary>
         /// <param name="initialCapacity"></param>
-        public LinkedDictonarySet(int initialCapacity)
+        public LinkedDictionarySet(int initialCapacity)
         {
             dict = new Dictionary<T, LinkedListNode<T>>(initialCapacity);
             list = new LinkedList<T>();
@@ -28,7 +28,7 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
         /// <summary>
         /// 
         /// </summary>
-        public LinkedDictonarySet()
+        public LinkedDictionarySet()
         {
             dict = new Dictionary<T, LinkedListNode<T>>();
             list = new LinkedList<T>();
@@ -37,7 +37,7 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
         /// 
         /// </summary>
         /// <param name="e"></param>
-        public LinkedDictonarySet(IEnumerable<T> e) : this()
+        public LinkedDictionarySet(IEnumerable<T> e) : this()
         {
             AddEnumerable(e);
         }
@@ -46,7 +46,7 @@ namespace AIMA.CSharpLibrary.Common.DataStructure
         /// </summary>
         /// <param name="initialCapacity"></param>
         /// <param name="e"></param>
-        public LinkedDictonarySet(int initialCapacity, IEnumerable<T> e) : this(initialCapacity)
+        public LinkedDictionarySet(int initialCapacity, IEnumerable<T> e) : this(initialCapacity)
         {
             AddEnumerable(e);
         }

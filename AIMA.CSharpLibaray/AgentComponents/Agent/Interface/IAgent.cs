@@ -51,7 +51,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// </summary>
         /// <param name="EnvironmentObjects">Current Objects within in the agents environment</param>
         /// <returns>Agent Precept, based on the current state of the environment it is operating in.</returns>
-        TPrecept ProcessAgentSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects);
+        TPrecept ProcessAgentSensors(LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects);
         /// <summary>
         /// <para>Life-cycle indicator as to the liveness of an BaseAgent.</para>
         /// Property: Value true if the BaseAgent is to be considered alive, false otherwise.
@@ -77,7 +77,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent.Interface
         /// <para>In the Real world agent this would not be required and as the implementation would initialise/process the required actuators etc which would change the agent physical state of the agent relative to its environment.</para>
         /// </param>
         /// <returns>Task</returns>
-        void ProcessAgentActuators(TAction action, LinkedDictonarySet<IEnvironmentObject> environmentObjects);
+        void ProcessAgentActuators(TAction action, LinkedDictionarySet<IEnvironmentObject> environmentObjects);
         /// <summary>
         /// 
         /// </summary>

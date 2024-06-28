@@ -38,7 +38,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <param name="action"></param>
         /// <param name="agent"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public override void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent)
+        public override void ProcessAgentAction(LinkedDictionarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        protected override TPrecept ProcessSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent< TPrecept, TAction> agent)
+        protected override TPrecept ProcessSensors(LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects, IAgent< TPrecept, TAction> agent)
         {
             return base.ProcessSensors(EnvironmentObjects, agent);
         }

@@ -40,11 +40,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
         /// 
         /// </summary>
         /// <value></value>
-        public Func<LinkedDictonarySet<IEnvironmentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunction { get; private set; }
+        public Func<LinkedDictionarySet<IEnvironmentObject>, IAgent<TPrecept, TAction>, TPrecept> SensorPollingFunction { get; private set; }
         /// <summary>
         /// 
         /// </summary>
-        public Action<LinkedDictonarySet<IEnvironmentObject>, TAction, BaseAgent<TPrecept, TAction>> ProcessAgentActionFunction { get; private set; }
+        public Action<LinkedDictionarySet<IEnvironmentObject>, TAction, BaseAgent<TPrecept, TAction>> ProcessAgentActionFunction { get; private set; }
         /// <summary>
         /// 
         /// </summary>
@@ -79,14 +79,14 @@ namespace AIMA.CSharpLibrary.AgentComponents.AgentProgram.Base
         /// <param name="environmentObjects"></param>
         /// <param name="action"></param>
         /// <param name="agent"></param>
-        public abstract void ProcessAgentAction(LinkedDictonarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent);
+        public abstract void ProcessAgentAction(LinkedDictionarySet<IEnvironmentObject> environmentObjects, TAction action, BaseAgent< TPrecept, TAction> agent);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="EnvironmentObjects"></param>
         /// <param name="agent"></param>
         /// <returns></returns>
-        protected virtual TPrecept ProcessSensors(LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects, IAgent< TPrecept, TAction> agent)
+        protected virtual TPrecept ProcessSensors(LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects, IAgent< TPrecept, TAction> agent)
         {
             var precept = new TPrecept();
             foreach (var sensor in Sensors.Values)

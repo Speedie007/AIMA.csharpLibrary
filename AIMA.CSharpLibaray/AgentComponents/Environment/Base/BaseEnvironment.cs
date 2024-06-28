@@ -49,11 +49,11 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
         /// Note: Use LinkedDictionarySet's in order to ensure order is respected.
         /// Custom implementation is used within this library as C# does not Have A native LinkedDictionarySet as in the java library.
         /// </summary>
-        protected LinkedDictonarySet<TAgent> Agents { get; private set; }
+        protected LinkedDictionarySet<TAgent> Agents { get; private set; }
         /// <summary>
         /// Stores all the relevant objects which for part of the domain in which the agent operates.
         /// </summary>
-        protected LinkedDictonarySet<IEnvironmentObject> EnvironmentObjects { get; private set; }
+        protected LinkedDictionarySet<IEnvironmentObject> EnvironmentObjects { get; private set; }
         #endregion
 
         #region Cstor
@@ -70,8 +70,8 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
         /// </summary>
         public BaseEnvironment()
         {
-            Agents = new LinkedDictonarySet<TAgent>();
-            EnvironmentObjects = new LinkedDictonarySet<IEnvironmentObject>();
+            Agents = new LinkedDictionarySet<TAgent>();
+            EnvironmentObjects = new LinkedDictionarySet<IEnvironmentObject>();
         }
         #endregion
 
@@ -291,7 +291,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Environment.Base
                 if (!cancellationToken.IsCancellationRequested)
                 {
                     await StepAsync(cancellationToken);
-                    var delayTask = Task.Delay(100, cancellationToken);
+                    var delayTask = Task.Delay(250, cancellationToken);
                     await delayTask;
 
                     cancellationToken.ThrowIfCancellationRequested();

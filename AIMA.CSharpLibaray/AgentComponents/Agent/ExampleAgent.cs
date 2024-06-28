@@ -68,7 +68,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Agent
         /// </summary>
         /// <param name="action"></param>
         /// <param name="environmentObjects"></param>
-        public override void ProcessAgentActuators(DefaultAction action, LinkedDictonarySet<IEnvironmentObject> environmentObjects)
+        public override void ProcessAgentActuators(DefaultAction action, LinkedDictionarySet<IEnvironmentObject> environmentObjects)
         {
             base.ProcessAgentActuators(action, environmentObjects);
         }

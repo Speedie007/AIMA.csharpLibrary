@@ -35,7 +35,7 @@ namespace AIMA.CSharpLibrary.AgentComponents.Actions.Interface
         
         /// <param name="environmentObjects"></param>
         /// <param name="agent"></param>
-        void ExecuteAction<TPrecept, TAction>(LinkedDictonarySet<IEnvironmentObject> environmentObjects, BaseAgent< TPrecept, TAction> agent)
+        void ExecuteAction<TPrecept, TAction>(LinkedDictionarySet<IEnvironmentObject> environmentObjects, BaseAgent< TPrecept, TAction> agent)
             where TPrecept : BasePrecept, new()
             where TAction : BaseAction, new()
               ;

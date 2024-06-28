@@ -16,7 +16,7 @@ namespace AIMA.Implementations.VacuumCleaner.Actions.ExecutionModel
         /// </summary>
         /// <param name="agent"></param>
         /// <param name="environmentObjects"></param>
-        public Temp(ReflexVacuumCleanerAgent agent, LinkedDictonarySet<IEnvironmentObject> environmentObjects) : base(agent, environmentObjects)
+        public Temp(ReflexVacuumCleanerAgent agent, LinkedDictionarySet<IEnvironmentObject> environmentObjects) : base(agent, environmentObjects)
         {
         }
         /// <summary>
