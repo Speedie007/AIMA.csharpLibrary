@@ -4,9 +4,13 @@ namespace AIMA.CSharpLibrary.Common.DataStructure.Graph.Base
 {
     /// <summary>
     /// Represents the base class for entities
+    /// 28 June
     /// </summary>
     public abstract partial class NodeBaseContextEntity : IBaseEntity
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public NodeBaseContextEntity()
         {
             Id = 0;

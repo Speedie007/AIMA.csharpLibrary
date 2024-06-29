@@ -31,7 +31,7 @@ namespace AIMA.CSharp.GUI.Factory
         /// <returns></returns>
         public VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction> PrepareReflexVacuumCleanerEnvironment(frmReflexVacuumCleaner frm)
         {
-            var environment = new VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>(true);
+            var environment = new VacuumCleanerEnvironment< ReflexVacuumCleanerAgent, VacuumCleanerPrecept, VacuumCleanerAction>(false);
 
             // frm.BindEnvironmentEvents();
             environment.AgentActedEvent += frm.OnAgentActed;

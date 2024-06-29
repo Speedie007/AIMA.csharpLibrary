@@ -11,6 +11,10 @@ namespace AIMA.CSharpLibrary.Common.DataStructure.Graph.Interface
         /// <summary>
         /// 
         /// </summary>
+        //Guid NodeID { get; } 
+        /// <summary>
+        /// 
+        /// </summary>
         NodeBaseContextEntity NodeDataContext { get; }
 
         //event NodeVisitedEventHandler<TNodeContext> OnNodeVisited;

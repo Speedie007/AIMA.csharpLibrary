@@ -18,18 +18,27 @@
 	<Compile Remove="AgentComponents\Common\NewFolder\**" />
 	<Compile Remove="AgentComponents\test\**" />
 	<Compile Remove="AgentImplementations\**" />
+	<Compile Remove="Common\DataStructure\Base\**" />
+	<Compile Remove="Common\DataStructure\Interface\**" />
+	<Compile Remove="Common\HelperMethods\**" />
 	<Compile Remove="UML Diagrams\**" />
 	<EmbeddedResource Remove="AgentComponents\Agent\Events\**" />
 	<EmbeddedResource Remove="AgentComponents\Agent\VacuumCleaner\**" />
 	<EmbeddedResource Remove="AgentComponents\Common\NewFolder\**" />
 	<EmbeddedResource Remove="AgentComponents\test\**" />
 	<EmbeddedResource Remove="AgentImplementations\**" />
+	<EmbeddedResource Remove="Common\DataStructure\Base\**" />
+	<EmbeddedResource Remove="Common\DataStructure\Interface\**" />
+	<EmbeddedResource Remove="Common\HelperMethods\**" />
 	<EmbeddedResource Remove="UML Diagrams\**" />
 	<None Remove="AgentComponents\Agent\Events\**" />
 	<None Remove="AgentComponents\Agent\VacuumCleaner\**" />
 	<None Remove="AgentComponents\Common\NewFolder\**" />
 	<None Remove="AgentComponents\test\**" />
 	<None Remove="AgentImplementations\**" />
+	<None Remove="Common\DataStructure\Base\**" />
+	<None Remove="Common\DataStructure\Interface\**" />
+	<None Remove="Common\HelperMethods\**" />
 	<None Remove="UML Diagrams\**" />
   </ItemGroup>
 
@@ -39,9 +48,6 @@
 
   <ItemGroup>
 	<Folder Include="AgentComponents\Events\EventsArguments\Sensors\" />
-	<Folder Include="Common\DataStructure\Base\" />
-	<Folder Include="Common\DataStructure\Interface\" />
-	<Folder Include="Common\HelperMethods\" />
 	<Folder Include="Utilities\" />
   </ItemGroup>
 
